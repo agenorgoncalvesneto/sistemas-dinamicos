@@ -1,0 +1,55 @@
+\input{preambule}
+
+\begin{document}
+
+\section{Definições elementares}
+
+Ao longo dessa seção $I$ e $J$ representarão intervalos fechados de $\RR$. 
+ 
+\begin{definition}[Ponto periódico]
+Sejam $f: I \rightarrow J$ uma função, $p \in I$ e $n \geq 1$.  Dizemos que $p$ é um ponto periódico de $f$, com período $n$, se $f^n(p) = x$. Se $f^k(p) \neq x$ para todo $1 \leq k < n$, então $n$ é chamado de período principal. Em particular, se $n=1$, dizemos que $p$ é um ponto fixo de $f$.
+\end{definition}
+
+\begin{definition}[Ponto eventualmente periódico]
+Sejam $f: I \rightarrow J$ uma função, $p \in I$ e $n \geq 1$. Dizemos que $p$ é um ponto eventualmente periódico de $f$, com período $n$, se existe $m > 1$ tal que $f^k(p) = f^{k+n}(p)$ para todo $k \geq m$. Em particular, se $n = 1$, dizemos que p é um ponto eventualmente fixo de f.
+\end{definition}
+  
+\begin{theorem}
+Seja $f: I \rightarrow I$ uma função contínua. Então $f$ possui ponto fixo.
+\end{theorem}
+
+\begin{proof}
+Seja $I = [a, b]$ e considere a função contínua $g(x) = f(x) - x$ definida em $I$. Como $f(a), f(b) \in I$, temos que $g(a) = f(a) - a \geq 0$ e $g(b) = f(b) - b \leq 0$. Pelo Teorema do Valor Intermediário, existe $p \in I$ tal que $g(p) = f(p) -p = 0$. Desse modo, $p$ é ponto fixo de $f$.
+\end{proof}
+
+\begin{theorem}
+Seja $f:I \rightarrow I$ uma função $C^1$. Suponha que $|f'(x)|<1$ para todo $x \in I$. Então $|f(x) - f(y)| < |x - y|$ para todo $x, y \in I$, $x \neq y$. Além disso,  $f$ admite um único ponto fixo.
+\end{theorem}
+
+\begin{proof}
+Sejam $x, y \in I$, $x < y$. Pelo Teorema do Valor Médio, existe $c \in [x, y]$ tal que $f(x) - f(y) = f'(c)(x - y)$. Portanto, $|f(x) - f(y)| = |f'(c)||x - y| < |x - y|$.
+
+Pelo teorema anterior, $f$ admite um ponto fixo $p$. Suponha que exista um ponto fixo $q$ diferente de $p$. Então, pela primeira parte da demonstração, $|p - q| = |f(p) - f(q)| < |p - q|$. Absurdo.
+\end{proof}
+
+\begin{definition}
+Sejam $f:I \rightarrow J$ uma função e $x \in I$. A órbita de $x$ é o conjunto $O(x) = \lbrace x, f(x), f^2(x), \cdots \rbrace$.
+\end{definition}
+
+\begin{definition}
+Sejam $f: I \rightarrow J$ uma função, $p$ um ponto periódico de período $n$ e $x \in I$. Dizemos que $x$ tende assintoticamente para $p$ se a sequência $(x, f^n(x), f^{2n}(x), \cdots)$ tende para p. O conjunto $W^s(p)$ dos pontos que tendem assintoticamente para $p$ é chamado chamado de conjunto estável de $p$.
+\end{definition}
+
+\begin{proposition}
+Os conjuntos estáveis de dois pontos periódicos distintos possuem intersecção vazia.
+\end{proposition}
+
+\begin{proof}
+Suponha que existam pontos periódicos distintos $p$ e $q$ de uma função $f$, de períodos $m$ e $n$ respectivamente, tais que $W^s(p) \cap W^s(q) \neq \emptyset$. Seja $x \in W^s(p) \cap W^s(q)$. Temos que $|f^{km}(x) - p| \rightarrow 0$ e $|f^{kn}(x) - q| \rightarrow 0$ quando $k \rightarrow \infty$.
+
+Desse modo, dado $\varepsilon > 0$ existe $N \in \NN$ tal que $|f^{km}(x) - p| < \frac{\varepsilon}{2}$ e $|f^{kn}(x) - q| < \frac{\epsilon}{2}$ para todo $k > N$. Portanto, $|p - q| = |p - f^{kmn}(x) + f^{kmn}(x) - q| \leq |f^{(kn)m}(x) - p| + |f^{(km)n}(x) - q| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon$. Temos então que $p = q$, pois $\varepsilon$ é arbitrário. Absurdo.
+\end{proof}
+
+O objetivo do estudo de Sistemas Dinâmicos é entender a natureza das órbitas, identificando os pontos que são periódicos, eventualmente periódicos, os que tendem assintoticamente, etc.
+
+\end{document}
