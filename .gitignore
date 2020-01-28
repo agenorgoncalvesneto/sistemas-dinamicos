@@ -1,0 +1,7 @@
+*.aux
+*.dvi
+*.log
+*.sysctex.gz
+*.gz
+*.tex.bak
+*.bak
