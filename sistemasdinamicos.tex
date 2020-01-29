@@ -50,7 +50,7 @@ Sejam $f:I \rightarrow J$ uma função e $x \in I$. A órbita de $x$ é o conjun
 \end{definition}
 
 \begin{definition}
-Sejam $f: I \rightarrow J$ uma função, $p$ um ponto periódico de período $n$ e $x \in I$. Dizemos que $x$ tende assintoticamente para $p$ se $lim_{k \rightarrow \infty} f^{kn}(x) = p$. O conjunto $W^s(p)$ dos pontos que tendem assintoticamente para $p$ é chamado chamado de conjunto estável de $p$.
+Sejam $f: I \rightarrow J$ uma função, $p$ um ponto periódico de período $n$ e $x \in I$. Dizemos que $x$ tende assintoticamente para $p$ se $lim_{k \rightarrow \infty} f^{kn}(x) = p$. O conjunto dos pontos que tendem assintoticamente para $p$, denotado por $W^s(p)$, é chamado chamado de conjunto estável de $p$. Dizemos que $x$ tende assintoticamente para infinito se $lim_{k \rightarrow \infty} |f^{k}(x)| = \infty$. O conjunto dos pontos que tendem assintoticamente para infinito, denotado por $W^s(\infty)$, é chamado de conjunto estável do infinito.
 \end{definition}
 
 \begin{proposition}
@@ -154,14 +154,14 @@ Falta provar o item 2.
 
 Portanto, conhecemos completamente a dinâmica de $F_\mu$ quando $1 < \mu < 3$. Temos $W^s(0) = \{0, 1\}$, $W^s(p_\mu) = (0, 1)$ e $W^s(\infty) = (-\infty, 0) \cup (1, \infty)$.
 
-\section{Conjuntos de Cantor}
+\section{Conjuntos de Cantor e Caos}
 
 Analisaremos nessa seção a dinâmica de $F_\mu$ quando $\mu > 4$ e, para entendê-la, será preciso estudar o que é um conjunto de Cantor.
 
 \begin{definition}[Conjunto de Cantor]
 Um subconjunto $\Gamma$ de $\RR$, $\Gamma \neq \emptyset$, é um conjunto de Cantor se
 \begin{enumerate}
-\item $\Gamma$ é compacto.
+\item $\Gamma$ é fechado e limitado.
 \item $\Gamma$ não possui intervalos.
 \item Todo ponto de $\Gamma$ é um ponto de acumulação de $\Gamma$.
 \end{enumerate}
@@ -172,6 +172,7 @@ Observe inicialmente que $F_\mu(\frac{1}{2})$ = $\frac{\mu}{4} > 1$ quando $\mu 
 Desse modo, considere o conjunto $\Lambda_n = \{x \in I : F^n_\mu (x) \in I\}$, isto é, o conjunto formado pelos pontos de $I$ que permanecem em $I$ após $n$ iterações de $F_\mu$ e considere o conjunto $\Lambda = \cap \Lambda_n$, isto é, o conjunto formado pelos pontos de $I$ que permanecem em $I$ por iteração de $F_\mu$. Portanto, pela observação anterior, resta entender a dinâmica de $F_\mu$ nos pontos de $\Lambda$ e, para isso, é necessário entender o que é o conjunto $\Lambda$.
 
 \begin{proposition}
+\label{proposition 4}
 Suponha $\mu > 4$.
 \begin{enumerate}
 \item $\Lambda_1 = [0, \alpha] \cup [\beta, 1]$, onde $\alpha = \frac{1}{2} - \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$ e $\beta = \frac{1}{2} + \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$.
@@ -194,15 +195,19 @@ Existem $a, x_1, x_2, b \in J$, $a < x_1 < x_2 < b$, tais que $F^k_\mu (a) = 0$,
 A partir de cada intervalo fechado de $\Lambda_k$ construímos dois novos intervalos fechados disjuntos tais que $F^{k+1}_\mu$ restrita em cada um desses intervalos é um homeomorfismo sobre $I$ e, portanto, esses intervalos fazem parte de $\Lambda_{k+1}$. Desse modo, se $\Lambda_k$ é formado por $2^k$ intervalos, então $\Lambda_{k+1}$ é formado por $2\cdot2^k = 2^{k+1}$ intervalos fechados disjuntos. Assim, o resultado está provado.
 \end{proof}
 
-Os resultados a seguir valem quando $\mu > 4$, mas vamos trabalhar no caso em que $\mu > 2 + \sqrt{5}$ para facilitar as demonstrações.
+Vamos mostrar agora que $\Lambda$ é um conjunto de Cantor quando $\mu > 2 + \sqrt{5}$ e, para isso, utilizaremos o resultado abaixo.
 
 \begin{lemma}
-Suponha $\mu > 2 + \sqrt{5}$. Então existe $\lambda > 1$ tal que $|F'_\mu (x)| > \lambda$ para todo $x \in \Lambda_1$. Além disso, o tamanho de cada intervalo em $\Lambda_n$ é menor que $\frac{1}{\lambda^n}$.
+Suponha $\mu > 2 + \sqrt{5}$. Existe $\lambda > 1$ tal que $|F'(x)| > \lambda$ para todo $x \in \Lambda_1$. Além disso, o tamanho de cada intervalo em $\Lambda_n$ é menor que $(\frac{1}{\lambda})^n$.
 \end{lemma}
 
 \begin{proof}
+Para provar a primeira parte, observamos inicialmente que $\mu^2 - 4\mu > 1$ quando $\mu > 2 + \sqrt{5}$. Desse modo, $F'(x_1) = \sqrt{\mu^2 - 4\mu} > 1$ e $F'(x_2) = -\sqrt{\mu^2 - 4\mu} < -1$, onde $x_1 = \frac{1}{2} - \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$ e $x_2 = \frac{1}{2} + \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$.
 
-\end{proof}
+Temos também que $F'$ é estritamente decrescente, pois $F''(x) = -2\mu < 0$.  Portanto, $F'(x) \geq F'(x_1) > 1$ para todo $x \in [0, x_1]$ e $F'(x) \leq F'(x_2) < -1$ para todo $x \in [x_2, 1]$. De acordo com a Proposição \ref{proposition 4}, $\Lambda_1 = [0, x_1] \cup [x_2, 1]$ e, desse modo, $|F'(x)| > 1$ para todo $x \in \Lambda_1$. (Sendo $F'$ contínua?)Portanto, existe $\lambda > 1$ tal que $|F'(x)| > 1$ para todo $x \in \Lambda_1$.
+
+Ainda de acordo com a Proposição \ref{proposition 4}, $\Lambda_n$ é formado pela união de $2^n$ intervalos disjuntos. Seja $[a, b]$ um desses intervalos. Observe que $F^n(a), F^n(b) \in \{0, 1\}$ e $F^n(a) \neq F^n(b)$. Se $c \in [a, b]$, em particular $c \in \Lambda_1$ e, portanto, $(F^n)'(c) = F'(F^{n-1}(c)) \cdots F'(c) > \lambda^n$. Pelo Teorema do Valor Médio, existe $c \in [a, b]$ tal que $1 = |F^n(b) - F^n(a)| = |(F^n)'(c)|b - a| > \lambda^n|b - a|$. Desse modo, $|b - a| < \frac{1}{\lambda^n}$ e a segunda parte está provada.
+\end{proof} 
 
 \begin{theorem}
 \label{Lambda is Cantor}
@@ -210,22 +215,72 @@ Suponha $\mu > 2 + \sqrt{5}$. Então $\Lambda$ é um conjunto de Cantor.
 \end{theorem}
 
 \begin{proof}
-Como $F^n_\mu(0) = 0 \in I$ para todo $n$ temos $0 \in \Lambda$ e, portanto, $\Lambda$ é não vazio. Como $\Lambda_n \in I$ para todo $n$ temos que $\Lambda$ é limitado. Como $\Lambda$ é intersecção de conjuntos fechados  temos que $\Lambda$ é fechado. Portanto, $\Lambda$ é compacto.
+Como $F^n_\mu(0) = 0 \in I$ para todo $n$ temos $0 \in \Lambda$ e, portanto, $\Lambda$ é não vazio. Como $\Lambda_n \in I$ para todo $n$ temos que $\Lambda$ é limitado. Como $\Lambda$ é intersecção de conjuntos fechados  temos que $\Lambda$ é fechado.
 
-Agora, suponha que $\Lambda$ contém algum intervalo. Então, existem $x, y \in I$, $x < y$, tais que $[x, y] \subset \Lambda$. Existe $N$ tal que $\frac{1}{\lambda^N} < |x - y|$. De acordo com o Lema \ref{Lambda is Cantor}, isso implica que $[x, y] \notin \Lambda_N$ pois os intervalos de $\Lambda_N$ possuem tamanho menor que $\frac{1}{\lambda^N}$. Absurdo e, portanto, $\Lambda$ não possui intervalos.
+Agora, suponha que $\Lambda$ contém algum intervalo. Então, existem $x, y \in I$, $x < y$, tais que $[x, y] \subset \Lambda$. Existe $N$ tal que $(\frac{1}{\lambda})^N < |x - y|$. De acordo com o Lema \ref{Lambda is Cantor}, isso implica que $[x, y] \notin \Lambda_N$ pois os intervalos de $\Lambda_N$ possuem tamanho menor que $(\frac{1}{\lambda})^N$. Absurdo e, portanto, $\Lambda$ não possui intervalos.
 
-Por fim, observe que, se $x$ é um ponto extremo de algum intervalo de $\Lambda_n$, então $x \in \Lambda$ pois $F^{n+1}_\mu (x) = 0$. Sejam $x \in \Lambda$ e $\varepsilon > 0$.  Existe $N$ tal que $\frac{1}{\lambda^N} < \varepsilon$. Como $x \in \Lambda$, temos que $x \in \Lambda_N$ e, portanto, $x$ é elemento de algum intervalo cujo tamanho é menor que $\varepsilon$. Portanto, existe $y$ ponto extremo do intervalo que contém $x$ tal que $|x - y| < \varepsilon$. Pela observação feita no início do parágrafo, $y \in \Lambda$. Como $\varepsilon$ é arbitrário, temos que $x$ é um ponto de acumulação de $\Lambda$.
+Por fim, observe que, se $x$ é um ponto extremo de algum intervalo de $\Lambda_n$, então $x \in \Lambda$ pois $F^{n+1}_\mu (x) = 0$. Sejam $x \in \Lambda$ e $\varepsilon > 0$.  Existe $N$ tal que $(\frac{1}{\lambda})^N < \varepsilon$. Como $x \in \Lambda$, temos que $x \in \Lambda_N$ e, portanto, $x$ é elemento de algum intervalo cujo tamanho é menor que $\varepsilon$. Portanto, existe $y$ ponto extremo do intervalo que contém $x$ tal que $|x - y| < \varepsilon$. Pela observação feita no início do parágrafo, $y \in \Lambda$. Como $\varepsilon$ é arbitrário, temos que $x$ é um ponto de acumulação de $\Lambda$.
 
 Concluímos então que $\Lambda$ é um conjunto de Cantor.
 \end{proof}
 
 \begin{remark}
-O Teorema \ref{Lambda is Cantor} é válido quando $\mu > 4$.
+O Teorema \ref{Lambda is Cantor} é válido para $4 < \mu \leq 2 + \sqrt{5}$, porém a demonstração é mais complicada.
 \end{remark}
+
+Durante o restante da seção, vamos definir o conceito de caos e mostrar que $F$ é uma função caótica para $\mu > 4$.
+
+\begin{definition}
+Seja $f: D \rightarrow D$ uma função. Dizemos que $f$ é topologicamente transitiva se dados $x, y \in D$ e $\varepsilon > 0$,  existem $z \in D$ e $k \geq 1$ tais que $|z - x| < \varepsilon$ e $|f^k(z) - y| < \varepsilon$.
+\end{definition} 
+
+Intuitivamente, uma função $f$ topologicamente transitiva é uma função mistura quaisquer dois conjuntos abertos, isto é, existe um ponto de um dos conjuntos que é levado para o outro conjunto após um número finito de iterações da $f$.
+
+\begin{proposition}
+Se $\mu > 2 + \sqrt{5}$, então $F$ é topologicamente transitiva.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{definition}
+Seja $f: D \rightarrow D$ uma função. Dizemos que $f$ depende sensivelmente das condições iniciais se para algum $\delta > 0$, dados $x \in D$ e $\varepsilon > 0$, existem $y \in D$ e $k \geq 1$ tais que $|x - y| < \varepsilon$ e $|f^k(x) - f^k(y)| > \delta$.
+\end{definition}
+
+\begin{proposition}
+Se $\mu > 2 + \sqrt{5}$, então $F$ depende sensivelmente das condições iniciais.
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+Podemos agora definir o que é um função caótica.
+
+\begin{definition}
+Seja $f: D \rightarrow D$ uma função. Dizemos que $f$ é caótica se
+\begin{enumerate}
+\item O conjunto de pontos periódicos de $f$ é denso.
+\item $f$ é topologicamente transitiva.
+\item $f$ depende sensivelmente das condições iniciais.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+Se $\mu > 2 + \sqrt{5}$, então $F$ é caótica.
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
 
 \end{document}
 
 % substituir o intervalo I,J por A,B no primeiro parágrafo
-% definir conjunto estável do infinito
 % nome das definções em itálico
-% mudar nomes 1/lamda^N para (1/lambda)^N no teorema ~4.4
+% remover \mu de F_\mu
+% arrrumar a indução de k para k-1 da proposição ~4.2
+% lema 4.3 provar que (F^n)'(c) > 1: mostrar que F^K(c) \in A_1 para todo k = 0, .., n-1 
+% mostrar em algum lugar que \Lambda_n contém \Lambda_{n+1}
+% provar em algum lugar que Per(F) é denso quando mu > 4
