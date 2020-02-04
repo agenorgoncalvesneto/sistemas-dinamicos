@@ -114,20 +114,21 @@ Suponha que $p$ é ponto hiperbólico repulsor. De maneira análoga, existe $\va
 A segunda parte do teorema afirma que existe uma vizinhança de $p$ tal que todo ponto diferente de $p$ nessa vizinhança é movida para fora dela após um número de iterações da $f$. Observe o ponto pode voltar para vizinhança após mais iterações da $f$, justamente por sabermos que o valor da derivada é maior que um apenas nessa vizinhança.
 \end{remark}
 
-\section{Família Quadrática I: Estudo inicial}
+\section{Família Quadrática I: Estudo Inicial}
 
 Nosso objetivo será estudar, durante essa seção e as próximas, é estudar a dinâmica da família de funções $F_{\mu}: \RR \rightarrow \RR$ dadas por $F_{\mu}(x) = \mu x(1-x)$, onde $\mu > 0$. Tal família é chamada de família quadrática. Quando não houver ambiguidade, escreveremos $F$ ao invés de $F_\mu$. Nessa seção estudaremos a dinâmica de $F$ quando $1 < \mu < 3$.
 
 \begin{proposition}
+Se $\mu > 1$, então
 \begin{enumerate}
 \item $F (1) = F(0) = 0$ e $F(\frac{1}{\mu}) = F(p_\mu) = p_\mu$, onde $p_\mu = \frac{\mu - 1}{\mu}$.
-\item Se $\mu > 1$ então $0 < p_\mu < 1$.
+\item $0 < p_\mu < 1$.
 \item O vértice da parábola é o ponto $(\frac{1}{2}, \frac{\mu}{4})$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-Apenas aplicação direta das definições.
+Aplicação direta das definições.
 \end{proof}
 
 \begin{proposition}
@@ -174,7 +175,7 @@ Se $\mu > 4$, então
 \begin{enumerate}
 \item $\Lambda_1 = [0, x_1] \cup [x_2, 1]$, onde $x_1 = \frac{1}{2} - \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$ e $x_2 = \frac{1}{2} + \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$.
 \item $\Lambda_n$ é a união de $2^n$ intervalos fechados disjuntos.
-\item Se $I$ é um dos $2^n$ intervalos fechados disjuntos que formam $\Lambda_n$, então $F^n: I \rightarrow [0, 1]$ é bijetora.
+\item $F^n: I \rightarrow [0, 1]$ é bijetora, onde $I$ é qualquer um dos $2^n$ intervalos fechados disjuntos que formam $\Lambda_n$.
 \end{enumerate}
 \end{proposition}
 
@@ -203,8 +204,8 @@ Vamos agora definir o que é um conjunto de Cantor para prosseguir entendendo a 
 \begin{definition}[Conjunto de Cantor]
 Um conjunto $\Gamma \subset \RR$ não vazio é um \textit{conjunto de Cantor} se
 \begin{enumerate}
-\item $\Gamma$ é fechado e limitado.
-\item $\Gamma$ não possui intervalos.
+\item $\Gamma$ é fechado e limitado,
+\item $\Gamma$ não possui intervalos e
 \item Todo ponto de $\Gamma$ é um ponto de acumulação de $\Gamma$.
 \end{enumerate}
 \end{definition}
@@ -266,7 +267,7 @@ Sejam $x, y \in \Lambda$ e $\varepsilon > 0$. Existe $k \geq 1$ tal que $\frac{1
 \end{proof}
 
 \begin{definition}
-Seja $f: D \rightarrow D$ uma função. Dizemos que $f$ depende sensivelmente das condições iniciais se para algum $\delta > 0$, dados $x \in D$ e $\varepsilon > 0$, existem $y \in D$ e $k \geq 1$ tais que $|x - y| < \varepsilon$ e $|f^k(x) - f^k(y)| > \delta$.
+Seja $f: D \rightarrow D$ uma função. Dizemos que \textit{$f$ depende sensivelmente das condições iniciais} se para algum $\delta > 0$, dados $x \in D$ e $\varepsilon > 0$, existem $y \in D$ e $k \geq 1$ tais que $|x - y| < \varepsilon$ e $|f^k(x) - f^k(y)| > \delta$.
 \end{definition}
 
 \begin{proposition}
@@ -279,9 +280,9 @@ Sejam $x \in \Lambda$ e $\varepsilon > 0$. Existe $k \geq 1$ tal que $\frac{1}{\
 \end{proof}
 
 \begin{definition}
-Seja $f: D \rightarrow D$ uma função. Dizemos que $f$ é caótica se
+Seja $f: D \rightarrow D$ uma função. Dizemos que \textit{$f$ é caótica} se
 \begin{enumerate}
-\item O conjunto de pontos periódicos de $f$ é denso.
+\item O conjunto de pontos periódicos de $f$ é denso em $D$.
 \item $f$ é topologicamente transitiva.
 \item $f$ depende sensivelmente das condições iniciais.
 \end{enumerate}
@@ -300,6 +301,84 @@ O resultado segue das Proposições \ref{proposition 4 2}, \ref{proposition 4 3}
 Os Teoremas \ref{theorem 4 1} e \ref{theorem 4 2} são válidos para $4 < \mu \leq 2 + \sqrt{5}$, porém a demonstração é mais complicada.
 \end{remark}
 
+\begin{theorem}
+\label{theorem 4 3}
+Se $D$ é um subconjunto infinito de $\RR$ e $f: D \rightarrow D$ é uma função topologicamente transitiva cujo conjunto de pontos periódicos é denso, então $f$ é caótica.
+\end{theorem}
+
+\begin{proof}
+Por demonstrar.
+\end{proof}
+
+\section{Família Quadrática III: Conjugação Topológica}
+
+Nesse seção estudaremos a dinâmica de $F$ quando $\mu = 4$. Para esse estudo, definiremos o que significa duas funções serem conjugadas topologicamente e, a partir daí, mostraremos que é $F$ é caótica com base em outra função cuja dinâmica é mais fácil de ser entendida.
+
+\begin{definition}
+Sejam $f: A \rightarrow A$, $g: B \rightarrow B$ e $\tau: A \rightarrow B$ funções. Dizemos que \textit{$f$ e $g$ são conjugadas topologicamente por $\tau$}, se $\tau$ é um homeomorfismo tal que $\tau \circ f = g \circ \tau$.
+\end{definition}
+
+Do ponto de vista da dinâmica, duas funções conjugadas são idênticas. A Proposição abaixo torna precisa essa afirmação.
+
+\begin{proposition}
+\label{proposition 5 1}
+Sejam $f: A \rightarrow A$, $g: B \rightarrow B$ e $\tau: A \rightarrow B$ funções. Se $f$ e $g$ são conjugadas topologicamente por $\tau$, então
+\begin{enumerate}
+\item $g$ e $f$ são conjugadas topologicamente por $\tau^{-1}$.
+\item $\tau \circ f^n = g^n \circ \tau$ para todo $n \geq 1$.
+\item $p$ é ponto periódico de $f$ se e somente se $\tau(p)$ é ponto periódico de $g$. Além disso, os períodos principais de $p$ e $\tau(p)$ são iguais.
+\item $W^s(\tau(p)) = \tau(W^s(p))$, se $p$ é um ponto periódico de $f$.
+\item o conjunto de pontos periódicos de $f$ é denso em $A$ se e somente se o conjunto de pontos periódicos de $g$ é denso em $B$.
+\item $f$ é transitiva topologicamente em $A$ se e somente se $g$ é transitiva topologicamente $B$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\begin{enumerate}
+\item Como $\tau$ é um homeomorfismo, a função inversa $\tau^{-1}$ existe e também é um homeomorfismo. Além disso, $\tau \circ f = g \circ \tau$ implica que $f \circ \tau^{-1} = \tau^{-1} \circ g$. Portanto, $\tau^{-1}$ é conjugação topológica de $g$ e $f$.
+\item Por definição, a afirmação é verdadeira quando $n = 1$. Suponha que $\tau \circ f^{n-1} = g^{n-1} \circ \tau$. Desse modo, $\tau \circ f^n = \tau \circ f^{n-1} \circ f = g^{n-1} \circ \tau \circ f = g^{n-1} \circ g \circ  \tau = g^n \circ \tau$. Portanto, a afirmação é verdadeira para todo $n \geq 1$.
+\item Suponha que $p$ é um ponto periódico de $f$ com período principal $n$. Desse modo, $g^n(\tau(p)) = \tau(f^n(p)) = \tau(p)$. Se $k = 1, \dots, n-1$, então $g^k(\tau(p)) = \tau(f^k(p)) \neq \tau(p)$, pois $f^k(p) \neq p$ e $\tau$ é injetora. Portanto, $\tau(p)$ é um ponto periódico de $g$ com período principal $n$. A outra implicação é demonstrada de maneira análoga.
+\item Suponha que $p$ é um ponto periódico com período $n$. Se $x \in W^s(\tau(p))$, então $lim_{k \rightarrow \infty} g^{kn}(x) = \tau(p)$. Como $\tau^{-1}$ é contínua, temos $lim_{k \rightarrow \infty} f^{kn}(\tau^{-1}(x)) = lim_{k \rightarrow \infty} $ $ \tau^{-1}(g^{kn}(x))= p$. Então,  $x \in \tau(W^s(p))$ pois $\tau^{-1}(x) \in W^s(p)$.
+
+Por outro lado, se $\tau(x) \in \tau(W^s(p))$, então $\lim_{k \rightarrow \infty} f^{kn}(x) = p$. Como $\tau$ é contínua, temos $\lim_{k \rightarrow \infty} g^{kn}(\tau(x)) = \lim_{k \rightarrow \infty} \tau(f^{kn}(x)) = \tau(p)$ e, portanto, $\tau(x) \in W^s(\tau(p))$.
+\item Se o conjunto $Per(f)$ dos pontos periódicos de $f$ é denso em $A$, então $\tau(Per(f))$ é denso em $B$ pois $\tau$ é um homeomorfismo. Como $\tau(Per(f)) = Per(g)$, temos que $Per(g)$ é denso em $B$. A outra implicação é demonstrada de maneira análoga.
+\item Inicialmente, sendo $\tau$ é contínua, dado $\varepsilon > 0$ existe $\delta > 0$ de modo que, se $z \in A$, $|x - z| < \delta$ e $|y - f^n(z)| < \delta$, então $|\tau(x) - \tau(z)| < \varepsilon$ e $|\tau(y) - \tau(f^n(z))|$, onde $n \geq 1$ é fixado.
+
+Se $x', y' \in B$, existem $x, y \in A$ tais que $\tau(x) = x'$ e $\tau(y) =  y'$. Como $f$ é transitiva topologicamente, existe $z \in A$ tal que $|x - z| < \delta$ e $|y - f^n(z)| < \delta$ para algum $n \geq 1$. Portanto, $|\tau(x) - \tau(z)| < \varepsilon$ e $|\tau(y) - \tau(f^n(z))| < \varepsilon$. Se $\tau(z) = z'$, então $|x' - z'| < \varepsilon$ e $|y' - g^n(z')| < \varepsilon$ e, portanto, $g$ é transitiva topologicamente. A outra implicação é demonstrada de maneira análoga.
+\end{enumerate}
+\end{proof}
+
+Com a Proposição acima, temos agora condições de entender a dinâmica de $F$ quando $\mu = 4$.
+
+\begin{lemma}
+\label{lemma 5 1}
+A função $T: [0,1] \rightarrow [0,1]$, dada por
+\[
+T(x) = 
+  \begin{cases}
+      2x, & x \in [0, \frac{1}{2}] \\
+      2 - 2x, & x \in [\frac{1}{2}, 1] 
+  \end{cases}
+\]
+é caótica.
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{theorem}
+Se $\mu = 4$, então $F$ é caótica.
+\end{theorem}
+
+\begin{proof}
+Seja $\tau(x) = sin^2(\frac{\pi x}{2})$, $x \in [0,1]$. Temos que $\tau$ é homeomorfismo por $\tau'$ existe em $[0,1]$ e $\tau'(x) > 0$ para todo $x \in (0,1)$.
+
+Se $x \in [0, \frac{1}{2}]$, então $\tau \circ T(x) = \tau(2x) = sin^2(\pi x)$ e se $x \in [\frac{1}{2}, 1]$, então $\tau \circ T(x) = \tau(2 - 2x) = sin^2(\pi- \pi x) = (sin(\pi)cos(\pi x) - sin(\pi x)cos(\pi))^2 = sin^2(px)$. Por outro lado, $F \circ \tau(x) = 4 sin^2(\frac{\pi x}{2})(1 - sin^2(\frac{\pi x}{2})) = 4sin^2(\frac{\pi x}{2})cos^2(\frac{\pi x}{2}) = sin^2(\pi x)$. Portanto, $\tau \circ T = F \circ \tau$.
+
+Portanto, de acordo com o Teorema \ref{theorem 4 3} Proposição \ref{proposition 5 1} e o Lema \ref{lemma 5 1}, F é caótica.
+\end{proof}
+
 \end{document}
 
 % substituir o intervalo I,J por A,B no primeiro parágrafo
@@ -310,3 +389,4 @@ Os Teoremas \ref{theorem 4 1} e \ref{theorem 4 2} são válidos para $4 < \mu \l
 % mostrar em algum lugar que \Lambda_n contém \Lambda_{n+1}
 % provar em algum lugar que Per(F) é denso quando mu > 4
 % trocar alpha e beta por x_1 e x_2
+% tirar itálico da funçao seno (algum comentário na aula do lcmaquino)
