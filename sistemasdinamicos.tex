@@ -35,8 +35,9 @@
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\limit}{\displaystyle\lim}
+%\newcommand{\l(}{\left(}
+%\newcommand{\r)}{\right)}
 \DeclareMathOperator{\sen}{sen}
-
 %\renewcommand\qedsymbol{qed}
 
 \begin{document}
@@ -169,7 +170,7 @@ Desse modo, pelas Proposições anteriores, conhecemos completamente a dinâmica
 
 Analisaremos nessa seção a dinâmica de $F$ quando $\mu > 4$. Para entendê-la, estudaremos o que são conjuntos de Cantor.
 
-Observamos inicialmente que $F(\frac{1}{2})$ = $\frac{\mu}{4} > 1$ quando $\mu > 4$, ou seja, existem pontos em $[0, 1]$ que não permanecem em $[0, 1]$ após uma iteração de $F$. Em vista da Proposição \ref{proposition 3 1}, a dinâmica de $F$ em tais pontos é determinada, pois pertencem ao conjunto $W^s(\infty)$. De modo mais geral, se um ponto de $[0, 1]$ não permanece $[0, 1]$ após um número finito de iterações, então ele pertence ao conjunto $W^s(\infty)$. 
+Observamos inicialmente que $F\left(\frac{1}{2}\right)$ = $\frac{\mu}{4} > 1$ quando $\mu > 4$, ou seja, existem pontos em $[0, 1]$ que não permanecem em $[0, 1]$ após uma iteração de $F$. Em vista da Proposição \ref{proposition 3 1}, a dinâmica de $F$ em tais pontos é determinada, pois pertencem ao conjunto $W^s(\infty)$. De modo mais geral, se um ponto de $[0, 1]$ não permanece $[0, 1]$ após um número finito de iterações, então ele pertence ao conjunto $W^s(\infty)$. 
 
 Desse modo, considere o conjunto $\Lambda_n = \{x \in [0, 1] : F^n(x) \in [0, 1]\}$, que é formado pelos pontos que permanecem em $[0, 1]$ após $n$ iterações de $F$, e considere o conjunto $\Lambda = \cap \Lambda_n = \{x \in [0, 1] : F^n(x) \in [0, 1] \textrm{ para todo } n \geq 1\}$, que é formado pelos pontos que permanecem para sempre em $[0, 1]$ por iterações de $F$. Observe que $\Lambda_n \supset \Lambda_{n+1}$, para todo $n \geq 1$, pois se $F^{n+1}(x) = F(F^n(x)) \in [0,1]$, então $F^n(x) \in [0,1]$.
 
@@ -186,7 +187,7 @@ Se $\mu > 4$, então
 \end{proposition}
 
 \begin{proof}
-Analisando $F'$ observamos que $F$ é estritamente crescente no intervalo $[0, \frac{1}{2}]$ e estritamente decrescente no intervalo $[\frac{1}{2}, 1]$. Como $F(0) = F(1) = 0$ e $F(\frac{1}{2}) > 1$, o Teorema do Valor Intermediário garante que existem $x_1$ e $x_2$ tais que $F(x_1) = F(x_2) = 1$. Os valores de $x_1$ e $x_2$ são encontrados resolvendo a equação de segundo grau $\mu x(1-x) = 1$. Logo, $F([0, x_1]) = F([x_2, 1]) = [0, 1]$ e $F(x) > 1$ para todo $x \in (x_1, x_2)$. Portanto, $\Lambda_1 = [0, x_1] \cup [x_2, 1]$ e o item 1 está demonstrado.
+Analisando $F'$ observamos que $F$ é estritamente crescente no intervalo $\left[0, \frac{1}{2}\right]$ e estritamente decrescente no intervalo $\left[\frac{1}{2}, 1\right]$. Como $F(0) = F(1) = 0$ e $F\left(\frac{1}{2}\right) > 1$, o Teorema do Valor Intermediário garante que existem $x_1 \in \left(0, \frac{1}{2}\right)$ e $x_2 \in \left(\frac{1}{2}, 1\right)$ tais que $F(x_1) = F(x_2) = 1$. Os valores de $x_1$ e $x_2$ são encontrados resolvendo a equação de segundo grau $\mu x(1-x) = 1$. Logo, $F([0, x_1]) = F([x_2, 1]) = [0, 1]$ e $F(x) > 1$ para todo $x \in (x_1, x_2)$. Portanto, $\Lambda_1 = [0, x_1] \cup [x_2, 1]$ e o item 1 está demonstrado.
 
 A demonstração dos itens $2$ e $3$ será feita por indução. De acordo com a primeira parte, $\Lambda_1$ é a união de $2^1 = 2$ intervalos fechados disjuntos e $F$ restrita é cada um desses intervalos é uma bijeção com o intervalo $[0,1]$.
 
@@ -200,9 +201,9 @@ Como $F^{k-1}$ é estritamente crescente, o Teorema do Valor Intermediário afir
 \item$F^{k-1}([\overline{x_2}, 1]) = [x_2, 1]$.
 \end{enumerate}
 
-As condições acima garantem que os intervalos $[a, \overline{x_1}]$, $[\overline{x_2}, b]$ são disjuntos e que $F^k(x) = F(F^{k-1}(x)) > 1$ para todo $x \in (\overline{x_1}, \overline{x_2})$. Também, temos que $F^k([a, \overline{x_1}]) = F([0, x_1]) = [0, 1]$ e, analogamente, $F^k([\overline{x_2}, 1]) = [0, 1]$. Além disso, $(F^k)'([a, \overline{x_1}]) = F'(F^{k-1}([a, \overline{x_1}]))(F^{k-1})'([a, \overline{x_1}]) = F'([0, x_1])(F^{k-1})'([a, \overline{x_1}]) > 0$ e, analogamente, $(F^k)'([\overline{x_2}, 1]) = F'([x_2, 1])(F^{k-1})'([\overline{x_2}, 1]) < 0$. Logo, $F^k$ é uma bijeção entre $[a, \overline{x_1}]$ e $[0, 1]$ e entre $[\overline{x_2}, 1]$ e $[0, 1]$.
+As condições acima garantem que os intervalos $[a, \overline{x_1}]$, $[\overline{x_2}, b]$ são disjuntos e que $F^k(x) = F(F^{k-1}(x)) > 1$ para todo $x \in (\overline{x_1}, \overline{x_2})$. Também, temos que $F^k([a, \overline{x_1}]) = F([0, x_1]) = [0, 1]$ e, analogamente, $F^k([\overline{x_2}, 1]) = [0, 1]$. Além disso, $$(F^k)'([a, \overline{x_1}]) = F'(F^{k-1}([a, \overline{x_1}]))(F^{k-1})'([a, \overline{x_1}]) = F'([0, x_1])(F^{k-1})'([a, \overline{x_1}]) > 0$$ e, analogamente, $$(F^k)'([\overline{x_2}, 1]) = F'([x_2, 1])(F^{k-1})'([\overline{x_2}, 1]) < 0.$$ Logo, $F^k$ é uma bijeção entre $[a, \overline{x_1}]$ e $[0, 1]$ e entre $[\overline{x_2}, 1]$ e $[0, 1]$.
 
-Portanto, a partir de cada intervalo fechado de $\Lambda_{k-1}$, construímos dois novos intervalos fechados disjuntos tais que $F^k$ restrita em cada um desses intervalos é um bijeção com $[0, 1]$ e, dessa maneira, esses intervalos estão contidos em $\Lambda_k$. Desse modo, se $\Lambda_{k-1}$ é formado por $2^{k-1}$ intervalos fechados disjuntos, então $\Lambda_k$ é formado por $2 \cdot 2^{k-1} = 2^k$ intervalos fechados disjuntos. Assim, o resultado está provado.
+Portanto, a partir de cada intervalo fechado de $\Lambda_{k-1}$, construímos dois novos intervalos fechados disjuntos tais que $F^k$ restrita em cada um desses intervalos é um bijeção com $[0, 1]$ e, dessa maneira, esses intervalos estão contidos em $\Lambda_k$. Desse modo, se $\Lambda_{k-1}$ é formado por $2^{k-1}$ intervalos fechados disjuntos, então $\Lambda_k$ é formado por $2 \times 2^{k-1} = 2^k$ intervalos fechados disjuntos. Assim, o resultado está provado.
 \end{proof}
 
 Vamos agora definir o que é um conjunto de Cantor para prosseguir entendendo a natureza de $\Lambda$.
@@ -232,9 +233,11 @@ Se $\mu > 2 + \sqrt{5}$, então
 \begin{enumerate}
 \item Inicialmente, observamos que $\mu^2 - 4\mu > 1$ quando $\mu > 2 + \sqrt{5}$. Desse modo, $F'(x_1) = \sqrt{\mu^2 - 4\mu} > 1$ e $F'(x_2) = -\sqrt{\mu^2 - 4\mu} < -1$, onde $x_1$ e $x_2$ são como na Proposição \ref{proposition 4 1}. Observamos também que $F'$ é estritamente decrescente, pois $F''(x) = -2\mu < 0$.  Portanto, $F'(x) \geq F'(x_1) > 1$ para todo $x \in [0, x_1]$ e $F'(x) \leq F'(x_2) < -1$ para todo $x \in [x_2, 1]$. De acordo com a Proposição \ref{proposition 4 1}, $\Lambda_1 = [0, x_1] \cup [x_2, 1]$ e, desse modo, $|F'(x)| > 1$ para todo $x \in \Lambda_1$. Sendo $F'$ contínua e $\Lambda_1$ compacto, existe $\lambda > 1$ tal que $|F'(x)| > \lambda$ para todo $x \in \Lambda_1$.
 
-\item De acordo com a Proposição \ref{proposition 4 1}, $\Lambda_n$ é formado pela união de $2^n$ intervalos disjuntos. Seja $[a, b]$ um desses intervalos. Se $c \in [a, b]$, em particular $c \in \Lambda_1$ e, portanto, $(F^n)'(c) = F'(F^{n-1}(c)) F'(F^{n-2}(c)) \dots F'(c) > \lambda^n$. Pelo Teorema do Valor Médio, existe $c \in [a, b]$ tal que $|F^n(b) - F^n(a)| = |(F^n)'(c)||b - a| > \lambda^n|b - a|$. Como $F^n: [a, b] \to [0 ,1]$ é um bijeção, temos que $|F^n(b) - F^n(a)| = 1$. Desse modo, $|b - a| < \frac{1}{\lambda^n}$ e a afirmação está provada.
+\item De acordo com a Proposição \ref{proposition 4 1}, $\Lambda_n$ é formado pela união de $2^n$ intervalos disjuntos. Seja $[a, b]$ um desses intervalos. Se $x \in [a, b]$, em particular $F^k(x) \in \Lambda_1$ para todo $0 \leq k < n$. Desse modo, de acordo com o item anterior, temos que $(F^n)'(x) = F'(F^{n-1}(x)) \times F'(F^{n-2}(x)) \times \cdots \times F'(x) > \lambda^n$.
 
-\item  Sejam $x \in \Lambda$, $\varepsilon > 0$ e $n \geq 1$ tal que $\frac{1}{\lambda^n} < \varepsilon$, onde $\lambda > 1$ é como no primeiro item. Em particular, $x \in \Lambda_n$. Se $I$ um dos intervalos que formam $\Lambda_n$ e que contém $x$. Pelo segundo item, o tamanho é menor que $\varepsilon$. Além disso, pela Proposição \ref{proposition 4 1}, $F^n: I \to [0,1]$ é bijetora e, portanto, a afirmação está provada.
+Pelo Teorema do Valor Médio, existe $c \in [a, b]$ tal que $|F^n(b) - F^n(a)| = |(F^n)'(c)||b - a| > \lambda^n|b - a|$. Como $F^n: [a, b] \to [0 ,1]$ é contínua e bijetora, temos que $|F^n(b) - F^n(a)| = 1$. Desse modo, $|b - a| < \frac{1}{\lambda^n}$ e a afirmação está provada.
+
+\item  Sejam $x \in \Lambda$, $\varepsilon > 0$ e $n \geq 1$ tal que $\frac{1}{\lambda^n} < \varepsilon$, onde $\lambda > 1$ é como no primeiro item. Em particular, $x \in \Lambda_n$. Seja $I$ um dos intervalos que formam $\Lambda_n$ e que contém $x$. Pelo item anterior, o tamanho de $I$ é menor que $\varepsilon$. Além disso, pela Proposição \ref{proposition 4 1}, $F^n: I \to [0,1]$ é bijetora e, portanto, a afirmação está provada.
 \end{enumerate}
 \end{proof} 
 
@@ -295,7 +298,7 @@ Se $\mu > 2 + \sqrt{5}$, então $F: \Lambda \to \Lambda$ depende sensivelmente d
 \end{proposition}
 
 \begin{proof}
-Sejam $x \in \Lambda$ e $\varepsilon > 0$. Existe $k \geq 1$ tal que $\frac{1}{\lambda^k}$. Como na demonstração da Proposição anterior, seja $I$ o intervalo fechado contido em $\Lambda_k$ que contém $x$ e cujo tamanho é menor que $\varepsilon$. Como $F^k: I \to [0, 1]$ é um bijeção, então $F^k(a) = 0$ e  $F^k(b) = 1$, onde $a$ e $b$ são pontos extremos de $I$. Como $F(\frac{1}{2}) > 1$ e $x \in \Lambda$, segue que $F^{k}(x) \in [0, \frac{1}{2}) \cup (\frac{1}{2}, 1]$. Se $F^{k}(x) \in [0, \frac{1}{2})$, então $|F^k(x) - F^k(b)| = |F^k(x) - 1| > \frac{1}{2}$ e se $F^{k}(x) \in (\frac{1}{2}, 1]$, então $|F^k(x) - F^k(a)| = |F^k(x)| > \frac{1}{2}$. Observando que $|x - a| < \varepsilon$ e  $|x - b| < \varepsilon$, temos o resultado para $\delta = \frac{1}{2}$. 
+Sejam $x \in \Lambda$, $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{\lambda^k} < \varepsilon$. Como na demonstração da Proposição anterior, seja $I$ o intervalo fechado contido em $\Lambda_k$ que contém $x$ e cujo tamanho é menor que $\varepsilon$. Como $F^k: I \to [0, 1]$ é um bijeção, então $F^k(a) = 0$ e  $F^k(b) = 1$, onde $a$ e $b$ são pontos extremos de $I$. Como $F(\frac{1}{2}) > 1$ e $x \in \Lambda$, segue que $F^{k}(x) \in \left[0, \frac{1}{2}\right) \cup \left(\frac{1}{2}, 1\right]$. Se $F^{k}(x) \in \left[0, \frac{1}{2}\right)$, então $|F^k(x) - F^k(b)| = |F^k(x) - 1| > \frac{1}{2}$ e se $F^{k}(x) \in \left(\frac{1}{2}, 1\right]$, então $|F^k(x) - F^k(a)| = |F^k(x)| > \frac{1}{2}$. Observando que $|x - a| < \varepsilon$ e  $|x - b| < \varepsilon$, temos o resultado para $\delta = \frac{1}{2}$. 
 \end{proof}
 
 \begin{definition}
@@ -331,24 +334,24 @@ Por demonstrar.
 
 \section{Função Logística IV: Conjugação Topológica}
 
-Nesse seção estudaremos a dinâmica de $F$ quando $\mu = 4$. Para esse estudo, definiremos o que significa duas funções serem conjugadas topologicamente e, a partir daí, mostraremos que é $F$ é caótica com base em outra função cuja dinâmica é mais fácil de ser entendida.
+Nesse seção estudaremos a dinâmica de $F$ quando $\mu = 4$. Para esse estudo, definiremos o que significa duas funções serem topologicamente conjugadas e, a partir daí, mostraremos que é $F$ é caótica com base em outra função cuja dinâmica é mais fácil de ser entendida.
 
 \begin{definition}
-Sejam $f: A \to A$, $g: B \to B$ e $\tau: A \to B$ funções. Dizemos que \textit{$f$ e $g$ são conjugadas topologicamente por $\tau$}, se $\tau$ é um homeomorfismo tal que $\tau \circ f = g \circ \tau$.
+Sejam $f: A \to A$, $g: B \to B$ e $\tau: A \to B$ funções. Dizemos que \textit{$f$ e $g$ são topologicamente conjugadas por $\tau$}, se $\tau$ é um homeomorfismo tal que $\tau \circ f = g \circ \tau$.
 \end{definition}
 
 Do ponto de vista da dinâmica, duas funções conjugadas são idênticas. A Proposição abaixo torna precisa essa afirmação.
 
 \begin{proposition}
 \label{proposition 5 1}
-Sejam $f: A \to A$, $g: B \to B$ e $\tau: A \to B$ funções. Se $f$ e $g$ são conjugadas topologicamente por $\tau$, então
+Sejam $f: A \to A$, $g: B \to B$ e $\tau: A \to B$ funções. Se $f$ e $g$ são topologicamente conjugadas por $\tau$, então
 \begin{enumerate}
-\item $g$ e $f$ são conjugadas topologicamente por $\tau^{-1}$.
+\item $g$ e $f$ são topologicamente conjugadas por $\tau^{-1}$.
 \item $\tau \circ f^n = g^n \circ \tau$ para todo $n \geq 1$.
 \item $p$ é ponto periódico de $f$ se e somente se $\tau(p)$ é ponto periódico de $g$. Além disso, os períodos principais de $p$ e $\tau(p)$ são iguais.
 \item $W^s(\tau(p)) = \tau(W^s(p))$, se $p$ é um ponto periódico de $f$.
 \item o conjunto de pontos periódicos de $f$ é denso em $A$ se e somente se o conjunto de pontos periódicos de $g$ é denso em $B$.
-\item $f$ é transitiva topologicamente em $A$ se e somente se $g$ é transitiva topologicamente $B$.
+\item $f$ é topologicamente transitiva em $A$ se e somente se $g$ é topologicamente transitiva em $B$.
 \end{enumerate}
 \end{proposition}
 
@@ -363,7 +366,7 @@ Por outro lado, se $\tau(x) \in \tau(W^s(p))$, então $\lim_{k \to \infty} f^{kn
 \item Se o conjunto $Per(f)$ dos pontos periódicos de $f$ é denso em $A$, então $\tau(Per(f))$ é denso em $B$ pois $\tau$ é um homeomorfismo. Como $\tau(Per(f)) = Per(g)$, temos que $Per(g)$ é denso em $B$. A outra implicação é demonstrada de maneira análoga.
 \item Inicialmente, sendo $\tau$ é contínua, dado $\varepsilon > 0$ existe $\delta > 0$ de modo que, se $z \in A$, $|x - z| < \delta$ e $|y - f^n(z)| < \delta$, então $|\tau(x) - \tau(z)| < \varepsilon$ e $|\tau(y) - \tau(f^n(z))|$, onde $n \geq 1$ é fixado.
 
-Se $x', y' \in B$, existem $x, y \in A$ tais que $\tau(x) = x'$ e $\tau(y) =  y'$. Como $f$ é transitiva topologicamente, existe $z \in A$ tal que $|x - z| < \delta$ e $|y - f^n(z)| < \delta$ para algum $n \geq 1$. Portanto, $|\tau(x) - \tau(z)| < \varepsilon$ e $|\tau(y) - \tau(f^n(z))| < \varepsilon$. Se $\tau(z) = z'$, então $|x' - z'| < \varepsilon$ e $|y' - g^n(z')| < \varepsilon$ e, portanto, $g$ é transitiva topologicamente. A outra implicação é demonstrada de maneira análoga.
+Se $x', y' \in B$, existem $x, y \in A$ tais que $\tau(x) = x'$ e $\tau(y) =  y'$. Como $f$ é topologicamente transitiva, existe $z \in A$ tal que $|x - z| < \delta$ e $|y - f^n(z)| < \delta$ para algum $n \geq 1$. Portanto, $|\tau(x) - \tau(z)| < \varepsilon$ e $|\tau(y) - \tau(f^n(z))| < \varepsilon$. Se $\tau(z) = z'$, então $|x' - z'| < \varepsilon$ e $|y' - g^n(z')| < \varepsilon$ e, portanto, $g$ é topologicamente transitiva. A outra implicação é demonstrada de maneira análoga.
 \end{enumerate}
 \end{proof}
 
@@ -383,9 +386,9 @@ T(x) =
 \end{lemma}
 
 \begin{proof}
-Inicialmente, provaremos por indução que $T^n: [\frac{k}{2^n}, \frac{k+1}{2^n}] \to [0,1]$ é uma função linear bijetora para todo $0 \leq k  < 2^n$. Pela definição de $T$, a afirmação é verdadeira quando $n = 1$. Suponha que $T^{n-1}: [\frac{k}{2^{n-1}}, \frac{k+1}{2^{n-1}}] \to [0,1]$ é uma função linear bijetora para todo $0 \leq k < 2^{n-1}$. Fixado $k$, podemos supor que $T^{n-1}(\frac{k}{2^{n-1}}) = 0$ e $T^{n-1}(\frac{k+1}{2^{n-1}}) = 1$. O caso em que $T^{n-1}(\frac{k}{2^{n-1}}) = 1$ e $T^{n-1}(\frac{k+1}{2^{n-1}}) = 0$ é tratado de maneira análoga. Temos que $T^{n-1}(\overline{x}) = \frac{1}{2}$, onde $\overline{x} = \frac{2k+1}{2^n}$ é o ponto médio do intervalo $[\frac{k}{2^{n-1}}, \frac{k+1}{2^{n-1}}]$. Portanto, $T^n(\overline{x}) = T(T^{n-1}(\overline{x})) = T(\frac{1}{2}) = 1$, $T^n(\frac{k}{2^{n-1}}) = T(0) = 0$ e $T^n(\frac{k+1}{2^{n-1}}) = T(1) = 0$. Desse modo, $T^n: [\frac{k}{2^{n-1}}, \overline{x}] \to [0,1]$ e $T^n: [\overline{x}, \frac{k+1}{2^{n-1}}] \to [0,1]$ são funções lineares(pois são composições de funções lineares) e bijetoras para todo $0 \leq k < 2^{n-1}$. Observando que $[\frac{k}{2^{n-1}}, \overline{x}] =  [\frac{2k}{2^n}, \frac{2k+1}{2^n}]$ e $[\overline{x}, \frac{k+1}{2^{n-1}}] =  [\frac{2k+1}{2^n}, \frac{2k+2}{2^n}]$, concluímos que  que $T^n: [\frac{k}{2^n}, \frac{k+1}{2^n}] \to [0,1]$ é uma função linear bijetora para todo $0 \leq k  < 2^n$ e, portanto, a afirmação está provada.
+Inicialmente, provaremos por indução que $T^n: \left[\frac{k}{2^n}, \frac{k+1}{2^n}\right] \to [0,1]$ é uma função linear bijetora para todo $0 \leq k  < 2^n$. Pela definição de $T$, a afirmação é verdadeira quando $n = 1$. Suponha que $T^{n-1}: \left[\frac{k}{2^{n-1}}, \frac{k+1}{2^{n-1}}\right] \to [0,1]$ é uma função linear bijetora para todo $0 \leq k < 2^{n-1}$. Fixado $k$, podemos supor que $T^{n-1}\left(\frac{k}{2^{n-1}}\right) = 0$ e $T^{n-1}\left(\frac{k+1}{2^{n-1}}\right) = 1$. O caso em que $T^{n-1}\left(\frac{k}{2^{n-1}}\right) = 1$ e $T^{n-1}\left(\frac{k+1}{2^{n-1}}\right) = 0$ é tratado de maneira análoga. Temos que $T^{n-1}(\overline{x}) = \frac{1}{2}$, onde $\overline{x} = \frac{2k+1}{2^n}$ é o ponto médio do intervalo $\left[\frac{k}{2^{n-1}}, \frac{k+1}{2^{n-1}}\right]$. Portanto, $T^n(\overline{x}) = T(T^{n-1}(\overline{x})) = T\left(\frac{1}{2}\right) = 1$, $T^n\left(\frac{k}{2^{n-1}}\right) = T(0) = 0$ e $T^n\left(\frac{k+1}{2^{n-1}}\right) = T(1) = 0$. Desse modo, $T^n: \left[\frac{k}{2^{n-1}}, \overline{x}\right] \to [0,1]$ e $T^n: \left[\overline{x}, \frac{k+1}{2^{n-1}}\right] \to [0,1]$ são funções lineares(pois são composições de funções lineares) e bijetoras para todo $0 \leq k < 2^{n-1}$. Observando que $\left[\frac{k}{2^{n-1}}, \overline{x}\right] =  \left[\frac{2k}{2^n}, \frac{2k+1}{2^n}\right]$ e $\left[\overline{x}, \frac{k+1}{2^{n-1}}\right] =  \left[\frac{2k+1}{2^n}, \frac{2k+2}{2^n}\right]$, concluímos que  que $T^n: \left[\frac{k}{2^n}, \frac{k+1}{2^n}\right] \to [0,1]$ é uma função linear bijetora para todo $0 \leq k  < 2^n$ e, portanto, a afirmação está provada.
 
-Para provar que $T$ é caótica, seja $\varepsilon > 0$ fixo. Pelo afirmação do parágrafo anterior, existem $n \geq 1$ e $I = [\frac{k}{2^n}, \frac{k+1}{2^n}]$  tais que $\frac{1}{2^n} < \varepsilon$, $x \in I$ e $T^n: I \to [0,1]$ é bijetora.
+Para provar que $T$ é caótica, seja $\varepsilon > 0$ fixo. Pelo afirmação do parágrafo anterior, existem $n \geq 1$ e $I = \left[\frac{k}{2^n}, \frac{k+1}{2^n}\right]$  tais que $\frac{1}{2^n} < \varepsilon$, $x \in I$ e $T^n: I \to [0,1]$ é bijetora.
 
 Seja $x \in [0,1]$. Como $T(I) \supset I$, a Proposição \ref{proposition 2 1} afirma que existe $p \in I$ tal que $T^n(p) = p$. Observando que $|x-p| \leq \frac{1}{2^n} < \varepsilon$, concluímos que o conjunto de pontos periódicos de $T$ é denso em $[0,1]$.
 
@@ -399,7 +402,7 @@ Se $\mu = 4$, então $F$ é caótica.
 \end{theorem}
 
 \begin{proof}
-Seja $\tau(x) = \sen^2(\frac{\pi x}{2})$ definida no intervalo $ [0,1]$. $\tau$ é homeomorfismo pois $\tau'$ existe em $[0,1]$ e $\tau' > 0$ em $(0,1)$. Se $x \in [0, \frac{1}{2}]$, então $\tau \circ T(x) = \tau(2x) = \sen^2(\pi x)$ e se $x \in [\frac{1}{2}, 1]$, então $\tau \circ T(x) = \tau(2 - 2x) = \sen^2(\pi- \pi x) = (\sen(\pi)\cos(\pi x) - \sen(\pi x)\cos(\pi))^2 = \sen^2(\pi x)$. Por outro lado, $F \circ \tau(x) = 4\sen^2(\frac{\pi x}{2})(1 - \sen^2(\frac{\pi x}{2})) = 4\sen^2(\frac{\pi x}{2})\cos^2(\frac{\pi x}{2}) = \sen^2(\pi x)$. Desse modo, $\tau \circ T = F \circ \tau$. Portanto, de acordo com o Teorema \ref{theorem 4 3}, a Proposição \ref{proposition 5 1} e o Lema \ref{lemma 5 1}, $F$ é caótica.
+Seja $\tau(x) = \sen^2\left(\frac{\pi x}{2}\right)$ definida no intervalo $ [0,1]$. $\tau$ é homeomorfismo pois $\tau'$ existe em $[0,1]$ e $\tau' > 0$ em $(0,1)$. Se $x \in \left[0, \frac{1}{2}\right]$, então $\tau \circ T(x) = \tau(2x) = \sen^2(\pi x)$ e se $x \in \left[\frac{1}{2}, 1\right]$, então $\tau \circ T(x) = \tau(2 - 2x) = \sen^2(\pi- \pi x) = (\sen(\pi)\cos(\pi x) - \sen(\pi x)\cos(\pi))^2 = \sen^2(\pi x)$. Por outro lado, $F \circ \tau(x) = 4\sen^2\left(\frac{\pi x}{2}\right)(1 - \sen^2\left(\frac{\pi x}{2}\right)) = 4\sen^2\left(\frac{\pi x}{2}\right)\cos^2\left(\frac{\pi x}{2}\right) = \sen^2(\pi x)$. Desse modo, $\tau \circ T = F \circ \tau$. Portanto, de acordo com o Teorema \ref{theorem 4 3}, a Proposição \ref{proposition 5 1} e o Lema \ref{lemma 5 1}, $F$ é caótica.
 \end{proof}
 
 \section{Função Logística V: Dinâmica Simbólica}
@@ -415,9 +418,9 @@ A função $d: \Sigma_2 \times \Sigma_2 \to \RR$, dada por $d(s, t) = \sum_{k=0}
 \begin{proof}
 Inicialmente, observamos que a função $d$ é bem definida pois $d(s, t) = \sum_{k=0}^{\infty} \frac{|s_k - t_k|}{2^k} \leq \sum_{k=0}^{\infty} \frac{1}{2^k} = 2$. Além disso, é fácil verificar que as propriedades de uma distância são válidas em $d$, isto é,
 \begin{enumerate}[label=(\alph*)]
-\item $d(s, t) \geq 0$,
-\item $d(s, t) = 0$ se e somente se $s = t$,
-\item  $d(s, t) = d(t, s)$ e 
+\item $d(s, t) \geq 0$
+\item $d(s, t) = 0$ se e somente se $s = t$
+\item  $d(s, t) = d(t, s)$
 \item $d(s, t) \leq d(s, r) + d(r, t)$
 \end{enumerate}
 para todo $r, s, t \in \Sigma_2$. Portando, $d$ é uma distância e a afirmação está provada.
@@ -462,19 +465,19 @@ Se $\sigma$ é função shift, então
 % --- nome das definções em itálico
 % --- remover \mu de F_\mu
 % --- arrrumar a indução de k para k-1 da proposição ~4.2
-% lema 4.3 provar que (F^n)'(c) > 1: mostrar que F^K(c) \in A_1 para todo k = 0, .., n-1 
+% --- lema 4.3 provar que (F^n)'(c) > 1: mostrar que F^K(c) \in A_1 para todo k = 0, .., n-1 
 % --- mostrar em algum lugar que \Lambda_n contém \Lambda_{n+1}
 % --- provar em algum lugar que Per(F) é denso quando mu > 4
 % --- trocar alpha e beta por x_1 e x_2
 % --- tirar itálico da funçao seno (algum comentário na aula do lcmaquino)
 % --- terminar a demonstração do lemma 4 1
-% escolher entre 'transitiva topologicamente' e 'topologicamente transitiva'(essa é melhor)
+% --- escolher entre 'transitiva topologicamente' e 'topologicamente transitiva'(essa é melhor)
 % --- utilizar \textrm{} quando misturar ambiente matemático e texto
-% utilizar \left( e \right) para deixar o parêntese do tamanho da expressão de dento
+% --- utilizar \left( e \right) para deixar o parêntese do tamanho da expressão de dento
 % --- substituir lim por \lim
 % --- usar \to ao invés de \rightarrow
 % --- mudar equação quadrática para função logística
-% separar conjuntos de cantor e caos
+% --- separar conjuntos de cantor e caos
 % utilizar o terceiro item do lemma 4 1 na demonstração das outrar proposições
 % separar os capítulos em arquivos
-% arrumar a numeração das referências
+% ataulizar a numeração das referências no tipo "caos proposition 2"
