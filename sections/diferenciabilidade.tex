@@ -1,0 +1,46 @@
+\section{Implicações da Diferenciabilidade}
+
+%Nessa seção, estudaremos as implicações da diferenciabilidade na dinâmica de uma função real. Caso não seja dito o contrário, $I$ representará um intervalo fechado de $\RR$.  
+
+\begin{proposition}
+\label{proposicao diferenciabilidade 1}
+Seja $f: I \to \RR$ uma função contínua. Se $f(I) \subset I$ ou $f(I) \supset I$, então $f$ possui ponto fixo.
+\end{proposition}
+
+\begin{proof}
+Seja $I = [a, b]$. Suponha que $f(I) \subset I$. Considere a função contínua $g(x) = f(x) - x$ definida em $I$. Como $f(a), f(b) \in I$, temos que $g(a) = f(a) - a \geq 0$ e $g(b) = f(b) - b \leq 0$. Pelo Teorema do Valor Intermediário, existe $p \in I$ tal que $g(p) = f(p) -p = 0$. Desse modo, $p$ é ponto fixo de $f$.
+
+Suponha que $f(I) \supset I$. Por definição, existem $c, d \in I$ tais que $f(c) = a$ e$f(d) = b$. Considere a função contínua $g(x) = f(x) - x$ definida em $I$. Temos que $g(c) = a - c \leq 0$ e $g(d) = b - d \geq 0$. Pelo Teorema do Valor Intermediário, existe $p \in I$ tal que $g(p) = f(p) - p = 0$. Desse modo, $p$ é ponto fixo de $f$.
+\end{proof}
+
+\begin{theorem}
+Seja $f:I \to I$ uma função diferenciável. Se $|f'(x)|<1$ para todo $x \in I$, então $f$ admite um único ponto fixo e $|f(x) - f(y)| < |x - y|$ para todo $x, y \in I$ distintos.
+\end{theorem}
+
+\begin{proof}
+Sejam $x, y \in I$, $x < y$. Pelo Teorema do Valor Médio, existe $c \in [x, y]$ tal que $f(x) - f(y) = f'(c)(x - y)$. Portanto, $|f(x) - f(y)| = |f'(c)||x - y| < |x - y|$.
+
+Pela Proposição \ref{proposicao diferenciabilidade 1}, $f$ admite um ponto fixo $p$. Suponha que exista um ponto fixo $q$ diferente de $p$. Então, pela primeira parte da demonstração, $|p - q| = |f(p) - f(q)| < |p - q|$. Absurdo.
+\end{proof}
+
+%Introduziremos agora a noção de ponto hiperbólico para uma função diferenciável e logo após provaremos um resultado que ajuda a compreender a dinâmica da função em uma vizinhança desses pontos.
+
+\begin{definition}
+Sejam $f: I \to I$ uma função diferenciável e $p$ um ponto periódico com período principal $n$. Dizemos que $p$ é um \textit{ponto hiperbólico} se $|(f^n)'(p)| \neq 1$. Se $|(f^n)'(p)| > 1$, dizemos que $p$ é um \textit{ponto atrator} e se $|(f^n)'(p)| < 1$, dizemos que $p$ é um \textit{ponto  repulsor}. Dizemos que $p$ é um \textit{ponto não hiperbólico} se $|(f^n)'(p)| = 1$.
+\end{definition}
+
+%O Teorema abaixo ajuda a compreender o porquê dos nomes \textit{atrator} e \textit{repulsor} para um ponto hiperbólico.
+
+\begin{theorem}
+Sejam $f: I \to I$ uma função $C^1$ e $p$ um ponto periódico com período principal $n$. Se $p$ é um ponto hiperbólico atrator, existe uma vizinhança de $p$ contida em $W^s(p)$. Se $p$ é um ponto hiperbólico repulsor, existe uma vizinhança $U$ de $p$ tal que, se $x \in U$ e $x \neq p$, $f^{kn}(x) \notin U$ para algum $k \geq 1$. 
+\end{theorem}
+
+\begin{proof}
+Suponha que $p$ é um ponto hiperbólico atrator. Como $f'$ é contínua, existe $\varepsilon > 0$ tal que $|(f^n)'(x)| \leq \lambda < 1$ para todo $x \in (p - \varepsilon, p + \varepsilon)$. Pelo Teorema do Valor Médio, se $x \in U$ então $|f^n(x) - p| = |f^n(x) - f^n(p)| \leq \lambda|x - p|$. Por indução, $|f^{kn}(x) - p| \leq \lambda^k|x - p|$. Desse modo, $f^{kn}(x) \to p$ quando $k \to \infty$.
+
+Suponha que $p$ é ponto hiperbólico repulsor. De maneira análoga, existe $\varepsilon > 0$ tal que $|(f^n)'(x)| \geq \lambda > 1$ para todo $x \in (p- \varepsilon, p + \varepsilon)$. Fixado $x \in (p - \varepsilon, p + \varepsilon)$, $x \neq p$, suponha que $f^{kn}(x) \in (p - \varepsilon, p + \varepsilon)$ para todo $k \geq 1$. Pelo Teorema do Valor Médio, $|f^{kn}(x) - p| \geq \lambda^k|x - p|$ para todo $k \geq 1$. Absurdo, pois $\lambda^k|x - p| \to \infty$ quando $k \to \infty$.
+\end{proof}
+
+\begin{remark}
+A segunda parte do teorema afirma que existe uma vizinhança de $p$ tal que todo ponto diferente de $p$ nessa vizinhança é movida para fora dela após um número de iterações da $f$. Observe o ponto pode voltar para vizinhança após mais um número finito de iterações da $f$, pois sabermos que o valor absoluto da derivada é maior que 1 apenas nessa vizinhança.
+\end{remark}

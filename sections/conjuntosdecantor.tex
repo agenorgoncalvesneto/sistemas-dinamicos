@@ -1,0 +1,92 @@
+
+\section{Função Logística II: Conjuntos de Cantor}
+
+%Analisaremos nessa seção a dinâmica de $F$ quando $\mu > 4$. Para entendê-la, estudaremos o que são conjuntos de Cantor.
+
+Se $\mu > 4$, então $F\left(\frac{1}{2}\right)$ = $\frac{\mu}{4} > 1$, ou seja, existem pontos em $[0, 1]$ que não permanecem em $[0, 1]$ após uma iteração de $F$. Em vista da Proposição \ref{proposicao estudoinicial 1}, a dinâmica de $F$ em tais pontos é determinada, pois pertencem ao conjunto $W^s(\infty)$. De modo mais geral, se um ponto de $[0, 1]$ não permanece $[0, 1]$ após um número finito de iterações, então ele pertence ao conjunto $W^s(\infty)$. 
+
+Desse modo, considere o conjunto $\Lambda_n = \{x \in [0, 1] : F^n(x) \in [0, 1]\}$, que é formado pelos pontos que permanecem em $[0, 1]$ após $n$ iterações de $F$, e considere o conjunto $\Lambda = \cap \Lambda_n = \{x \in [0, 1] : F^n(x) \in [0, 1] \textrm{ para todo } n \geq 1\}$, que é formado pelos pontos que permanecem para sempre em $[0, 1]$ por iterações de $F$. Observe que $\Lambda_n \supset \Lambda_{n+1}$, para todo $n \geq 1$, pois se $F^{n+1}(x) = F(F^n(x)) \in [0,1]$, então $F^n(x) \in [0,1]$.
+
+%Nos resta, portanto, estudar a dinâmica de $F$ restrita ao conjunto $\Lambda$. A Proposição a seguir nos ajuda a começar compreender a natureza de $\Lambda$.
+
+\begin{proposition}
+\label{proposicao conjuntosdecantor 1}
+Se $\mu > 4$, então
+\begin{enumerate}
+\item $\Lambda_1 = [0, x_1] \cup [x_2, 1]$, onde $x_1 = \frac{1}{2} - \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$ e $x_2 = \frac{1}{2} + \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$.
+\item $\Lambda_n$ é a união de $2^n$ intervalos fechados disjuntos.
+\item $F^n: I \to [0, 1]$ é bijetora, onde $I$ é qualquer um dos $2^n$ intervalos fechados disjuntos que formam $\Lambda_n$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Analisando $F'$ observamos que $F$ é estritamente crescente no intervalo $\left[0, \frac{1}{2}\right]$ e estritamente decrescente no intervalo $\left[\frac{1}{2}, 1\right]$. Como $F(0) = F(1) = 0$ e $F\left(\frac{1}{2}\right) > 1$, o Teorema do Valor Intermediário garante que existem $x_1 \in \left(0, \frac{1}{2}\right)$ e $x_2 \in \left(\frac{1}{2}, 1\right)$ tais que $F(x_1) = F(x_2) = 1$. Os valores de $x_1$ e $x_2$ são encontrados resolvendo a equação de segundo grau $\mu x(1-x) = 1$. Logo, $F([0, x_1]) = F([x_2, 1]) = [0, 1]$ e $F(x) > 1$ para todo $x \in (x_1, x_2)$. Portanto, $\Lambda_1 = [0, x_1] \cup [x_2, 1]$ e o item 1 está demonstrado.
+
+A demonstração dos itens $2$ e $3$ será feita por indução. De acordo com a primeira parte, $\Lambda_1$ é a união de $2^1 = 2$ intervalos fechados disjuntos e $F$ restrita é cada um desses intervalos é uma bijeção com o intervalo $[0,1]$.
+
+Suponha que $\Lambda_{k-1}$ é a união de $2^{k-1}$ intervalos fechados disjuntos de modo que $F^{k-1}: [a, b] \to [0, 1]$ é bijetora para todo intervalo $[a, b]$ que forma $\Lambda_{k-1}$. Sendo $F^{k-1}$ bijetora, $(F^{k-1})'(x) > 0$ ou $(F^{k-1})'(x) < 0$ para todo $x \in [a, b]$. Como as demonstrações para os dois casos são análogas, podemos supor que $(F^{k-1})'(x) > 0$.
+
+Como $F^{k-1}$ é estritamente crescente, o Teorema do Valor Intermediário afirma que existem únicos $\overline{x_1}, \overline{x_2} \in (a, b)$ tais que
+\begin{enumerate}[label=(\alph*)]
+\item$a < \overline{x_1} < \overline{x_2} < b$,
+\item$F^{k-1}([a, \overline{x_1}]) = [0, x_1]$,
+\item$F^{k-1}((\overline{x_1}, \overline{x_2})) = (x_1, x_2)$ e
+\item$F^{k-1}([\overline{x_2}, 1]) = [x_2, 1]$.
+\end{enumerate}
+
+As condições acima garantem que os intervalos $[a, \overline{x_1}]$, $[\overline{x_2}, b]$ são disjuntos e que $F^k(x) = F(F^{k-1}(x)) > 1$ para todo $x \in (\overline{x_1}, \overline{x_2})$. Também, temos que $F^k([a, \overline{x_1}]) = F([0, x_1]) = [0, 1]$ e, analogamente, $F^k([\overline{x_2}, 1]) = [0, 1]$. Além disso, $$(F^k)'([a, \overline{x_1}]) = F'(F^{k-1}([a, \overline{x_1}]))(F^{k-1})'([a, \overline{x_1}]) = F'([0, x_1])(F^{k-1})'([a, \overline{x_1}]) > 0$$ e, analogamente, $$(F^k)'([\overline{x_2}, 1]) = F'([x_2, 1])(F^{k-1})'([\overline{x_2}, 1]) < 0.$$ Logo, $F^k$ é uma bijeção entre $[a, \overline{x_1}]$ e $[0, 1]$ e entre $[\overline{x_2}, 1]$ e $[0, 1]$.
+
+Portanto, a partir de cada intervalo fechado de $\Lambda_{k-1}$, construímos dois novos intervalos fechados disjuntos tais que $F^k$ restrita em cada um desses intervalos é um bijeção com $[0, 1]$ e, dessa maneira, esses intervalos estão contidos em $\Lambda_k$. Desse modo, se $\Lambda_{k-1}$ é formado por $2^{k-1}$ intervalos fechados disjuntos, então $\Lambda_k$ é formado por $2 \times 2^{k-1} = 2^k$ intervalos fechados disjuntos. Assim, o resultado está provado.
+\end{proof}
+
+%Vamos agora definir o que é um conjunto de Cantor para prosseguir entendendo a natureza de $\Lambda$.
+
+\begin{definition}[Conjunto de Cantor]
+Um conjunto $\Gamma \subset \RR$ não vazio é um \textit{conjunto de Cantor} se
+\begin{enumerate}
+\item $\Gamma$ é fechado e limitado,
+\item $\Gamma$ não possui intervalos e
+\item Todo ponto de $\Gamma$ é um ponto de acumulação de $\Gamma$.
+\end{enumerate}
+\end{definition}
+
+%No restante dessa seção, restringiremos nossa atenção para o caso $\mu > 2 + \sqrt{5}$, para facilitar as demonstrações.
+
+\begin{lemma}
+\label{lema conjuntosdecantor 1}
+Se $\mu > 2 + \sqrt{5}$, então
+\begin{enumerate}
+\item  existe $\lambda > 1$ tal que $|F'(x)| > \lambda$ para todo $x \in \Lambda_1$.
+\item o tamanho de cada intervalo fechado em $\Lambda_n$ é menor que $\frac{1}{\lambda^n}$.
+\item dados $x \in \Lambda$ e $\varepsilon > 0$, existe um intervalo fechado $I \subset \Lambda_n$, para algum $n \geq 1$,  que contém $x$ e cujo tamanho é menor que $\varepsilon$ tal que $F^n: I \to [0,1]$ é bijetora.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\begin{enumerate}
+\item Inicialmente, observamos que $\mu^2 - 4\mu > 1$ quando $\mu > 2 + \sqrt{5}$. Desse modo, $F'(x_1) = \sqrt{\mu^2 - 4\mu} > 1$ e $F'(x_2) = -\sqrt{\mu^2 - 4\mu} < -1$, onde $x_1$ e $x_2$ são como na Proposição \ref{proposicao conjuntosdecantor 1}. Observamos também que $F'$ é estritamente decrescente, pois $F''(x) = -2\mu < 0$.  Portanto, $F'(x) \geq F'(x_1) > 1$ para todo $x \in [0, x_1]$ e $F'(x) \leq F'(x_2) < -1$ para todo $x \in [x_2, 1]$. De acordo com a Proposição \ref{proposicao conjuntosdecantor 1}, $\Lambda_1 = [0, x_1] \cup [x_2, 1]$ e, desse modo, $|F'(x)| > 1$ para todo $x \in \Lambda_1$. Sendo $F'$ contínua e $\Lambda_1$ compacto, existe $\lambda > 1$ tal que $|F'(x)| > \lambda$ para todo $x \in \Lambda_1$.
+
+\item De acordo com a Proposição \ref{proposicao conjuntosdecantor 1}, $\Lambda_n$ é formado pela união de $2^n$ intervalos disjuntos. Seja $[a, b]$ um desses intervalos. Se $x \in [a, b]$, em particular $F^k(x) \in \Lambda_1$ para todo $0 \leq k < n$. Desse modo, de acordo com o item anterior, temos que $(F^n)'(x) = F'(F^{n-1}(x)) \times F'(F^{n-2}(x)) \times \cdots \times F'(x) > \lambda^n$.
+
+Pelo Teorema do Valor Médio, existe $c \in [a, b]$ tal que $|F^n(b) - F^n(a)| = |(F^n)'(c)||b - a| > \lambda^n|b - a|$. Como $F^n: [a, b] \to [0 ,1]$ é contínua e bijetora, temos que $|F^n(b) - F^n(a)| = 1$. Desse modo, $|b - a| < \frac{1}{\lambda^n}$ e a afirmação está provada.
+
+\item  Sejam $x \in \Lambda$, $\varepsilon > 0$ e $n \geq 1$ tal que $\frac{1}{\lambda^n} < \varepsilon$, onde $\lambda > 1$ é como no primeiro item. Em particular, $x \in \Lambda_n$. Seja $I$ um dos intervalos que formam $\Lambda_n$ e que contém $x$. Pelo item anterior, o tamanho de $I$ é menor que $\varepsilon$. Além disso, pela Proposição \ref{proposicao conjuntosdecantor 1}, $F^n: I \to [0,1]$ é bijetora e, portanto, a afirmação está provada.
+\end{enumerate}
+\end{proof} 
+
+\begin{theorem}
+\label{teorema conjuntosdecantor 1}
+Se $\mu > 2 + \sqrt{5}$, então $\Lambda$ é um conjunto de Cantor.
+\end{theorem}
+
+\begin{proof}
+$\Lambda$ é não vazio pois $0 \in \Lambda$, é limitado pois $\Lambda_1 \in [0, 1]$ e é fechado pois é intersecção de conjuntos fechados.
+
+Agora, suponha que $\Lambda$ contém algum intervalo. Então, existem $x, y \in I$, $x < y$, tais que $[x, y] \subset \Lambda$. Seja $k$ tal que $\frac{1}{\lambda^k} < |x - y|$. Em particular, $[x, y] \subset \Lambda_k$. Mas, de acordo com o Lema \ref{lema conjuntosdecantor 1}, os intervalos de $\Lambda_k$ possuem tamanho menor que $\frac{1}{\lambda^k}$. Absurdo e, portanto, $\Lambda$ não possui intervalos.
+
+Por fim, observe que, se $x$ é um ponto extremo de algum intervalo de $\Lambda_n$, então $x \in \Lambda$ pois $F^{n+1}(x) = 0$. Sejam $x \in \Lambda$, $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{\lambda^k} < \varepsilon$. Em particular, $x \in \Lambda_k$ e, portanto, $x$ é elemento de algum intervalo cujo tamanho é menor que $\varepsilon$, de acordo com o Lema \ref{lema conjuntosdecantor 1}. Portanto, existe $y \in \Lambda$ ponto extremo do intervalo que contém $x$ tal que $|x - y| < \varepsilon$. Como $\varepsilon$ é arbitrário, concluímos que $x$ é um ponto de acumulação de $\Lambda$.
+\end{proof}
+
+\begin{remark}
+O Teorema \ref{teorema conjuntosdecantor 1} é válido para $4 < \mu \leq 2 + \sqrt{5}$, porém a demonstração é mais difícil.
+\end{remark}
