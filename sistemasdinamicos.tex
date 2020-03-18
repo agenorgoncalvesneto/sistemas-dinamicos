@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt]{article}
+\documentclass[a4paper, 11pt]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
@@ -38,13 +38,15 @@
 %\newcommand{\l(}{\left(}
 %\newcommand{\r)}{\right)}
 \DeclareMathOperator{\sen}{sen}
-%\renewcommand\qedsymbol{qed}
+%\renewcommand\qedsymbol{cqd}
 
 \usepackage{subfiles}
 
 \begin{document}
 
 \subfile{sections/definicoeselementares}
+\newpage
+\subfile{sections/sharkovsky}
 \newpage
 \subfile{sections/diferenciabilidade}
 \newpage
@@ -81,3 +83,5 @@
 % utilizar o terceiro item do lemma 4 1 na demonstração das outrar proposições
 % --- separar os capítulos em arquivos
 % --- atualizar a numeração das referências no tipo "caos proposition 2"
+% adicionar \orbit(x) com O em letra cursiva
+% colocar \newpage dentro de cada seção

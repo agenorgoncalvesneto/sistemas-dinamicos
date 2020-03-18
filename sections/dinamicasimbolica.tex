@@ -62,7 +62,7 @@ Se $\sigma$ é a função shift, então
 $$\sigma^k(\sigma^n(s)) = (s_{n+k}s_{n+k+1}s_{n+k+2}\dots) = (s_ks_{k+1}s_{k+2}\dots) = \sigma^k(s)$$
 para todo $k \geq 0$. Desse modo, $s$ é formado pela repetição das entradas $s_0 s_1 \dots s_{n-1}$. Pelo Princípio Fundamental da Contagem, existem $2^n$ sequências distintas para  $s_0 s_1 \dots s_{n-1}$ e, portanto, a afirmação está provada.
 
-\item Considere o ponto $s^* = (0 \, 1 \, 0 0 \, 0 1 \, 1 0 \, 1 1 \, 0 0 0 \, 0 0 1 \dots)$ formado por todas as sequências de tamanho $1$, depois por todas as sequências de tamanho $2$, etc. 
+\item Considere o ponto $s^* = (0 \, 1 \, 0 0 \, 0 1 \, 1 0 \, 1 1 \, 0 0 0 \, 0 0 1 \dots)$ formado por todos os blocos de tamanho $1$, depois por todos os blocos de tamanho $2$, e assim sucessivamente. 
 
 Sejam $s \in \Sigma_2$, $\varepsilon > 0$ e $n \geq 1$ tal que $\frac{1}{2^n} < \varepsilon$. É fácil ver que existe $k \geq 0$ de modo que $\sigma^k(s^*)$ e $s$ são iguais nas primeiras $n+1$ entradas. De acordo com a Proposição \ref{proposicao dinamicasimbolica 1}, $d(s, \sigma^k(s^*)) \leq \frac{1}{2^n} < \varepsilon$ e, portanto, a afirmação está provada.
 

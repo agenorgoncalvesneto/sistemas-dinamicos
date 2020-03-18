@@ -1,0 +1,93 @@
+
+\section{Teorema de Sharkovsky}
+Ao longo dessa seção, $f: \RR \to \RR$ denotará uma função contínua.
+\begin{definition}
+Sejam $J_1, J_2, \dots, J_n$ intervalos fechados.
+\begin{enumerate}
+\item Dizemos $J_1, J_2, \dots, J_n$ é um \textit{caminho de tamanho $n$ entre $J_1$ e $J_n$} se $f(J_i) \supset J_{i+1}$, para todo $i = 1, \dots, n-1$, e denotamos por $J_1 \longrightarrow J_2 \longrightarrow \cdots \longrightarrow J_n$.
+
+\item Dizemos $J_1, J_2, \dots, J_n$ é um \textit{ciclo de tamanho $n$ entre $J_1$ e $J_n$} se $f(J_i) \supset J_{i+1}$, para todo $i = 1, \dots, n-1$, e $f(J_n) \supset J_1$, e denotamos por $J_1 \longrightarrow J_2 \longrightarrow \cdots \longrightarrow J_n \longrightarrow J_1$.
+\end{enumerate}
+
+\begin{proposition}
+Se $J_1 \longrightarrow J_2$, então $f(J'_1) = J_2$ para algum intervalo fechado $J'_1 \subset J_1$.
+\end{proposition}
+\begin{proof}
+
+\end{proof}
+
+\begin{lemma}
+Se $J_0 \longrightarrow J_1 \longrightarrow \cdots \longrightarrow J_{n-1} \longrightarrow J_0$, então existe $p \in J_0$ tal que $f^k(p) \in J_k$, para todo $k = 1, \dots, n-1$, e $f^n(p) = p$.
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{theorem}
+Se $f$ admite ponto periódico de período principal $3$, então $f$ admite ponto periódico de período principal $n$, para todo $n \geq 1$.
+\end{theorem}
+
+\begin{proof}
+Sejam $p$ um ponto periódico de período principal $3$ e $p_1 < p_2 < p_3$ os pontos da órbita de $p$ e suponha que $f(p_1) = p_2$ e $f(p_2) = p _3$. O outro caso possível, em que $f(p_1) = p_3$ e $f(p_3) = p_2$, é demonstrado de maneira análoga. Definindo $I_1 = [p_1, p_2]$ e $I_2 = [p_2, p_3]$, temos que $I_1 \longrightarrow I_2$, $I_2 \longrightarrow I_1$ e $I_2 \longrightarrow I_2$.
+\begin{enumerate}
+\item $n = 1$: Como $I_2 \longrightarrow I_2$, existe $p \in I_2$ tal que $f(p) = p$.
+\item $n = 2$: Como $I_1 \longrightarrow I_2 \longrightarrow I_1$, existe $p \in I_1$ tal que $f(p) \in I_2$ e $f^2(p) = p$. Se $f(p) = p$, então $p \in I_1 \cap I_2 = \{p_2\}$, o que é um absurdo pois $p_2$ possui período principal 3. Desse modo, o período principal de $p$ é $2$.
+\item $n > 3$: Se $I_2 \longrightarrow \cdots \longrightarrow I_2 \longrightarrow I_1 \longrightarrow I_2$ é um ciclo de tamanho $n$, existe $p \in I_2$ tal que $f^k(p) \in I_2$, para todo $k = 1, \dots, n-2$, $f^{n-1}(p) \in I_1$ e $f^n(p) = p$. Se $f^{n-1}(p) = p$, então $p \in I_1 \cap I_2 = \{p_2\}$, o que é um absurdo pois implica que $f(p) = p_3 \in I_1$. Se $f^k(p) = p$ para algum $k = 1, \dots, n-2$ implica que $f^k(p) \in I_2$, para todo $k \geq 1$. Em particular, $f^{n-1}(p) \in I_1 \cap I_2 = \{p_2\}$ e, portanto, $p = f^n(p) = p_3$, o que é um absurdo pois implica que $f(p) = p_1 \in I_2$. 
+\end{enumerate}
+Desse modo, o resultado está provado.
+\end{proof}
+
+Suponha que $f$ admita um ponto periódico $p$ de período principal $n > 1$. Sejam $p_1 < p_2 < \cdots < p_n$ os pontos da órbita de $p$. Definiremos $n-1$ intervalos fechados da forma $[p_i, p_{i+1}]$, para algum $i = 1, \dots, n-1$, e serão denotados por $I_1, I_2, \dots, I_{n-1}$.
+
+\begin{lemma}
+Existe $I_1 = [p_k, p_{k+1}]$, para algum $k = 1, \dots, n-1$, tal que $I_1 \longrightarrow I_1$.
+\end{lemma}
+
+\begin{proof}
+Defina $k = \textrm{max}\{i = 1, \dots, n : f(p_i) > p_i\}$. Como $f(p_{n}) < p_n$, temos que $k \leq n-1$. Desse modo, podemos definir o intervalo $I_1 = [p_k, p_{k+1}]$.
+
+Pela definição de $k$, $f(p_k) > p_k$ e $f(p_{k+1}) \leq p_{k+1}$, ou seja, $f(p_k) \geq p_{k+1}$ e $f(p_{k+1}) \leq p_k$. Portanto, $I_1 \longrightarrow I_1$.
+\end{proof}
+
+\begin{lemma}
+Existe um caminho entre $I_1$ e $[p_i, p_{i+1}]$, para todo $i = 1, \dots, n-1$.
+\end{lemma}
+
+\begin{proof}
+\end{proof}
+
+\begin{lemma}
+Se $n$ é ímpar, então existe $[p_i, p_{i+1}]  \neq I_1$  tal que $[p_i, p_{i+1}] \longrightarrow I_1$. Se $n$ é par, então $f$ admite um ponto de período $2$.
+\end{lemma}
+
+\begin{proof}
+Inicialmente, seja $n$ ímpar e suponha que não existe $[p_i, p_{i+1}] \neq I_1$  tal que $[p_i, p_{i+1}] \longrightarrow I_1$. Considere os conjuntos $\mathcal{O}_1 = \{p_1, \dots, p_k\}$ e $\mathcal{O}_2 = \{p_{k+1}, \dots, p_n\}$
+
+Se $f$ calculada em algum ponto de $\mathcal{O}_1$ permanece em $\mathcal{O}_1$, considere $p_j$ o maior deles, ou seja, $p_j = \textrm{max}\{p_i \in \mathcal{O}_1 : f(p_i) \in \mathcal{O}_1\}$. Por definição de $p_j$, temos $f(p_{j+1}) \geq p_{k+1}$. Além disso, $p_j < p_k$. Desse modo, $[p_j, p_{j+1}] \neq I_1$ e $[p_j, p_{j+1}] \longrightarrow I_1$. Absurdo.
+
+Logo, todo ponto de $\mathcal{O}_1$ é levado em $\mathcal{O}_2$ por $f$. Analogamente, mostra-se que todo ponto de $\mathcal{O}_2$ é levado em $\mathcal{O}_1$ por $f$. Assim, existe uma bijeção entre $\mathcal{O}_1$ e $\mathcal{O}_2$. Em particular, o tamanho dos dois conjuntos  são iguais. Absurdo, pois desse modo $n$ é par. Portanto, a afirmação está provada. 
+
+Para demonstrar a segunda parte.
+\end{proof}
+
+\begin{lemma}
+Se $n$ é ímpar e $f$ não admite ponto de período ímpar menor que $n$, existe um ciclo $I_1 \longrightarrow I_2 \longrightarrow \cdots \longrightarrow I_{n-1} \longrightarrow I_1$.
+\end{lemma}
+
+\begin{proof}
+\end{proof}
+
+\begin{definition}
+O Ordenação de Sharkovsky é definida por
+$$3 \triangleright 5 \triangleright 7 \triangleright \cdots
+\triangleright 2 \cdot 3 \triangleright 2 \cdot 5 \triangleright 2 \cdot 7 \triangleright \cdots
+\triangleright 2^2 \cdot 3 \triangleright 2^2 \cdot 5 \triangleright 2^2 \cdot 7 \triangleright \cdots
+\triangleright 2^2 \triangleright 2 \triangleright 1$$
+\end{definition}
+
+\begin{theorem}
+Se $f$ admite ponto de período $m$, então $f$ admite ponto de período $n$, para todo $m \triangleright n$.
+\end{theorem}
+
+\end{definition}
