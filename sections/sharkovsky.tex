@@ -1,4 +1,3 @@
-
 \section{Teorema de Sharkovsky}
 Ao longo dessa seção, $f: \RR \to \RR$ denotará uma função contínua.
 \begin{definition}
@@ -8,12 +7,15 @@ Sejam $J_1, J_2, \dots, J_n$ intervalos fechados.
 
 \item Dizemos $J_1, J_2, \dots, J_n$ é um \textit{ciclo de tamanho $n$ entre $J_1$ e $J_n$} se $f(J_i) \supset J_{i+1}$, para todo $i = 1, \dots, n-1$, e $f(J_n) \supset J_1$, e denotamos por $J_1 \longrightarrow J_2 \longrightarrow \cdots \longrightarrow J_n \longrightarrow J_1$.
 \end{enumerate}
+\end{definition}
 
 \begin{proposition}
 Se $J_1 \longrightarrow J_2$, então $f(J'_1) = J_2$ para algum intervalo fechado $J'_1 \subset J_1$.
 \end{proposition}
 \begin{proof}
+Se $J_1 = [a, b]$ e $J_2 = [c, d]$, pelo Teorema do Valor Intermediário, existem $p, q \in J_1$ tais que $f(p) = c$ e $f(q) = d$. Suponha que $p < q$. O caso em que $p > q$ é tratado de maneira análoga.
 
+Defina $J_1' = [a', b']$, onde $b' = \textrm{inf}\{x \in [p, q] : f(x) = d\}$ e $a' = \textrm{sup}\{x \in [p, b'] : f(x) = c\}$. Sendo $f$ contínua temos que $f(a') = c$ e $f(b') = d$. Desse modo, $f(J_1') \supset J_2$. Suponha que $f(x) \notin J_2$ para algum $x \in J_1'$, ou seja, $f(x) < c$ ou $f(x) > d$. Se $f(x) < c$, pelo Teorema do Valor Intermediário, existe $y \in [x, b']$ tal que $f(y) = c$, o que é um absurdo pois nesse caso $y > a'$, que é o sup do conjunto. Absurdo análogo ocorre supondo que $f(x) > d$. Desse modo, $f(J_1') = J_2$. 
 \end{proof}
 
 \begin{lemma}
@@ -21,7 +23,14 @@ Se $J_0 \longrightarrow J_1 \longrightarrow \cdots \longrightarrow J_{n-1} \long
 \end{lemma}
 
 \begin{proof}
+De acordo com as hipóteses e com a Proposição anterior, temos as seguinte implicações:
+$$ J_0 \longrightarrow J_1 \Rightarrow \textrm{ existe } J_0' \subset J_0 \textrm{ tal que } f(J_0') = J_1$$
+$$ J_1 \longrightarrow J_2 \Rightarrow \textrm{ existe } J_1' \subset J_0' \textrm{ tal que } f^2(J_1') = J_2$$
+$$\vdots$$
+$$ J_{n-2} \longrightarrow J_{n-1} \Rightarrow \textrm{ existe } J_{n-2}' \subset J_{n-3}' \textrm{ tal que } f^{n-1}(J_{n-2}') = J_{n-1} $$
+$$ J_{n-1} \longrightarrow J_0 \Rightarrow \textrm{ existe } J_{n-1}' \subset J_{n-2}' \textrm{ tal que } f^n(J_{n-1}') = J_0$$
 
+Construímos então uma sequência de $n$ intervalos fechados $J_0 \supset J_0' \supset J_1' \supset \cdots \supset J_{n-1}'$ tal que $f^k(J_{k-1}') = J_k$, para todo $k = 1, \dots, n-1$, e $f^n(J_{n-1}') = J_0$. Como $J_0 \supset J_{n-1}'$, existe $p \in J_{n-1}'$ tal que $f^n(p) = p$. Em particular, $p \in J_0$ e $f^k(p) \in J_k$, para todo $k = 1, \dots, n-1$. 
 \end{proof}
 
 \begin{theorem}
@@ -30,7 +39,7 @@ Se $f$ admite ponto periódico de período principal $3$, então $f$ admite pont
 
 \begin{proof}
 Sejam $p$ um ponto periódico de período principal $3$ e $p_1 < p_2 < p_3$ os pontos da órbita de $p$ e suponha que $f(p_1) = p_2$ e $f(p_2) = p _3$. O outro caso possível, em que $f(p_1) = p_3$ e $f(p_3) = p_2$, é demonstrado de maneira análoga. Definindo $I_1 = [p_1, p_2]$ e $I_2 = [p_2, p_3]$, temos que $I_1 \longrightarrow I_2$, $I_2 \longrightarrow I_1$ e $I_2 \longrightarrow I_2$.
-\begin{enumerate}
+\begin{enumerate}[label=(\alph*)]
 \item $n = 1$: Como $I_2 \longrightarrow I_2$, existe $p \in I_2$ tal que $f(p) = p$.
 \item $n = 2$: Como $I_1 \longrightarrow I_2 \longrightarrow I_1$, existe $p \in I_1$ tal que $f(p) \in I_2$ e $f^2(p) = p$. Se $f(p) = p$, então $p \in I_1 \cap I_2 = \{p_2\}$, o que é um absurdo pois $p_2$ possui período principal 3. Desse modo, o período principal de $p$ é $2$.
 \item $n > 3$: Se $I_2 \longrightarrow \cdots \longrightarrow I_2 \longrightarrow I_1 \longrightarrow I_2$ é um ciclo de tamanho $n$, existe $p \in I_2$ tal que $f^k(p) \in I_2$, para todo $k = 1, \dots, n-2$, $f^{n-1}(p) \in I_1$ e $f^n(p) = p$. Se $f^{n-1}(p) = p$, então $p \in I_1 \cap I_2 = \{p_2\}$, o que é um absurdo pois implica que $f(p) = p_3 \in I_1$. Se $f^k(p) = p$ para algum $k = 1, \dots, n-2$ implica que $f^k(p) \in I_2$, para todo $k \geq 1$. Em particular, $f^{n-1}(p) \in I_1 \cap I_2 = \{p_2\}$ e, portanto, $p = f^n(p) = p_3$, o que é um absurdo pois implica que $f(p) = p_1 \in I_2$. 
@@ -58,24 +67,33 @@ Existe um caminho entre $I_1$ e $[p_i, p_{i+1}]$, para todo $i = 1, \dots, n-1$.
 \end{proof}
 
 \begin{lemma}
-Se $n$ é ímpar, então existe $[p_i, p_{i+1}]  \neq I_1$  tal que $[p_i, p_{i+1}] \longrightarrow I_1$. Se $n$ é par, então $f$ admite um ponto de período $2$.
+Se não existe $[p_i, p_{i+1}]  \neq I_1$  tal que $[p_i, p_{i+1}] \longrightarrow I_1$, então $n$ é par e $f$ admite um ponto de período $2$.
 \end{lemma}
 
 \begin{proof}
-Inicialmente, seja $n$ ímpar e suponha que não existe $[p_i, p_{i+1}] \neq I_1$  tal que $[p_i, p_{i+1}] \longrightarrow I_1$. Considere os conjuntos $\mathcal{O}_1 = \{p_1, \dots, p_k\}$ e $\mathcal{O}_2 = \{p_{k+1}, \dots, p_n\}$
+Inicialmente, considere os conjuntos $\mathcal{O}_1 = \{p_1, \dots, p_k\}$ e $\mathcal{O}_2 = \{p_{k+1}, \dots, p_n\}$. Se $f$ calculada em algum ponto de $\mathcal{O}_1$ permanece em $\mathcal{O}_1$, considere $p_j$ o maior deles, ou seja, $p_j = \textrm{max}\{p_i \in \mathcal{O}_1 : f(p_i) \in \mathcal{O}_1\}$. Por definição de $p_j$, temos $f(p_{j+1}) \geq p_{k+1}$. Além disso, $p_j < p_k$. Desse modo, $[p_j, p_{j+1}] \neq I_1$ e $[p_j, p_{j+1}] \longrightarrow I_1$. Absurdo.
 
-Se $f$ calculada em algum ponto de $\mathcal{O}_1$ permanece em $\mathcal{O}_1$, considere $p_j$ o maior deles, ou seja, $p_j = \textrm{max}\{p_i \in \mathcal{O}_1 : f(p_i) \in \mathcal{O}_1\}$. Por definição de $p_j$, temos $f(p_{j+1}) \geq p_{k+1}$. Além disso, $p_j < p_k$. Desse modo, $[p_j, p_{j+1}] \neq I_1$ e $[p_j, p_{j+1}] \longrightarrow I_1$. Absurdo.
+Logo, todo ponto de $\mathcal{O}_1$ é levado em $\mathcal{O}_2$ por $f$. Analogamente, mostra-se que todo ponto de $\mathcal{O}_2$ é levado em $\mathcal{O}_1$ por $f$. Assim, existe uma bijeção entre $\mathcal{O}_1$ e $\mathcal{O}_2$. Em particular, o tamanho dos dois conjuntos  são iguais. Absurdo, pois desse modo $n$ é par.
 
-Logo, todo ponto de $\mathcal{O}_1$ é levado em $\mathcal{O}_2$ por $f$. Analogamente, mostra-se que todo ponto de $\mathcal{O}_2$ é levado em $\mathcal{O}_1$ por $f$. Assim, existe uma bijeção entre $\mathcal{O}_1$ e $\mathcal{O}_2$. Em particular, o tamanho dos dois conjuntos  são iguais. Absurdo, pois desse modo $n$ é par. Portanto, a afirmação está provada. 
-
-Para demonstrar a segunda parte.
+Como $[p_1, p_k] \longrightarrow [p_{k+1}, p_n]$ e $[p_{k+1}, p_n] \longrightarrow [p_1, p_k]$, existe $p \in [p_1, p_k]$ tal que $f^2(p) = p$. Como os intervalos são disjuntos, segue que o período principal de $p$ é 2.
 \end{proof}
 
 \begin{lemma}
-Se $n$ é ímpar e $f$ não admite ponto de período ímpar menor que $n$, existe um ciclo $I_1 \longrightarrow I_2 \longrightarrow \cdots \longrightarrow I_{n-1} \longrightarrow I_1$.
+Se $n > 1$ é ímpar e $f$ não admite ponto de período ímpar menor que $n$, então existe um ciclo $I_1 \longrightarrow I_2 \longrightarrow \cdots \longrightarrow I_{n-1} \longrightarrow I_1$ tal que
+\begin{enumerate}[label=(\alph*)]
+\item se $I_i \longrightarrow I_{i+j}$ então $j = 1$
+\item $I_{n-1} \longrightarrow I_j$, para todo $j < n-1$ ímpar
+\end{enumerate} 
 \end{lemma}
 
 \begin{proof}
+Inicialmente, vamos provar a existência do ciclo de tamanho $n-1$. De acordo com os dois Lemas anteriores, existe um intervalo da forma $[p_i, p_{i+1}]$ diferente de $I_1$ tal que $[p_i, p_{i+1}] \longrightarrow I_1$(se não esse intervalo não existe, então $n$ é par pelo Lema anterior) e existe um caminho entre $I_1$ e $[p_i, p_{i+1}]$. Observe que o tamanho desse ciclo pode ser arbitrariamente grande pois $I_1 \longrightarrow I_1$. Considere o menor ciclo dessa forma e denote por $I_1 \longrightarrow I_2 \longrightarrow \cdots \longrightarrow I_k \longrightarrow I_1$.
+
+Suponha que $k < n-1$. Então $I_1 \longrightarrow I_2 \longrightarrow \cdots \longrightarrow I_k \longrightarrow I_1$ ou $I_1 \longrightarrow I_2 \longrightarrow \cdots \longrightarrow I_k \longrightarrow I_1 \longrightarrow I_1$ é um ciclo de tamanho ímpar $m$ menor que $n$. Desse modo, $f^m(p) = p$ para algum $p \in I_1$, o que é um absurdo pois $f$ não admite ponto periódico de período ímpar menor que $n$.
+
+Pela minimalidade do ciclo, a propriedade (a) é verdadeira. Para provar a propriedade (b), seja $I_1 = [p_k, p_{k+1}]$. Pela definição de $I_1$, temos que $f(p_k) \geq f(p_{k+1})$ e $f(p_{k+1}) \leq p_k$. Como o período de $p$ é maior que 2, então $f(p_k) > f(p_{k+1})$ ou $f(p_{k+1}) < p_k$. Suponha que  $f(p_k) > f(p_{k+1})$. O outro caso é demonstrado de maneira análoga.
+
+Pela propriedade (a), sabemos que $I_1$ cobre somente ele mesmo e $I_2$. Desse modo, $f(p_k) = p_{k+2}$ e $f(p_{k+1}) = p_k$, e portanto $I_2 = [p_{k+1}, p_{k+2}]$. Como $I_2$ cobre somente $I_3$ e já sabendo que $f(p_{k+1}) = p_k$ temos que $f(p_{k+2}) = p_{k-1}$ e portanto $I_3 = [p_{k-1}, p_k]$. Prosseguindo desse modo, observamos que os intervalos estão distribuídos de maneira simétrica em relação à $I_1$. Em particular, $I_{n-1} = [p_{n-1}, p_n]$ com $f(p_{n-1}) = p_1$ e $f(p_n) = p_{k+1}$. Desse modo, $f(I_{n-1}) \supset [p_1, p_{k+1}]$ e a afirmação está provada.
 \end{proof}
 
 \begin{definition}
@@ -83,11 +101,68 @@ O Ordenação de Sharkovsky é definida por
 $$3 \triangleright 5 \triangleright 7 \triangleright \cdots
 \triangleright 2 \cdot 3 \triangleright 2 \cdot 5 \triangleright 2 \cdot 7 \triangleright \cdots
 \triangleright 2^2 \cdot 3 \triangleright 2^2 \cdot 5 \triangleright 2^2 \cdot 7 \triangleright \cdots
+\triangleright 2^n \cdot 3 \triangleright 2^n \cdot 5 \triangleright 2^n \cdot 7 \triangleright \cdots
 \triangleright 2^2 \triangleright 2 \triangleright 1$$
+ou seja, é formada inicialmente pelos ímpares maiores que 1 em ordem crescente; depois pelos ímpares maiores que 1, multiplicados por 2, em ordem crescente; depois pelos ímpares maiores que 1, multiplicados por $2^2$, em ordem crescente; e assim sucessivamente. Por fim, a ordem é formada por todas as potências de 2 em ordem decrescente.
 \end{definition}
 
 \begin{theorem}
-Se $f$ admite ponto de período $m$, então $f$ admite ponto de período $n$, para todo $m \triangleright n$.
+Se $f$ admite ponto de período principal $n$, então $f$ admite ponto de período principal $m$, para todo $m \triangleleft n$.
 \end{theorem}
 
-\end{definition}
+\begin{proof}
+Vamos provar em casos separados:
+\begin{enumerate}[label = (\alph*)]
+\item $n$ ímpar e menor possível
+
+Pelo Lema anterior,  podemos construir o ciclo $I_1 \longrightarrow I_2 \longrightarrow \cdots \longrightarrow I_{n-1} \longrightarrow I_1 \longrightarrow \cdots \longrightarrow I_1$ de tamanho $m$, para todo $m > n$. Desse modo, existe $p \in I_1$ tal que $f^m(p) = p$.
+
+\item $n$ par
+\end{enumerate}
+\end{proof}
+
+\begin{theorem}
+Para todo $n$ existe uma função $f$ que admite ponto periódico de período principal $n$ e que não admite ponto de período principal $m$ se $m \triangleright n$.
+\end{theorem}
+
+\begin{proof}
+Seja $T: [0,1] \to [0,1]$ a função dada por
+\[
+T(x) = 
+  \begin{cases}
+      2x, & x \in \left[0, \frac{1}{2}\right] \\
+      2 - 2x, & x \in \left[\frac{1}{2}, 1\right] 
+  \end{cases}
+\]
+Considere a família de funções $T_h(x) = \textrm{min}\{h, T(x)\}$ definidas em $[0,1]$, com $h$ variando em $[0,1]$. Observe que $T_1 = T$, pois $T(x) \leq 1$ para todo $x \in [0,1]$. Além disso, observando o gráfico de $T_1$ concluímos que ela possui $2^n$ pontos periódicos de período $n$ e assim podemos definir, para cada $n \geq 1$, $h(n) = \textrm{min} \{ \textrm{max} \{ \mathcal{O} : \mathcal{O} \textrm{ é uma órbita de tamanho } n \textrm{ de } T_1\} \}$. 
+
+\begin{enumerate}[label = (\alph*)]
+\item Se $\mathcal{O} \subset [0, h)$ é uma órbita de $T_h$, então $\mathcal{O}$ é uma órbita de $T_1$
+
+Se $p \in \mathcal{O}$ então $T_h(p) \in [0, h)$. Desse modo, $T_h(p) = \textrm{min}\{h, T(p)\} = T(p) = T_1(p)$, ou seja, $T_h$ e $T_1$ coincidem em $\mathcal{O}$ e, portanto, $\mathcal{O}$ é uma órbita de $T_1$.
+
+\item Se $\mathcal{O} \subset [0, h]$ é uma órbita de $T_1$, então $\mathcal{O}$ é uma órbita de $T_h$.
+
+Se $p \in \mathcal{O}$ então $T_1(p) \in [0, h]$. Desse modo, $T_h(p) = \textrm{min}\{h, T(p)\} = \textrm{min}\{h, T_1(p)\} = T_1(p)$, ou seja, $T_h$ e $T_1$ coincidem em $\mathcal{O}$ e, portanto, $\mathcal{O}$ é uma órbita de $T_h$.
+
+\item $T_{h(n)}$ possui uma órbita $\mathcal{O} \in [0, h(n))$ de tamanho $m$ se e somente se $h(n) > h(m)$.
+
+Se $T_{h(n)}$ possui uma órbita $\mathcal{O} \in [0, h(n))$ de tamanho $m$, então $\mathcal{O}$ é uma órbita de $T_1$ por (a) e, pela definição de $h(m)$, concluímos que $h(m) < h(n)$.
+
+Por outro lado, se $h(m) < h(n)$, então $T_1$ possui uma órbita $\mathcal{O} \subset [0, h(m)] \subset [0, h(n)]$ de tamanho $m$ e, desse modo, $\mathcal{O}$ é uma órbita de $T_{h(n)}$ por (b).
+
+\item A órbita de $T_1$ que contém $h(n)$ é uma órbita de tamanho $n$ de $T_{h(n)}$. Além disso, todas as outras órbitas de $T_{h(n)}$ estão em $[0, h(n))$. 
+
+Pela definição de $h(n)$, $T_1$ possui uma órbita $\mathcal{O} \subset [0, h(n)]$ de tamanho $n$ e, portanto, $\mathcal{O}$ é uma órbita de $T_{h(n)}$ por (b).
+
+Para demonstrar a segunda parte, basta observar que $h(n)$ é o valor máximo de $T_{h(n)}$ e, desse modo, toda órbita de $T_{h(n)}$ está contida em $[0, h(n)]$. Em particular, se a órbita não contém $h(n)$, então ela está contida em $[0, h(n))$.
+
+\item $n \triangleright m$ se o somente se $h(n) > h(m)$.
+
+Suponha que $n \triangleright m$. Por (d), $T_{h(n)}$ possui uma órbita de tamanho $n$. De acordo com o Teorema de Sharkovsky e com (d), $T_{h(n)}$ admite uma órbita de tamanho $m$ contida em $[0, h(n))$. Desse modo,  $h(n) > h(m)$ por (c).
+
+Por outro lado, suponha que $h(n) > h(m)$. Caso $m \triangleright n$, a demonstração no parágrafo anterior implicaria que $h(n) < h(m)$, contrariando a hipótese. Desse modo, $n \triangleright m$.
+\end{enumerate}
+
+Assim, para cada $n \geq 1$, $T_{h(n)}$ possui órbita de tamanho $n$. Além disso, se $m \triangleright n$, então $h(m) > h(n)$ por (e) e, portanto, $T_{h(n)}$ não possui órbita de tamanho $m$ por (c).
+\end{proof}
