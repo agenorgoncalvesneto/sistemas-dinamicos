@@ -5,3 +5,5 @@
 *.gz
 *.tex.bak
 *.bak
+*.bbl
+*.blg
