@@ -47,53 +47,69 @@ Sejam $p$ um ponto periódico de período principal $3$ e $p_1 < p_2 < p_3$ os p
 Desse modo, o resultado está provado.
 \end{proof}
 
-Suponha que $f$ admita um ponto periódico $p$ de período principal $n > 1$. Sejam $p_1 < p_2 < \cdots < p_n$ os pontos da órbita de $p$. Definiremos $n-1$ intervalos fechados da forma $[p_i, p_{i+1}]$, para algum $i = 1, \dots, n-1$, e serão denotados por $I_1, I_2, \dots, I_{n-1}$.
+Para demonstrar os seguintes Lemas, supomos que $f$ admite um ponto periódico $p$ de período principal $n > 1$. Seja $\mathcal{O}(p) = \{p_1 < p_2 < \cdots < p_n\}$ a órbita de $p$. Vamos definir $n-1$ intervalos fechados da forma $[p_i, p_{i+1}]$, que serão denotados por $I_1, I_2, \dots, I_{n-1}$, com propriedades que permitam demonstrar o Teorema de Shakovsky.
 
 \begin{lemma}
-Existe $I_1 = [p_k, p_{k+1}]$, para algum $k = 1, \dots, n-1$, tal que $I_1 \longrightarrow I_1$.
+Existe $k = 1, \dots, n-1$ tal que $[p_k, p_{k+1}] \longrightarrow [p_k, p_{k+1}]$.
 \end{lemma}
 
 \begin{proof}
-Defina $k = \textrm{max}\{i = 1, \dots, n : f(p_i) > p_i\}$. Como $f(p_{n}) < p_n$, temos que $k \leq n-1$. Desse modo, podemos definir o intervalo $I_1 = [p_k, p_{k+1}]$.
-
-Pela definição de $k$, $f(p_k) > p_k$ e $f(p_{k+1}) \leq p_{k+1}$, ou seja, $f(p_k) \geq p_{k+1}$ e $f(p_{k+1}) \leq p_k$. Portanto, $I_1 \longrightarrow I_1$.
+Seja $p_k = \textrm{max}\{p_i \in \mathcal{O}(p) : f(p_i) > p_i\}$. Observe que $p_k < p_n$. Pela definição de $p_k$ e por $f(p_{k+1}) \neq p_{k+1}$, temos que $f(p_k) > p_k$ e $f(p_{k+1}) < p_{k+1}$. Portanto, $[p_k, p_{k+1}] \longrightarrow [p_k, p_{k+1}]$.
 \end{proof}
+
+O intervalo encontrado no Lema anterior será denotado por $I_1$. Portanto, $I_1 \longrightarrow I_1$.
 
 \begin{lemma}
 Existe um caminho entre $I_1$ e $[p_i, p_{i+1}]$, para todo $i = 1, \dots, n-1$.
 \end{lemma}
 
 \begin{proof}
+Para cada $n \geq 1$, defina $\UU_n$ como a união dos intervalos da forma $[p_i, p_{i+1}]$ tal que existe um caminho de tamanho $n$ entre $I_1$ e $[p_i, p_{i+1}]$.
+
+Se $[p_i, p_{i+1}]$ é um intervalo de $\UU_n$, então existe um caminho de tamanho $n$ entre $I_1$ e $[p_i, p_{i+1}]$. Adicionando $I_1 \longrightarrow I_1$ ao início do caminho formamos um caminho de tamanho $n+1$ entre  $I_1$ e $[p_i, p_{i+1}]$. Portanto, $[p_i, p_{i+1}]$ é um intervalo de $\UU_{n+1}$ e, desse modo, $\UU_n \subset \UU_{n+1}$. Observe que se $\UU_n \neq \UU_{n+1}$, existe um intervalo  $[p_i, p_{i+1}]$ de $\UU_n$ tal que $f([p_i, p_{i+1}] \cap \OO(p)) \nsubseteq \UU_n$ .
+
+Como $\OO(p)$ é finita e $\UU_1 \subset \UU_2 \subset \cdots$, existe $k \geq 1$ tal que $\UU_k = \UU_{k+1}$. De acordo com a observação anterior, $f([p_i, p_{i+1}] \cap \OO(p)) \subset \UU_k$ para todo intervalo $[p_i, p_{i+1}]$ de $\UU_k$, ou seja, $f(\UU_k \cap \OO(p)) \subset \UU_k$. Desse modo, $f(\UU_k \cap \OO(p)) = \UU_k \cap \OO(p)$. Como o único subconjunto de $\OO(p)$ estável por $f$ é ele próprio, segue que $\UU_k \cap \OO(p) = \OO(p)$. Assim, $\UU_k = [p_1, p_n]$ e o resultado está provado.
 \end{proof}
 
 \begin{lemma}
-Se não existe $[p_i, p_{i+1}]  \neq I_1$  tal que $[p_i, p_{i+1}] \longrightarrow I_1$, então $n$ é par e $f$ admite um ponto de período $2$.
+Se não existe $[p_i, p_{i+1}]  \neq I_1$  tal que $[p_i, p_{i+1}] \longrightarrow I_1$, então
+\begin{enumerate}
+\item $f$ é uma bijeção entre os pontos de $\OO(p)$ à esquerda e à direita de $I_1$
+\item $n$ é par
+\item $f$ admite um ponto de período $2$
+\end{enumerate}
 \end{lemma}
 
 \begin{proof}
-Inicialmente, considere os conjuntos $\mathcal{O}_1 = \{p_1, \dots, p_k\}$ e $\mathcal{O}_2 = \{p_{k+1}, \dots, p_n\}$. Se $f$ calculada em algum ponto de $\mathcal{O}_1$ permanece em $\mathcal{O}_1$, considere $p_j$ o maior deles, ou seja, $p_j = \textrm{max}\{p_i \in \mathcal{O}_1 : f(p_i) \in \mathcal{O}_1\}$. Por definição de $p_j$, temos $f(p_{j+1}) \geq p_{k+1}$. Além disso, $p_j < p_k$. Desse modo, $[p_j, p_{j+1}] \neq I_1$ e $[p_j, p_{j+1}] \longrightarrow I_1$. Absurdo.
+Seja $I_1 = [p_k,  p_{k+1}]$ e considere os conjuntos $\mathcal{O}_1 = \{p_1, \dots, p_k\}$ e $\mathcal{O}_2 = \{p_{k+1}, \dots, p_n\}$. 
+\begin{enumerate}
+\item Se $f$ calculada em algum ponto de $\mathcal{O}_1$ permanece em $\mathcal{O}_1$, considere $p_j = \textrm{max}\{p_i \in \mathcal{O}_1 : f(p_i) \in \mathcal{O}_1\}$. Por definição de $p_j$, temos $f(p_j) \leq p_k$ e $f(p_{j+1}) \geq p_{k+1}$. Além disso, $p_j < p_k$. Desse modo, $[p_j, p_{j+1}] \neq I_1$ e $[p_j, p_{j+1}] \longrightarrow I_1$, o que é um absurdo.
 
-Logo, todo ponto de $\mathcal{O}_1$ é levado em $\mathcal{O}_2$ por $f$. Analogamente, mostra-se que todo ponto de $\mathcal{O}_2$ é levado em $\mathcal{O}_1$ por $f$. Assim, existe uma bijeção entre $\mathcal{O}_1$ e $\mathcal{O}_2$. Em particular, o tamanho dos dois conjuntos  são iguais. Absurdo, pois desse modo $n$ é par.
+Logo, todo ponto de $\mathcal{O}_1$ é levado em $\mathcal{O}_2$ por $f$. Analogamente, mostra-se que todo ponto de $\mathcal{O}_2$ é levado em $\mathcal{O}_1$ por $f$. Assim, existe uma bijeção entre $\mathcal{O}_1$ e $\mathcal{O}_2$.
 
-Como $[p_1, p_k] \longrightarrow [p_{k+1}, p_n]$ e $[p_{k+1}, p_n] \longrightarrow [p_1, p_k]$, existe $p \in [p_1, p_k]$ tal que $f^2(p) = p$. Como os intervalos são disjuntos, segue que o período principal de $p$ é 2.
+\item Em particular, o tamanho de $\OO_1$ e $\OO_2$ são iguais. Desse modo, $n$ é par.
+
+\item Como $[p_1, p_k] \longrightarrow [p_{k+1}, p_n]$ e $[p_{k+1}, p_n] \longrightarrow [p_1, p_k]$, existe $p \in [p_1, p_k]$ tal que $f^2(p) = p$. Como os intervalos são disjuntos, segue que o período principal de $p$ é 2.
+\end{enumerate}
+Desse modo, as afirmações estão provadas.
 \end{proof}
 
 \begin{lemma}
 Se $n > 1$ é ímpar e $f$ não admite ponto de período ímpar menor que $n$, então existe um ciclo $I_1 \longrightarrow I_2 \longrightarrow \cdots \longrightarrow I_{n-1} \longrightarrow I_1$ tal que
-\begin{enumerate}[label=(\alph*)]
+\begin{enumerate}
 \item se $I_i \longrightarrow I_{i+j}$ então $j = 1$
 \item $I_{n-1} \longrightarrow I_j$, para todo $j < n-1$ ímpar
 \end{enumerate} 
 \end{lemma}
 
 \begin{proof}
-Inicialmente, vamos provar a existência do ciclo de tamanho $n-1$. De acordo com os dois Lemas anteriores, existe um intervalo da forma $[p_i, p_{i+1}]$ diferente de $I_1$ tal que $[p_i, p_{i+1}] \longrightarrow I_1$(se não esse intervalo não existe, então $n$ é par pelo Lema anterior) e existe um caminho entre $I_1$ e $[p_i, p_{i+1}]$. Observe que o tamanho desse ciclo pode ser arbitrariamente grande pois $I_1 \longrightarrow I_1$. Considere o menor ciclo dessa forma e denote por $I_1 \longrightarrow I_2 \longrightarrow \cdots \longrightarrow I_k \longrightarrow I_1$.
+Inicialmente, vamos provar a existência do ciclo de tamanho $n-1$. De acordo com os dois Lemas anteriores, existe um intervalo da forma $[p_i, p_{i+1}]$ diferente de $I_1$ tal que $[p_i, p_{i+1}] \longrightarrow I_1$(se esse intervalo não existe, então $n$ é par) e existe um caminho entre $I_1$ e $[p_i, p_{i+1}]$. Portanto, existe um ciclo começando em $I_1$ diferente de $I_1 \longrightarrow I_1$. Observe que o tamanho desse ciclo pode ser arbitrariamente grande já que $I_1 \longrightarrow I_1$. Suponha que o menor ciclo dessa forma possui tamanho $k$ e o denote por $I_1 \longrightarrow I_2 \longrightarrow \cdots \longrightarrow I_k \longrightarrow I_1$.
 
 Suponha que $k < n-1$. Então $I_1 \longrightarrow I_2 \longrightarrow \cdots \longrightarrow I_k \longrightarrow I_1$ ou $I_1 \longrightarrow I_2 \longrightarrow \cdots \longrightarrow I_k \longrightarrow I_1 \longrightarrow I_1$ é um ciclo de tamanho ímpar $m$ menor que $n$. Desse modo, $f^m(p) = p$ para algum $p \in I_1$, o que é um absurdo pois $f$ não admite ponto periódico de período ímpar menor que $n$.
 
-Pela minimalidade do ciclo, a propriedade (a) é verdadeira. Para provar a propriedade (b), seja $I_1 = [p_k, p_{k+1}]$. Pela definição de $I_1$, temos que $f(p_k) \geq f(p_{k+1})$ e $f(p_{k+1}) \leq p_k$. Como o período de $p$ é maior que 2, então $f(p_k) > f(p_{k+1})$ ou $f(p_{k+1}) < p_k$. Suponha que  $f(p_k) > f(p_{k+1})$. O outro caso é demonstrado de maneira análoga.
+Pela minimalidade do ciclo, a propriedade 1. é verdadeira. Para provar a propriedade 2., seja $I_1 = [p_k, p_{k+1}]$. Pela definição de $I_1$, temos que $f(p_k) \geq p_{k+1}$ e $f(p_{k+1}) \leq p_k$. Como o período de $p$ é maior que 2, então $f(p_k) > f(p_{k+1})$ ou $f(p_{k+1}) < p_k$. Suponha que  $f(p_k) > f(p_{k+1})$. O outro caso é demonstrado de maneira análoga.
 
-Pela propriedade (a), sabemos que $I_1$ cobre somente ele mesmo e $I_2$. Desse modo, $f(p_k) = p_{k+2}$ e $f(p_{k+1}) = p_k$, e portanto $I_2 = [p_{k+1}, p_{k+2}]$. Como $I_2$ cobre somente $I_3$ e já sabendo que $f(p_{k+1}) = p_k$ temos que $f(p_{k+2}) = p_{k-1}$ e portanto $I_3 = [p_{k-1}, p_k]$. Prosseguindo desse modo, observamos que os intervalos estão distribuídos de maneira simétrica em relação à $I_1$. Em particular, $I_{n-1} = [p_{n-1}, p_n]$ com $f(p_{n-1}) = p_1$ e $f(p_n) = p_{k+1}$. Desse modo, $f(I_{n-1}) \supset [p_1, p_{k+1}]$ e a afirmação está provada.
+Pela propriedade 1., sabemos que $I_1$ cobre somente ele mesmo e $I_2$. Desse modo, $f(p_k) = p_{k+2}$ e $f(p_{k+1}) = p_k$, e portanto $I_2 = [p_{k+1}, p_{k+2}]$. Como $I_2$ cobre somente $I_3$, e já sabendo que $f(p_{k+1}) = p_k$, temos que $f(p_{k+2}) = p_{k-1}$ e portanto $I_3 = [p_{k-1}, p_k]$. Prosseguindo desse modo, observamos que os intervalos estão distribuídos de maneira simétrica em relação à $I_1$. Em particular, $I_{n-1} = [p_{n-1}, p_n]$ com $f(p_{n-1}) = p_1$ e $f(p_n) = p_{k+1}$. Desse modo, $f(I_{n-1}) \supset [p_1, p_{k+1}]$ e a afirmação está provada.
 \end{proof}
 
 \begin{definition}
@@ -126,15 +142,9 @@ Para todo $n$ existe uma função $f$ que admite ponto periódico de período pr
 \end{theorem}
 
 \begin{proof}
-Seja $T: [0,1] \to [0,1]$ a função dada por
-\[
-T(x) = 
-  \begin{cases}
-      2x, & x \in \left[0, \frac{1}{2}\right] \\
-      2 - 2x, & x \in \left[\frac{1}{2}, 1\right] 
-  \end{cases}
-\]
-Considere a família de funções $T_h(x) = \textrm{min}\{h, T(x)\}$ definidas em $[0,1]$, com $h$ variando em $[0,1]$. Observe que $T_1 = T$, pois $T(x) \leq 1$ para todo $x \in [0,1]$. Além disso, observando o gráfico de $T_1$ concluímos que ela possui $2^n$ pontos periódicos de período $n$ e assim podemos definir, para cada $n \geq 1$, $h(n) = \textrm{min} \{ \textrm{max} \{ \mathcal{O} : \mathcal{O} \textrm{ é uma órbita de tamanho } n \textrm{ de } T_1\} \}$. 
+Seja $T: [0,1] \to [0,1]$ a função dada por $T(x) = 1 - |2x - 1|$ e considere a família de funções $T_h(x) = \textrm{min}\{h, T(x)\}$ definidas em $[0,1]$, com o parâmetro $h$ variando em $[0,1]$. Observe que $T_1 = T$, pois $T(x) \leq 1$ para todo $x \in [0,1]$. Além disso, observando o gráfico de $T_1$ concluímos que a função possui $2^n$ pontos periódicos de período $n$ e assim podemos definir, para cada $n \geq 1$, $$h(n) = \textrm{min} \{ \textrm{max} \{ \mathcal{O} : \mathcal{O} \textrm{ é uma órbita de tamanho } n \textrm{ de } T_1\} \}$$
+
+A ideia principal da prova consiste no fato de que $h(n)$ desempenha os papéis de parâmetro, máximo e ponto de uma órbita de $T_{h(n)}$. As seguintes afirmações tornarão preciso esse fato.
 
 \begin{enumerate}[label = (\alph*)]
 \item Se $\mathcal{O} \subset [0, h)$ é uma órbita de $T_h$, então $\mathcal{O}$ é uma órbita de $T_1$
