@@ -127,24 +127,43 @@ Se $f$ admite ponto de período principal $n$, então $f$ admite ponto de perío
 \end{theorem}
 
 \begin{proof}
-Vamos provar em casos separados:
+Suponha que $f$ admite ponto de período principal $n$. Vamos provar o teorema nos seguintes casos:
 \begin{enumerate}[label = (\alph*)]
-\item $n$ ímpar e menor possível
+\item se $n > 1$ ímpar e $f$ não admite ponto periódico de período ímpar menor que $n$
 
-Pelo Lema anterior,  podemos construir o ciclo $I_1 \longrightarrow I_2 \longrightarrow \cdots \longrightarrow I_{n-1} \longrightarrow I_1 \longrightarrow \cdots \longrightarrow I_1$ de tamanho $m$, para todo $m > n$. Desse modo, existe $p \in I_1$ tal que $f^m(p) = p$.
+Pelo Lema anterior,  podemos construir o ciclo $$I_1 \longrightarrow I_2 \longrightarrow \cdots \longrightarrow I_{n-1} \longrightarrow I_1 \longrightarrow \cdots \longrightarrow I_1$$ de tamanho $m$, para todo $m > n$. Desse modo, existe $p \in I_1$ tal que $f^k(p) \in I_{k+1}$ se $k = 1, \dots, n-2$, $f^k(p) \in I_1$ se $k = n-1, \dots, m-1$ e $f^m(p) = p$.
 
-\item $n$ par
+Se $f^k(p) = p$ para algum $k = 1, \dots, n-2$, então $p \in I_1 \cap I_{k+1}$ e, portanto, $p$ não existe ou possui período principal $n > k$, o que é um absurdo. Analogamente, $f^k(p) \neq p$ para $k = n-1, \dots, m-1$. Portanto, o período principal de $p$ é $m$.
+
+Ainda de acordo com o Lema anterior, podemos construir ciclos da forma
+$$I_{n-1} \longrightarrow I_{n-2} \longrightarrow I_{n-1}$$
+$$I_{n-1} \longrightarrow I_{n-4} \longrightarrow I_{n-3} \longrightarrow I_{n-2} \longrightarrow I_{n-1}$$
+$$\vdots$$
+que permitem mostrar a existência de ponto de período principal $m < n$, $m$ par.
+\item se $n = 2^m$, com $m \geq 1$
+
+Seja $k = 2^l$ com $l < m$ e considere $g = f^\frac{k}{2}$. Temos que $g$ admite um ponto de período principal $2^{m-l+1}$. Como $g$ admite um ponto de período principal par $\geq 2$, segue que $g$ admite ponto de período principal $2$. Portanto, $f$ admite um ponto de período principal $2^l$.
+
+\item se $n = p 2^m$, com $m \geq 1$ e $p$ ímpar
+
+Seja $g = f^{2^m}$. Vamos mostrar inicialmente que $f$ admite ponto de período principal $q2^m$, $q$ par. Temos que $g$ admite ponto de período principal $p$ ímpar. Pelo item (a), $g$ admite ponto de período principal $q$ par. Logo, $f$ admite ponto de período principal $q2^m$, $q$ par.
+
+Agora, vamos mostrar que $f$ admite ponto de período principal $q2^m$, $q > p$ ímpar. Pelo item (a), $g$ admite ponto de período principal $q > p$ ímpar. Desse modo, $f$ admite ponto de período principal $q2^{m-i}$ para algum $i = 0, \dots, m$. Se $i = 0$, está mostrado. Se $i > 0$, pelo parágrafo anterior, $f$ admite ponto de período principal  $2^i (q2^{m-i}) = q2^m$ e, portanto, a afirmação está provada.
+
+Por fim, vamos mostrar que $f$ admite ponto de período principal $2^l$, com $l < k$. Sabemos que $f$ admite ponto de período principal $q2^k$, $q$ par. Em particular, tomando $q = 2$, concluímos que $f$ admite ponto de período principal $2^l$, com $l < k$.
+
 \end{enumerate}
+Observando que as afirmações anteriores esgotam as possibilidades na ordenação de Sharkovsky, concluímos a demonstração do teorema.
 \end{proof}
 
 \begin{theorem}
-Para todo $n$ existe uma função $f$ que admite ponto periódico de período principal $n$ e que não admite ponto de período principal $m$ se $m \triangleright n$.
+Para todo $n \geq 1$ existe uma função $f$ que admite ponto periódico de período principal $n$ e que não admite ponto de período principal $m$ se $m \triangleright n$.
 \end{theorem}
 
 \begin{proof}
-Seja $T: [0,1] \to [0,1]$ a função dada por $T(x) = 1 - |2x - 1|$ e considere a família de funções $T_h(x) = \textrm{min}\{h, T(x)\}$ definidas em $[0,1]$, com o parâmetro $h$ variando em $[0,1]$. Observe que $T_1 = T$, pois $T(x) \leq 1$ para todo $x \in [0,1]$. Além disso, observando o gráfico de $T_1$ concluímos que a função possui $2^n$ pontos periódicos de período $n$ e assim podemos definir, para cada $n \geq 1$, $$h(n) = \textrm{min} \{ \textrm{max} \{ \mathcal{O} : \mathcal{O} \textrm{ é uma órbita de tamanho } n \textrm{ de } T_1\} \}$$
+Seja $T: [0,1] \to [0,1]$ a função dada por $T(x) = 1 - |2x - 1|$ e considere a família de funções $T_h(x) = \textrm{min}\{h, T(x)\}$ definidas em $[0,1]$, com o parâmetro $h$ variando em $[0,1]$. Observe que $T_1 = T$, pois $T(x) \leq 1$ para todo $x \in [0,1]$. Além disso, observando o gráfico de $T_1$ concluímos que a função possui $2^k$ pontos periódicos de período $k$ e assim podemos definir, para cada $k \geq 1$, $$h(k) = \textrm{min} \{ \textrm{max} \{ \mathcal{O} : \mathcal{O} \textrm{ é uma órbita de tamanho } n \textrm{ de } T_1\} \}$$
 
-A ideia principal da prova consiste no fato de que $h(n)$ desempenha os papéis de parâmetro, máximo e ponto de uma órbita de $T_{h(n)}$. As seguintes afirmações tornarão preciso esse fato.
+A ideia principal da prova consiste no fato de que $h(k)$ desempenha os papéis de parâmetro, máximo e ponto de uma órbita de $T_{h(k)}$. As seguintes afirmações tornarão preciso esse fato.
 
 \begin{enumerate}[label = (\alph*)]
 \item Se $\mathcal{O} \subset [0, h)$ é uma órbita de $T_h$, então $\mathcal{O}$ é uma órbita de $T_1$
@@ -155,24 +174,24 @@ Se $p \in \mathcal{O}$ então $T_h(p) \in [0, h)$. Desse modo, $T_h(p) = \textrm
 
 Se $p \in \mathcal{O}$ então $T_1(p) \in [0, h]$. Desse modo, $T_h(p) = \textrm{min}\{h, T(p)\} = \textrm{min}\{h, T_1(p)\} = T_1(p)$, ou seja, $T_h$ e $T_1$ coincidem em $\mathcal{O}$ e, portanto, $\mathcal{O}$ é uma órbita de $T_h$.
 
-\item $T_{h(n)}$ possui uma órbita $\mathcal{O} \in [0, h(n))$ de tamanho $m$ se e somente se $h(n) > h(m)$.
+\item $T_{h(k)}$ possui uma órbita $\mathcal{O} \in [0, h(k))$ de tamanho $l$ se e somente se $h(k) > h(l)$.
 
-Se $T_{h(n)}$ possui uma órbita $\mathcal{O} \in [0, h(n))$ de tamanho $m$, então $\mathcal{O}$ é uma órbita de $T_1$ por (a) e, pela definição de $h(m)$, concluímos que $h(m) < h(n)$.
+Se $T_{h(k)}$ possui uma órbita $\mathcal{O} \in [0, h(k))$ de tamanho $l$, então $\mathcal{O}$ é uma órbita de $T_1$ por (a) e, pela definição de $h(l)$, concluímos que $h(l) < h(k)$.
 
-Por outro lado, se $h(m) < h(n)$, então $T_1$ possui uma órbita $\mathcal{O} \subset [0, h(m)] \subset [0, h(n)]$ de tamanho $m$ e, desse modo, $\mathcal{O}$ é uma órbita de $T_{h(n)}$ por (b).
+Por outro lado, se $h(l) < h(k)$, então $T_1$ possui uma órbita $\mathcal{O} \subset [0, h(l)] \subset [0, h(k)]$ de tamanho $l$ e, desse modo, $\mathcal{O}$ é uma órbita de $T_{h(k)}$ por (b).
 
-\item A órbita de $T_1$ que contém $h(n)$ é uma órbita de tamanho $n$ de $T_{h(n)}$. Além disso, todas as outras órbitas de $T_{h(n)}$ estão em $[0, h(n))$. 
+\item A órbita de $T_1$ que contém $h(k)$ é uma órbita de tamanho $k$ de $T_{h(k)}$. Além disso, todas as outras órbitas de $T_{h(k)}$ estão em $[0, h(k))$. 
 
-Pela definição de $h(n)$, $T_1$ possui uma órbita $\mathcal{O} \subset [0, h(n)]$ de tamanho $n$ e, portanto, $\mathcal{O}$ é uma órbita de $T_{h(n)}$ por (b).
+Pela definição de $h(k)$, $T_1$ possui uma órbita $\mathcal{O} \subset [0, h(k)]$ de tamanho $k$ e, portanto, $\mathcal{O}$ é uma órbita de $T_{h(k)}$ por (b).
 
-Para demonstrar a segunda parte, basta observar que $h(n)$ é o valor máximo de $T_{h(n)}$ e, desse modo, toda órbita de $T_{h(n)}$ está contida em $[0, h(n)]$. Em particular, se a órbita não contém $h(n)$, então ela está contida em $[0, h(n))$.
+Para demonstrar a segunda parte, basta observar que $h(k)$ é o valor máximo de $T_{h(k)}$ e, desse modo, toda órbita de $T_{h(k)}$ está contida em $[0, h(k)]$. Em particular, se a órbita não contém $h(k)$, então ela está contida em $[0, h(k))$.
 
-\item $n \triangleright m$ se o somente se $h(n) > h(m)$.
+\item $k \triangleright l$ se o somente se $h(k) > h(l)$.
 
-Suponha que $n \triangleright m$. Por (d), $T_{h(n)}$ possui uma órbita de tamanho $n$. De acordo com o Teorema de Sharkovsky e com (d), $T_{h(n)}$ admite uma órbita de tamanho $m$ contida em $[0, h(n))$. Desse modo,  $h(n) > h(m)$ por (c).
+Suponha que $k \triangleright l$. Por (d), $T_{h(k)}$ possui uma órbita de tamanho $k$. De acordo com o Teorema de Sharkovsky e com (d), $T_{h(k)}$ admite uma órbita de tamanho $l$ contida em $[0, h(k))$. Desse modo,  $h(k) > h(l)$ por (c).
 
-Por outro lado, suponha que $h(n) > h(m)$. Caso $m \triangleright n$, a demonstração no parágrafo anterior implicaria que $h(n) < h(m)$, contrariando a hipótese. Desse modo, $n \triangleright m$.
+Por outro lado, suponha que $h(k) > h(l)$. Caso $l \triangleright k$, a demonstração no parágrafo anterior implicaria que $h(k) < h(l)$, contrariando a hipótese. Desse modo, $k \triangleright l$.
 \end{enumerate}
 
-Assim, para cada $n \geq 1$, $T_{h(n)}$ possui órbita de tamanho $n$. Além disso, se $m \triangleright n$, então $h(m) > h(n)$ por (e) e, portanto, $T_{h(n)}$ não possui órbita de tamanho $m$ por (c).
+Assim, para cada $n \geq 1$, $T_{h(n)}$ possui órbita de tamanho $n$. Além disso, se $m \triangleright n$ então $h(m) > h(n)$ por (e) e, portanto, $T_{h(n)}$ não possui órbita de tamanho $m$ por (c).
 \end{proof}
