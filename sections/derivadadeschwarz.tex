@@ -1,0 +1,54 @@
+\section{Derivada de Schwarz}
+
+\begin{definition}
+Se $f: [a,b] \subset \RR \to [a, b]$ é uma função de classe $\CC^3([a,b])$ dizemos que $f$ possui derivada de Schwarz negativa, e escrevemos $S_f < 0$, quando
+$$S_f(x) = \frac{f'''(x)}{f'(x)} - \frac{3}{2} \left( \frac{f''(x)}{f'(x)} \right)^2 < 0$$
+para todo $x \in [a,b]$ tal que $f'(x) \neq 0$.
+\end{definition}
+
+\begin{lemma}
+\label{lemma1}
+Se $S_f < 0$ e $x_0 \in (a,b)$ é mínimo local de $f'$, então $f'(x_0) \leq 0$.
+\end{lemma}
+
+\begin{proof}
+Como $x_0$ é ponto crítico de $f'$, temos que $f''(x_0) = 0$. Se $f'(x_0) \neq 0$, então
+$$S_f(x_0) = \frac{f'''(x_0)}{f'(x_0)} < 0$$
+
+Como $x_0$ é mínimo local, $f'''(x_0) \geq 0$ pelo teste da segunda derivada. Desse modo, $f'(x_0) < 0$. 
+\end{proof}
+
+\begin{lemma}
+Se $S_f < 0$ e $a,b,c$ são pontos fixos de $f$, com $a<b<c$, então $f$ possui um ponto crítico em $(a,c)$ se $f'(b) \leq 1$.
+\end{lemma}
+
+\begin{proof}
+Pelo Teorema do Valor Médio, existem $r \in (a,b)$ e $s \in (b,c)$  tais que $f'(r) = f'(s) = 1$. Observe que $f'$ admite um mínimo global em $[r,s]$, pois é contínua. Como $b \in (r,s)$ e $f'(b) \leq 1$, $f'$ admite um mínimo local $ x_0 \in (r,s)$. Pelo Lema anterior, $f'(x_0) \leq 0$. Segue o resultado pelo Teorema do Valor Intermediário.
+\end{proof}
+
+\begin{lemma}
+Se $S_f < 0$ e $a,b,c,d$ são pontos fixos de $f$, com $a<b<c<d$, então $f$ possui um ponto crítico em $(a,d)$.
+\end{lemma}
+
+\begin{proof}
+Se $f'(b) \leq 1$ ou $f'(c) \leq 1$, segue o resultado pelo Lema anterior. Se $f'(b) > 1$ e $f'(c) > 1$, então a inclinação local de $f$ é maior que a inclinação da função identidade. Desse modo, existem $r, t \in (b,c)$, com $r<t$, tais que $f(r) > r$ e $f(t) < t$. Pelo Teorema do Valor Médio, existe $s \in (r,s)$ tal que $f'(s) < 1$. Logo, $f'$ possui um mínimo local em $(r,t)$. O resultado segue utilizando o Lema \ref{lemma1} e o Teorema do Valor Intermediário.
+\end{proof}
+
+\begin{corollary}
+Se  $\SSS f < 0$, então $\SSS f^n < 0$ para todo $n \geq 1$.
+\end{corollary}
+
+\begin{lemma}
+Se $f$ possui um número finito de pontos críticos, então $f^n$ também possui um número finito de pontos críticos para todo $n \geq 1$.
+\end{lemma}
+\begin{proof}
+Inicialmente, observe que $f^{-1}(c) = \{ x \in [a,b] : f(x) = c \}$ é finito para todo $c$. De fato, pelo Teorema do Valor Médio existe um ponto crítico de $f$ entre dois elementos de $f^{-1}(c)$.
+
+
+\end{proof}
+
+\begin{lemma}
+Se $\SSS f < 0$ e $f$ possui um número finito de pontos críticos, então $f^n$ possui um número finito de pontos críticos.
+\end{lemma}
+\begin{proof}
+\end{proof}

@@ -1,21 +1,25 @@
 \section{Teorema de Sharkovsky}
-Ao longo dessa seção, $f: \RR \to \RR$ denotará uma função contínua.
+Ao longo dessa seção, $f$ denotará uma função contínua de um intervalo em $\RR$, onde o intervalo não precisa ser fechado ou limitado.
 \begin{definition}
-Sejam $J_1, J_2, \dots, J_n$ intervalos fechados.
+Se $I_0, I_1, \dots, I_{n-1}$ são intervalos fechados, $n > 1$,
 \begin{enumerate}
-\item Dizemos $J_1, J_2, \dots, J_n$ é um \textit{caminho de tamanho $n$ entre $J_1$ e $J_n$} se $f(J_i) \supset J_{i+1}$, para todo $i = 1, \dots, n-1$, e denotamos por $J_1 \longrightarrow J_2 \longrightarrow \cdots \longrightarrow J_n$.
+\item dizemos que \textit{$I_0$ cobre $I_1$}, e denotamos por $I_0 \longrightarrow I_1$, se $f(I_0) \supset I_1$.
 
-\item Dizemos $J_1, J_2, \dots, J_n$ é um \textit{ciclo de tamanho $n$ entre $J_1$ e $J_n$} se $f(J_i) \supset J_{i+1}$, para todo $i = 1, \dots, n-1$, e $f(J_n) \supset J_1$, e denotamos por $J_1 \longrightarrow J_2 \longrightarrow \cdots \longrightarrow J_n \longrightarrow J_1$.
+\item dizemos  que \textit{$I_0, I_1, \dots, I_{n-1}$ é um caminho entre $I_0$ e $I_{n-1}$}, e denotamos por $I_0 \longrightarrow I_1 \longrightarrow \cdots \longrightarrow I_{n-1}$, se $f(I_i) \supset I_{i+1}$, $i = 0, \dots, n-2$.
+
+\item dizemos  que \textit{$I_0, I_1, \dots, I_{n-1}$ é um ciclo entre $I_0$ e $I_{n-1}$}, e denotamos por $I_0 \longrightarrow I_1 \longrightarrow \cdots \longrightarrow I_{n-1} \longrightarrow I_0$, se $f(I_i) \supset I_{i+1}$, $i = 0, \dots, n-2$, e $f(I_{n-1}) \supset I_0$.
+
 \end{enumerate}
 \end{definition}
 
-\begin{proposition}
-Se $J_1 \longrightarrow J_2$, então $f(J'_1) = J_2$ para algum intervalo fechado $J'_1 \subset J_1$.
-\end{proposition}
+\begin{lemma}
+Se $I_0 \longrightarrow I_1$, então $f(I'_0) = I_1$ para algum intervalo fechado $I'_0 \subset I_1$.
+\end{lemma}
 \begin{proof}
-Se $J_1 = [a, b]$ e $J_2 = [c, d]$, pelo Teorema do Valor Intermediário, existem $p, q \in J_1$ tais que $f(p) = c$ e $f(q) = d$. Suponha que $p < q$. O caso em que $p > q$ é tratado de maneira análoga.
+Se $I_0 = [a, b]$ e $I_1 = [c, d]$, pelo Teorema do Valor Intermediário, existem $p, q \in I_0$ tais que $f(p) = c$ e $f(q) = d$. Suponha que $p \leq q$ e defina $I_0' = [a', b']$, onde
+$$b' = \textrm{inf}\{x \in [p, q] : f(x) = d\} \textrm{ e } a' = \textrm{sup}\{x \in [p, b'] : f(x) = c\}$$
 
-Defina $J_1' = [a', b']$, onde $b' = \textrm{inf}\{x \in [p, q] : f(x) = d\}$ e $a' = \textrm{sup}\{x \in [p, b'] : f(x) = c\}$. Sendo $f$ contínua temos que $f(a') = c$ e $f(b') = d$. Desse modo, $f(J_1') \supset J_2$. Suponha que $f(x) \notin J_2$ para algum $x \in J_1'$, ou seja, $f(x) < c$ ou $f(x) > d$. Se $f(x) < c$, pelo Teorema do Valor Intermediário, existe $y \in [x, b']$ tal que $f(y) = c$, o que é um absurdo pois nesse caso $y > a'$, que é o sup do conjunto. Absurdo análogo ocorre supondo que $f(x) > d$. Desse modo, $f(J_1') = J_2$. 
+Sendo $f$ contínua temos que $f(a') = c$ e $f(b') = d$ e, desse modo, $f(I_0') \supset I_1$. Se $f(x) < c$ para algum $x \in I_0'$, existe $y \in [x, b']$ tal que $f(y) = c$, o que é um absurdo pois nesse caso $y > a'$. Absurdo análogo ocorre se $f(x) > d$ para algum $x \in I_0'$. Portanto, $f(I_0') = I_1$.
 \end{proof}
 
 \begin{lemma}
@@ -23,12 +27,16 @@ Se $J_0 \longrightarrow J_1 \longrightarrow \cdots \longrightarrow J_{n-1} \long
 \end{lemma}
 
 \begin{proof}
-De acordo com as hipóteses e com a Proposição anterior, temos as seguinte implicações:
-$$ J_0 \longrightarrow J_1 \Rightarrow \textrm{ existe } J_0' \subset J_0 \textrm{ tal que } f(J_0') = J_1$$
-$$ J_1 \longrightarrow J_2 \Rightarrow \textrm{ existe } J_1' \subset J_0' \textrm{ tal que } f^2(J_1') = J_2$$
-$$\vdots$$
-$$ J_{n-2} \longrightarrow J_{n-1} \Rightarrow \textrm{ existe } J_{n-2}' \subset J_{n-3}' \textrm{ tal que } f^{n-1}(J_{n-2}') = J_{n-1} $$
-$$ J_{n-1} \longrightarrow J_0 \Rightarrow \textrm{ existe } J_{n-1}' \subset J_{n-2}' \textrm{ tal que } f^n(J_{n-1}') = J_0$$
+De acordo com as hipóteses e com a Proposição anterior, temos as seguintes implicações:
+
+\begin{align*}
+J_0 \longrightarrow J_1 & \Rightarrow \textrm{ existe } J_0' \subset J_0 \textrm{ tal que } f(J_0') = J_1 \\
+J_1 \longrightarrow J_2 & \Rightarrow \textrm{ existe } J_1' \subset J_0' \textrm{ tal que } f^2(J_1') = J_2 \\
+\vdots \\
+J_{n-2} \longrightarrow J_{n-1} & \Rightarrow \textrm{ existe } J_{n-2}' \subset J_{n-3}' \textrm{ tal que } f^{n-1}(J_{n-2}') = J_{n-1} \\
+J_{n-1} \longrightarrow J_0 & \Rightarrow \textrm{ existe } J_{n-1}' \subset J_{n-2}' \textrm{ tal que } f^n(J_{n-1}') = J_0 
+\end{align*}
+
 
 Construímos então uma sequência de $n$ intervalos fechados $J_0 \supset J_0' \supset J_1' \supset \cdots \supset J_{n-1}'$ tal que $f^k(J_{k-1}') = J_k$, para todo $k = 1, \dots, n-1$, e $f^n(J_{n-1}') = J_0$. Como $J_0 \supset J_{n-1}'$, existe $p \in J_{n-1}'$ tal que $f^n(p) = p$. Em particular, $p \in J_0$ e $f^k(p) \in J_k$, para todo $k = 1, \dots, n-1$. 
 \end{proof}
