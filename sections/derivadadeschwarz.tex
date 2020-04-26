@@ -1,54 +1,113 @@
 \section{Derivada de Schwarz}
 
 \begin{definition}
-Se $f: [a,b] \subset \RR \to [a, b]$ é uma função de classe $\CC^3([a,b])$ dizemos que $f$ possui derivada de Schwarz negativa, e escrevemos $S_f < 0$, quando
-$$S_f(x) = \frac{f'''(x)}{f'(x)} - \frac{3}{2} \left( \frac{f''(x)}{f'(x)} \right)^2 < 0$$
-para todo $x \in [a,b]$ tal que $f'(x) \neq 0$.
+Sejam  $I = [a,b]$ e $f: I \to I$ uma função de classe $\CC^3$ em $(a,b)$.  A \textit{derivada de Schwarz de $f$} é a função $\SSS f$ definida por
+$$(\SSS f)(x) = \frac{f'''(x)}{f'(x)} - \frac{3}{2} \left( \frac{f''(x)}{f'(x)} \right)^2$$
+para todo $x \in (a,b)$ tal que $f'(x) \neq 0$.
+
+Se $(\SSS f)(x) < 0$ para todo $x$ no domínio de $\SSS f$, dizemos que a derivada de Schwarz de $f$ é \textit{negativa} e escrevemos $\SSS f < 0$. 
 \end{definition}
 
 \begin{lemma}
 \label{lemma1}
-Se $S_f < 0$ e $x_0 \in (a,b)$ é mínimo local de $f'$, então $f'(x_0) \leq 0$.
+Se $\SSS f < 0$ e $f'$ possui mínimo local em $(a,b)$, então $f'(x_0) \leq 0$.
 \end{lemma}
 
 \begin{proof}
-Como $x_0$ é ponto crítico de $f'$, temos que $f''(x_0) = 0$. Se $f'(x_0) \neq 0$, então
-$$S_f(x_0) = \frac{f'''(x_0)}{f'(x_0)} < 0$$
-
-Como $x_0$ é mínimo local, $f'''(x_0) \geq 0$ pelo teste da segunda derivada. Desse modo, $f'(x_0) < 0$. 
+Seja $x_0 \in (a,b)$ ponto de mínimo local de $f'$. Como $x_0$ é ponto crítico de $f'$, temos que $f''(x_0) = 0$. Portanto, se $f'(x_0) \neq 0$, então
+$$(\SSS f)(x_0) = \frac{f'''(x_0)}{f'(x_0)} < 0$$
+Sendo $x_0$ ponto de mínimo local, $f'''(x_0) \geq 0$ pelo Teste da Segunda Derivada. Desse modo, $f'(x_0) < 0$. 
 \end{proof}
 
 \begin{lemma}
-Se $S_f < 0$ e $a,b,c$ são pontos fixos de $f$, com $a<b<c$, então $f$ possui um ponto crítico em $(a,c)$ se $f'(b) \leq 1$.
+\label{lemma2}
+Se $\SSS f < 0$, $p_1 < p_2 < p_3$ são pontos fixos de $f$ e $f'(p_2) \leq 1$, então $f$ possui um ponto crítico em $(p_1,p_3)$.
 \end{lemma}
 
 \begin{proof}
-Pelo Teorema do Valor Médio, existem $r \in (a,b)$ e $s \in (b,c)$  tais que $f'(r) = f'(s) = 1$. Observe que $f'$ admite um mínimo global em $[r,s]$, pois é contínua. Como $b \in (r,s)$ e $f'(b) \leq 1$, $f'$ admite um mínimo local $ x_0 \in (r,s)$. Pelo Lema anterior, $f'(x_0) \leq 0$. Segue o resultado pelo Teorema do Valor Intermediário.
+Pelo Teorema do Valor Médio, existem $r \in (p_1,p_2)$ e $s \in (p_2,p_3)$  tais que $f'(r) = f'(s) = 1$. Observe que $f'$ possui mínimo global em $[r,s]$, pois é contínua. Mas $p_2 \in (r,s)$ e $f'(p_2) \leq 1$. Portanto, $f'$ possui mínimo global em $(r,s)$. Em particular, $f'$ possui mínimo local em $(a,b)$. Utilizando Lema anterior e o Teorema do Valor Intermediário, a demonstração está concluída.
 \end{proof}
 
 \begin{lemma}
-Se $S_f < 0$ e $a,b,c,d$ são pontos fixos de $f$, com $a<b<c<d$, então $f$ possui um ponto crítico em $(a,d)$.
+\label{lemma3}
+Se $\SSS f < 0$ e $p_1<p_2<p_3<p_4$ são pontos fixos de $f$, então $f$ possui ponto crítico em $(p_1,p_4)$.
 \end{lemma}
 
 \begin{proof}
-Se $f'(b) \leq 1$ ou $f'(c) \leq 1$, segue o resultado pelo Lema anterior. Se $f'(b) > 1$ e $f'(c) > 1$, então a inclinação local de $f$ é maior que a inclinação da função identidade. Desse modo, existem $r, t \in (b,c)$, com $r<t$, tais que $f(r) > r$ e $f(t) < t$. Pelo Teorema do Valor Médio, existe $s \in (r,s)$ tal que $f'(s) < 1$. Logo, $f'$ possui um mínimo local em $(r,t)$. O resultado segue utilizando o Lema \ref{lemma1} e o Teorema do Valor Intermediário.
+Se $f'(p_2) \leq 1$ ou $f'(p_3) \leq 1$, o resultado é verdadeiro pelo Lema anterior. Se $f'(p_2) > 1$ e $f'(p_3) > 1$, existem $r, t \in (p_2,p_3)$ tais que $r<t$, $f(r) > r$ e $f(t) < t$. Pelo Teorema do Valor Médio, existe $s \in (r,t)$ tal que $f'(s) < 1$. Portanto, $f'$ possui um mínimo global $(r,t)$. Em particular, $f'$ possui mínimo local em $(a,b)$. Utilizando Lema \ref{lemma1} e o Teorema do Valor Intermediário, a demonstração está concluída.
+\end{proof}
+
+\begin{lemma}
+Se $\SSS f < 0$ e $\SSS g < 0$, então $\SSS f \circ g < 0$.
+\end{lemma}
+
+\begin{proof}
+A derivada de Schwarz de $f \circ g$ é dada por
+\begin{align*}
+(\SSS f \circ g)(x) & = \frac{(f \circ g)'''(x)}{(f \circ g)'(x)} - \frac{3}{2} \left( \frac{(f \circ g)''(x)}{(f \circ g)'(x)} \right)^2 \\
+& = (\SSS f)(g(x)) (g'(x))^2 + (\SSS g)(x) < 0
+\end{align*}
+para todo $x \in (a,b)$ tal que $(f \circ g)'(x) = f'(g(x))g'(x) \neq 0$.
 \end{proof}
 
 \begin{corollary}
 Se  $\SSS f < 0$, então $\SSS f^n < 0$ para todo $n \geq 1$.
 \end{corollary}
 
-\begin{lemma}
-Se $f$ possui um número finito de pontos críticos, então $f^n$ também possui um número finito de pontos críticos para todo $n \geq 1$.
-\end{lemma}
 \begin{proof}
-Inicialmente, observe que $f^{-1}(c) = \{ x \in [a,b] : f(x) = c \}$ é finito para todo $c$. De fato, pelo Teorema do Valor Médio existe um ponto crítico de $f$ entre dois elementos de $f^{-1}(c)$.
-
-
+A demonstração é imediata por indução.
 \end{proof}
 
 \begin{lemma}
-Se $\SSS f < 0$ e $f$ possui um número finito de pontos críticos, então $f^n$ possui um número finito de pontos críticos.
+Se $f$ possui um número finito de pontos críticos, então $f^n$ possui um número finito de pontos críticos para todo $n \geq 1$.
 \end{lemma}
 \begin{proof}
+Inicialmente, vamos provar por indução que $f^{-n}(c) = \{ x \in [a,b] : f^n(x) = c \}$ é finito para todo $n \geq 1$.
+
+A afirmação é verdadeira para $n = 1$ pois, de acordo com o Teorema do Valor Médio, existe um ponto crítico de $f$ entre dois elementos de $f^{-1}(c)$ e, por hipótese, $f$ possui um número finito de pontos críticos.
+
+Se a afirmação é verdadeira para $n = k$, então $f^{-(k+1)}(c) = \{ x \in [a,b] : f^{k+1}(x) = c \} = \{ x \in [a,b] : f(f^k(x)) = c \}$ é finito, pois existem finitos elementos em $f^{-1}(c)$ e, por hipótese de indução, existem finitos elementos em $f^{-k}(c_ i)$ para cada $c_i \in f^{-1}(c)$. Portanto, $f^{-n}(c)$ é finito para todo $n \geq 1$.
+
+Desse modo, se $(f^n)'(x) = \prod_{k=0}^{n-1} f'(f^k(x)) = 0$, então $f^k(x)$ é ponto crítico de $f$ para algum $k = 1, \dots, n-1$. Assim, o conjunto de pontos críticos de $f^n$ é finito pois é dado por $\cup_{k=0}^{n-1} f^{-k}(c_i)$, onde $c_i$ é um ponto crítico de $f$.
 \end{proof}
+
+\begin{lemma}
+Se $\SSS f < 0$ e $f$ possui um número finito de pontos críticos, então $f^n$ possui um número finito de pontos fixos para todo $n \geq 1$.
+\end{lemma}
+\begin{proof}
+Seja $g = f^n$, $n \geq 1$. Se $g$ possui uma quantidade infinito de pontos fixos, existe uma sequência $(p_n)_n$ estritamente crescente de pontos fixos de $g$. Pelo Lema \ref{lemma3}, existe ponto crítico de $g$ em $(p_1, p_4), (p_5, p_8), \dots$, ou seja, $g$ possui infinitos pontos críticos e isso contradiz o Lema anterior. Desse modo, $f^n$ possui um número finito de pontos fixos e o resultado está provado.
+\end{proof}
+
+\begin{theorem}[Singer]
+Se $\SSS f < 0$ e $f$ possui $n$ pontos críticos, então $f$ possui no máximo $n+2$ órbitas periódicas não repulsoras.
+\end{theorem}
+
+\begin{proof}
+Sejam $p$ um ponto periódico não repulsor de período $m$ e $g = f^m$. Desse modo, $p$ é um ponto fixo não repulsor de $g$, ou seja, $|g'(p)| \leq 1$. Defina $K$ o maior intervalo de $\{ x \in \RR : \lim_{k \to \infty} g^k(x) \to p \}$ que contém $p$. 
+
+Vamos supor inicialmente que $K$ é limitado e $|g'(p)| < 1$. Desse modo, $K=(l,r)$ é aberto, $g(K) \subset K$ e ocorre um dos três casos abaixo:
+\begin{enumerate}[label=(\alph*)]
+\item $g(l) = l$ e $g(r) = r$
+\item $g(l) = r$ e $g(r) = l$
+\item $g(l) = g(r)$
+\end{enumerate}
+
+
+Vamos mostrar que $K$ contém um ponto crítico de $g$ em cada um dos casos possíveis.
+\begin{enumerate}[label=(\alph*)]
+\item O resultado é imediato utilizando o Lema \ref{lemma2}.
+\item Considerando $h = g^2$ e utilizando novamente o Lema \ref{lemma2}, $h$ possui um ponto crítico $x_0 \in K$, ou seja, $h'(x_0) = g'(g(x_0))g'(x_0) = 0$. Como $g(x_0) \in K$, $g$ possui um ponto crítico em $K$.
+\item Uma aplicação direta do Teorema do Valor Médio mostra que $g$ possui um ponto crítico em $K$.\end{enumerate}
+
+Portanto, $g$ possui ponto crítico $x_0 \in K$. Pela Regra da Cadeia,
+$$g'(x_0) = (f^m)'(x_0) = \prod_{k=0}^{m-1} f'(f^k(x_0)) = 0$$
+e, desse modo, $f^i(x_0)$ é ponto crítico de $f$ para algum $i = 0, \dots, m-1$.
+
+Vamos supor que $K$ é limitado e $|g'(p)| = 1$.
+
+Observando que existem no máximo dois intervalos $K$ que não são limitados, concluímos a demonstração.
+\end{proof}
+
+\begin{corollary}
+$F_\mu(x) = \mu x(1-x)$ possui no máximo $1$ órbita periódica não repulsora.
+\end{corollary}
