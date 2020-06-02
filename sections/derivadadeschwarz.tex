@@ -1,113 +1,193 @@
 \section{Derivada de Schwarz}
 
 \begin{definition}
-Sejam  $I = [a,b]$ e $f: I \to I$ uma função de classe $\CC^3$ em $(a,b)$.  A \textit{derivada de Schwarz de $f$} é a função $\SSS f$ definida por
-$$(\SSS f)(x) = \frac{f'''(x)}{f'(x)} - \frac{3}{2} \left( \frac{f''(x)}{f'(x)} \right)^2$$
-para todo $x \in (a,b)$ tal que $f'(x) \neq 0$.
+Seja $f: \RR \to \RR$ uma função de classe $\CC^\infty$.  A \textit{derivada de Schwarz de $f$} é a função $S_f$ definida por
+$$S_f(x) = \frac{f'''(x)}{f'(x)} - \frac{3}{2} \left( \frac{f''(x)}{f'(x)} \right)^2$$
+para todo $x$ tal que $f'(x) \neq 0$.
 
-Se $(\SSS f)(x) < 0$ para todo $x$ no domínio de $\SSS f$, dizemos que a derivada de Schwarz de $f$ é \textit{negativa} e escrevemos $\SSS f < 0$. 
+% Se $S_f(x) < 0$ para todo $x$ no domínio de $S_f$, dizemos que a derivada de Schwarz de $f$ é \textit{negativa} e escrevemos $S_f < 0$. 
 \end{definition}
 
+\begin{example}
+
+\begin{enumerate}
+\item Se $f(x) = F_{\mu}(x)$, então $S_f(x)  = \frac{-6}{(1-2x)^2} < 0$ para todo $x \neq \frac{1}{2}$.
+\item Se $f(x) = e^x$, então $S_f(x) = -\frac{1}{2} < 0$ para todo $x$.
+\item Se $f(x) = \sen x$, então $S_f(x) = -1 -\frac{3}{2}(\tan^2 x) < 0$ para todo $x$.
+\end{enumerate}
+\end{example}
 \begin{lemma}
 \label{lemma1}
-Se $\SSS f < 0$ e $f'$ possui mínimo local em $(a,b)$, então $f'(x_0) \leq 0$.
+Se $S_f < 0$ e $x_0$ é ponto de mínimo local de $f'$, então $f'(x_0) \leq 0$.
 \end{lemma}
 
 \begin{proof}
-Seja $x_0 \in (a,b)$ ponto de mínimo local de $f'$. Como $x_0$ é ponto crítico de $f'$, temos que $f''(x_0) = 0$. Portanto, se $f'(x_0) \neq 0$, então
-$$(\SSS f)(x_0) = \frac{f'''(x_0)}{f'(x_0)} < 0$$
-Sendo $x_0$ ponto de mínimo local, $f'''(x_0) \geq 0$ pelo Teste da Segunda Derivada. Desse modo, $f'(x_0) < 0$. 
+Se $f'(x_0) \neq 0$, então $S_f(x_0) = \frac{f'''(x_0)}{f'(x_0)} - \frac{3}{2} \frac{f''(x_0)}{f'(x_0)} < 0$. Sendo $x_0$ ponto de mínimo local de $f'$, temos que $f''(x_0) = 0$ e $f'''(x_0) \geq 0$ e, portanto,  $f'(x_0) < 0$. 
 \end{proof}
 
 \begin{lemma}
 \label{lemma2}
-Se $\SSS f < 0$, $p_1 < p_2 < p_3$ são pontos fixos de $f$ e $f'(p_2) \leq 1$, então $f$ possui um ponto crítico em $(p_1,p_3)$.
+Se $S_f < 0$ e $a<b<c$ são pontos fixos de $f$, com $f'(b) \leq 1$, então $f$ possui ponto crítico em $(a,b)$.
 \end{lemma}
 
 \begin{proof}
-Pelo Teorema do Valor Médio, existem $r \in (p_1,p_2)$ e $s \in (p_2,p_3)$  tais que $f'(r) = f'(s) = 1$. Observe que $f'$ possui mínimo global em $[r,s]$, pois é contínua. Mas $p_2 \in (r,s)$ e $f'(p_2) \leq 1$. Portanto, $f'$ possui mínimo global em $(r,s)$. Em particular, $f'$ possui mínimo local em $(a,b)$. Utilizando Lema anterior e o Teorema do Valor Intermediário, a demonstração está concluída.
+Pelo Teorema do Valor Médio, existem $r \in (a,b)$ e $s \in (b,c)$  tais que $f'(r) = f'(s) = 1$. Observe que $f'$ restrita ao intervalo $[r,s]$ possui mínimo global, pois é contínua. Como $b \in (r,s)$ e $f'(b) \leq 1$, temos que $f'$ possui mínimo local em $(r,s)$. Utilizando Lema anterior e o Teorema do Valor Intermediário, a demonstração está concluída.
 \end{proof}
 
 \begin{lemma}
 \label{lemma3}
-Se $\SSS f < 0$ e $p_1<p_2<p_3<p_4$ são pontos fixos de $f$, então $f$ possui ponto crítico em $(p_1,p_4)$.
+Se $S_f < 0$ e $a<b<c<d$ são pontos fixos de $f$, então $f$ possui ponto crítico em $(a,d)$.
 \end{lemma}
 
 \begin{proof}
-Se $f'(p_2) \leq 1$ ou $f'(p_3) \leq 1$, o resultado é verdadeiro pelo Lema anterior. Se $f'(p_2) > 1$ e $f'(p_3) > 1$, existem $r, t \in (p_2,p_3)$ tais que $r<t$, $f(r) > r$ e $f(t) < t$. Pelo Teorema do Valor Médio, existe $s \in (r,t)$ tal que $f'(s) < 1$. Portanto, $f'$ possui um mínimo global $(r,t)$. Em particular, $f'$ possui mínimo local em $(a,b)$. Utilizando Lema \ref{lemma1} e o Teorema do Valor Intermediário, a demonstração está concluída.
+Se $f'(b) \leq 1$ ou $f'(c) \leq 1$, o resultado é verdadeiro pelo Lema anterior. Se $f'(b) > 1$ e $f'(c) > 1$, existem $r, t \in (b,c)$ tais que $r<t$, $f(r) > r$ e $f(t) < t$. Pelo Teorema do Valor Médio, existe $s \in (r,t)$ tal que $f'(s) < 1$. Portanto, $f'$ possui mínimo local em $(b,c)$. Utilizando Lema \ref{lemma1} e o Teorema do Valor Intermediário, a demonstração está concluída.
 \end{proof}
 
 \begin{lemma}
-Se $\SSS f < 0$ e $\SSS g < 0$, então $\SSS f \circ g < 0$.
+Se $S_f < 0$, então $S_{f^n} < 0$ para todo $n \geq 1$.
 \end{lemma}
 
 \begin{proof}
-A derivada de Schwarz de $f \circ g$ é dada por
+Se $S_f < 0$ e $S_g < 0$, então $S_{f \circ g} < 0$. De fato,
 \begin{align*}
-(\SSS f \circ g)(x) & = \frac{(f \circ g)'''(x)}{(f \circ g)'(x)} - \frac{3}{2} \left( \frac{(f \circ g)''(x)}{(f \circ g)'(x)} \right)^2 \\
-& = (\SSS f)(g(x)) (g'(x))^2 + (\SSS g)(x) < 0
+S_{f \circ g}(x) & = \frac{(f \circ g)'''(x)}{(f \circ g)'(x)} - \frac{3}{2} \left( \frac{(f \circ g)''(x)}{(f \circ g)'(x)} \right)^2 \\
+& = S_f(g(x)) (g'(x))^2 + S_g(x) < 0
 \end{align*}
-para todo $x \in (a,b)$ tal que $(f \circ g)'(x) = f'(g(x))g'(x) \neq 0$.
-\end{proof}
-
-\begin{corollary}
-Se  $\SSS f < 0$, então $\SSS f^n < 0$ para todo $n \geq 1$.
-\end{corollary}
-
-\begin{proof}
-A demonstração é imediata por indução.
+para todo $x$ tal que $(f \circ g)'(x) \neq 0$. Por indução, $S_{f^n} < 0$ para todo $n \geq 1$.
 \end{proof}
 
 \begin{lemma}
-Se $f$ possui um número finito de pontos críticos, então $f^n$ possui um número finito de pontos críticos para todo $n \geq 1$.
+Se $f$ possui finitos pontos críticos, então $f^n$ possui finitos pontos críticos para todo $n \geq 1$.
 \end{lemma}
 \begin{proof}
-Inicialmente, vamos provar por indução que $f^{-n}(c) = \{ x \in [a,b] : f^n(x) = c \}$ é finito para todo $n \geq 1$.
+%Inicialmente, vamos provar por indução que o conjunto $f^{-n}(c) = \{ x \in \RR : f^n(x) = c \}$ é finito para todo $n \geq 1$ e para todo $c \in \RR$.
 
-A afirmação é verdadeira para $n = 1$ pois, de acordo com o Teorema do Valor Médio, existe um ponto crítico de $f$ entre dois elementos de $f^{-1}(c)$ e, por hipótese, $f$ possui um número finito de pontos críticos.
+Pelo Teorema do Valor Médio, $f$ possui ponto crítico entre dois elementos de $f^{-1}(c)$. Como $f$ possui finitos pontos críticos, $f^{-1}(c)$ é finito. Além disso, se $f^{-k}(c)$ é finito, então $f^{-(k+1)}(c) = \{ x \in \RR : f(f^k(x)) = c \}$ é finito pois $f^{-1}(c)$ é finito e, por hipótese de indução, $f^{-k}(c_ i)$ é finito para cada $c_i \in f^{-1}(c)$. Portanto, $f^{-n}(c)$ é finito para todo $n \geq 1$.
 
-Se a afirmação é verdadeira para $n = k$, então $f^{-(k+1)}(c) = \{ x \in [a,b] : f^{k+1}(x) = c \} = \{ x \in [a,b] : f(f^k(x)) = c \}$ é finito, pois existem finitos elementos em $f^{-1}(c)$ e, por hipótese de indução, existem finitos elementos em $f^{-k}(c_ i)$ para cada $c_i \in f^{-1}(c)$. Portanto, $f^{-n}(c)$ é finito para todo $n \geq 1$.
-
-Desse modo, se $(f^n)'(x) = \prod_{k=0}^{n-1} f'(f^k(x)) = 0$, então $f^k(x)$ é ponto crítico de $f$ para algum $k = 1, \dots, n-1$. Assim, o conjunto de pontos críticos de $f^n$ é finito pois é dado por $\cup_{k=0}^{n-1} f^{-k}(c_i)$, onde $c_i$ é um ponto crítico de $f$.
+Desse modo, $(f^n)'(x) = \prod_{k=0}^{n-1} f'(f^k(x)) = 0$ se e somente se $f^k(x)$ é ponto crítico de $f$ para algum $k = 1, \dots, n-1$. Assim, o conjunto de pontos críticos de $f^n$ é finito pois é dado pela união dos conjuntos $\cup_{k=0}^{n-1} f^{-k}(c_i)$, onde $c_i$ é ponto crítico de $f$.
 \end{proof}
 
 \begin{lemma}
-Se $\SSS f < 0$ e $f$ possui um número finito de pontos críticos, então $f^n$ possui um número finito de pontos fixos para todo $n \geq 1$.
+Se $S_f < 0$ e $f$ possui finitos pontos críticos, então $f^n$ possui finitos pontos fixos para todo $n \geq 1$.
 \end{lemma}
 \begin{proof}
-Seja $g = f^n$, $n \geq 1$. Se $g$ possui uma quantidade infinito de pontos fixos, existe uma sequência $(p_n)_n$ estritamente crescente de pontos fixos de $g$. Pelo Lema \ref{lemma3}, existe ponto crítico de $g$ em $(p_1, p_4), (p_5, p_8), \dots$, ou seja, $g$ possui infinitos pontos críticos e isso contradiz o Lema anterior. Desse modo, $f^n$ possui um número finito de pontos fixos e o resultado está provado.
+Se $f^n$ possui infinitos pontos fixos para algum $n > 1$, então $f^n$ possui infinitos pontos críticos de acordo com o Lema \ref{lemma3}. Essa implicação contradiz o Lema anterior. Desse modo, $f^n$ possui finitos pontos fixos para todo $n \geq 1$.
 \end{proof}
+
+%Seja $p$ um ponto periódico não repulsor de $f$ de período $m$, ou seja, $f^m(p) = p$ e $|(f^m)'(p)| \leq 1$. Defina $K$ o intervalo maximal de $\{ x \in \RR : \lim_{k \to \infty} f^{mk}(x) = p \}$ que contém $p$.
 
 \begin{theorem}[Singer]
-Se $\SSS f < 0$ e $f$ possui $n$ pontos críticos, então $f$ possui no máximo $n+2$ órbitas periódicas não repulsoras.
+Se $S_f < 0$ e $f$ possui $n$ pontos críticos, então $f$ possui no máximo $n+2$ órbitas periódicas não repulsoras.
 \end{theorem}
 
 \begin{proof}
-Sejam $p$ um ponto periódico não repulsor de período $m$ e $g = f^m$. Desse modo, $p$ é um ponto fixo não repulsor de $g$, ou seja, $|g'(p)| \leq 1$. Defina $K$ o maior intervalo de $\{ x \in \RR : \lim_{k \to \infty} g^k(x) \to p \}$ que contém $p$. 
+Sejam $p$ um ponto periódico não repulsor de $f$ de período $m$ e $g = f^m$. Desse modo, $p$ é um ponto fixo não repulsor de $g$, ou seja, $|g'(p)| \leq 1$. Defina $K$ o maior intervalo que contém $p$ e que está contido em $\{ x \in \RR : \lim_{k \to \infty} g^k(x) = p \}$, a base de atração de $p$.
 
-Vamos supor inicialmente que $K$ é limitado e $|g'(p)| < 1$. Desse modo, $K=(l,r)$ é aberto, $g(K) \subset K$ e ocorre um dos três casos abaixo:
-\begin{enumerate}[label=(\alph*)]
-\item $g(l) = l$ e $g(r) = r$
-\item $g(l) = r$ e $g(r) = l$
-\item $g(l) = g(r)$
+Suponha que $K$ é limitado e $|g'(p)| < 1$. Vamos mostrar que $K$ é aberto, $g(K) \subset K$ e $g$ preserva os pontos extremos de $K$.
+
+Como $|g'(p)| < 1$, existe uma vizinhança $V$ de $p$ contida na base de atração $p$. Se $x \in K$, existe $n$ tal que $f^n(x) \in V$. Sendo $f^n$ contínua, $(f^n)^{-1}(V)$ é um aberto em $K$ que contém $x$ e, portanto, $K$ é aberto.
+
+Seja $K = (a, b)$. Se $g(a) \in K$, existe uma vizinhança $V$ de $g(a)$ contida em $K$. Sendo $g$ contínua, $g^{-1}(V)$ é uma vizinhança de $a$ contida na base de atração de $p$, o que contraria o fato de $K$ ser maximal. Analogamente, $g(b) \notin K$. Como $g(K) \subset K$ e $g$ é contínua, temos que $g(\{a, b\}) \subset \{a,b\}$
+
+Desse modo, ocorre um dos três casos abaixo. Vamos mostrar que em cada caso, $g$ possui ponto crítico em $K$.
+
+\begin{enumerate}
+\item[a)] Se $g(a) = a$ e $g(b) = b$, $g$ possui ponto crítico em $K$ pelo Lema \ref{lemma2}.
+\item[b)] Se $g(a) = b$ e $g(b) = a$,  considerando $h = g^2$ e utilizando novamente o Lema \ref{lemma2}, $h$ possui ponto crítico em $K$. Como $g(K) \subset K$, $g$ possui ponto crítico em $K$.
+\item[c)] Se $g(a) = g(b)$, $g$ possui ponto crítico em $K$ pelo Teorema do Valor Médio.
 \end{enumerate}
 
+Suponha que $K$ é limitado e $|g'(p)| = 1$. Pelo Lema anterior, $g$ possui finitos pontos fixos e, portanto, são isolados.
 
-Vamos mostrar que $K$ contém um ponto crítico de $g$ em cada um dos casos possíveis.
-\begin{enumerate}[label=(\alph*)]
-\item O resultado é imediato utilizando o Lema \ref{lemma2}.
-\item Considerando $h = g^2$ e utilizando novamente o Lema \ref{lemma2}, $h$ possui um ponto crítico $x_0 \in K$, ou seja, $h'(x_0) = g'(g(x_0))g'(x_0) = 0$. Como $g(x_0) \in K$, $g$ possui um ponto crítico em $K$.
-\item Uma aplicação direta do Teorema do Valor Médio mostra que $g$ possui um ponto crítico em $K$.\end{enumerate}
+Se $g'(p) = 1$ e, para $x$ numa vizinhança de $p$, $f(x) > x$ quando $x > p$ e $f(x) < x$ quando $x < p$, então $g'(p) = 1$ é mínimo local de $g'$ maior que zero, o que contradiz o Lema \ref{lemma1}. Se $g'(p)=-1$, basta considerar $h=g^2$ e obter o mesmo resultado. Portanto, $p$ é atrator em pelo menos 1 lado. Desse modo, $K$ é um intervalo não trivial, $g(K) \subset K$ e $g$ preserva os pontos extremos de $K$. Assim, é possível concluir de maneira análoga que $g$ possui ponto crítico em $K$.
 
-Portanto, $g$ possui ponto crítico $x_0 \in K$. Pela Regra da Cadeia,
-$$g'(x_0) = (f^m)'(x_0) = \prod_{k=0}^{m-1} f'(f^k(x_0)) = 0$$
-e, desse modo, $f^i(x_0)$ é ponto crítico de $f$ para algum $i = 0, \dots, m-1$.
+Portanto, se $K$ é limitado e $|g'(p)| \leq 1$, então $g$ possui ponto crítico $x_0 \in K$. Pela Regra da Cadeia, $g'(x_0) = (f^m)'(x_0) = \prod_{k=0}^{m-1} f'(f^k(x_0)) = 0$ e, desse modo, $f^i(x_0)$ é ponto crítico de $f$ para algum $i = 0, \dots, m-1$.
 
-Vamos supor que $K$ é limitado e $|g'(p)| = 1$.
-
-Observando que existem no máximo dois intervalos $K$ que não são limitados, concluímos a demonstração.
+Não é possível obter a mesma conclusão se $K$ não é limitado. Mas, observando que existem no máximo dois intervalos desse tipo, a demonstração está concluída.
 \end{proof}
 
 \begin{corollary}
-$F_\mu(x) = \mu x(1-x)$ possui no máximo $1$ órbita periódica não repulsora.
+$F_\mu(x) = \mu x(1-x)$, $\mu > 0$, possui no máximo 1 órbita periódica não repulsora.
 \end{corollary}
+
+\begin{proof}
+Pelo Teorema anterior, $F_\mu$ possui no máximo 3 órbitas periódicas não repulsoras.  Como $\lim_{n \to\infty} |F^n_\mu(x)| = \infty$ se $|x|$ é suficientemente grande, temos que se $K$ é como na demonstração anterior, então é limitado e a demonstração está concluída.
+\end{proof}
+
+Se $F_4(x) = 4x(1-x)$, $x \in [0,1]$, então o ponto crítico de $F_4$ é eventualmente fixo em 0, que é repulsor. Pelo Corolário acima, todas as órbitas periódicas de $F_4$ são repulsoras. Utilizando o fato que $S_{F_4} < 0$ é possível mostrar mais sobre $F_4$. Por exemplo, é possível mostrar que $F_4$ é caótica. 
+
+Se $q=\frac{1}{4}$ e $p=\frac{3}{4}$, então $F(q)=p$ e $F(p)=p$. Defina $J = [q, p)$ e $J' = \left( q,\frac{1}{2} \right) \cup \left( \frac{1}{2}, p \right)$. Observe que $F_4(J') = \left ( p ,1 \right )$, ou seja, $F_4(x) \notin J$ quando $x \in J'$.
+
+\begin{affirmation}
+Se $x \in J'$, existe $n \geq 2$ tal que $F_4^n(x) \in J$.
+\end{affirmation}
+
+\begin{proof}
+Como $F_4^2(J') = (0, p)$, basta mostrar que se $x \in (0, q)$, então $F_4^n(x) \in J$ para algum $n \geq 1$.
+
+Seja $x \in (0,q)$ e suponha que $F_4^n(x) < q$ para todo $n \geq 1$. Observando que $F_4$ é estritamente crescente em $(0,q]$, a sequência $(F_4^n(x))_n$ é monótona limitada e, portanto, possui um limite $L \leq q$. Sendo $F_4$ contínua,
+$$L = \lim_{n \to \infty} F_4^n(x) = \lim_{n \to \infty} F_4^{n+1}(x) = \lim_{n \to \infty} F_4(F_4^n(x)) = F_4(L)$$
+o que é um absurdo. Portanto, a demonstração está concluída.
+\end{proof}
+
+Com base na afirmação anterior, podemos definir
+$$\phi(x) = \min \{ n \geq 2 : F_4^n(x) \in J \}$$
+para todo $x \in J'$, ou seja, $\phi(x)$ é a menor iterada de $F_4$ em $x$ que retorna para $J$.  Assim, é possível construir a função $R$, denominada como função de primeiro retorno de $F_4$ em $J$. Precisamente, $R: J' \to J$ é dada por
+$$R(x) = F_4^{\phi(x)}(x)$$
+
+Também podemos definir também os intervalos
+$I^-_n = \left \{ x \in \left ( q, \frac{1}{2} \right ) : \phi(x) = n \right \} \textrm{ e } I^+_n = \left \{ x \in \left ( \frac{1}{2}, p \right ) : \phi(x) = n \right \} $ para todo $n \geq 2$. Esses intervalos possuem propriedades que estão retratadas na Afirmação abaixo.
+
+\begin{affirmation}
+Para todo $n \geq 2$,
+\begin{enumerate}
+\item[i.] $I^-_n$ é da forma $(l_n, r_n]$, $(F_4^n)'(I^-_n) < 0$, $F_4^n(l_n) = p$, $F_4^n(r_n) = q$ e $r_n = l_{n+1}$.
+\item[ii.] $I^+_n$ é da forma $[l_n, r_n)$, $(F_4^n)'(I^+_n) > 0$, $F_4^n(l_n) = q$, $F_4^n(r_n) = p$ e $l_n = r_{n+1}$.
+\end{enumerate}
+\end{affirmation}
+
+\begin{proof}
+Se $T$ é o Tent Map, temos que $T$ e $F_4$ são conjugados topologicamente pelo difeomorfismo crescente $\tau(x) = \sin^2 \left( \frac{\pi}{2} x \right)$, ou seja, $\tau \circ T = F_4 \circ \tau$ em $[0, 1]$. Desse modo, bastar demonstrar um resultado análogo para $T$. Vamos provar a afirmação \textit{ii}. A afirmação \textit{i} segue por simetria.
+
+Inicialmente, podemos definir $J = \left[ \frac{1}{3}, \frac{2}{3} \right)$ pois $T\left( \frac{1}{3} \right) = \frac{2}{3}$ e $T\left( \frac{2}{3} \right) = \frac{2}{3}$.
+Além disso, é fácil ver por indução que $T^n: \left[ \frac{1}{2}, \frac{1}{2} + \frac{1}{2^n} \right] \to [0, 1]$ é um difeomorfismo linear crescente para todo $n \geq 2$. Observe que $T^n\left( \frac{1}{2} + \frac{1}{2^{n+1}}\right) = \frac{1}{2}$.
+
+Desse modo, existem $l_n \in \left(\frac{1}{2}, \frac{1}{2^{n+1}}\right)$ e $r_n \in \left(\frac{1}{2^{n+1}}, \frac{1}{2^n} \right)$ tais que $T^n(l_n) = \frac{1}{3}$ e $T^n(r_n) = \frac{2}{3}$. Definindo $I^+_n = [l_n, r_n)$ temos que $T^n(x) \in J$ se o somente se $x \in I^+_n$.
+
+Fazendo a mesma construção para $T^{n+1}$, temos que $l_n, r_{n+1} \in \left(\frac{1}{2}, \frac{1}{2^{n+1}}\right)$ e $T^{n+1}(l_n) = T(T^n(l_n)) = T\left(\frac{1}{3}\right) = \frac{2}{3} = T^{n+1}(r_{n+1})$. Desse modo $l_n = r_{n+1}$.
+\end{proof}
+
+
+\begin{affirmation}
+Se $S_f < 0$ e $f'$ não se anula no intervalo limitado $I$, então o mínimo de $f'$ em $I$ ocorre em algum ponto extremo de $I$.
+\end{affirmation}
+
+\begin{proof}
+Como $S_f = S_{-f}$, podemos considerar $f'(I) > 0$ sem perda de generalidade. Se $f'$ possui um ponto de mínimo $x_0$ no interior de $I$, então $f'(x_0) \leq 0$ de acordo com o Lema \ref{lemma1}, o que é um absurdo.
+\end{proof}
+
+\begin{affirmation}
+$|R'(x)| > 1$ para todo $x \in J'$.
+\end{affirmation}
+
+\begin{proof}
+Sejam $I^+_n = [l_n, r_n)$ e $W_n = (\frac{1}{2}, l_n)$. De acordo com a Afirmação anterior, para mostrar que $(F_4^n)'(I^+_n) > 1$ é suficiente mostrar que $(F_4^n)'(l_n) > 1$ e $(F_4^n)'(r_n) > 1$.
+
+Observe que $F_4^n(I^+_n) = J$ e $F_4^n(W_n) \supset (0,q)$ para todo $n \geq 2$. Como os tamanhos de $I^+_n$ e $W_n$ são menores que $\frac{1}{4}$, o Teorema do Valor Médio afirma que existem $x_k' \in W_k$ e $x_k \in (l_n, r_n)$ tais que $(F_4^n)'(x_k') > 1$ e $(F_4^n)'(x_k) > 1$. Como $l_n \in (x_k', x_k)$ e $(F_4^n)'$ não pode assumir mínimo local positivo em $(x_k',x_k)$, temos que $(F_4^n)'(l_n) > 1$.
+
+Por outro lado, $(F_4^n)'(r_n) = F_4'(F_4^{n-1}(r_n)) (F_4^{n-1})'(r_n) =  F_4'(q) (F_4^{n-1})'(l_{n-1}) > 1$, pois ambos os termos são maiores que 1.
+
+A demostração de que $(F_4^n)'(I^-_n) < -1$ é feita de maneira análoga. Desse modo, $|R'(x)| > 1$ para todo $x \in J'$.
+\end{proof}
+
+\begin{affirmation}
+O conjunto de pontos periódicos de $F_4$ é denso em [0,1].
+\end{affirmation}
+
+\begin{proof}
+Seja $U$ um intervalo aberto contido em $[0,1]$. Se $F_4^n(U) \supset U$, para algum $n \geq 1$, o resultado está demonstrado.
+
+Como $|F_4'(x)| > 1$ para todo $x \notin J$, existe $U_0 \subset U$ e $n \geq 1$ tal que $V = F_4^n(U_0) \subset J$. Como $|R'(x)|>1$ para todo $x \in J'$, existe $V_0 \subset V$ e $m \geq 1$ tal que $R^m(V_0)$ contém algum ponto de descontinuidade de $R$. Portanto, existe $k \geq 1$ tal que $p \in F_4^k(V_0)$. Como é possível estender qualquer vizinhança de $p$ por iteração de $F_4$ até cobrir [0,1], existe $l \geq 1$ tal que $F_4^{k+l}(V_0) \supset [0,1]$ e o resultado é imediato.
+\end{proof}
+
+Por fim, é possível mostrar, utilizando as ideias da demonstração da Afirmação anterior, que $F_4$ é topologicamente transitiva e depende sensivelmente das condições iniciais e, portanto, é caótica.
