@@ -1,12 +1,12 @@
 \section{Bifurcação}
 
 \begin{theorem}[Função Implícita]
-Seja $F: \RR^2 \to \RR$ uma função de classe $\CC^\infty$ e suponha que
+Seja $F: \RR^2 \to \RR$ uma função de classe $\CC^\infty$. Suponha que
 \begin{enumerate}
-\item $F(x_0, y_0) = c$
-\item $\partial_y F(x_0, y_0) \neq 0$
+\item[i.] $F(x_0, y_0) = c$
+\item[ii.] $\partial_y F(x_0, y_0) \neq 0$
 \end{enumerate} 
-Então existem uma vizinhança $I$ de $x_0$ e uma função $f: I \to \RR$ de classe $\CC^\infty$ tal que
+Então existem uma vizinhança $I$ de $x_0$ e uma função $f: I \to \RR$ de classe $\CC^\infty$ tais que
 \begin{enumerate}
 \item $f(x_0) = y_0$
 \item $F(x, f(x)) = c$ para todo $x \in I$
@@ -19,10 +19,12 @@ Seja $f_\lambda$ uma família parametrizada de funções. Suponha que $f_{\lambd
 \end{theorem}
 
 \begin{proof}
-Seja $G(x, \lambda) = f_\lambda(x) - x$. Temos que $G(x_0, \lambda_0) = 0$ e $\partial_x G(x_0, \lambda_0) = f'_{\lambda_0}(x_0) - 1 \neq 0$. Utilizando o Teorema da Função Implícita, existem vizinhanças $I$ e $J$ de $\lambda_0$ e $x_0$, respectivamente, e uma função $p: I \to J$ de classe $\CC^\infty$ tal que $p(\lambda_0) = x_0$ e $G(p(\lambda), \lambda) = f_\lambda(p(\lambda)) - p(\lambda) = 0$ para todo $\lambda \in I$. Além disso, $G(x, \lambda) \neq 0$ se $x \neq p(\lambda)$.
+Seja $G(x, \lambda) = f_\lambda(x) - x$. Temos que $G(x_0, \lambda_0) = 0$ e $\partial_x G(x_0, \lambda_0) = f'_{\lambda_0}(x_0) - 1 \neq 0$. Utilizando o Teorema da Função Implícita, existem vizinhanças $I$ e $J$ de $\lambda_0$ e $x_0$, respectivamente, e uma função $p: I \to J$ de classe $\CC^\infty$ tal que $p(\lambda_0) = x_0$ e $G(p(\lambda), \lambda) = f_\lambda(p(\lambda)) - p(\lambda) = 0$ para todo $\lambda \in I$. Além disso, para $\lambda \in I$ está associado um único $x \in J$ e, portanto, $x \in J$ e $G(x, \lambda) = 0$ se e somente se $x = p(\lambda)$.
 \end{proof}
 
-Com a notação do Teorema Anterior, considere a função $g_\lambda(x) = f_\lambda(x + p(\lambda)) - p(\lambda)$. Observe que $g_\lambda(0) = f(p(\lambda)) - p(\lambda) = 0$ para todo $\lambda \in I$, ou seja, $0$ é ponto fixo de $g_\lambda$ para todo $\lambda \in I$. Se $h_\lambda(x) = x - p(\lambda)$, então $g_\lambda \circ h_\lambda(x) = f_\lambda(x) - p(\lambda) = h_\lambda \circ f_\lambda(x)$, ou seja, $f_\lambda$ e $g_\lambda$ são topologicamente conjugadas.
+De acordo com o Teorema anterior, se $x_0$ é um ponto fixo não hiperbólico de $f_{\lambda_0}$, então $f_\lambda$ possui um único ponto fixo próximo de $x_0$ para cada $\lambda$ numa vizinhança de $\lambda_0$.
+ 
+Com a notação do Teorema anterior, considere a função $g_\lambda(x) = f_\lambda(x + p(\lambda)) - p(\lambda)$. Observe que $g_\lambda(0) = f(p(\lambda)) - p(\lambda) = 0$ para todo $\lambda \in I$, ou seja, $0$ é ponto fixo de $g_\lambda$ para todo $\lambda \in I$. Se $h_\lambda(x) = x - p(\lambda)$, então $g_\lambda \circ h_\lambda(x) = f_\lambda(x) - p(\lambda) = h_\lambda \circ f_\lambda(x)$, ou seja, $f_\lambda$ e $g_\lambda$ são topologicamente conjugadas.
 
 \begin{theorem}
 Suponha que
@@ -36,7 +38,20 @@ Então existe uma vizinhança $I$ de $0$ e uma função $p: I \to \RR$ de classe
 \end{theorem}
 
 \begin{proof}
+Considere a função $G(x, \lambda) = f_\lambda(x) - x$. Observe que $x$ é um ponto fixo de $f_\lambda$ se $G(x, \lambda) = 0$.
 
+Temos que $G(0, \lambda_0) = 0$ e 
+$$\frac{\partial G}{\partial \lambda}(0, \lambda_0) = \frac{\partial f_\lambda}{\partial \lambda}(0)|_{\lambda = \lambda_0} \neq 0$$
+Pelo Teorema da Função Implícita, existe uma vizinhança $I$ de $0$ e uma função $p: I \to \RR$ tal que $p(0) = \lambda_0$, $G(x, p(x)) = 0$ para todo $x \in I$ e
+$$p'(x) = - \frac{\frac{\partial G}{\partial x}(x, p(x))}
+{\frac{\partial G}{\partial \lambda}(x, p(x))}$$
+e, portanto,
+$$p'(0) = - \frac{f'_{\lambda_0}(0) - 1}{\frac{\partial f_\lambda}{\partial \lambda}(0)|_{\lambda = \lambda_0}} = 0$$
+Além disso, utilizando a Regra da Cadeia,
+$$p''(x) = - \frac{\frac{\partial^2 G}{\partial x^2}(x, p(x))\frac{\partial G}{\partial \lambda}(x, p(x)) - \frac{\partial G}{\partial x}(x, p(x)) \frac{\partial^2 G}{\partial \lambda \partial x}(x, p(x))}
+{\left( \frac{\partial G}{\partial \lambda}(x, p(x)) \right)^2}$$
+e, portanto,
+$$p''(0) = - \frac{\frac{\partial^2 G}{\partial x^2}(x, \lambda_0) \frac{\partial G}{\partial \lambda}(0, \lambda_0)}{\left( \frac{\partial G}{\partial \lambda}(0, \lambda_0) \right)^2} = - \frac{\frac{\partial^2 G}{\partial x^2}(x, \lambda_0)}{ \frac{\partial f_\lambda}{\partial \lambda}(0)|_{\lambda = \lambda_0}} \neq 0$$
 \end{proof}
 
 \begin{theorem}

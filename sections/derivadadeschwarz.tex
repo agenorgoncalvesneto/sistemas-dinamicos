@@ -81,10 +81,22 @@ Observe que o Lema anterior, ao contrário dos outros, não exige que $S_f < 0$.
 Se $S_f < 0$ e $f$ possui finitos pontos críticos, então $f^n$ possui finitos pontos fixos para todo $n \geq 1$.
 \end{lemma}
 \begin{proof}
-Se $f^n$ possui infinitos pontos fixos para algum $n > 1$, então $f^n$ possui infinitos pontos críticos de acordo com o Lema \ref{lemma3}. Essa implicação contradiz o Lema anterior.% Desse modo, $f^n$ possui finitos pontos fixos para todo $n \geq 1$.
+Se $f^n$ possui infinitos pontos fixos para algum $n > 1$, então $f^n$ possui infinitos pontos críticos de acordo com o Lema \ref{lemma3}. Essa implicação contradiz o Lema anterior.
 \end{proof}
 
-%Seja $p$ um ponto periódico não repulsor de $f$ de período $m$, ou seja, $f^m(p) = p$ e $|(f^m)'(p)| \leq 1$. Defina $K$ o intervalo maximal de $\{ x \in \RR : \lim_{k \to \infty} f^{mk}(x) = p \}$ que contém $p$.
+Para demonstrar os próximos resultados, seja $p$ um ponto fixo não repulsor de $g$, ou seja, $|g'(p)| \leq 1$. Defina $K_p$ o intervalo maximal que contém $p$ e que está contido em $B(p) = \{ x \in \RR : \lim_{k \to \infty} g^k(x) = p \}$.
+
+\begin{lemma}
+Seja $p$ um ponto fixo de $g$ tal que $|g'(p)| < 1$. Se $K_p$ é limitado, então $K_p$ é aberto, $g(K_p) \subset K_p$.
+\end{lemma}
+
+\begin{proof}
+Como $g'$ é contínua, existe $\varepsilon > 0$ tal que $|g'(x)| < 1$ para todo $x \in V = (p - \varepsilon, p + \varepsilon)$. Pelo Teorema do Valor Médio, $V \subset B(p)$. Observe também que para todo $x \in K_p$, existe $n \geq 1$ tal que $g^n(x) \in V$.
+
+Sendo $p$ um ponto fixo, considere $g^{-n}(V)^*$ a componente conexa de $g^{-n}(V)$ que contém $p$. Observe que $g^{-n}(V)^*$ é aberto, pois $g^{-n}(V)$ é aberto e componente conexa de aberto é aberto. Vamos provar que $K_p = \cup_{n=0}^{\infty} g^{-n}(V)^*$.
+
+Desse modo, $K_p$ é aberto pois é união de abertos, e $g(K_p) \subset K_p$ por construção.
+\end{proof}
 
 \begin{theorem}[Singer]
 Se $S_f < 0$ e $f$ possui $n$ pontos críticos, então $f$ possui no máximo $n+2$ órbitas periódicas não repulsoras.
