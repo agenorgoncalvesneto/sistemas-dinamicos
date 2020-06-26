@@ -1,3 +1,4 @@
+% !TeX root = ../sistemasdinamicos.tex
 \section{Bifurcação}
 
 \begin{theorem}[Função Implícita]
@@ -15,6 +16,7 @@ Então existem uma vizinhança $I$ de $x_0$ e uma função $f: I \to \RR$ de cla
 \end{theorem}
 
 \begin{theorem}
+\label{theorem1}
 Seja $f_\lambda$ uma família parametrizada de funções. Suponha que $f_{\lambda_0}(x_0) = x_0$ e $f'_{\lambda_0}(x_0) \neq 1$. Então existem vizinhanças $I$ e $J$ de $\lambda_0$ e $x_0$, respectivamente, e uma função $p: I \to J$ de classe $\CC^\infty$ tal que $p(\lambda_0) = x_0$ e $f_\lambda(p(\lambda)) = p(\lambda)$ para todo $\lambda \in I$. Além disso, $f_\lambda$ não possui outros pontos fixos em $J$.
 \end{theorem}
 
@@ -61,9 +63,65 @@ Suponha que
 \item $f'_{\lambda_0}(0) = -1$
 \item $\partial_\lambda (f^2_\lambda)' |_{\lambda = \lambda_0}(0) \neq 0$
 \end{enumerate}
-Então existe uma vizinhança $I$ de $0$ e uma função $p: I \to \RR$ de classe $\CC^\infty$ tal que $f_{p(x)}(x) \neq x$ e  $f^2_{p(x)}(x) = x$.
+Então existe uma vizinhança $I$ de $0$ e uma função $p: I \to \RR$ de classe $\CC^\infty$ tal que $p(0) = \lambda_0$, $p'(0) = 0$,  $f_{p(x)}(x) \neq x$ e  $f^2_{p(x)}(x) = x$ para todo $x \in I$. Além disso, $p''(0) \neq 0$ se $S_{f_{\lambda_0}}(0) \neq 0$.
 \end{theorem}
 
 \begin{proof}
+Seja $G(x, \lambda) = f^2_\lambda (x) - x$. Sendo $G(0, \lambda) = 0$ para todo $\lambda$ numa vizinhança de $\lambda_0$, temos que
+$$\frac{\partial G}{\partial \lambda}(0, \lambda_0) = 0$$
+e, portanto, não podemos utilizar o Teorema da Função Implícita diretamente.
+Seja
+\[ H(x, \lambda) =
+    \begin{cases} 
+      \dfrac{G(x, \lambda)}{x} & \textrm{ se } x \neq 0 \\
+      \\
+      \dfrac{\partial G}{\partial x}(0, \lambda) & \textrm{ se } x = 0
+   \end{cases}
+\]
+Desse modo, $H$ é de classe $\CC^\infty$ e são válidas as igualdades
+\begin{enumerate}
+\item[(I)]
+$H(0, \lambda_0) = \frac{\partial G}{\partial x}(0, \lambda_0) = (f^2_{\lambda_0})'(0) - 1 = f'_{\lambda_0}(f_{\lambda_0}0)) f'_{\lambda_0}(0) - 1 = 0 $
 
+\item[(II)]
+$\frac{\partial H}{\partial \lambda}(0, \lambda_0) =\frac{\partial}{\partial \lambda}((f^2_\lambda)'(0) - 1)|_{\lambda = \lambda_0} = \frac{\partial (f^2_\lambda)'(0)}{\partial \lambda}|_{\lambda = \lambda_0}$
+ 
+\item[(III)]
+$ \frac{\partial H}{\partial x}(0, \lambda_0) = \lim_{x \to 0} \frac{H(x, \lambda_0) - H(0, \lambda_0)}{x}
+= \lim_{x \to 0} \frac{G(x, \lambda_0)}{x^2}
+= \frac{1}{2} \lim_{x \to 0} \frac{\frac{\partial G}{\partial x}(x, \lambda_0)}{x} = \frac{1}{2}\frac{\partial^2 G}{\partial x^2}(0, \lambda_0) $
+\item[(IV)]
+$\frac{\partial^2 H}{\partial x^2}(0, \lambda_0) = \frac{1}{3} \frac{\partial^3 G}{\partial x^3}(0, \lambda_0)$
+\end{enumerate}
+
+Pelas igualdades (I) e (II), e pelo Teorema da Função Implícita, existe uma vizinhança $I$ de $0$ e uma função $p: I \to \RR$ de classe $\CC^\infty$ tal que $p(0) = \lambda_0$ e $H(x, p(x)) = 0$ para todo $x \in I$. Em particular, se $x \neq 0$,
+$$0 = \frac{G(x, p(x))}{x} = \frac{f^2_{p(x)}(x) - x}{x}$$
+ou seja, $f^2_{p(x)}(x) = x$ para todo $x \in I$. Além disso, pelo Teorema \ref{theorem1}, $f_\lambda$ possui apenas $1$ ponto fixo numa vizinhança de $0$ e, portanto, podemos considerar que $f_{p(x)}(x) \neq x$ para todo $x \in I$, $x \neq 0$.
+
+Como
+\begin{align*}
+\frac{\partial^2 G}{\partial x^2}(0, \lambda_0) & = (f_{\lambda_0})''(x)|_{x = 0} \\
+& = [f_{\lambda_0}'(f_{\lambda_0}(x)) f'_{\lambda_0}(x)]'|_{x = 0} \\
+& = [f_{\lambda_0}''(f_{\lambda_0}(x))(f_{\lambda_0}'(x))^2 + f_{\lambda_0}'(f_{\lambda_0}(x))f_{\lambda_0}''(x)]_{x = 0} \\
+& = f_{\lambda_0}''(0) - f_{\lambda_0}''(0) = 0
+\end{align*} temos que
+$$p'(0) = -\frac{\frac{\partial H}{\partial x}(0, \lambda_0) }{\frac{\partial H }{\partial \lambda}(0, \lambda_0)} = -\frac{\frac{1}{2} \frac{\partial^2 G}{\partial x^2}(0, \lambda_0) }{\frac{\partial H }{\partial \lambda}(0, \lambda_0)} = 0$$
+
+Por fim,
+\begin{align*}
+\frac{\partial^3 G}{\partial x^3}(0, \lambda_0) & = \frac{\partial}{\partial x} \left(\frac{\partial^2 G}{\partial x^2}\right)(0, \lambda_0) \\
+& = [f_{\lambda_0}''(f_{\lambda_0}(x))(f_{\lambda_0}'(x))^2
++ f_{\lambda_0}'(f_{\lambda_0}(x))f_{\lambda_0}''(x)]'_{x = 0} \\
+& = [f_{\lambda_0}'''(f_{\lambda_0}(x))(f_{\lambda_0}'(x))^3
++ 2f_{\lambda_0}''(f_{\lambda_0}(x))f_{\lambda_0}''(x)f_{\lambda_0}'(x)
++ f_{\lambda_0}''(f_{\lambda_0}(x)) f_{\lambda_0}'(x)f_{\lambda_0}''(x) \\
++ f_{\lambda_0}'(f_{\lambda_0}(x))f_{\lambda_0}'''(x)]_{x = 0} \\
+& = f_{\lambda_0}'''(0)(f_{\lambda_0}'(0))^3  + 2(f_{\lambda_0}''(0))^2f_{\lambda_0}'(0) + (f_{\lambda_0}''(0))^2f_{\lambda_0}'(0) + f_{\lambda_0}'(0)f_{\lambda_0}'''(0) \\
+& = - 2f_{\lambda_0}'''(0) + 3(f_{\lambda_0}''(0))^2 \\
+& = - 2\frac{f_{\lambda_0}'''(0)}{f_{\lambda_0}'(0)} +3\left( \frac{f_{\lambda_0}''(0)}{f_{\lambda_0}'(0)} \right)^2 = -2 S_{f_{\lambda_0}}(0)
+\end{align*}
+e, portanto,
+$$ p''(0) = - \frac{\frac{\partial^2 H}{\partial x^2}(0, \lambda_0)\frac{\partial H}{\partial \lambda}(0, \lambda_0)}{ \left( \frac{ \partial H}{\partial \lambda}(0, \lambda_0) \right)^2} \\
+= -\frac{1}{3} \frac{\frac{\partial^3 G}{\partial x^3}(0, \lambda_0)}{\frac{\partial H}{\partial \lambda}(0, \lambda_0)} = \frac{2}{3} \frac{S_{f_{\lambda_0}}(0)}{\frac{\partial H}{\partial \lambda}(0, \lambda_0)} \neq 0$$
+quando $S_{f_{\lambda_0}}(0) \neq 0$.
 \end{proof}
