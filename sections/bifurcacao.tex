@@ -2,31 +2,48 @@
 \section{Bifurcação}
 
 \begin{theorem}[Função Implícita]
-Seja $F: \RR^2 \to \RR$ uma função de classe $\CC^\infty$. Suponha que
+Sejam $U \subset \RR^2$ um aberto e $F: U \to \RR$ uma função de classe $\CC^k$. Suponha que
 \begin{enumerate}
-\item[i.] $F(x_0, y_0) = c$
-\item[ii.] $\partial_y F(x_0, y_0) \neq 0$
+\item $F(x_0, y_0) = c$
+\item $\frac{\partial F}{\partial y} (x_0, y_0) \neq 0$
 \end{enumerate} 
-Então existem uma vizinhança $I$ de $x_0$ e uma função $f: I \to \RR$ de classe $\CC^\infty$ tais que
+Então existem uma vizinhança $I$ de $x_0$ e uma função $f: I \to \RR$ de classe $\CC^k$ tais que
 \begin{enumerate}
 \item $f(x_0) = y_0$
 \item $F(x, f(x)) = c$ para todo $x \in I$
-\item $f'(x) = -\frac{\partial_x F(x)}{\partial_y F(x)}$ para todo $x \in I$
 \end{enumerate}
 \end{theorem}
 
+%Supondo $F$ de classe $\CC^k$, $k \geq 2$, e utilizando a Regra da Cadeia,
+%$$ = $$
+
 \begin{theorem}
 \label{theorem1}
-Seja $f_\lambda$ uma família parametrizada de funções. Suponha que $f_{\lambda_0}(x_0) = x_0$ e $f'_{\lambda_0}(x_0) \neq 1$. Então existem vizinhanças $I$ e $J$ de $\lambda_0$ e $x_0$, respectivamente, e uma função $p: I \to J$ de classe $\CC^\infty$ tal que $p(\lambda_0) = x_0$ e $f_\lambda(p(\lambda)) = p(\lambda)$ para todo $\lambda \in I$. Além disso, $f_\lambda$ não possui outros pontos fixos em $J$.
+Seja $f_\lambda$ uma família parametrizada de funções. Suponha que \begin{enumerate}
+\item $f_{\lambda_0}(x_0) = x_0$
+\item $f'_{\lambda_0}(x_0) \neq 1$ 
+\end{enumerate}
+Então existem vizinhanças $I$ e $J$ de $\lambda_0$ e $x_0$, respectivamente, e uma função $p: I \to J$ de classe $\CC^\infty$ tais que
+\begin{enumerate}
+\item $p(\lambda_0) = x_0$ 
+\item $f_\lambda(p(\lambda)) = p(\lambda)$ para todo $\lambda \in I$
+\end{enumerate}
+Além disso, $f_\lambda$ não possui outros pontos fixos em $J$.
 \end{theorem}
 
 \begin{proof}
-Seja $G(x, \lambda) = f_\lambda(x) - x$. Temos que $G(x_0, \lambda_0) = 0$ e $\partial_x G(x_0, \lambda_0) = f'_{\lambda_0}(x_0) - 1 \neq 0$. Utilizando o Teorema da Função Implícita, existem vizinhanças $I$ e $J$ de $\lambda_0$ e $x_0$, respectivamente, e uma função $p: I \to J$ de classe $\CC^\infty$ tal que $p(\lambda_0) = x_0$ e $G(p(\lambda), \lambda) = f_\lambda(p(\lambda)) - p(\lambda) = 0$ para todo $\lambda \in I$. Além disso, para $\lambda \in I$ está associado um único $x \in J$ e, portanto, $x \in J$ e $G(x, \lambda) = 0$ se e somente se $x = p(\lambda)$.
+Seja $G(x, \lambda) = f_\lambda(x) - x$. Observe que $x$ é ponto fixo de $f_\lambda$ se e somente se $G(x, \lambda) = 0$.
+
+Pelo Teorema da Função Implícita, como $G(x_0, \lambda_0) = 0$ e
+$$\frac{\partial G}{\partial x} (x_0, \lambda_0) = f'_{\lambda_0}(x_0) - 1 \neq 0,$$
+existem vizinhanças $I$ e $J$ de $\lambda_0$ e $x_0$, respectivamente, e uma função $p: I \to J$ de classe $\CC^\infty$ tal que $p(\lambda_0) = x_0$ e $G(p(\lambda), \lambda) = 0$ para todo $\lambda \in I$.
+
+Além disso, para cada $\lambda \in I$ está associado um único $x \in J$ e, portanto, $x \in J$ e $G(x, \lambda) = 0$ se e somente se $x = p(\lambda)$.
 \end{proof}
 
-De acordo com o Teorema anterior, se $x_0$ é um ponto fixo não hiperbólico de $f_{\lambda_0}$, então $f_\lambda$ possui um único ponto fixo próximo de $x_0$ para cada $\lambda$ numa vizinhança de $\lambda_0$.
+De acordo com o Teorema anterior, se $x_0$ é um ponto fixo não hiperbólico de $f_{\lambda_0}$, então $f_\lambda$ possui um único ponto fixo numa vizinhança de $x_0$ para cada $\lambda$ numa vizinhança de $\lambda_0$.
  
-Com a notação do Teorema anterior, considere a função $g_\lambda(x) = f_\lambda(x + p(\lambda)) - p(\lambda)$. Observe que $g_\lambda(0) = f(p(\lambda)) - p(\lambda) = 0$ para todo $\lambda \in I$, ou seja, $0$ é ponto fixo de $g_\lambda$ para todo $\lambda \in I$. Se $h_\lambda(x) = x - p(\lambda)$, então $g_\lambda \circ h_\lambda(x) = f_\lambda(x) - p(\lambda) = h_\lambda \circ f_\lambda(x)$, ou seja, $f_\lambda$ e $g_\lambda$ são topologicamente conjugadas.
+Ainda de acordo com o Teorema anterior, considere a função $g_\lambda(x) = f_\lambda(x + p(\lambda)) - p(\lambda)$. Observe que $g_\lambda(0) = f(p(\lambda)) - p(\lambda) = 0$ para todo $\lambda \in I$, ou seja, $0$ é ponto fixo de $g_\lambda$ para todo $\lambda \in I$. Além disso, $f_\lambda$ e $g_\lambda$ são topologicamente conjugadas por $h_\lambda(x) = x - p(\lambda)$.
 
 \begin{theorem}
 Suponha que
@@ -34,26 +51,29 @@ Suponha que
 \item $f_{\lambda_0}(0) = 0$
 \item $f'_{\lambda_0}(0) = 1$
 \item $f''_{\lambda_0}(0) \neq 0$
-\item $\partial_\lambda f_\lambda |_{\lambda = \lambda_0}(0) \neq 0$
+\item $\frac{\partial f_\lambda}{\partial \lambda} |_{\lambda = \lambda_0}(0) \neq 0$
 \end{enumerate}
-Então existe uma vizinhança $I$ de $0$ e uma função $p: I \to \RR$ de classe $\CC^\infty$ tal que $p(0) = \lambda_0$ e $f_{p(x)}(x) = x$. Além disso, $p'(0) = \lambda_0$ e $p''(0) \neq 0$.
+Então existem uma vizinhança $I$ de $0$ e uma função $p: I \to \RR$ de classe $\CC^\infty$ tais que
+\begin{enumerate}
+\item $p(0) = \lambda_0$
+\item $f_{p(x)}(x) = x$
+\end{enumerate}
+Além disso, $p'(0) = 0$ e $p''(0) \neq 0$.
 \end{theorem}
 
 \begin{proof}
-Considere a função $G(x, \lambda) = f_\lambda(x) - x$. Observe que $x$ é um ponto fixo de $f_\lambda$ se $G(x, \lambda) = 0$.
+Considere a função $G(x, \lambda) = f_\lambda(x) - x$. Observe que $x$ é um ponto fixo de $f_\lambda$ se e somente se $G(x, \lambda) = 0$.
 
-Temos que $G(0, \lambda_0) = 0$ e 
-$$\frac{\partial G}{\partial \lambda}(0, \lambda_0) = \frac{\partial f_\lambda}{\partial \lambda}(0)|_{\lambda = \lambda_0} \neq 0$$
-Pelo Teorema da Função Implícita, existe uma vizinhança $I$ de $0$ e uma função $p: I \to \RR$ tal que $p(0) = \lambda_0$, $G(x, p(x)) = 0$ para todo $x \in I$ e
-$$p'(x) = - \frac{\frac{\partial G}{\partial x}(x, p(x))}
-{\frac{\partial G}{\partial \lambda}(x, p(x))}$$
-e, portanto,
-$$p'(0) = - \frac{f'_{\lambda_0}(0) - 1}{\frac{\partial f_\lambda}{\partial \lambda}(0)|_{\lambda = \lambda_0}} = 0$$
-Além disso, utilizando a Regra da Cadeia,
-$$p''(x) = - \frac{\frac{\partial^2 G}{\partial x^2}(x, p(x))\frac{\partial G}{\partial \lambda}(x, p(x)) - \frac{\partial G}{\partial x}(x, p(x)) \frac{\partial^2 G}{\partial \lambda \partial x}(x, p(x))}
-{\left( \frac{\partial G}{\partial \lambda}(x, p(x)) \right)^2}$$
-e, portanto,
-$$p''(0) = - \frac{\frac{\partial^2 G}{\partial x^2}(x, \lambda_0) \frac{\partial G}{\partial \lambda}(0, \lambda_0)}{\left( \frac{\partial G}{\partial \lambda}(0, \lambda_0) \right)^2} = - \frac{\frac{\partial^2 G}{\partial x^2}(x, \lambda_0)}{ \frac{\partial f_\lambda}{\partial \lambda}(0)|_{\lambda = \lambda_0}} \neq 0$$
+Pelo Teorema da Função Implícita, como $G(0, \lambda_0) = 0$ e 
+$$\frac{\partial G}{\partial \lambda}(0, \lambda_0) = \frac{\partial f_\lambda}{\partial \lambda}|_{\lambda = \lambda_0}(0) \neq 0,$$
+existem uma vizinhança $I$ de $0$ e uma função $p: I \to \RR$ tais que $p(0) = \lambda_0$ e $G(x, p(x)) = 0$ para todo $x \in I$.
+
+Além disso, são válidas as igualdades
+$$p'(0) = - \frac{\frac{\partial G}{\partial x}(0, \lambda_0)}
+{\frac{\partial G}{\partial \lambda}(0, \lambda_0)} = - \frac{f'_{\lambda_0}(0) - 1}{\frac{\partial f_\lambda}{\partial \lambda}|_{\lambda = \lambda_0}(0)} = 0$$
+e
+$$ p''(0) = - \frac{\frac{\partial^2 G}{\partial x^2}(0, \lambda_0)\frac{\partial G}{\partial \lambda}(0, \lambda_0) - \frac{\partial G}{\partial x}(0, \lambda_0) \frac{\partial^2 G}{ \partial x \partial \lambda}(0, \lambda_0)}
+{\left( \frac{\partial G}{\partial \lambda}(0, \lambda_0) \right)^2}  = - \frac{\frac{\partial^2 G}{\partial x^2}(x, \lambda_0)}{ \frac{\partial f_\lambda}{\partial \lambda}|_{\lambda = \lambda_0}(0)} \neq 0 $$
 \end{proof}
 
 \begin{theorem}
@@ -61,9 +81,16 @@ Suponha que
 \begin{enumerate}
 \item $f_{\lambda_0}(0) = 0$ para todo $\lambda$ numa vizinhança de $\lambda_0$
 \item $f'_{\lambda_0}(0) = -1$
-\item $\partial_\lambda (f^2_\lambda)' |_{\lambda = \lambda_0}(0) \neq 0$
+\item $\frac{\partial (f^2_\lambda)'}{\partial \lambda} |_{\lambda = \lambda_0}(0) \neq 0$
+\item $S_{f_{\lambda_0}}(0) \neq 0$
 \end{enumerate}
-Então existe uma vizinhança $I$ de $0$ e uma função $p: I \to \RR$ de classe $\CC^\infty$ tal que $p(0) = \lambda_0$, $p'(0) = 0$,  $f_{p(x)}(x) \neq x$ e  $f^2_{p(x)}(x) = x$ para todo $x \in I$. Além disso, $p''(0) \neq 0$ se $S_{f_{\lambda_0}}(0) \neq 0$.
+Então existem uma vizinhança $I$ de $0$ e uma função $p: I \to \RR$ de classe $\CC^\infty$ tais que 
+\begin{enumerate}
+\item $p(0) = \lambda_0$
+\item $f_{p(x)}(x) \neq x$ para todo $x \in I$
+\item $f^2_{p(x)}(x) = x$ para todo $x \in I$
+\end{enumerate}
+Além disso, $p'(0) = 0$ e $p''(0) \neq 0$.
 \end{theorem}
 
 \begin{proof}
@@ -81,10 +108,10 @@ Seja
 Desse modo, $H$ é de classe $\CC^\infty$ e são válidas as igualdades
 \begin{enumerate}
 \item[(I)]
-$H(0, \lambda_0) = \frac{\partial G}{\partial x}(0, \lambda_0) = (f^2_{\lambda_0})'(0) - 1 = f'_{\lambda_0}(f_{\lambda_0}0)) f'_{\lambda_0}(0) - 1 = 0 $
+$H(0, \lambda_0) = \frac{\partial G}{\partial x}(0, \lambda_0) = (f^2_{\lambda_0})'(0) - 1 = f'_{\lambda_0}(f_{\lambda_0}(0)) f'_{\lambda_0}(0) - 1 = 0 $
 
 \item[(II)]
-$\frac{\partial H}{\partial \lambda}(0, \lambda_0) =\frac{\partial}{\partial \lambda}((f^2_\lambda)'(0) - 1)|_{\lambda = \lambda_0} = \frac{\partial (f^2_\lambda)'(0)}{\partial \lambda}|_{\lambda = \lambda_0}$
+$\frac{\partial H}{\partial \lambda}(0, \lambda_0) = \frac{\partial}{\partial \lambda} \left( \frac{\partial G}{\partial x}(0, \lambda) \right) |_{\lambda = \lambda_0} = \frac{\partial}{\partial \lambda}((f^2_\lambda)'(0) - 1)|_{\lambda = \lambda_0} = \frac{\partial (f^2_\lambda)'}{\partial \lambda}|_{\lambda = \lambda_0}(0) \neq 0$
  
 \item[(III)]
 $ \frac{\partial H}{\partial x}(0, \lambda_0) = \lim_{x \to 0} \frac{H(x, \lambda_0) - H(0, \lambda_0)}{x}
@@ -94,34 +121,32 @@ $ \frac{\partial H}{\partial x}(0, \lambda_0) = \lim_{x \to 0} \frac{H(x, \lambd
 $\frac{\partial^2 H}{\partial x^2}(0, \lambda_0) = \frac{1}{3} \frac{\partial^3 G}{\partial x^3}(0, \lambda_0)$
 \end{enumerate}
 
-Pelas igualdades (I) e (II), e pelo Teorema da Função Implícita, existe uma vizinhança $I$ de $0$ e uma função $p: I \to \RR$ de classe $\CC^\infty$ tal que $p(0) = \lambda_0$ e $H(x, p(x)) = 0$ para todo $x \in I$. Em particular, se $x \neq 0$,
+Pelas igualdades (I) e (II), e pelo Teorema da Função Implícita, existem uma vizinhança $I$ de $0$ e uma função $p: I \to \RR$ de classe $\CC^\infty$ tais que $p(0) = \lambda_0$ e $H(x, p(x)) = 0$ para todo $x \in I$. Em particular, se $x \neq 0$,
 $$0 = \frac{G(x, p(x))}{x} = \frac{f^2_{p(x)}(x) - x}{x}$$
-ou seja, $f^2_{p(x)}(x) = x$ para todo $x \in I$. Além disso, pelo Teorema \ref{theorem1}, $f_\lambda$ possui apenas $1$ ponto fixo numa vizinhança de $0$ e, portanto, podemos considerar que $f_{p(x)}(x) \neq x$ para todo $x \in I$, $x \neq 0$.
+ou seja, $f^2_{p(x)}(x) = x$ para todo $x \in I$. Além disso, pelo Teorema \ref{theorem1}, $f_\lambda$ possui um único ponto fixo numa vizinhança de $0$ e, portanto, podemos considerar que $f_{p(x)}(x) \neq x$ para todo $x \in I$, $x \neq 0$.
 
 Como
 \begin{align*}
 \frac{\partial^2 G}{\partial x^2}(0, \lambda_0) & = (f_{\lambda_0})''(x)|_{x = 0} \\
 & = [f_{\lambda_0}'(f_{\lambda_0}(x)) f'_{\lambda_0}(x)]'|_{x = 0} \\
-& = [f_{\lambda_0}''(f_{\lambda_0}(x))(f_{\lambda_0}'(x))^2 + f_{\lambda_0}'(f_{\lambda_0}(x))f_{\lambda_0}''(x)]_{x = 0} \\
-& = f_{\lambda_0}''(0) - f_{\lambda_0}''(0) = 0
+& = [f_{\lambda_0}''(f_{\lambda_0}(x))(f_{\lambda_0}'(x))^2 + f_{\lambda_0}'(f_{\lambda_0}(x))f_{\lambda_0}''(x)]|_{x = 0} \\
+& = f_{\lambda_0}''(f_{\lambda_0}(0)) - f_{\lambda_0}''(0) = 0
 \end{align*} temos que
-$$p'(0) = -\frac{\frac{\partial H}{\partial x}(0, \lambda_0) }{\frac{\partial H }{\partial \lambda}(0, \lambda_0)} = -\frac{\frac{1}{2} \frac{\partial^2 G}{\partial x^2}(0, \lambda_0) }{\frac{\partial H }{\partial \lambda}(0, \lambda_0)} = 0$$
+$$p'(0) = -\frac{\frac{\partial H}{\partial x}(0, \lambda_0) }{\frac{\partial H }{\partial \lambda}(0, \lambda_0)} = -\frac{1}{2} \frac{\frac{\partial^2 G}{\partial x^2}(0, \lambda_0) }{\frac{\partial H }{\partial \lambda}(0, \lambda_0)} = 0$$
 
 Por fim,
 \begin{align*}
-\frac{\partial^3 G}{\partial x^3}(0, \lambda_0) & = \frac{\partial}{\partial x} \left(\frac{\partial^2 G}{\partial x^2}\right)(0, \lambda_0) \\
-& = [f_{\lambda_0}''(f_{\lambda_0}(x))(f_{\lambda_0}'(x))^2
-+ f_{\lambda_0}'(f_{\lambda_0}(x))f_{\lambda_0}''(x)]'_{x = 0} \\
+\frac{\partial^3 G}{\partial x^3}(0, \lambda_0) & = [f_{\lambda_0}''(f_{\lambda_0}(x))(f_{\lambda_0}'(x))^2
++ f_{\lambda_0}'(f_{\lambda_0}(x))f_{\lambda_0}''(x)]'|_{x = 0} \\
 & = [f_{\lambda_0}'''(f_{\lambda_0}(x))(f_{\lambda_0}'(x))^3
 + 2f_{\lambda_0}''(f_{\lambda_0}(x))f_{\lambda_0}''(x)f_{\lambda_0}'(x)
 + f_{\lambda_0}''(f_{\lambda_0}(x)) f_{\lambda_0}'(x)f_{\lambda_0}''(x) \\
-+ f_{\lambda_0}'(f_{\lambda_0}(x))f_{\lambda_0}'''(x)]_{x = 0} \\
+& \ \ \ \ + f_{\lambda_0}'(f_{\lambda_0}(x))f_{\lambda_0}'''(x)]|_{x = 0} \\
 & = f_{\lambda_0}'''(0)(f_{\lambda_0}'(0))^3  + 2(f_{\lambda_0}''(0))^2f_{\lambda_0}'(0) + (f_{\lambda_0}''(0))^2f_{\lambda_0}'(0) + f_{\lambda_0}'(0)f_{\lambda_0}'''(0) \\
-& = - 2f_{\lambda_0}'''(0) + 3(f_{\lambda_0}''(0))^2 \\
-& = - 2\frac{f_{\lambda_0}'''(0)}{f_{\lambda_0}'(0)} +3\left( \frac{f_{\lambda_0}''(0)}{f_{\lambda_0}'(0)} \right)^2 = -2 S_{f_{\lambda_0}}(0)
+& = -2 f_{\lambda_0}'''(0) - 3(f_{\lambda_0}''(0))^2 \\
+& = 2\frac{f_{\lambda_0}'''(0)}{f_{\lambda_0}'(0)} - 3\left( \frac{f_{\lambda_0}''(0)}{f_{\lambda_0}'(0)} \right)^2 = 2 S_{f_{\lambda_0}}(0)
 \end{align*}
 e, portanto,
 $$ p''(0) = - \frac{\frac{\partial^2 H}{\partial x^2}(0, \lambda_0)\frac{\partial H}{\partial \lambda}(0, \lambda_0)}{ \left( \frac{ \partial H}{\partial \lambda}(0, \lambda_0) \right)^2} \\
-= -\frac{1}{3} \frac{\frac{\partial^3 G}{\partial x^3}(0, \lambda_0)}{\frac{\partial H}{\partial \lambda}(0, \lambda_0)} = \frac{2}{3} \frac{S_{f_{\lambda_0}}(0)}{\frac{\partial H}{\partial \lambda}(0, \lambda_0)} \neq 0$$
-quando $S_{f_{\lambda_0}}(0) \neq 0$.
+= -\frac{1}{3} \frac{\frac{\partial^3 G}{\partial x^3}(0, \lambda_0)}{\frac{\partial H}{\partial \lambda}(0, \lambda_0)} = -\frac{2}{3} \frac{S_{f_{\lambda_0}}(0)}{\frac{\partial H}{\partial \lambda}(0, \lambda_0)} \neq 0.$$
 \end{proof}
