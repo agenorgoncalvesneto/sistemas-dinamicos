@@ -1,8 +1,12 @@
 % !TeX root = ../sistemasdinamicos.tex
 \section{Bifurcação}
 
+Ao longo de seção, $f_\lambda$ representará uma família parametrizada de funções no parâmetro $\lambda$ de modo que a função
+$$G(x, \lambda) = f_\lambda(x)$$
+definida num aberto de $\RR^2$ seja de classe $\CC^\infty$ nas variáveis $x$ e $\lambda$.
+
 \begin{theorem}[Função Implícita]
-Sejam $U \subset \RR^2$ um aberto e $F: U \to \RR$ uma função de classe $\CC^k$. Suponha que
+Sejam $U \subset \RR^2$ um aberto e $F: U \to \RR$ uma função de classe $\CC^k$, $1 \leq k \leq \infty$. Suponha que
 \begin{enumerate}
 \item $F(x_0, y_0) = c$
 \item $\frac{\partial F}{\partial y} (x_0, y_0) \neq 0$
@@ -13,9 +17,6 @@ Então existem uma vizinhança $I$ de $x_0$ e uma função $f: I \to \RR$ de cla
 \item $F(x, f(x)) = c$ para todo $x \in I$
 \end{enumerate}
 \end{theorem}
-
-%Supondo $F$ de classe $\CC^k$, $k \geq 2$, e utilizando a Regra da Cadeia,
-%$$ = $$
 
 \begin{theorem}
 \label{theorem1}
@@ -43,9 +44,9 @@ Além disso, para cada $\lambda \in I$ está associado um único $x \in J$ e, po
 
 De acordo com o Teorema anterior, se $x_0$ é um ponto fixo não hiperbólico de $f_{\lambda_0}$, então $f_\lambda$ possui um único ponto fixo numa vizinhança de $x_0$ para cada $\lambda$ numa vizinhança de $\lambda_0$.
  
-Ainda de acordo com o Teorema anterior, considere a função $g_\lambda(x) = f_\lambda(x + p(\lambda)) - p(\lambda)$. Observe que $g_\lambda(0) = f(p(\lambda)) - p(\lambda) = 0$ para todo $\lambda \in I$, ou seja, $0$ é ponto fixo de $g_\lambda$ para todo $\lambda \in I$. Além disso, $f_\lambda$ e $g_\lambda$ são topologicamente conjugadas por $h_\lambda(x) = x - p(\lambda)$.
+Utilizando a notação do Teorema anterior, considere a função $g_\lambda(x) = f_\lambda(x + p(\lambda)) - p(\lambda)$. Observe que $g_\lambda(0) = f(p(\lambda)) - p(\lambda) = 0$ para todo $\lambda \in I$, ou seja, $0$ é ponto fixo de $g_\lambda$ para todo $\lambda \in I$. Além disso, $f_\lambda$ e $g_\lambda$ são topologicamente conjugadas por $h_\lambda(x) = x - p(\lambda)$.
 
-\begin{theorem}
+\begin{theorem}[Bifurcação Tangente]
 Suponha que
 \begin{enumerate}
 \item $f_{\lambda_0}(0) = 0$
@@ -68,7 +69,7 @@ Pelo Teorema da Função Implícita, como $G(0, \lambda_0) = 0$ e
 $$\frac{\partial G}{\partial \lambda}(0, \lambda_0) = \frac{\partial f_\lambda}{\partial \lambda}|_{\lambda = \lambda_0}(0) \neq 0,$$
 existem uma vizinhança $I$ de $0$ e uma função $p: I \to \RR$ tais que $p(0) = \lambda_0$ e $G(x, p(x)) = 0$ para todo $x \in I$.
 
-Além disso, são válidas as igualdades
+Além disso, pela Regra da Cadeia, é válido que
 $$p'(0) = - \frac{\frac{\partial G}{\partial x}(0, \lambda_0)}
 {\frac{\partial G}{\partial \lambda}(0, \lambda_0)} = - \frac{f'_{\lambda_0}(0) - 1}{\frac{\partial f_\lambda}{\partial \lambda}|_{\lambda = \lambda_0}(0)} = 0$$
 e
@@ -76,7 +77,7 @@ $$ p''(0) = - \frac{\frac{\partial^2 G}{\partial x^2}(0, \lambda_0)\frac{\partia
 {\left( \frac{\partial G}{\partial \lambda}(0, \lambda_0) \right)^2}  = - \frac{\frac{\partial^2 G}{\partial x^2}(x, \lambda_0)}{ \frac{\partial f_\lambda}{\partial \lambda}|_{\lambda = \lambda_0}(0)} \neq 0 $$
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}[Bifurcação com Duplicação de Período]
 Suponha que
 \begin{enumerate}
 \item $f_{\lambda_0}(0) = 0$ para todo $\lambda$ numa vizinhança de $\lambda_0$
@@ -120,6 +121,9 @@ $ \frac{\partial H}{\partial x}(0, \lambda_0) = \lim_{x \to 0} \frac{H(x, \lambd
 \item[(IV)]
 $\frac{\partial^2 H}{\partial x^2}(0, \lambda_0) = \frac{1}{3} \frac{\partial^3 G}{\partial x^3}(0, \lambda_0)$
 \end{enumerate}
+%\textit{\#\#\# \\
+%Aqui estão as duas coisas que eu não consegui demonstrar. Mostrar que $H$ é de classe $\CC^\infty$ e a igualdade $(IV)$. Não sei se é simples explicar como se faz através do email... Caso não seja possível, considerando que isso é uma questão de cálculo, acho que não tem muito problema seguir em frente e depois discutir com mais cuidado, em um momento oportuno.
+%\\\#\#\#}
 
 Pelas igualdades (I) e (II), e pelo Teorema da Função Implícita, existem uma vizinhança $I$ de $0$ e uma função $p: I \to \RR$ de classe $\CC^\infty$ tais que $p(0) = \lambda_0$ e $H(x, p(x)) = 0$ para todo $x \in I$. Em particular, se $x \neq 0$,
 $$0 = \frac{G(x, p(x))}{x} = \frac{f^2_{p(x)}(x) - x}{x}$$
