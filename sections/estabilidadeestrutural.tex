@@ -1,16 +1,16 @@
 \section{Estabilidade Estrutural}
 
 \begin{definition}
-Sejam $f, g: D \to \RR$ funções de classe $\CC^k$. A $k-$distância entre $f$ e $g$ é definida por
+Sejam $f, g: D \to \RR$ funções de classe $\CC^k$. A $\CC^k$-distância entre $f$ e $g$ é definida por
 $$d_k(f, g) = \sup_{x \in D} \left \{ |f(x) - g(x)|, |f^{(2)}(x), g^{(2)}(x)|, \dots, |f^{(k)}(x) - g^{(k)}(x)| \right \}$$
 \end{definition}
 
 \begin{definition}
-Seja $f: D \to \RR$. Dizemos que $f$ é $k-$estável se existe $\varepsilon > 0$ tal que $d_k(f, g) < \varepsilon$ implica que $f$ e $g$ são topologicamente conjugadas.
+Seja $f: D \to \RR$. Dizemos que $f$ é $\CC^k-$estável se existe $\varepsilon > 0$ tal que $d_k(f, g) < \varepsilon$ implica que $f$ e $g$ são topologicamente conjugadas.
 \end{definition}
 
 \begin{example}
-Seja $L: \RR \to \RR$, dada por $L(x) = \frac{x}{2}$. Vamos provar que $d_1(L, g) < \frac{1}{2}$ implica que $L$ e $g$ são topologicamente conjugadas.
+Seja $L: \RR \to \RR$ a função definida por $L(x) = \frac{x}{2}$. Se $g$ é uma função com $d_1(L, g) < \frac{1}{2}$, vamos mostrar que $L$ e $g$ são topologicamente conjugadas.
 
 Inicialmente, $g$ possui pelo menos 1 ponto fixo. Como $\left| \frac{x}{2} - g(x) \right| < \frac{1}{2}$ para todo $x \in \RR$, temos que $-\frac{1}{2} < \frac{x}{2} - g(x) < \frac{1}{2}$ e, portanto, $-\frac{1}{2} - \frac{x}{2} < g(x) - x < \frac{1}{2} - \frac{x}{2}$. Definindo $h(x) = g(x) - x$, temos que $0 < h(-1) < 1$ e $-1 < h(1) < 0$. Pelo Teorema do Valor Intermediário, existe $x_0 \in (-1, 1)$ tal que $h(x_0) = 0$ e, portanto, $g(x_0) = x_0$.
 
@@ -26,7 +26,7 @@ Se $x \neq 0$, então $h(x) = g^{-n_x} \circ h \circ L^{n_x}(x)$. Se $y = L(x)$,
 $$h \circ L(x) = h(y) = g^{-n_y} \circ h \circ L^{n_y}(y) = g \circ g^{-n_x} \circ h \circ L^{n_x}(x) = g \circ h(x)$$
 e $g(h(0)) = h(0) = h(L(0))$.
 
-Assim, $h \circ L = g \circ h$ e $h$ é um homeomorfismo pois é composição de homeomorfismos. Desse modo, $L$ e $g$ são topologicamente conjugadas e, portanto, $L$ é $\CC^1-$estável.
+Assim, $h \circ L = g \circ h$ e $h$ é um homeomorfismo pois é composição de homeomorfismos. Desse modo, $L$ e $g$ são topologicamente conjugadas e $L$ é $\CC^1-$estável.
 \end{example}
 
 \begin{theorem}
@@ -38,17 +38,18 @@ Vamos mostrar que existe $\varepsilon > 0$ tal que $d_2(F_\mu, g) < \varepsilon$
 
 Seja $\varepsilon_1 > 0$ tal que $d_2(F_\mu, g) < \varepsilon_1$ implica que $g'' < 0$ e, portanto, a concavidade de $g$ é para baixo. Existe $\varepsilon_1$ com essa propriedade pois $F''_\mu = -2\mu$. 
 
-Seja $0 < \varepsilon_2 < \varepsilon_1$ tal que $d_2(F_\mu, g) < \varepsilon_2$ implica que $g$ possui dois pontos fixos $\alpha < \beta$ com $g'(\alpha) > 1$ e $g'(\beta) < -1$. Existe $\varepsilon_2$ com essa propriedade pois $F_\mu$ possui os pontos fixos $0, 1$ com $F'_\mu(0) > 1$ e $F'_\mu(1) < -1$.
+Seja $0 < \varepsilon_2 < \varepsilon_1$ tal que $d_2(F_\mu, g) < \varepsilon_2$ implica que $g$ possui dois pontos fixos $\alpha < \beta$ com $g'(\alpha) > 1$ e $g'(\beta) < -1$. Existe $\varepsilon_2$ com essa propriedade pois $F_\mu$ possui os pontos fixos $0$ e $1$ com $F'_\mu(0) > 1$ e $F'_\mu(1) < -1$.
 
 Pelo Teorema do Valor Médio, temos que $g$ possui um ponto crítico $c \in (\alpha, \beta)$. Sendo $g'' < 0$, o ponto crítico de $g$ é único. Além disso, $g$ é estritamente crescente em $(-\infty, c)$ e estritamente decrescente em $(c, \infty)$. Desse modo, existem $\alpha'$ e $\beta'$ tais que $g(\alpha') = \alpha$ e $g(\beta') = \beta$.
 
 Por fim, seja $0 < \varepsilon < \varepsilon_2$ tal que $d_2(F_\mu, g) < \varepsilon$ implica que $g^{-1}(\alpha')$ possui dois elementos $a_0$ e $a_1$ e que $|g'(x)| > 1$ para todo $x \in [\alpha, a_0] \cup [a_1, \beta]$.
 
-Desse modo, se $d_2(F_\mu, g) < \varepsilon$, então $g$ possui as mesmas propriedades de $F_\mu$. Em particular, utilizando as imagens inversas de $(a_0, a_1)$ por $g$, é possível provar que $g$ e $\sigma$ são topologicamente conjugadas. Portanto, $F_\mu$ e $g$ são topologicamente conjugadas por transitividade.
+Desse modo, se $d_2(F_\mu, g) < \varepsilon$, então $g$ possui as mesmas propriedades de $F_\mu$. Em particular, utilizando as imagens inversas de $(a_0, a_1)$ por $g$, é possível provar que $g$ e a função shift são topologicamente conjugadas. Portanto, $F_\mu$ e $g$ são topologicamente conjugadas por transitividade.
 \end{proof}
 
-
-
+\begin{theorem}[Hartman]
+Seja $p$ um ponto fixo hiperbólico de $f$ e suponha que $f'(p) = \lambda \neq 0$. Então existem vizinhanças $U$ de $p$ e $V$ de $0$ e um homeomorfismo $h:U \to V$ que conjuga as funções $f|_U$ e $L(x) = \lambda x$, $x \in V$. 
+\end{theorem}
 
 
 
