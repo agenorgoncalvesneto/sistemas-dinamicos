@@ -1,44 +1,93 @@
 \section{Subshift e Matriz de Transição}
 
-\begin{definition}
-$\Sigma_N = \{ x = (x_n)_{n \in \NN}: 1 \leq x_n \leq N \}$
-\end{definition}
+Se $N \geq 1$, definimos o conjunto $\Sigma_N$ formado sequências de números naturais limitados entre $1$ e $N$. Precisamente,
+
+$$\Sigma_N = \{ (x_n)_n \in \NN^{\NN} : 1 \leq x_n \leq N \}.$$
+
+Definimos também a função $d_N : \Sigma_N \times \Sigma_N \to \RR$ dada por
+$$d_N(x, y) = \sum_{i=0}^\infty \frac{|x_i - y_i|}{N^i},$$
+onde $x = (x_n)_n$ e $y = (y_n)_n$. Observe que 
+
 
 \begin{proposition}
 $(\Sigma_N, d_N)$ é um espaço métrico.
 \end{proposition}
 
+
+\begin{proof}
+
+\end{proof}
+
+
 \begin{proposition}
-Se $x_i = y_i$ para todo $0 \leq i \leq k$, então $d_N(x, y) \leq \frac{1}{N^k}$. Se $d_N(x, y) < \frac{1}{N^k}$, então $x_i = y_i$ para todo $0 \leq i \leq k$.
+Sejam $x = (x_n)_n, y = (y_n)_n \in \Sigma_N$.
+\begin{enumerate}
+\item Se $x_i = y_i$ para todo $0 \leq i \leq k$, então $d_N(x, y) \leq \frac{1}{N^k}$.
+\item Se $d_N(x, y) < \frac{1}{N^k}$, então $x_i = y_i$ para todo $0 \leq i \leq k$.
+\end{enumerate}
 \end{proposition}
 
+
+\begin{proof}
+
+\end{proof}
+
+
 \begin{definition}
-Seja $A = (a_{ij})_{1 \leq i,j \leq N}$ uma matriz quadrada de ordem $N$ tal que $a_{ij} \in \{ 0, 1 \}$ para todo $1 \leq i,j \leq N$. Então
-$$\Sigma_A = \{ x = (x_n) \in \Sigma_N : a_{x_i x_{i+1}} = 1\}$$
+Seja $A = (a_{ij})_{1 \leq i,j \leq N}$ uma matriz quadrada de ordem $N$. Dizemos que $A$ é uma matriz de transição de ordem $N$ se $a_{ij} \in \{ 0, 1 \}$ para todo $1 \leq i,j \leq N$.
 \end{definition}
+
+Seja $A$ uma matriz de transição de ordem $N$. Definimos o conjunto $\Sigma_A$ como
+$$\Sigma_A = \{ (x_n)_n \in \Sigma_N : a_{x_i x_{i+1}} = 1 \textrm{ para todo } i \geq 0 \}.$$
 
 \begin{proposition}
 $\Sigma_A$ é fechado em $(\Sigma_N, d_N)$.
 \end{proposition}
 
+
+\begin{proof}
+
+\end{proof}
+
+
 \begin{proposition}
-Se $x$ é um ponto periódico de $F$ diferente de $0, a_1, a_2, a_3$, então $x \in I_1 \cup I_2$.
+Se $x \notin \{ 0, a_1, a_2, a_3 \}$ é um ponto periódico de $F$, então $x \in I_1 \cup I_2$.
 \end{proposition}
+
+
+\begin{proof}
+
+\end{proof}
+
 
 \begin{lemma}
 $\Lambda$ é um conjunto hiperbólico.
 \end{lemma}
 
+
+\begin{proof}
+
+\end{proof}
+
+
 \begin{theorem}
-$F_\Lambda$ e $\sigma_A$ são topologicamente conjugadas.
+$F|_\Lambda$ e $\sigma_A$ são topologicamente conjugadas.
 \end{theorem}
+
+
+\begin{proof}
+
+\end{proof}
+
 
 \begin{proposition}
 Seja $A$ uma matriz de transição de ordem $N$. Então $\sigma_A$ possui $Tr(A^k)$ pontos periódicos de período $k$.
 \end{proposition}
 
 
+\begin{proof}
 
+\end{proof}
 
 
 
