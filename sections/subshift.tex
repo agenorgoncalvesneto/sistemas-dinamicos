@@ -1,12 +1,12 @@
-\section{Subshift e Matriz de Transição}
+\section{Subshift}
 
-Se $N \geq 1$, definimos o conjunto $\Sigma_N$ formado sequências de números naturais limitados entre $1$ e $N$. Precisamente,
+Se $N \geq 2$, definimos o conjunto $\Sigma_N$ formado sequências de números naturais limitados entre $1$ e $N$. Precisamente,
 
-$$\Sigma_N = \{ (x_n)_n \in \NN^{\NN} : 1 \leq x_n \leq N \}.$$
+$$\Sigma_N = \{ (x_n)_{n=0}^{\infty} \in \NN^{\NN} : 1 \leq x_n \leq N \}.$$
 
 Definimos também a função $d_N : \Sigma_N \times \Sigma_N \to \RR$ dada por
 $$d_N(x, y) = \sum_{i=0}^\infty \frac{|x_i - y_i|}{N^i},$$
-onde $x = (x_n)_n$ e $y = (y_n)_n$. Observe que 
+onde $x = (x_n)_{n=0}^{\infty}$ e $y = (y_n)_{n=0}^{\infty}$. Observe que $d_N$ está bem definida pois $\sum_{i=0}^\infty \frac{1}{N^i} < \infty$.
 
 
 \begin{proposition}
@@ -15,12 +15,18 @@ $(\Sigma_N, d_N)$ é um espaço métrico.
 
 
 \begin{proof}
-
+Se $x = (x_n)_{n=0}^{\infty}, y = (y_n)_{n=0}^{\infty}, z = (z_n)_{n=0}^{\infty} \in \Sigma_N$, então
+\begin{enumerate}
+\item $d_N(x, y) \geq 0$, pois $|x_i - y_i| \geq 0$ para todo $i \geq 0$,
+\item $d_N(x, y) = d_N(y, x)$, pois $|x_i - y_i| = |y_i - x_i|$ para todo $i \geq 0$,
+\item $d_N(x, z) \leq d_N(x, y) + d_N(y, z)$, pois $|x_i - z_i| = |x_i - y_i + y_i - z_i| \leq |x_i - y_i| + |y_i - z_i|$ para todo $i \geq 0$.
+\end{enumerate}
+Desse modo, $d_N$ é uma distância em $\Sigma_N$ e $(\Sigma_N, d_N)$ é um espaço métrico.
 \end{proof}
 
 
 \begin{proposition}
-Sejam $x = (x_n)_n, y = (y_n)_n \in \Sigma_N$.
+Sejam $x = (x_n)_{n=0}^{\infty}, y = (y_n)_{n=0}^{\infty} \in \Sigma_N$.
 \begin{enumerate}
 \item Se $x_i = y_i$ para todo $0 \leq i \leq k$, então $d_N(x, y) \leq \frac{1}{N^k}$.
 \item Se $d_N(x, y) < \frac{1}{N^k}$, então $x_i = y_i$ para todo $0 \leq i \leq k$.
@@ -29,7 +35,13 @@ Sejam $x = (x_n)_n, y = (y_n)_n \in \Sigma_N$.
 
 
 \begin{proof}
+\begin{enumerate}
+\item Se $x_i = y_i$ para todo $0 \leq i \leq k$, então
+$$d_N(x, y) = \sum_{i=k+1}^\infty \frac{|x_i - y_i|}{N^i} \leq \sum_{i=k+1}^\infty \frac{1}{N^i} = \frac{1}{N^{k+1}}\sum_{i=0}^\infty \frac{1}{N^{i}} = \frac{1}{N^{k+1}} \frac{N}{N - 1} < \frac{1}{N^k}$$
 
+\item Se $x_j \neq y_j$ para algum $0 \leq j \leq k$, então
+$$d_N(x, y) = \sum_{i=0}^\infty \frac{|x_i - y_i|}{N^i} \geq \frac{1}{N^j} \geq \frac{1}{N^k}$$
+\end{enumerate}
 \end{proof}
 
 
@@ -37,8 +49,8 @@ Sejam $x = (x_n)_n, y = (y_n)_n \in \Sigma_N$.
 Seja $A = (a_{ij})_{1 \leq i,j \leq N}$ uma matriz quadrada de ordem $N$. Dizemos que $A$ é uma matriz de transição de ordem $N$ se $a_{ij} \in \{ 0, 1 \}$ para todo $1 \leq i,j \leq N$.
 \end{definition}
 
-Seja $A$ uma matriz de transição de ordem $N$. Definimos o conjunto $\Sigma_A$ como
-$$\Sigma_A = \{ (x_n)_n \in \Sigma_N : a_{x_i x_{i+1}} = 1 \textrm{ para todo } i \geq 0 \}.$$
+Se $A$ uma matriz de transição de ordem $N$, definimos o conjunto $\Sigma_A$ como
+$$\Sigma_A = \{ (x_n)_{n=0}^{\infty} \in \Sigma_N : a_{x_i x_{i+1}} = 1 \textrm{ para todo } i \geq 0 \}.$$
 
 \begin{proposition}
 $\Sigma_A$ é fechado em $(\Sigma_N, d_N)$.
@@ -46,9 +58,15 @@ $\Sigma_A$ é fechado em $(\Sigma_N, d_N)$.
 
 
 \begin{proof}
+Seja $(x_n)_{n=0}^{\infty}$ uma sequência de elementos em $\Sigma_A$ convergente para $x = (\xi_n)_{n=0}^{\infty}$.
 
+Suponha que $x \notin \Sigma_A$. Então, existe $j \geq 0$ tal que $a_{\xi_j \xi_{j+1}} = 0$. Por outro lado, pela definição de convergência, existe $n_0 \geq 0$ tal que $d(x_{n_0}, x) < \frac{1}{N^{j+1}}$ e, portanto, as $j+1$ primeiras entradas de $x$ e $x_{n_0}$ são iguais. Absurdo, pois $x_{n_0} \in \Sigma_A$.
 \end{proof}
 
+
+Seja $x = (x_n)_{n=0}^{\infty} \in \Sigma_A$. Observando que $a_{x_i x_{i+1}} = 1$ para todo $i \geq 1$, temos que $\sigma(x) = (x_n)_{n=1}^\infty \in \Sigma_A$. Desse modo, podemos definir a função $\sigma_A: \Sigma_A \to \Sigma_A$ como sendo a restrição de $\sigma$ em $\Sigma_A$. Dizemos que $\sigma_A$ é o subshift definido pela matriz de transição $A$.
+
+No restante desse seção vamos estudar a dinâmica da função quadrática $F_\mu(x) = \mu x(1-x)$, onde o parâmetro $\mu = 3.839$ está fixado. Será omitido $\mu$ na notação da função e escreveremos apenas $F$.
 
 \begin{proposition}
 Se $x \notin \{ 0, a_1, a_2, a_3 \}$ é um ponto periódico de $F$, então $x \in I_1 \cup I_2$.
