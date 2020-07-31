@@ -1,12 +1,12 @@
 \section{Subshift}
 
-Se $N \geq 2$, definimos o conjunto $\Sigma_N$ formado sequências de números naturais limitados entre $1$ e $N$. Precisamente,
+Seja $N \geq 2$. Definimos o conjunto $\Sigma_N$ formado sequências de números naturais limitados entre $1$ e $N$. Precisamente,
 
 $$\Sigma_N = \{ (x_n)_{n=0}^{\infty} \in \NN^{\NN} : 1 \leq x_n \leq N \}.$$
 
 Definimos também a função $d_N : \Sigma_N \times \Sigma_N \to \RR$ dada por
 $$d_N(x, y) = \sum_{i=0}^\infty \frac{|x_i - y_i|}{N^i},$$
-onde $x = (x_n)_{n=0}^{\infty}$ e $y = (y_n)_{n=0}^{\infty}$. Observe que $d_N$ está bem definida pois $\sum_{i=0}^\infty \frac{1}{N^i} < \infty$.
+onde $x = (x_n)_{n=0}^{\infty}$ e $y = (y_n)_{n=0}^{\infty}$. Como $\sum_{i=0}^\infty \frac{1}{N^i} < \infty$, $d_N$ está bem definida.
 
 
 \begin{proposition}
@@ -17,8 +17,8 @@ $(\Sigma_N, d_N)$ é um espaço métrico.
 \begin{proof}
 Se $x = (x_n)_{n=0}^{\infty}, y = (y_n)_{n=0}^{\infty}, z = (z_n)_{n=0}^{\infty} \in \Sigma_N$, então
 \begin{enumerate}
-\item $d_N(x, y) \geq 0$, pois $|x_i - y_i| \geq 0$ para todo $i \geq 0$,
-\item $d_N(x, y) = d_N(y, x)$, pois $|x_i - y_i| = |y_i - x_i|$ para todo $i \geq 0$,
+\item $d_N(x, y) \geq 0$, pois $|x_i - y_i| \geq 0$ para todo $i \geq 0$.
+\item $d_N(x, y) = d_N(y, x)$, pois $|x_i - y_i| = |y_i - x_i|$ para todo $i \geq 0$.
 \item $d_N(x, z) \leq d_N(x, y) + d_N(y, z)$, pois $|x_i - z_i| = |x_i - y_i + y_i - z_i| \leq |x_i - y_i| + |y_i - z_i|$ para todo $i \geq 0$.
 \end{enumerate}
 Desse modo, $d_N$ é uma distância em $\Sigma_N$ e $(\Sigma_N, d_N)$ é um espaço métrico.
@@ -37,7 +37,7 @@ Sejam $x = (x_n)_{n=0}^{\infty}, y = (y_n)_{n=0}^{\infty} \in \Sigma_N$.
 \begin{proof}
 \begin{enumerate}
 \item Se $x_i = y_i$ para todo $0 \leq i \leq k$, então
-$$d_N(x, y) = \sum_{i=k+1}^\infty \frac{|x_i - y_i|}{N^i} \leq \sum_{i=k+1}^\infty \frac{1}{N^i} = \frac{1}{N^{k+1}}\sum_{i=0}^\infty \frac{1}{N^{i}} = \frac{1}{N^{k+1}} \frac{N}{N - 1} < \frac{1}{N^k}$$
+$$d_N(x, y) \leq \sum_{i=k+1}^\infty \frac{1}{N^i} = \frac{1}{N^{k+1}}\sum_{i=0}^\infty \frac{1}{N^{i}} = \frac{1}{N^{k+1}} \frac{N}{N - 1} < \frac{1}{N^k}$$
 
 \item Se $x_j \neq y_j$ para algum $0 \leq j \leq k$, então
 $$d_N(x, y) = \sum_{i=0}^\infty \frac{|x_i - y_i|}{N^i} \geq \frac{1}{N^j} \geq \frac{1}{N^k}$$
@@ -45,15 +45,13 @@ $$d_N(x, y) = \sum_{i=0}^\infty \frac{|x_i - y_i|}{N^i} \geq \frac{1}{N^j} \geq 
 \end{proof}
 
 
-\begin{definition}
-Seja $A = (a_{ij})_{1 \leq i,j \leq N}$ uma matriz quadrada de ordem $N$. Dizemos que $A$ é uma matriz de transição de ordem $N$ se $a_{ij} \in \{ 0, 1 \}$ para todo $1 \leq i,j \leq N$.
-\end{definition}
-
-Se $A$ uma matriz de transição de ordem $N$, definimos o conjunto $\Sigma_A$ como
+Seja $A = (a_{ij})_{1 \leq i,j \leq N}$ uma matriz quadrada de ordem $N$ tal que $a_{ij} \in \{ 0, 1 \}$ para todo $1 \leq i,j \leq N$. Definimos o conjunto $\Sigma_A$ como
 $$\Sigma_A = \{ (x_n)_{n=0}^{\infty} \in \Sigma_N : a_{x_i x_{i+1}} = 1 \textrm{ para todo } i \geq 0 \}.$$
 
+Seja $x = (x_n)_{n=0}^{\infty} \in \Sigma_A$. Observando que $a_{x_i x_{i+1}} = 1$ para todo $i \geq 1$, temos que $\sigma(x) = (x_n)_{n=1}^\infty \in \Sigma_A$. Desse modo, podemos definir a função $\sigma_A: \Sigma_A \to \Sigma_A$ como sendo a restrição de $\sigma$ em $\Sigma_A$. Dizemos que $\sigma_A$ é o subshift definido pela matriz de transição $A$.
+
 \begin{proposition}
-$\Sigma_A$ é fechado em $(\Sigma_N, d_N)$.
+$\Sigma_A$ é um subconjunto fechado de $\Sigma_N$.
 \end{proposition}
 
 
@@ -64,9 +62,26 @@ Suponha que $x \notin \Sigma_A$. Então, existe $j \geq 0$ tal que $a_{\xi_j \xi
 \end{proof}
 
 
-Seja $x = (x_n)_{n=0}^{\infty} \in \Sigma_A$. Observando que $a_{x_i x_{i+1}} = 1$ para todo $i \geq 1$, temos que $\sigma(x) = (x_n)_{n=1}^\infty \in \Sigma_A$. Desse modo, podemos definir a função $\sigma_A: \Sigma_A \to \Sigma_A$ como sendo a restrição de $\sigma$ em $\Sigma_A$. Dizemos que $\sigma_A$ é o subshift definido pela matriz de transição $A$.
+No restante dessa seção vamos estudar a dinâmica da função quadrática $F_\mu(x) = \mu x(1-x)$, onde o parâmetro $\mu = 3.839$ está fixado. Será omitido $\mu$ na notação da função e escreveremos apenas $F$.
 
-No restante desse seção vamos estudar a dinâmica da função quadrática $F_\mu(x) = \mu x(1-x)$, onde o parâmetro $\mu = 3.839$ está fixado. Será omitido $\mu$ na notação da função e escreveremos apenas $F$.
+Existe uma vizinhança $V$ de $0.149888$ tal que $F^3(V) \subset V$ e $|(F^3)'(V)| < 1$. Desse modo, existe um ponto periódico $a_1 \in V$ de período $3$. Chamando $a_1, a_2, a_3$ os elementos dessa órbita, temos que
+$$a_1 \simeq 0.149888,$$
+$$a_2 \simeq 0.489149,$$
+$$a_3 \simeq 0.959299.$$
+Além disso, de acordo com o Teorema de Singer, essa é a única órbita atratora de $F$.
+
+Observando o gráfico de $F^3$, existe outra órbita de tamanho $3$. Chamando $b_1, b_2, b_3$ os elementos dessa órbita, temos que
+$$b_1 \simeq 0.169040,$$
+$$b_2 \simeq 0.539247,$$
+$$b_3 \simeq 0.953837.$$
+
+Para cada $b_i$, existe $\bar{b}_i$ do lado oposto de $b_i$ em relação à $a_i$ tal que $F^3(\bar{b}_i) = b_i$. Defina $A_1 = (\bar{b}_1, b_1)$, $A_2 = (\bar{b}_2, b_2)$ e $A_3 = (b_3, \bar{b}_3)$. Observe que $A_i$ é o intervalo maximal contendo $a_i$ utilizado na demonstração do Teorema de Singer.
+
+Sendo $F^3$ simétrica em relação à $\frac{1}{2}$, temos que $F(\bar{b}_2) = F(b_2) = b_3$. Além disso, $F(\bar{b}_1) = \bar{b}_2$ e $F(\bar{b}_3) = \bar{b}_1$.
+
+Desse modo, $F$ mapeia, de forma monótona, $A_1$ em $A_2$ e $A_3$ em $A_1$. Além disso, o máximo de $F$ é $0.95975 < \bar{b}_3$ e, portanto, $F(A_2) \subset A_3$. (???)
+
+Sabemos que se $x \notin [0, 1]$, então $\lim_{n \to \infty} F^n(x) = -\infty$. Além disso, o único ponto periódico de $A_i$ é $a_i$ e todos os pontos de $A_i$ tendem para a órbita de $a_i$. Portanto, todos os outros infinitos pontos periódicos residem no complemento dos $A_i$'s em $[0, 1]$, que é formado por quatro intervalos fechados. Sejam $I_0 = [0, \bar{b}_1], I_1 = [b_1, \bar{b}_2], I_2 = [b_2, b_3], I_3 = [\bar{b}_3, 1]$ tais intervalos. Podemos dizer mais,
 
 \begin{proposition}
 Se $x \notin \{ 0, a_1, a_2, a_3 \}$ é um ponto periódico de $F$, então $x \in I_1 \cup I_2$.
@@ -74,9 +89,20 @@ Se $x \notin \{ 0, a_1, a_2, a_3 \}$ é um ponto periódico de $F$, então $x \i
 
 
 \begin{proof}
+Observando que $F$ é monótona nos $I_k$'s, temos que $F(I_0) = I_0 \cup A_1 \cup I_1$, $F(I_1) = I_2$, $F(I_2) = I_1 \cup A_2 \cup I_2$ e $F(I_3) = I_0$. Desse modo, se $x \in I_1 \cup I_2$ é periódico, então órbita de $x$ permanece em $I_1 \cup I_2$.
 
+Por outro lado, se $x \in I_0 - \{ 0 \}$, existe um menor $n \geq 1$ tal que $F^n(x) \notin I_0$. Se $F^n(x) \in A_1$, então $x$ não pode ser periódico, pois o único ponto periódico de $A_1$ é $a_1$. Se $F^n(x) \in I_1$, então $x$ não pode ser periódico, pois senão a órbita de $x$ estaria contida em $I_1 \cup I_2$ e nunca retornaria para $I_0$.
+
+Finalmente, se $x \in I_3$, então $F(x) \in I_0$ e a análise segue como no parágrafo anterior.
 \end{proof}
 
+Defina o conjunto $\Lambda$ como
+$$\Lambda \{ x \in I_1 \cup I_2 : F^n(x) \in I_1 \cup I_2 \textrm{ para todo } n \geq 1 \}.$$
+Pela Proposição anterior, todos os pontos periódicos de $F$ estão em $\Lambda$, com exceção dos pontos $0$, $a_1$, $a_2$ e $a_3$.
+
+Considere a matriz de transição
+$$A = (0, 1 // 1, 1)$$
+Podemos definir a função $S: \Lambda \to \Sigma_A$ por $S(x) = (x_n)_{n=0}^\infty$, onde $x_i = 1$ quando $F^i(x) \in I_1$ e $x_i = 2$ quando $F^i(x) \in I_2$. Observe que está bem definida. De fato, $F(I_1) = I_2$ e $F(I_2) \subset I_1 \cup I_2$ e, portanto, $a_{x_i x_{i+1}} = 1$ para todo $i \geq 0$. 
 
 \begin{lemma}
 $\Lambda$ é um conjunto hiperbólico.
@@ -88,8 +114,18 @@ $\Lambda$ é um conjunto hiperbólico.
 \end{proof}
 
 
+\begin{lemma}
+$S$ é um homeomorfismo.
+\end{lemma}
+
+
+\begin{proof}
+
+\end{proof}
+
+
 \begin{theorem}
-$F|_\Lambda$ e $\sigma_A$ são topologicamente conjugadas.
+$S \circ F|_\Lambda$ e $\sigma_A \circ S$.
 \end{theorem}
 
 
@@ -104,7 +140,15 @@ Seja $A$ uma matriz de transição de ordem $N$. Então $\sigma_A$ possui $Tr(A^
 
 
 \begin{proof}
+Temos que $x = (x_n)_{n=0}^\infty \in \Sigma_A$ é um ponto periódico de período $k$ se, e somente se, $x_i = x_{i+k}$ para todo $i \geq 0$, ou seja,
+$$x = (x_0, x_1, \dots, x_{k-1}, x_0, x_1, \dots, x_{k-1}, \dots).$$
+Além disso, se $x \in \Sigma_A$ implica que $a_{x_0 x_1} = a_{x_1 x_2} = \cdots = a_{x_{k-1} x_0} = 1$ e, portanto  $a_{x_0 x_1} a_{x_1 x_2}  \cdots a_{x_{k-1} x_0} = 1$. Desse modo, a quantidade de pontos periódicos de período $k$ é dada por
+$$\sum_{x_0 = 1}^N \cdots \sum_{x_{k-1}=1}^N a_{x_0 x_1} a_{x_1 x_2}  \cdots a_{x_{k-1} x_0}.$$
 
+Por outro lado, utilizando a definição de multiplicação de matrizes podemos mostrar por indução que $A^k = (c_{ij})_{1 \leq i, j \leq N}$, onde
+$$c_{ij} = \sum_{x_1 = 1}^N \cdots \sum_{x_{k-1}=1}^N a_{i x_1} a_{x_1 x_2}  \cdots a_{x_{k-1}j}$$
+e, portanto,
+$$\tr(A^k) = \sum_{x_0 = 1}^N c_{x_0 x_0} = c_{ij} = \sum_{x_0 = 1}^N \cdots \sum_{x_{k-1}=1}^N a_{x_0 x_1} a_{x_1 x_2}  \cdots a_{x_{k-1} x_0}$$.
 \end{proof}
 
 
