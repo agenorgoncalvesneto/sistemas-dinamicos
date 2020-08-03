@@ -97,40 +97,98 @@ Finalmente, se $x \in I_3$, então $F(x) \in I_0$ e a análise segue como no par
 \end{proof}
 
 Defina o conjunto $\Lambda$ como
-$$\Lambda \{ x \in I_1 \cup I_2 : F^n(x) \in I_1 \cup I_2 \textrm{ para todo } n \geq 1 \}.$$
+$$\Lambda = \{ x \in I_1 \cup I_2 : F^n(x) \in I_1 \cup I_2 \textrm{ para todo } n \geq 1 \}.$$
 Pela Proposição anterior, todos os pontos periódicos de $F$ estão em $\Lambda$, com exceção dos pontos $0$, $a_1$, $a_2$ e $a_3$.
 
-Considere a matriz de transição
+
+\begin{lemma}
+Existe $N \geq 1$ tal que $|(F^n)'(\Lambda)| > 1$ para todo $n \geq N$.
+\end{lemma}
+
+
+\begin{proof}
+Como $F'' < 0$, $F'$ é decrescente. Observando que $A_2$ é uma bola centrada em $\frac{1}{2}$, temos que $|F'(x)| \geq \nu = F'(\bar{b}_2) \simeq 0.3$ para todo $x \in I_1 \cup I_2$.
+
+Observando o gráfico de $F^3$, observamos que o subconjunto de $I_1 \cup I_2$ onde $|F'| \leq 1$ é formado por três intervalos fechados $B_1, B_2, B_3$, que estão numerados da esquerda para direita. Utilizando a simetria do gráfico de $F^3$ e o fato de que $(F^3)'(b_1) > 1$, temos que $F^3(B_3) \subset A_1$ e, portanto, $B_3 \cap \Lambda = \emptyset$.
+
+Por outro lado, $B_2 \subset [0.661, 0.683]$, já que $(F^3)'(0.661) > 1$ e $(F^3)'(0.683) < -1$. Desse modo, $F(B_2) \subset A_3$. Utilizando novamente a simetria do gráfico de $F^3$, $F(B_1) \subset A_3$. Portanto, $B_1 \cap \Lambda = \emptyset$ e $B_2 \cap \Lambda = \emptyset$. Concluímos assim que $|(F^3)'(\Lambda)| > \lambda$ para algum $\lambda > 1$.
+
+Seja $K \geq 1$ tal que $\nu^2 \lambda^K > 1$. 
+
+
+\end{proof}
+
+
+Para as demonstrações dos próximos resultados, vamos considerar a matriz de transição
 $$A = (0, 1 // 1, 1)$$
 Podemos definir a função $S: \Lambda \to \Sigma_A$ por $S(x) = (x_n)_{n=0}^\infty$, onde $x_i = 1$ quando $F^i(x) \in I_1$ e $x_i = 2$ quando $F^i(x) \in I_2$. Observe que está bem definida. De fato, $F(I_1) = I_2$ e $F(I_2) \subset I_1 \cup I_2$ e, portanto, $a_{x_i x_{i+1}} = 1$ para todo $i \geq 0$. 
 
 \begin{lemma}
-$\Lambda$ é um conjunto hiperbólico.
+$\Lambda$ não contém intervalos.
 \end{lemma}
 
-
 \begin{proof}
-
+Suponha que $\Lambda$ contém algum intervalo. Sejam $x, y \in \Lambda$, com $x < y$, tais que $[x, y] \subset \Lambda$. Pelo Lema anterior, existe $N \geq 1$ tal que $|(F^n)'(\Lambda)| > \lambda > 1$ para todo $n \geq N$. Utilizando a notação do Lema anterior, seja $k \geq N$ tal que $|x - y| \nu^N \lambda^{k - N} > 1$. Pelo Teorema do Valor Médio, existe $c \in [x, y]$ tal que
+\begin{align*}
+|F^k(x) - F^k(y)| & = |(F^k)'(c)||x-y| \\
+& = \left| \prod_{i=0}^{k-1} F'(F^i(c)) \right| |x-y| \\ 
+& = \left| \prod_{i=0}^{N-1} F'(F^i(c)) \right| \left| \prod_{i=N}^{k-1} F'(F^i(c)) \right| |x-y| \\
+& > \nu^N \lambda^{k-N} > 1
+\end{align*}
+e, portanto, $F^k(x)$ ou $F^k(y)$ não está em $[0,1]$. Absurdo.
 \end{proof}
 
-
-\begin{lemma}
+\begin{proposition}
 $S$ é um homeomorfismo.
-\end{lemma}
+\end{proposition}
 
 
 \begin{proof}
 
+\begin{enumerate}
+
+\item $S$ é injetora.
+
+Sejam $x, y \in \Lambda$, com $x < y$, e suponha que $S(x) = S(y)$. Desse modo, $F^n(x)$ e $F^n(y)$ está no mesmo lado em relação ao ponto crítico e, portanto, $F$ é monótona no intervalo entre $F^n(x)$ e $F^n(y)$ para todo $n \geq 0$. Absurdo, pois implica que $[x, y] \subset \Lambda$.
+
+\item $S$ é sobrejetora.
+
+Seja $(x_n)_{n=0}^\infty \in \Sigma_A$. Vamos provar que existe $x \in \Lambda$ tal que $S(x) = (x_n)_{n=0}^\infty$.
+
+Inicialmente, para cada $n \geq 0$, considere
+$$I_{x_0 \cdots x_n} = \{ x \in [0,1] : x \in I_{x_0}, \dots, F^n(x) \in I_{x_n} \}.$$
+Observe que $x \in I_{x_0 \cdots x_n}$ se, e somente se, $x \in I_{x_0}$ e $F(x) \in \{ y \in [0,1] : y \in I_{x_1}, \dots, F^{n-1}(y) \in I_{x_n} \}$. Desse modo, $I_{x_0 \cdots x_n} = I_{x_0} \cap F^{-1}(I_{x_1 \cdots x_n})$.
+
+Assim, por indução, vemos que $I_{x_0 \cdots x_n}$ é um intervalo fechado não vazio. Além disso, $I_{x_0 \cdots x_n} = I_{x_1 \cdots x_{n-1}} \cap F^{-n}(I_{x_n})$.
+
+Desse modo, $(I_{x_0}, I_{x_0 x_1}, \dots)$ é uma sequência de intervalos encaixantes e existe $x \in \cap_{n=0}^\infty I_{x_0 \cdots x_n}$. Observe que $x \in \cap_{n=0}^\infty I_{x_0 \cdots x_n}$ é único, pois $S$ é injetora. Como $F^i(x) \in I_{x_i}$ e, portanto, $S(x) = (x_n)_{n=0}^\infty$.
+
+\item $S$ é contínua.
+
+Seja $x \in \Lambda$, com $S(x) = (x_n)_{n=0}^\infty$. Sejam também $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{N^k} < \varepsilon$.
+
+Como $I_{x_0 \dots x_k}$ um intervalo fechado e $x \in I_{x_0 \dots x_k}$, tome $\delta > 0$ tal que $|x-y| < \delta$ implica que $y \in I_{x_0 \dots x_k}$. Desse modo, $S(x)$ e $S(y)$ são iguais nas primeiras $k+1$ entradas e, portanto, $d_N(S(x), S(y)) \leq \frac{1}{N^{k+1}} < \varepsilon$.
+
+\end{enumerate}
 \end{proof}
 
 
 \begin{theorem}
-$S \circ F|_\Lambda$ e $\sigma_A \circ S$.
+$S \circ F|_\Lambda = \sigma_A \circ S$.
 \end{theorem}
 
 
 \begin{proof}
+Seja $x \in \Lambda$. Utilizando a notação da Proposição anterior, se $S(x) = (x_n)_{n=0}^\infty$, então $x$ é o único elemento de $\cap_{n=0}^\infty I_{x_0 \cdots x_n}$.
 
+Como $I_{x_0 \dots x_n} = I_{x_0} \cap \cdots \cap F^{-n}(I_{x_n})$, temos que
+$$F(I_{x_0 \dots x_n}) = I_{x_1} \cap \cdots \cap F^{-n+1}(I_{x_n}),$$
+pois $F(I_{x_0}) \subset I_{x_1}$ (??). Desse modo,
+\begin{align*}
+S \circ F|_{\Lambda}(x) & = S(F(\cap_{n=0}^\infty I_{x_0 \cdots x_n})) \\
+& = S(\cap_{n=1}^\infty I_{x_0 \cdots x_n}) \\
+& = (x_n)_{n=1}^\infty  = \sigma \circ S(x)
+\end{align*}
 \end{proof}
 
 
@@ -148,7 +206,7 @@ $$\sum_{x_0 = 1}^N \cdots \sum_{x_{k-1}=1}^N a_{x_0 x_1} a_{x_1 x_2}  \cdots a_{
 Por outro lado, utilizando a definição de multiplicação de matrizes podemos mostrar por indução que $A^k = (c_{ij})_{1 \leq i, j \leq N}$, onde
 $$c_{ij} = \sum_{x_1 = 1}^N \cdots \sum_{x_{k-1}=1}^N a_{i x_1} a_{x_1 x_2}  \cdots a_{x_{k-1}j}$$
 e, portanto,
-$$\tr(A^k) = \sum_{x_0 = 1}^N c_{x_0 x_0} = c_{ij} = \sum_{x_0 = 1}^N \cdots \sum_{x_{k-1}=1}^N a_{x_0 x_1} a_{x_1 x_2}  \cdots a_{x_{k-1} x_0}$$.
+$$\tr(A^k) = \sum_{x_0 = 1}^N c_{x_0 x_0} = \sum_{x_0 = 1}^N \cdots \sum_{x_{k-1}=1}^N a_{x_0 x_1} a_{x_1 x_2}  \cdots a_{x_{k-1} x_0}.$$
 \end{proof}
 
 
