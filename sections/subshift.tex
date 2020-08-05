@@ -40,7 +40,7 @@ Sejam $x = (x_n)_{n=0}^{\infty}, y = (y_n)_{n=0}^{\infty} \in \Sigma_N$.
 $$d_N(x, y) \leq \sum_{i=k+1}^\infty \frac{1}{N^i} = \frac{1}{N^{k+1}}\sum_{i=0}^\infty \frac{1}{N^{i}} = \frac{1}{N^{k+1}} \frac{N}{N - 1} \leq \frac{1}{N^k}.$$
 
 \item Se $x_j \neq y_j$ para algum $0 \leq j \leq k$, então
-$$d_N(x, y) = \sum_{i=0}^\infty \frac{|x_i - y_i|}{N^i} \geq \frac{1}{N^j} \geq \frac{1}{N^k}.l$$
+$$d_N(x, y) = \sum_{i=0}^\infty \frac{|x_i - y_i|}{N^i} \geq \frac{1}{N^j} \geq \frac{1}{N^k}.$$
 \end{enumerate}
 \end{proof}
 
@@ -82,7 +82,7 @@ Existe uma vizinhança $V$ de $0.149888$ tal que $F^3(V) \subset V$ e $|(F^3)'(V
 $$a_1 \simeq 0.149888,$$
 $$a_2 \simeq 0.489149,$$
 $$a_3 \simeq 0.959299.$$
-Desse modo, de acordo com o Teorema de Sharkovsky, $F$ possui infinitos pontos periódicos. Além disso, de acordo com o Teorema de Singer, essa é a única órbita atratora de $F$.
+Portanto, de acordo com o Teorema de Sharkovsky, $F$ possui infinitos pontos periódicos. Além disso, de acordo com o Teorema de Singer, essa é a única órbita atratora de $F$.
 
 De modo análogo, concluímos que $F$ possui outra órbita de tamanho $3$. Se $b_1$, $b_2$ e $b_3$ são os elementos dessa órbita em ordem crescente, então
 $$b_1 \simeq 0.169040,$$
@@ -91,9 +91,13 @@ $$b_3 \simeq 0.953837.$$
 
 Observando o gráfico de $F^3$, concluímos que para cada $b_i$, existe $b'_i$ no lado oposto de $b_i$ em relação ao ponto $a_i$ tal que $F^3(b'_i) = b_i$. Defina $A_1 = (b'_1, b_1)$, $A_2 = (b'_2, b_2)$ e $A_3 = (b_3, b'_3)$. Cada $A_i$ é exatamente o intervalo maximal contendo $a_i$ utilizado na demonstração do Teorema de Singer.
 
-Sendo $F^3$ simétrica em relação ao ponto $\frac{1}{2}$, temos que $F(b'_2) = F(b_2) = b_3$. Além disso, $F(b'_1) = b'_2$ e $F(b'_3) = b'_1$. Desse modo, $F$ mapeia, de forma monótona, $A_1$ em $A_2$ e $A_3$ em $A_1$. Observando que o máximo de $F$ em $A_2$ é $F \left( \frac{1}{2} \right) = 0.95975 < b'_3$, concluímos que $F(A_2) \subset A_3$. (??)
+Sendo $F^3$ simétrica em relação ao ponto $\frac{1}{2}$, temos que $F(b'_2) = F(b_2) = b_3$. Além disso, $F(b'_1) = b'_2$ e $F(b'_3) = b'_1$.
 
-Sabemos que se $x \notin [0, 1]$, então $\lim_{n \to \infty} F^n(x) = -\infty$. Além disso, o único ponto periódico de $A_i$ é $a_i$ e todos os pontos em $A_i$ tendem para a órbita de $a_i$. Desse modo, todos os outros infinitos pontos periódicos residem no complemento de $A_1 \cup A_2 \cup A_3$ em $[0, 1]$, que é formado por quatro intervalos fechados. Sejam $I_0 = [0, b'_1], I_1 = [b_1, b'_2], I_2 = [b_2, b_3], I_3 = [b'_3, 1]$ tais intervalos. Podemos dizer mais,
+\textit{ $\bigstar$ Essa última afirmação eu acho que é verdade, mas não consegui provar. Ao menos é consistente, pois implica que $b_3' \to b_1' \to b_2' \to b_3 \to b_1 \to b_2$ e, portanto, $F^3(b_i') = b_i$. Tentei mostrar utilizando imagens inversas, mas cada imagem inversa possui dois elementos e eu não consigo construir uma regra sobre qual escolher. $\bigstar$}
+
+Desse modo, $F$ mapeia, de forma monótona, $A_1$ em $A_2$ e $A_3$ em $A_1$. Observando que o máximo de $F$ em $A_2$ é $F \left( \frac{1}{2} \right) = 0.95975 < b'_3$, concluímos que $F(A_2) \subset A_3$.
+
+Sabemos que se $x \notin [0, 1]$, então $\lim_{n \to \infty} F^n(x) = -\infty$. Além disso, o único ponto periódico de $A_i$ é $a_i$ e todos os pontos em $A_i$ tendem para a órbita de $a_i$. Desse modo, todos os outros infinitos pontos periódicos residem no complemento de $A_1 \cup A_2 \cup A_3$ em $[0, 1]$, que é formado por quatro intervalos fechados. Sejam $I_0 = [0, b'_1], I_1 = [b_1, b'_2], I_2 = [b_2, b_3], I_3 = [b'_3, 1]$ tais intervalos. A Proposição a seguir nos permite dizer mais.
 
 \begin{proposition}
 Se $x \notin \{ 0, a_1, a_2, a_3 \}$ é um ponto periódico de $F$, então $x \in I_1 \cup I_2$.
@@ -103,7 +107,7 @@ Se $x \notin \{ 0, a_1, a_2, a_3 \}$ é um ponto periódico de $F$, então $x \i
 \begin{proof}
 Observando que $F$ é monótona em cada $I_k$, temos que $F(I_0) = I_0 \cup A_1 \cup I_1$, $F(I_1) = I_2$, $F(I_2) = I_1 \cup A_2 \cup I_2$ e $F(I_3) = I_0$. Desse modo, se $x \in I_1 \cup I_2$ é periódico, então órbita de $x$ permanece em $I_1 \cup I_2$.
 
-Por outro lado, se $x \in I_0 - \{ 0 \}$, existe um menor $n \geq 1$ tal que $F^n(x) \notin I_0$. Se $F^n(x) \in A_1$, então $x$ não pode ser periódico, pois o único ponto periódico de $A_1$ é $a_1$. Se $F^n(x) \in I_1$, então $x$ não pode ser periódico, pois senão a órbita de $x$ estaria contida em $I_1 \cup I_2$ e nunca retornaria para $I_0$.
+Por outro lado, se $x \in I_0 - \{ 0 \}$, existe um menor $n \geq 1$ tal que $F^n(x) \notin I_0$. Se $F^n(x) \in A_1$, então $x$ não pode ser periódico, pois o único ponto periódico de $A_1$ é $a_1$. Se $F^n(x) \in I_1$, então $x$ não pode ser periódico, pois caso contrário a órbita de $x$ estaria contida em $I_1 \cup I_2$ e nunca retornaria para $I_0$.
 
 Finalmente, se $x \in I_3$, então $F(x) \in I_0$ e a análise segue como no parágrafo anterior.
 \end{proof}
@@ -119,13 +123,37 @@ Existe $N \geq 1$ tal que $|(F^n)'(\Lambda)| > 1$ para todo $n \geq N$.
 
 
 \begin{proof}
-Como $F'' < 0$, $F'$ é decrescente. Observando que $A_2$ é uma bola centrada em $\frac{1}{2}$, temos que $|F'(x)| \geq \nu = F'(b'_2) \simeq 0.3$ para todo $x \in I_1 \cup I_2$.
+Como $F'' < 0$, temos que $F'$ é estritamente decrescente. Como $F'\left(\frac{1}{2}\right) = 0$, concluímos que $A_2$ é uma vizinhança da única raiz de $F'$. Além disso, $|(F^3)'(b_2)| = |(F^3)'(b_2')| \simeq 0.3$. Desse modo, $|F'(I_1 \cup I_2)| \geq \nu$ para algum $\nu \in (0, 1)$.
 
-Observando o gráfico de $F^3$, concluímos que o subconjunto de $I_1 \cup I_2$ onde $|F'| \leq 1$ é formado por três intervalos fechados $B_1, B_2, B_3$, que estão numerados da esquerda para direita. Utilizando a simetria do gráfico de $F^3$ e o fato de que $(F^3)'(b_1) > 1$, temos que $F^3(B_3) \subset A_1$ e, portanto, $B_3 \cap \Lambda = \emptyset$.
+Observando o gráfico de $F^3$, concluímos que o subconjunto de $I_1 \cup I_2$ no qual $|F'| \leq 1$ é formado por três intervalos fechados. Sejam $B_1$, $B_2$ e $B_3$ tais intervalos, numerados da esquerda para direita. Utilizando a simetria do gráfico de $F^3$ e o fato de que $(F^3)'(b_1) > 1$, temos que $F^3(B_3) \subset A_1$ e, portanto, $B_3 \cap \Lambda = \emptyset$.
 
-Por outro lado, $B_2 \subset [0.661, 0.683]$, já que $(F^3)'(0.661) > 1$ e $(F^3)'(0.683) < -1$. Desse modo, $F(B_2) \subset A_3$. Utilizando novamente a simetria do gráfico de $F^3$, concluímos que $F(B_1) \subset A_3$. Portanto, $B_1 \cap \Lambda = \emptyset$ e $B_2 \cap \Lambda = \emptyset$. Portanto, $|(F^3)'(\Lambda)| > \lambda$ para algum $\lambda > 1$.
+Por outro lado, $B_2 \subset [0.661, 0.683]$, já que $(F^3)'(0.661) > 1$ e $(F^3)'(0.683) < -1$. Desse modo, $F(B_2) \subset A_3$. Utilizando novamente a simetria do gráfico de $F^3$, concluímos que $F(B_1) \subset A_3$. Portanto, $B_1 \cap \Lambda = \emptyset$ e $B_2 \cap \Lambda = \emptyset$. Assim, $|(F^3)'(\Lambda)| > \lambda$ para algum $\lambda > 1$. Observe que se $L \geq 1$ e $x \in \Lambda$, então
+$$\left| \left(F^{3L}\right)'(x) \right| = 
+\left| \left( F^3 \right)' \left(F^{3(L-1)}(x)\right) \right|
+\left| \left( F^3 \right)' \left(F^{3(L-2)}(x)\right) \right|
+\dots
+\left| \left( F^3 \right)' \left(F^3(x)\right) \right|
+\left| \left( F^3 \right)' \left( x \right) \right|
+\geq \lambda^L.$$
 
-Seja $K \geq 1$ tal que $\nu^2 \lambda^K > 1$. 
+Finalmente, sejam $x \in \Lambda$ e $K \geq 1$ tal que $\nu^2 \lambda^K > 1$. Se $N = 3K$ e $n \geq N$, podemos escrever $n = 3L + \alpha$, onde $L \geq K$ e $\alpha \in \{ 0, 1, 2 \}$. Desse modo,
+\begin{enumerate}
+\item[i.] se $\alpha = 0$, então
+$$ \left| \left(F^n\right)'(x) \right|
+= \left| \left(F^{3L}\right)'(x) \right|
+\geq \lambda^L \geq \lambda^K > 1.$$
+\item[ii.] se $\alpha = 1$, então
+$$ \left| \left(F^n\right)'(x) \right|
+= \left| F' \left(F^{3L}(x) \right)
+\left(F^{3L}\right)'(x) \right|
+\geq \nu \lambda^L > \nu^2 \lambda^K > 1.$$
+\item[iii.] se $\alpha = 2$, então
+$$ \left| \left(F^n\right)'(x) \right|
+= \left| F' \left(F^{3L + 1}(x) \right)
+F' \left(F^{3L}(x) \right)
+\left(F^{3L}\right)'(x) \right|
+\geq \nu^2 \lambda^L \geq \nu^2 \lambda^K > 1.$$
+\end{enumerate}
 
 
 \end{proof}
@@ -143,14 +171,14 @@ $\Lambda$ não contém intervalos.
 \end{lemma}
 
 \begin{proof}
-Suponha que $\Lambda$ contém algum intervalo e sejam $x, y \in \Lambda$, com $x < y$, tais que $[x, y] \subset \Lambda$. Pelo Lema anterior, existe $N \geq 1$ tal que $|(F^n)'(\Lambda)| > \lambda > 1$ para todo $n \geq N$. Utilizando a notação do Lema anterior, seja $k \geq N$ tal que $|y - x| \nu^N \lambda^{k - N} > 1$. Pelo Teorema do Valor Médio, existe $c \in [x, y]$ tal que
+Suponha que $\Lambda$ contém algum intervalo e sejam $a, b \in \Lambda$, com $a < b$, tais que $[a, b] \subset \Lambda$. Pelo Lema anterior, existe $N \geq 1$ tal que $|(F^n)'(\Lambda)| > \lambda$ para algum $\lambda > 1$ e para todo $n \geq N$. Utilizando a notação do Lema anterior, seja $k \geq N$ tal que $(b - a) \nu^N \lambda^{k - N} > 1$. Pelo Teorema do Valor Médio, existe $c \in [a, b]$ tal que
 \begin{align*}
-|F^k(y) - F^k(x)| & = |(F^k)'(c)||y-x| \\
-& = \left| \prod_{i=0}^{k-1} F'(F^i(c)) \right| |y-x| \\ 
-& = \left| \prod_{i=0}^{N-1} F'(F^i(c)) \right| \left| \prod_{i=N}^{k-1} F'(F^i(c)) \right| |y-x| \\
-& \geq \nu^N \lambda^{k-N} |y-x| > 1
+|F^k(b) - F^k(a)| & = |(F^k)'(c)|(b-a) \\
+& = \left| \prod_{i=0}^{k-1} F'(F^i(c)) \right| (b-a) \\ 
+& = \left| \prod_{i=0}^{N-1} F'(F^i(c)) \right| \left| \prod_{i=N}^{k-1} F'(F^i(c)) \right| (b-a) \\
+& \geq \nu^N \lambda^{k-N} (b-a) > 1
 \end{align*}
-e, portanto, $F^k(x)$ ou $F^k(y)$ não está em $[0,1]$. Absurdo.
+e, portanto, $F^k(a)$ ou $F^k(b)$ não é elemento de $[0,1]$, o que é um absurdo.
 \end{proof}
 
 \begin{proposition}
@@ -162,11 +190,11 @@ $S$ é um homeomorfismo.
 
 \begin{enumerate}
 
-\item $S$ é injetora.
+\item[i.] $S$ é injetora:
 
-Sejam $x, y \in \Lambda$, com $x < y$, e suponha que $S(x) = S(y)$. Desse modo, $F^n(x)$ e $F^n(y)$ está no mesmo lado em relação ao ponto crítico e, portanto, $F$ é monótona no intervalo entre $F^n(x)$ e $F^n(y)$ para todo $n \geq 0$. Absurdo, pois implica que $[x, y] \subset \Lambda$.
+Sejam $x, y \in \Lambda$, com $x < y$, e suponha que $S(x) = S(y)$. Desse modo, $F^n(x)$ e $F^n(y)$ está no mesmo lado em relação ao ponto crítico $\frac{1}{2}$ e, portanto, $F$ é monótona no intervalo $J_n$, cujos pontos extremos são $F^n(x)$ e $F^n(y)$, para todo $n \geq 0$. Desse modo, se $z \in [x, y]$, então $F^n(z) \in J_n \subset I_1 \cup I_2$ para todo $n \geq 0$ e, portanto, $z \in \Lambda$, o que é um absurdo.
 
-\item $S$ é sobrejetora.
+\item[ii.] $S$ é sobrejetora:
 
 Seja $(x_n)_{n=0}^\infty \in \Sigma_A$. Vamos provar que existe $x \in \Lambda$ tal que $S(x) = (x_n)_{n=0}^\infty$.
 
@@ -174,15 +202,15 @@ Inicialmente, para cada $n \geq 0$, considere
 $$I_{x_0 \cdots x_n} = \{ x \in [0,1] : x \in I_{x_0}, \dots, F^n(x) \in I_{x_n} \}.$$
 Observe que $x \in I_{x_0 \cdots x_n}$ se, e somente se, $x \in I_{x_0}$ e $F(x) \in \{ y \in [0,1] : y \in I_{x_1}, \dots, F^{n-1}(y) \in I_{x_n} \}$. Desse modo, $I_{x_0 \cdots x_n} = I_{x_0} \cap F^{-1}(I_{x_1 \cdots x_n})$.
 
-Assim, por indução, vemos que $I_{x_0 \cdots x_n}$ é um intervalo fechado não vazio. Além disso, $I_{x_0 \cdots x_n} = I_{x_1 \cdots x_{n-1}} \cap F^{-n}(I_{x_n})$.
+Assim, por indução, vemos que $I_{x_0 \cdots x_n}$ é um intervalo fechado não vazio. Além disso, $I_{x_0 \cdots x_n} = I_{x_0 \cdots x_{n-1}} \cap F^{-n}(I_{x_n}) \subset I_{x_0 \cdots x_{n-1}}$.
 
-Desse modo, $(I_{x_0}, I_{x_0 x_1}, I_{x_0 x_1 x_2}, \dots)$ é uma sequência de intervalos encaixantes e, portanto, existe $x \in \cap_{n=0}^\infty I_{x_0 \cdots x_n}$. Observe que $x \in \cap_{n=0}^\infty I_{x_0 \cdots x_n}$ é único, pois $S$ é injetora. Como $F^i(x) \in I_{x_i}$, concluímos que $S(x) = (x_n)_{n=0}^\infty$.
+Desse modo, $(I_{x_0}, I_{x_0 x_1}, I_{x_0 x_1 x_2}, \dots)$ é uma sequência de intervalos encaixantes fechados e não vazios e, portanto, existe $x \in \cap_{n=0}^\infty I_{x_0 \cdots x_n}$. Como $F^i(x) \in I_{x_i}$, concluímos que $S(x) = (x_n)_{n=0}^\infty$. Observe que $x \in \cap_{n=0}^\infty I_{x_0 \cdots x_n}$ é único, pois $S$ é injetora.
 
-\item $S$ é contínua.
+\item[iii.] $S$ é contínua:
 
 Seja $x \in \Lambda$, com $S(x) = (x_n)_{n=0}^\infty$. Sejam também $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{N^k} < \varepsilon$.
 
-Como $I_{x_0 \dots x_k}$ um intervalo fechado e $x \in I_{x_0 \dots x_k}$, tome $\delta > 0$ tal que $|x-y| < \delta$ implica que $y \in I_{x_0 \dots x_k}$. Desse modo, $S(x)$ e $S(y)$ são iguais nas primeiras $k+1$ entradas e, portanto, $d_N(S(x), S(y)) \leq \frac{1}{N^{k+1}} < \varepsilon$.
+Como $I_{x_0 \dots x_k}$ um intervalo fechado e $x \in I_{x_0 \dots x_k}$, tome $\delta > 0$ tal que $y \in \Lambda$ e $|x-y| < \delta$ implica que $y \in I_{x_0 \dots x_k}$. Desse modo, $S(x)$ e $S(y)$ são iguais nas primeiras $k+1$ entradas e, portanto, $d_N(S(x), S(y)) \leq \frac{1}{N^{k+1}} < \varepsilon$.
 
 \end{enumerate}
 \end{proof}
@@ -196,12 +224,12 @@ $S \circ F|_\Lambda = \sigma_A \circ S$.
 \begin{proof}
 Seja $x \in \Lambda$. Utilizando a notação da Proposição anterior, se $S(x) = (x_n)_{n=0}^\infty$, então $x$ é o único elemento de $\cap_{n=0}^\infty I_{x_0 \cdots x_n}$.
 
-Como $I_{x_0 \dots x_n} = I_{x_0} \cap \cdots \cap F^{-n}(I_{x_n})$, temos que
-$$F(I_{x_0 \dots x_n}) = I_{x_1} \cap \cdots \cap F^{-n+1}(I_{x_n}),$$
-pois $F(I_{x_0}) \subset I_{x_1}$ (??). Desse modo,
+Podemos escrever $I_{x_0 \dots x_n} = I_{x_0} \cap F^{-1}(I_{x_1}) \cap \cdots \cap F^{-n}(I_{x_n})$. Se $x_0 = 1$, então $x_1 = 2$ e, portanto, $F(I_{x_0}) = I_{x_1}$. Se $x_0 = 2$, então $F(I_{x_0}) = I_1 \cup A_2 \cup I_2$. Em ambos os casos, $F(I_{x_0}) \supset I_{x_1}$ e, desse modo,
+$$F(I_{x_0 \dots x_n}) = I_{x_1} \cap \cdots \cap F^{-n+1}(I_{x_n}).$$
+Portanto,
 \begin{align*}
 S \circ F|_{\Lambda}(x) & = S(F(\cap_{n=0}^\infty I_{x_0 \cdots x_n})) \\
-& = S(\cap_{n=1}^\infty I_{x_0 \cdots x_n}) \\
+& = S(\cap_{n=1}^\infty I_{x_1 \cdots x_n}) \\
 & = (x_n)_{n=1}^\infty  = \sigma \circ S(x)
 \end{align*}
 \end{proof}
@@ -213,15 +241,22 @@ Seja $A$ uma matriz de transição de ordem $N$. Então $\sigma_A$ possui $Tr(A^
 
 
 \begin{proof}
-Temos que $x = (x_n)_{n=0}^\infty \in \Sigma_A$ é um ponto periódico de período $k$ se, e somente se, $x_i = x_{i+k}$ para todo $i \geq 0$, ou seja,
+Observe que $x = (x_n)_{n=0}^\infty \in \Sigma_N$ é um ponto periódico de período $k$ de $\sigma$ se, e somente se, $x_i = x_{i+k}$ para todo $i \geq 0$, ou seja,
 $$x = (x_0, x_1, \dots, x_{k-1}, x_0, x_1, \dots, x_{k-1}, \dots).$$
-Além disso, se $x \in \Sigma_A$ implica que $a_{x_0 x_1} = a_{x_1 x_2} = \cdots = a_{x_{k-1} x_0} = 1$ e, portanto  $a_{x_0 x_1} a_{x_1 x_2}  \cdots a_{x_{k-1} x_0} = 1$. Desse modo, a quantidade de pontos periódicos de período $k$ é dada por
-$$\sum_{1 \leq x_0, \dots, x_{k-1} \leq N} a_{x_0 x_1} a_{x_1 x_2}  \cdots a_{x_{k-1} x_0}.$$
+Desse modo, $x \in \Sigma_A$ se, e somente se, $a_{x_0 x_1} = a_{x_1 x_2} = \cdots = a_{x_{k-1} x_0} = 1$ e, portanto,
+\[\begin{cases} 
+  a_{x_0 x_1} a_{x_1 x_2}  \dots a_{x_{k-1} x_0} = 1 & \textrm{ se } x \in \Sigma_A \\
+  a_{x_0 x_1} a_{x_1 x_2}  \dots a_{x_{k-1} x_0} = 0 & \textrm{ se } x \notin \Sigma_A 
+       \end{cases}
+\]
+
+Assim, a quantidade de pontos periódicos de período $k$ de $\sigma_A$ é dada por
+$$\sum_{1 \leq x_0, \dots, x_{k-1} \leq N} a_{x_0 x_1} a_{x_1 x_2}  \dots a_{x_{k-1} x_0}.$$
 
 Por outro lado, utilizando a definição de multiplicação de matrizes podemos mostrar por indução que $A^k = (c_{ij})_{1 \leq i, j \leq N}$, onde
-$$c_{ij} = \sum_{1 \leq x_1, \dots, x_{k-1} \leq N} a_{i x_1} a_{x_1 x_2}  \cdots a_{x_{k-1}j}$$
+$$c_{ij} = \sum_{1 \leq x_1, \dots, x_{k-1} \leq N} a_{i x_1} a_{x_1 x_2}  \dots a_{x_{k-1}j}$$
 e, portanto,
-$$\tr(A^k) = \sum_{x_0 = 1}^N c_{x_0 x_0} = \sum_{1 \leq x_0, \dots, x_{k-1} \leq N} a_{x_0 x_1} a_{x_1 x_2}  \cdots a_{x_{k-1} x_0}.$$
+$$\tr(A^k) = \sum_{x_0 = 1}^N c_{x_0 x_0} = \sum_{1 \leq x_0, \dots, x_{k-1} \leq N} a_{x_0 x_1} a_{x_1 x_2}  \dots a_{x_{k-1} x_0}.$$
 \end{proof}
 
 
