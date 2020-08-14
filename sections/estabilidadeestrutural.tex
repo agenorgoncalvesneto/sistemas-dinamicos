@@ -2,15 +2,15 @@
 
 \begin{definition}
 Sejam $f, g: D \to \RR$ funções de classe $\CC^k$. A $\CC^k$-distância entre $f$ e $g$ é definida por
-$$d_k(f, g) = \sup_{x \in D} \left \{ |f(x) - g(x)|, |f^{(2)}(x), g^{(2)}(x)|, \dots, |f^{(k)}(x) - g^{(k)}(x)| \right \}$$
+$$d_k(f, g) = \sup_{x \in D} \left \{ |f(x) - g(x)|, |f^{(2)}(x) - g^{(2)}(x)|, \dots, |f^{(k)}(x) - g^{(k)}(x)| \right \}$$
 \end{definition}
 
 \begin{definition}
-Seja $f: D \to \RR$. Dizemos que $f$ é $\CC^k-$estável se existe $\varepsilon > 0$ tal que $d_k(f, g) < \varepsilon$ implica que $f$ e $g$ são topologicamente conjugadas.
+Seja $f: D \to \RR$. Dizemos que $f$ é $\CC^k$-estável se existe $\varepsilon > 0$ tal que $d_k(f, g) < \varepsilon$ implica que $f$ e $g$ são topologicamente conjugadas.
 \end{definition}
 
 \begin{example}
-Seja $L: \RR \to \RR$ a função definida por $L(x) = \frac{x}{2}$. Se $g$ é uma função com $d_1(L, g) < \frac{1}{2}$, vamos mostrar que $L$ e $g$ são topologicamente conjugadas.
+Seja $L: \RR \to \RR$ a função definida por $L(x) = \frac{x}{2}$. Se $g$ é uma função derivável com $d_1(L, g) < \frac{1}{2}$, vamos mostrar que $L$ e $g$ são topologicamente conjugadas.
 
 Inicialmente, $g$ possui pelo menos 1 ponto fixo. Como $\left| \frac{x}{2} - g(x) \right| < \frac{1}{2}$ para todo $x \in \RR$, temos que $-\frac{1}{2} < \frac{x}{2} - g(x) < \frac{1}{2}$ e, portanto, $-\frac{1}{2} - \frac{x}{2} < g(x) - x < \frac{1}{2} - \frac{x}{2}$. Definindo $h(x) = g(x) - x$, temos que $0 < h(-1) < 1$ e $-1 < h(1) < 0$. Pelo Teorema do Valor Intermediário, existe $x_0 \in (-1, 1)$ tal que $h(x_0) = 0$ e, portanto, $g(x_0) = x_0$.
 
@@ -20,31 +20,35 @@ Seja $J = [-10, -5) \cup (5, 10]$. Observe que se $x \in \RR - \{0\}$, então ex
 
 Seja $h$ uma função tal que $h|_{[-10, -5]}$ é um homeomorfismo crescente entre $[-10, -5]$ e $[-10, g(-10)]$ e $h|_{[5, 10]}$ é um homeomorfismo crescente entre $[5, 10]$ e $[g(10), 10]$.
 
-Seja $x \in \RR - \{0\}$. Como $L^{n_x}(x) \in J$, temos que $h \circ L^{n_x}(x)$ está bem definido. Sendo $g$ um homeomorfismo, $g^{-n_x} \circ h \circ L^{n_x}(x)$ também está bem definido. Defina $h(x) = g^{-n_x} \circ h \circ L^{n_x}(x)$ para todo $x \in \RR - \{0\}$. Observe que se $x \in J$, então $n_x = 0$ , portanto, está bem definida em $J$. Por fim, defina $h(0)$ como sendo o ponto fixo de $g$. Resta mostrar que $h \circ L(x) = g \circ h(x)$ para todo $x \in \RR$.
+Seja $x \in \RR - \{0\}$. Como $L^{n_x}(x) \in J$, temos que $h \circ L^{n_x}(x)$ está bem definido. Sendo $g$ um homeomorfismo, $g^{-n_x} \circ h \circ L^{n_x}(x)$ também está bem definido. Defina $h(x) = g^{-n_x} \circ h \circ L^{n_x}(x)$ para todo $x \in \RR - \{0\}$. Observe que se $x \in J$, então $n_x = 0$ e, portanto, está bem definida em $J$. Por fim, defina $h(0)$ como sendo o ponto fixo de $g$. Resta mostrar que $h \circ L(x) = g \circ h(x)$ para todo $x \in \RR$.
 
 Se $x \neq 0$, então $h(x) = g^{-n_x} \circ h \circ L^{n_x}(x)$. Se $y = L(x)$, então $y \neq 0$ e $L^{n_x - 1}(y) = L^{n_x - 1}(L(x)) = L^{n_x}(x) \in J$, ou seja, $n_y = n_x - 1$. Desse modo,
 $$h \circ L(x) = h(y) = g^{-n_y} \circ h \circ L^{n_y}(y) = g \circ g^{-n_x} \circ h \circ L^{n_x}(x) = g \circ h(x)$$
 e $g(h(0)) = h(0) = h(L(0))$.
 
-Assim, $h \circ L = g \circ h$ e $h$ é um homeomorfismo pois é composição de homeomorfismos. Desse modo, $L$ e $g$ são topologicamente conjugadas e $L$ é $\CC^1-$estável.
+Assim, $h \circ L = g \circ h$. Além disso, $h$ é um homeomorfismo pois é composição de homeomorfismos. Desse modo, $L$ e $g$ são topologicamente conjugadas e $L$ é $\CC^1$-estável.
 \end{example}
 
+Por fim, vamos estudar a estabilidade estrutural da função quadrática $F_\mu(x) = \mu x(1-x)$, para $\mu > 2 + \sqrt{5}$.
+
+Relembrando, $F_\mu(1) = F_\mu(0) = 0$ e $F_\mu(p_\mu) = p_\mu$, onde $p_\mu = \frac{\mu - 1}{\mu}$. Além disso, $F_\mu$ é estritamente crescente em $\left(-\infty, \frac{1}{2}\right)$ e estritamente decrescente em $\left(\frac{1}{2}, \infty \right)$ e, desse modo, $F_\mu^{-1}(1)$ possui dois elementos, pois $F_\mu \left(\frac{1}{2} \right) > 1$. Denotando por $y_0$ e $y_1$ tais elementos, com $y_0 < y_1$, temos que $|F_\mu'(x)| > 1$ para todo $x \in [0, y_0] \cup [y_1, 1]$.
+
 \begin{theorem}
-Se $\mu > 2 + \sqrt{5}$, então $F_\mu$ é $\CC^2-$estável.
+Se $\mu > 2 + \sqrt{5}$, então $F_\mu$ é $\CC^2$-estável.
 \end{theorem}
 
 \begin{proof}
-Vamos mostrar que existe $\varepsilon > 0$ tal que $d_2(F_\mu, g) < \varepsilon$ implica que $F_\mu$ e $g$ são topologicamente conjugadas.
+Vamos mostrar que existe $\varepsilon > 0$ tal que se $g$ é de classe $\CC^2$ e $d_2(F_\mu, g) < \varepsilon$, então $F_\mu$ e $g$ são topologicamente conjugadas.
 
-Seja $\varepsilon_1 > 0$ tal que $d_2(F_\mu, g) < \varepsilon_1$ implica que $g'' < 0$ e, portanto, a concavidade de $g$ é para baixo. Existe $\varepsilon_1$ com essa propriedade pois $F''_\mu = -2\mu$. 
+Seja $\varepsilon_1 > 0$ tal que $d_2(F_\mu, g) < \varepsilon_1$ implica que $g'' < 0$ e, portanto, que a concavidade de $g$ é para baixo. Existe $\varepsilon_1$ com essa propriedade pois $F''_\mu = -2\mu$. 
 
-Seja $0 < \varepsilon_2 < \varepsilon_1$ tal que $d_2(F_\mu, g) < \varepsilon_2$ implica que $g$ possui dois pontos fixos $\alpha < \beta$ com $g'(\alpha) > 1$ e $g'(\beta) < -1$. Existe $\varepsilon_2$ com essa propriedade pois $F_\mu$ possui os pontos fixos $0$ e $1$ com $F'_\mu(0) > 1$ e $F'_\mu(1) < -1$.
+Seja $0 < \varepsilon_2 < \varepsilon_1$ tal que $d_2(F_\mu, g) < \varepsilon_2$ implica que $g$ possui dois pontos fixos $\alpha < \beta$ com $g'(\alpha) > 1$ e $g'(\beta) < -1$. Existe $\varepsilon_2$ com essa propriedade pois $F_\mu$ possui os pontos fixos $0$ e $p_\mu$ com $F'_\mu(0) > 1$ e $F'_\mu(p_\mu) < -1$.
 
-Pelo Teorema do Valor Médio, temos que $g$ possui um ponto crítico $c \in (\alpha, \beta)$. Sendo $g'' < 0$, o ponto crítico de $g$ é único. Além disso, $g$ é estritamente crescente em $(-\infty, c)$ e estritamente decrescente em $(c, \infty)$. Desse modo, existem $\alpha'$ e $\beta'$ tais que $g(\alpha') = \alpha$ e $g(\beta') = \beta$.
+Pelo Teorema do Valor Médio, temos que $g$ possui um ponto crítico $c \in (\alpha, \beta)$. Sendo $g'' < 0$, o ponto crítico de $g$ é único. Além disso, $g$ é estritamente crescente em $(-\infty, c)$ e estritamente decrescente em $(c, \infty)$. Desse modo, existe $\alpha' \in (c, \infty)$ tal que $g(\alpha') = \alpha$.
 
-Por fim, seja $0 < \varepsilon < \varepsilon_2$ tal que $d_2(F_\mu, g) < \varepsilon$ implica que $g^{-1}(\alpha')$ possui dois elementos $a_0$ e $a_1$ e que $|g'(x)| > 1$ para todo $x \in [\alpha, a_0] \cup [a_1, \beta]$.
+Por fim, seja $0 < \varepsilon < \varepsilon_2$ tal que $d_2(F_\mu, g) < \varepsilon$ implica que $g^{-1}(\alpha')$ possui dois elementos $a_0$ e $a_1$ e que $|g'(x)| > 1$ para todo $x \in [\alpha, x_0] \cup [x_1, \beta]$.
 
-Desse modo, se $d_2(F_\mu, g) < \varepsilon$, então $g$ possui as mesmas propriedades de $F_\mu$. Em particular, utilizando as imagens inversas de $(a_0, a_1)$ por $g$, é possível provar que $g$ e a função shift são topologicamente conjugadas. Portanto, $F_\mu$ e $g$ são topologicamente conjugadas por transitividade.
+Desse modo, se $d_2(F_\mu, g) < \varepsilon$, então a dinâmica de $g$ em $[\alpha, \alpha']$ é igual a dinâmica de $F_\mu$ em $[0, 1]$. Em particular, é possível mostrar que $g$ é topologicamente conjugada com a função $\sigma$ de $\Sigma_2$. Portanto, por transitividade, $F_\mu$ e $g$ são topologicamente conjugadas.
 \end{proof}
 
 \begin{theorem}[Hartman]
