@@ -2,8 +2,8 @@
 \section{Bifurcação}
 
 Ao longo de seção, $f_\lambda$ representará uma família parametrizada de funções no parâmetro $\lambda$ de modo que a função
-$$G(x, \lambda) = f_\lambda(x)$$
-definida num aberto de $\RR^2$ seja de classe $\CC^\infty$ nas variáveis $x$ e $\lambda$.
+$$G(x, \lambda) = f_\lambda(x),$$
+definida num aberto de $\RR^2$, seja de classe $\CC^\infty$ nas variáveis $x$ e $\lambda$.
 
 \begin{theorem}[Função Implícita]
 Sejam $U \subset \RR^2$ um aberto e $F: U \to \RR$ uma função de classe $\CC^k$, $1 \leq k \leq \infty$. Suponha que
@@ -77,6 +77,8 @@ $$ p''(0) = - \frac{\frac{\partial^2 G}{\partial x^2}(0, \lambda_0)\frac{\partia
 {\left( \frac{\partial G}{\partial \lambda}(0, \lambda_0) \right)^2}  = - \frac{\frac{\partial^2 G}{\partial x^2}(x, \lambda_0)}{ \frac{\partial f_\lambda}{\partial \lambda}|_{\lambda = \lambda_0}(0)} \neq 0 $$
 \end{proof}
 
+No Teorema anterior, se $p''(0) > 0$, então a concavidade de $p$ é para cima. Esboçando o gráfico de $p$, podemos observar que $f$ não possui pontos fixos para $\lambda < \lambda_0$, possui um único ponto fixo para $\lambda = \lambda_0$ e possui dois pontos fixos para $\lambda > \lambda_0$. Se $p''(0) < 0$, a concavidade de $p$ é para baixo e a conclusão é análoga, invertendo os sentidos.
+
 \begin{theorem}[Bifurcação com Duplicação de Período]
 Suponha que
 \begin{enumerate}
@@ -123,13 +125,14 @@ G}{\partial x^3}(0, \lambda_0)$
 
 Para provar as igualdades $(III)$ e $(IV)$, observe que podemos escrever
 
-$$G(x,  \lambda_0) = G(0, \lambda_0) + x \frac{\partial G}{\partial x}(0, \lambda_0) + \frac{x^2}{2} \frac{\partial ^2 G}{\partial x^2} (0, \lambda_0) + \frac{x^3}{6} \frac{\partial ^3 G}{\partial x^3} (0, \lambda_0) + \cdots$$
-para todo $x$ numa vizinhança de $0$. Desse modo, para $x \neq 0$ nessa vizinhança, podemos escrever
-\begin{align*}
-H(x, \lambda_0) & = \frac{\partial G}{\partial x}(0, \lambda_0) + \frac{x}{2} \frac{\partial ^2 G}{\partial x^2} (0, \lambda_0) + \frac{x^2}{6} \frac{\partial ^3 G}{\partial x^3} (0, \lambda_0) + \cdots \\
-& = H(0, \lambda_0) + x \frac{\partial H}{\partial x}(0, \lambda_0) + \frac{x^2}{2} \frac{\partial ^2 H}{\partial x^2} (0, \lambda_0) + \cdots
-\end{align*}
-e, portanto, igualando as séries termo a termo concluímos que $\frac{\partial H}{\partial x}(0, \lambda_0) = \frac{1}{2} \frac{\partial ^2 G}{\partial x^2} (0, \lambda_0)$ e $\frac{1}{2} \frac{\partial ^2 H}{\partial x^2} (0, \lambda_0) = \frac{1}{6} \frac{\partial ^3 G}{\partial x^3} (0, \lambda_0)$
+$$G(x,  \lambda) = G(0, \lambda) + x \frac{\partial G}{\partial x}(0, \lambda) + \frac{x^2}{2} \frac{\partial ^2 G}{\partial x^2} (0, \lambda) + \frac{x^3}{6} \frac{\partial ^3 G}{\partial x^3} (0, \lambda) + \cdots$$
+para todo $x$ numa vizinhança de $0$ e para $\lambda$ fixado numa vizinhança de $\lambda_0$, utilizando a Série de Taylor. Sendo $G(0, \lambda) = 0$, podemos escrever
+$$ H(x, \lambda)
+= \frac{\partial G}{\partial x}(0, \lambda)
++ \frac{x}{2} \frac{\partial ^2 G}{\partial x^2} (0, \lambda)
++ \frac{x^2}{6} \frac{\partial ^3 G}{\partial x^3} (0, \lambda)
++ \cdots$$
+para $x \neq 0$ nessa vizinhança. Portanto, $H$ é de classe $\CC^\infty$. Escrevendo a Série de Taylor de $H$ numa vizinhança de $0$ e igualando os termos correspondentes, concluímos que $\frac{\partial H}{\partial x}(0, \lambda_0) = \frac{1}{2} \frac{\partial ^2 G}{\partial x^2} (0, \lambda_0)$ e $\frac{1}{2} \frac{\partial ^2 H}{\partial x^2} (0, \lambda_0) = \frac{1}{6} \frac{\partial ^3 G}{\partial x^3} (0, \lambda_0)$.
 
 Pelas igualdades (I) e (II), e pelo Teorema da Função Implícita, existem uma vizinhança $I$ de $0$ e uma função $p: I \to \RR$ de classe $\CC^\infty$ tais que $p(0) = \lambda_0$ e $H(x, p(x)) = 0$ para todo $x \in I$. Em particular, se $x \neq 0$,
 $$0 = \frac{G(x, p(x))}{x} = \frac{f^2_{p(x)}(x) - x}{x}$$
