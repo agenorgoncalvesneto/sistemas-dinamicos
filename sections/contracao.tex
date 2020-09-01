@@ -1,3 +1,46 @@
 \section{Princípio da Contração}
 
-Seja $f: [0, 1] \to [0, 1]$ uma função derivável exceto em um número finito de pontos, de modo que a função $x \to \log|f'(x)|$ esteja bem definida.
+\begin{definition}
+Seja $f: [0,1] \to [0,1]$ uma função contínua. Dizemos que um intervalo $J \subset [0,1]$ é um intervalo errante se
+\begin{enumerate}
+\item $J$ não está contido na base de atração de um ponto periódico atrator,
+\item $f^n(J) \cap f^m(J) = \emptyset$ para todo $n > m \geq 0$.
+\end{enumerate}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{lemma}(Princípio da Contração)
+Seja $J$ um intervalo tal que
+$$\inf_{n \geq 0} |f^n(J)| = 0.$$
+Então, $J$ é um intervalo errante ou está contido em uma órbita atratora.
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{lemma}
+Seja $f: [0,1] \to [0,1]$ contínua e suponha que $x \mapsto \log |f'(x)|$ é Lipschitz com contante $K$. Então existe $\delta > 0$ com a seguinte propriedade. Sejam $J \subset [0,1]$ um intervalo e $n \geq 0$ tais que $J, \dots, f^{n-1}(J)$ são dois a dois disjuntos. Se $J \subset T \subset J_\delta$, então
+$$\frac{|(f^k)'(x)|}{|(f^k)'(y)|} \leq e^{2K} \textrm{ para todo } x, y \in T$$
+e
+$$|f^k(T)| \leq 2 |f^k(J)|$$
+para todo $k = 0, \dots, n$.
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{corollary}
+Seja $f: [0,1] \to [0,1]$ contínua e suponha que $x \mapsto \log |f'(x)|$ é Lipschitz. Então $f$ não possui intervalos errantes.
+\end{corollary}
+
+\begin{proof}
+Suponha que $f$ possua intervalos errantes e seja $J$ um intervalo errante maximal, ou seja, não existem intervalos errantes contidos estritamente em $J$. Sendo todas as iteradas de $J$ disjuntas, pelo Lema anterior temos que
+$$|f^k(J_\delta)| \leq 2|f^k(J)|$$
+para todo $k \geq 0$. Em particular, $J_\delta$ não está contido na base de atração de um ponto periódico atrator e $|f^k(J_\delta)| \to 0$ quando $n \to \infty$. Desse modo, $J_\delta$ é um intervalo errante que contém estritamente $J$, o que contraria o fato que $J$ é um intervalo errante maximal.
+\end{proof}
+
+\end{definition}
