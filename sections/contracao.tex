@@ -12,13 +12,13 @@ Seja $f: [0,1] \to [0,1]$ uma função contínua. Dizemos que um intervalo $J \s
 \begin{lemma}(Princípio da Contração)
 Seja $J$ um intervalo tal que
 $$\inf_{n \geq 0} |f^n(J)| = 0.$$
-Então $J$ é um intervalo errante ou está contido em uma órbita periódica atratora.
+Então $J$ é um intervalo errante ou está contido na base de atração de um ponto periódico atrator.
 \end{lemma}
 
 \begin{proof}
 Seja $$X = \bigcup_{n = 0}^\infty f^n(J).$$
 
-Primeiramente, suponha que $f^n(U) \cap U = \emptyset$ para todo $n \geq 1$ e para todo conexo $U$ em $X$. Sendo $f$ contínua, $f^m(J)$ é conexo em $X$ para todo $m \geq 0$ e, portanto, $f^k(f^m(J)) \cap f^m(J) = \emptyset$ para todo $k \geq 1$. Desse modo, $f^n(J) \cap f^m(J) = \emptyset$ para todo $n > m \geq 0$. Assim, pela Definição \ref{definition1}, $J$ é um intervalo errante ou está contido em uma órbita periódica atratora.
+Primeiramente, suponha que $f^n(U) \cap U = \emptyset$ para todo $n \geq 1$ e para todo conexo $U$ em $X$. Sendo $f$ contínua, $f^m(J)$ é conexo em $X$ para todo $m \geq 0$ e, portanto, $f^k(f^m(J)) \cap f^m(J) = \emptyset$ para todo $k \geq 1$. Desse modo, $f^n(J) \cap f^m(J) = \emptyset$ para todo $n > m \geq 0$. Assim, pela Definição \ref{definition1}, $J$ é um intervalo errante ou está contido em na base de atração de um ponto periódico atrator.
 
 Por outro lado, suponha que exista um conexo $U$ em $X$ e $n \geq 0$ tal que $f^n(U) \cap U \neq \emptyset$. Assim, $f^n(U) \subset U$ e a função $f^n: U \to U$ possui um ponto fixo $p$. \textit{$\bullet \bullet$ pra mim não é claro que essa suposição implica que $f^n(U) \subset U$ $\bullet \bullet$}
 Se $p$ está no interior de $U$, então alguma iterada de $J$ contém $p$ em seu fecho e, portanto, $\inf_{n \geq 0} |f^n(J)| = 0$ implica que a órbita de $p$ atrai $J$. Se $p$ não está no interior de $U$, então $f^n$ é estritamente monótona e todos os pontos em $U$ são atraídos para $p$ por $f^n$. Novamente, alguma iterada de $J$ contém $p$ e, portanto, $\inf_{n \geq 0} |f^n(J)| = 0$ implica que a órbita de $p$ atrai $J$.
