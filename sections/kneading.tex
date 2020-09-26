@@ -1,0 +1,69 @@
+\section{Teoria Kneading}
+
+\begin{definition}
+A função $f: I \to I$ é unimodal se
+\begin{enumerate}
+\item $f(0) = f(1) = 0$.
+\item $f$ possui um único ponto crítico em $(0, 1)$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+O itinerário de $x \in I$ é  a sequência $S(x) = (s_0, s_1, s_2, \dots)$, onde
+
+\[ s_k = 
+\begin{cases} 
+  0 & \textrm{ se } f^k(x) < c \\
+  1 & \textrm{ se } f^k(x) > c \\
+  C & \textrm{ se } f^k(x) = c \\
+\end{cases}
+\]
+\end{definition}
+
+\begin{definition}
+A sequência kneading de $f$ é a sequência $K(f) = S(f(c))$, ou seja, é o itinerário de $f(c)$.
+\end{definition}
+
+Sejam $s = (s_0, s_1, s_2, \dots)$ e $t = (t_0, t_1, t_2, \dots)$ duas sequências. Dizemos que $s$ e $t$ são $n$-discrepantes se $s_i = t_i$ para todo $0 \leq i < n$ e $s_n \neq t_n$. Definimos $\tau_n(s)$ como a quantidade de elementos em $\{ s_0, \dots, s_{n-1} \}$ que são iguais à $1$.
+
+\begin{definition}
+Suponha que $s$ e $t$ são $n$-discrepantes. Dizemos que $s \prec t$ se
+\begin{enumerate}
+\item $n = 0$ e $s_0 < t_0$.
+\item $\tau_{n-1}$ é par e $s_n < t_n$.
+\item $\tau_{n-1}$ é ímpar e $s_n > t_n$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+Sejam $x, y \in I$.
+\begin{enumerate}
+\item Se $S(x) \prec S(y)$, então $x < y$.
+\item Se $x < y$, então $S(x) \preceq S(y)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+O primeiro item será provado 
+\end{proof}
+
+\begin{lemma}
+Seja $s = (s_0, s_1, s_2, \dots)$ e suponha que $s_i \neq C$ para todo $0 \leq i \leq n$. Então, o conjunto
+$$\{ x \in I : S(x)_i = s_i \textrm{ para todo } 0 \leq i \leq n \}$$
+é um aberto em $I$.
+\end{lemma}
+
+\begin{proof}
+Seja $x \in I$ tal que $S(x)_i = s_i$ para todo $0 \leq i \leq n$ e, portanto, $f^i(x) \in [0,c) \cup (c, 1]$ para todo $0 \leq i \leq n$. Para cada $0 \leq i \leq n$, seja
+\[ V_i = 
+\begin{cases} 
+  [0, c) & \textrm{ se } f^i(x) < c \\
+  (c, 1] & \textrm{ se } f^i(x) > c \\
+\end{cases}
+\]
+Observe que cada $V_i$ é aberto em $I$. Pela continuidade de $f^i$, cada $f^{-i}(V_i)$ é aberto em $I$. Definindo $V = \cap_{i=0}^n f^{-i}(V_i)$, temos que $V$ é aberto e se $y \in V$, então $S(y)_i = s_i$ para todo $0 \leq i \leq n$.  
+\end{proof}
+
+\begin{theorem}
+Suponha que $f: I \to I$ é unimodal e $c$ não é periódico. Se $t$ é uma sequência tal que $\sigma^n(t) \prec K(f)$ para todo $n \geq 1$, então $t$ é $f$-admissível.
+\end{theorem}
