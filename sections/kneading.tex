@@ -30,8 +30,8 @@ Sejam $s = (s_0, s_1, s_2, \dots)$ e $t = (t_0, t_1, t_2, \dots)$ duas sequênci
 Suponha que $s$ e $t$ são $n$-discrepantes. Dizemos que $s \prec t$ se
 \begin{enumerate}
 \item $n = 0$ e $s_0 < t_0$.
-\item $\tau_{n-1}$ é par e $s_n < t_n$.
-\item $\tau_{n-1}$ é ímpar e $s_n > t_n$.
+\item $\tau_{n-1}(s)$ é par e $s_n < t_n$.
+\item $\tau_{n-1}(s)$ é ímpar e $s_n > t_n$.
 \end{enumerate}
 \end{definition}
 
@@ -44,7 +44,13 @@ Sejam $x, y \in I$.
 \end{theorem}
 
 \begin{proof}
-O primeiro item será provado 
+O primeiro item será provado por indução em $n$, onde $S(x)$ e $S(y)$ são $n$-discrepantes e, por contra-positiva, o segundo item segue imediatamente do primeiro. Seja $S(x) = (s_0, s_1, s_2, \dots)$ e $S(y) = (t_0, t_1, t_2, \dots)$.
+
+Se $S(x)$ e $S(y)$ são $0$\,-\,discrepantes e $S(x) \prec S(y)$, então $x < y$. Suponha que essa propriedade é válida quando as sequências são $(n-1)$\,-\,discrepantes.
+
+Se $S(x)$ e $S(y)$ são $n$\,-\,discrepantes, $n \geq 1$, então as sequências
+$$S(f(x)) = (s_1, s_2, s_3, \dots) \textrm{ e } S(f(y)) = (t_1, t_2, t_3, \dots)$$
+são $(n-1)$\,-\,discrepantes. Se $s_0 = t_0 = 0$, então $S(f(x)) \prec S(f(y))$ pois a quantidade de elementos iguais à $1$ antes da discrepância permanece inalterada e portanto, $f(x) < f(y)$ por hipótese de indução. Sendo $f$ estritamente crescente em $[0, c)$, concluímos que $x < y$. Analogamente, se $s_0 = t_0 = 1$, então $S(f(x)) \succ S(f(y))$ pois a quantidade de elementos iguais à $1$ antes da discrepância é diminuída em uma unidade e, portanto, $f(x) > f(y)$ por hipótese de indução. Sendo $f$ estritamente decrescente em $(c, 1]$, concluímos que $x > y$. Por fim, se $s_0 = t_0 = C$, então $x = y = c$.
 \end{proof}
 
 \begin{lemma}
