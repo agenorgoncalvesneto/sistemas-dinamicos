@@ -40,6 +40,7 @@ Sejam $s = (s_0\, s_1\, s_2\, \dots)$ e $t = (t_0\, t_1\, t_2\, \dots)$ elemento
 O seguinte teorema nos mostra as semelhanças da ordem $\prec$ em $\Sigma_C$ com a ordem usual na reta real.
 
 \begin{theorem}
+\label{teo1}
 Sejam $x, y \in [0, 1]$.
 \begin{enumerate}
 \item Se $S(x) \prec S(y)$, então $x < y$.
@@ -53,37 +54,49 @@ O primeiro item será provado por indução em $n$, onde $S(x)$ e $S(y)$ são po
 Sejam $S(x) = (s_0\, s_1\, s_2\, \dots)$ e $S(y) = (t_0\, t_1\, t_2\, \dots)$ tais que $S(x) \prec S(y)$. Se $S(x)$ e $S(y)$ possuem discrepância $0$, então $s_0 < t_0$ e, portanto, $x < y$. Suponha que essa propriedade é válida quando as sequências possuem discrepância $n-1$.
 
 Se $S(x)$ e $S(y)$ possuem discrepância $n \geq 1$, então $s_0 = t_0$ e as sequências 
-$$S(f(x)) = (s_1, s_2, s_3, \dots) \textrm{\, e \,} S(f(y)) = (t_1, t_2, t_3, \dots)$$
-possuem discrepância $n-1$. Vamos analisar os possíveis Se $s_0 = t_0 = 0$, então $S(f(x)) \prec S(f(y))$ pois a quantidade de elementos iguais à $1$ antes da discrepância permanece inalterada e portanto, $f(x) < f(y)$ por hipótese de indução. Sendo $f$ estritamente crescente em $[0, c)$, concluímos que $x < y$. Analogamente, se $s_0 = t_0 = 1$, então $S(f(x)) \succ S(f(y))$ pois a quantidade de elementos iguais à $1$ antes da discrepância é diminuída em uma unidade e, portanto, $f(x) > f(y)$ por hipótese de indução. Sendo $f$ estritamente decrescente em $(c, 1]$, concluímos que $x > y$. Por fim, se $s_0 = t_0 = C$, então $x = y = c$.
+$$S(f(x)) = (s_1\, s_2\, s_3\, \dots) \textrm{\, e \,} S(f(y)) = (t_1\, t_2\, t_3\, \dots)$$
+possuem discrepância $n-1$. Se $s_0 = 0$, então $S(f(x)) \prec S(f(y))$ pois a quantidade de elementos iguais à $1$ antes da discrepância permanece inalterada e, portanto, $f(x) < f(y)$ por hipótese de indução. Sendo $f$ estritamente crescente em $[0, c)$, concluímos que $x < y$. Se $s_0 = 1$, então $S(f(y)) \prec S(f(x))$ pois a quantidade de elementos iguais à $1$ antes da discrepância é diminuída em uma unidade e, portanto, $f(y) < f(x)$ por hipótese de indução. Sendo $f$ estritamente decrescente em $(c, 1]$, concluímos que $x < y$. Por fim, se $s_0 = C$, então $x = y = c$.
 \end{proof}
 
+Utilizaremos, nos resultados a seguir, o conceito de abertos em $[0, 1]$. Encarando $[0, 1]$ como um subespaço topológico de $\RR$, os conjuntos da forma $A \cap [0, 1]$ são abertos em $[0, 1]$ quando $A$ é aberto em $\RR$. Desse modo, $[0, c)$ e $(c, 1]$ são abertos em $[0, 1]$ por exemplo.
+
 \begin{lemma}
-Seja $s = (s_0, s_1, s_2, \dots)$ e suponha que $s_i \neq C$ para todo $0 \leq i \leq n$. Então, o conjunto
-$$\{ x \in I : S(x)_i = s_i \textrm{ para todo } 0 \leq i \leq n \}$$
-é um aberto em $I$.
+Seja $s = (s_0\, s_1\, s_2\, \dots)$ um elemento de $\Sigma_C$. Suponha que $s_i \neq C$ para todo $0 \leq i \leq n$. Então, o conjunto
+$$\{ x \in [0, 1] : s_i = t_i \textrm{ para todo } 0 \leq i \leq n, \text{ onde } S(x) = (t_0\, t_1\, t_2\, \dots) \}$$
+é aberto em $[0, 1]$.
 \end{lemma}
 
 \begin{proof}
-Seja $x \in I$ tal que $S(x)_i = s_i$ para todo $0 \leq i \leq n$ e, portanto, $f^i(x) \in [0,c) \cup (c, 1]$ para todo $0 \leq i \leq n$. Para cada $0 \leq i \leq n$, seja
+Seja $x \in [0, 1]$ tal que $s_i = t_i$ para todo $0 \leq i \leq n$, onde $S(x) = (t_0\, t_1\, t_2\, \dots)$. Assim, $f^i(x) \neq c$ para todo $0 \leq i \leq n$ e, portanto, podemos definir
 \[ V_i = 
 \begin{cases} 
   [0, c) & \textrm{ se } f^i(x) < c \\
-  (c, 1] & \textrm{ se } f^i(x) > c \\
+  (c, 1] & \textrm{ se } f^i(x) > c. \\
 \end{cases}
 \]
-Observe que cada $V_i$ é aberto em $I$. Pela continuidade de $f^i$, cada $f^{-i}(V_i)$ é aberto em $I$. Definindo $V = \cap_{i=0}^n f^{-i}(V_i)$, temos que $V$ é aberto e se $y \in V$, então $S(y)_i = s_i$ para todo $0 \leq i \leq n$.  
+Sendo cada $V_i$ é aberto em $[0, 1]$, a continuidade de $f^i$ implica que $(f^i)^{-1}(V_i)$ é aberto em $[0, 1]$. Definindo $V = \cap_{i=0}^n (f^i)^{-1}(V_i)$, temos que $V$ é aberto em $[0, 1]$ que contém $x$ e se $y \in V$, então $s_i = t_i$ para todo $0 \leq i \leq n$, onde $S(y) = (t_0\, t_1\, t_2\, \dots)$.  
 \end{proof}
 
+Seja $x \in I$ tal que $S(x) = (s_0\, s_1\, s_2\, \dots)$. Se $\sigma$ é a função shift em $\Sigma_C$, então $S(f^k(x)) = (s_k\, s_{k+1}\, s_{k+2}\, \dots) = \sigma^k(S(x))$ para todo $k \geq 0$.
+
+Para prosseguir os estudos, é interessante restringir a atenção nos elementos de $\Sigma_C$ que são itinerários de algum $x \in [0, 1]$. Desse modo, definimos
+$$\Sigma_{C, f} = \{ s \in \Sigma_C : S(x) = s \text{ para algum } x \in [0, 1] \}$$
+e dizemos que os elementos de $\Sigma_{C, f}$ são admissíveis por $f$.
+
+Suponha que $s = (s_0\, s_1\, s_2\, \dots)$ é admissível por $f$. Então, $S(x) = s$ para algum $x \in [0, 1]$. Sendo $f$ estritamente crescente em $[0, c)$ e estritamente decrescente em $(c, 1]$, temos que $f^n(x) \leq f(c)$ para todo $n \geq 1$. Pelo Teorema \ref{teo1}, temos que $\sigma^n(s) = S(f^n(x)) \preceq S(f(c)) = K(f)$ para todo $n \geq 1$. Desse modo, temos uma condição necessária para que uma sequência seja admissível por $f$.
+
 \begin{theorem}
-Suponha que $f: I \to I$ é unimodal e $c$ não é periódico. Se $t = (t_0\, t_1\, t_2\, \dots)$ é uma sequência tal que $\sigma^n(t) \prec K(f)$ para todo $n \geq 1$, então $t$ é $f$-admissível.
+Seja $f: [0, 1] \to [0, 1]$ uma função unimodal. Suponha que $c$ não é periódico. Se $t$ é um elemento de $\Sigma_C$ tal que $\sigma^n(t) \prec K(f)$ para todo $n \geq 1$, então $t$ é admissível por $f$.
 \end{theorem}
 
 \begin{proof}
-Se $t = (0\, 0\, 0\, \dots)$ ou $t = (1\, 0\, 0\, \dots)$, então $t$ é $f$-admissível já que, nesse caso, $S(0) = t$ ou $S(1) = t$. Para mostrar os outros casos, considere os conjuntos 
-$$L = \{ x \in I : S(x) \prec t \} \text{\, e \,} R = \{ x \in I : S(x) \succ t \}.$$
-Vamos mostrar que $L$ é aberto em $I$. Uma prova análoga pode ser feita para mostrar que $R$ é aberto em $I$.
+Se $t = (0\, 0\, 0\, \dots)$ ou $t = (1\, 0\, 0\, \dots)$, então $t$ é admissível por $f$ pois, nesse caso, $S(0) = t$ ou $S(1) = t$. Para mostrar os outros casos, denote $t = (t_0\, t_1\, t_2\, \dots)$ e considere os conjuntos 
+$$L = \{ x \in [0, 1] : S(x) \prec t \} \text{\, e \,} R = \{ x \in [0, 1] : S(x) \succ t \}.$$
+Vamos mostrar que $L$ é aberto em $[0, 1]$. Uma prova análoga pode ser feita para mostrar que $R$ é aberto em $[0, 1]$.
 
-Seja $z \in L$ e denote $S(z) = s = (s_0 \, s_1 \, s_2 \, \dots)$. Como $s \prec t$, temos que $s \neq t$ e, portanto, $s$ e $t$ são $n$-discrepantes para algum $n \geq 0$, ou seja, $s_n \neq t_n$. Sendo $t_n \neq C$ para todo $n \geq 0$, temos que $t_n = 0$ ou $t_n = 1$. Suponha que $t_n = 1$. Uma prova análoga segue quando $t_n = 0$. Os valores possíveis para $s_n$ são 
+Seja $z \in L$ e denote $S(z) = s = (s_0 \, s_1 \, s_2 \, \dots)$. Como $s \prec t$, temos que $s \neq t$ e, portanto, $s$ e $t$ possuem discrepância $n$ para algum $n \geq 0$. Sendo $t_n \neq C$ para todo $n \geq 0$, temos que $t_n = 0$ ou $t_n = 1$.
+
+Vamos supor que $t_n = 1$. Uma prova análoga segue quando $t_n = 0$. Como $s_n \neq t_n$, temos que $s_n = 0$ ou $s_n = C$. 
 \end{proof}
 
 
