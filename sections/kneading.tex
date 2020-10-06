@@ -90,13 +90,19 @@ Seja $f: [0, 1] \to [0, 1]$ uma função unimodal. Suponha que $c$ não é peri�
 \end{theorem}
 
 \begin{proof}
-Se $t = (0\, 0\, 0\, \dots)$ ou $t = (1\, 0\, 0\, \dots)$, então $t$ é admissível por $f$ pois, nesse caso, $S(0) = t$ ou $S(1) = t$. Para mostrar os outros casos, denote $t = (t_0\, t_1\, t_2\, \dots)$ e considere os conjuntos 
+Se $t = (0\, 0\, 0\, \dots)$ ou $t = (1\, 0\, 0\, \dots)$, então $t$ é admissível por $f$, pois nesse caso $S(0) = t$ ou $S(1) = t$. Para mostrar os outros casos, denote $t = (t_0\, t_1\, t_2\, \dots)$ e considere os conjuntos 
 $$L = \{ x \in [0, 1] : S(x) \prec t \} \text{\, e \,} R = \{ x \in [0, 1] : S(x) \succ t \}.$$
 Vamos mostrar que $L$ é aberto em $[0, 1]$. Uma prova análoga pode ser feita para mostrar que $R$ é aberto em $[0, 1]$.
 
-Seja $z \in L$ e denote $S(z) = s = (s_0 \, s_1 \, s_2 \, \dots)$. Como $s \prec t$, temos que $s \neq t$ e, portanto, $s$ e $t$ possuem discrepância $n$ para algum $n \geq 0$. Sendo $t_n \neq C$ para todo $n \geq 0$, temos que $t_n = 0$ ou $t_n = 1$.
+Seja $z \in L$ e denote $S(z) = s = (s_0 \, s_1 \, s_2 \, \dots)$. Como $s \prec t$, temos que $s \neq t$ e, portanto, $s$ e $t$ possuem discrepância $n$ para algum $n \geq 0$. Sendo $t_n \neq C$ para todo $n \geq 0$, temos que $t_n = 0$ ou $t_n = 1$. Vamos supor que $t_n = 1$. Uma prova análoga segue quando $t_n = 0$. Como $s_n \neq t_n$, temos que $s_n = 0$ ou $s_n = C$. 
 
-Vamos supor que $t_n = 1$. Uma prova análoga segue quando $t_n = 0$. Como $s_n \neq t_n$, temos que $s_n = 0$ ou $s_n = C$. 
+Se $s_n = 0$, então $s_k \neq C$ para todo $0 \leq k \leq n$ e, pelo Lema anterior, existe uma vizinhança aberta de $z$ em $L$. Se $s_n = C$, então $K(f) = (s_{n+1}\, s_{n+2}\, s_{n+3}\, \dots)$. Observe que existe $\alpha > 0$ tal que $s_{n+\alpha} \neq t_{n+\alpha}$ pois, caso contrário, $\sigma^{n+1}(t) = (t_{n+1}\, t_{n+2}\, t_{n+3}\, \dots) = (s_{n+1}\, s_{n+2}\, s_{n+3}\, \dots) = K(f)$. Além disso, $s_{n+i} \neq C$ para todo $i > 0$ pois $c$ não é periódico. Seja $W$ a vizinhança de $z$ tal que, se $x \in W$, então
+$$S(x) = (s_0\, \dots\, s_{n-1}\, *\, s_{n+1}\, \dots\, s_{n+\alpha}\, \dots),$$
+onde $*$ é $0$, $1$ ou $C$. Então, $W$ é uma vizinhança aberta de $z$ em $L$. Além disso,
+$$(s_0\, \dots\, s_{n-1}\, *\, \dots) \prec (s_0\, \dots\, s_{n-1}\, t_n, \dots) = (t_0\, \dots\, t_{n-1}\, t_n, \dots)$$
+pois $s \prec t$ e, portanto, $S(x) \prec t$ para todo $x \in W$.
+
+Assim, $L$ e $R$ são abertos em $[0, 1]$. Lembrando que $t \neq (0\, 0\, 0\, \dots)$ e $t \neq (1\, 0\, 0\, \dots)$, temos também que $L$ e $R$ não são vazios. Por fim, sendo $[0, 1]$ conexo, concluímos que existe um fechado não vazio em $[0, 1]$ cujos elementos possuem itinerário exatamente igual à $t$.
 \end{proof}
 
 
