@@ -29,8 +29,6 @@ A sequência kneading de $f$ é a sequência $K(f) = S(f(c))$, ou seja, é o iti
 
 Seja $$\Sigma = \{ (s_0\, s_1\, s_2\, \dots) : s_n \in \{0, C, 1\} \text{ para todo } n \geq 0\}.$$ Se $s = (s_0\, s_1\, s_2\, \dots)$ e $t = (t_0\, t_1\, t_2\, \dots)$ são elementos de $\Sigma$, dizemos que $s$ e $t$ possuem discrepância $n$ quando $s_i = t_i$ para todo $0 \leq i < n$ e $s_n \neq t_n$. Além disso, definimos $\tau_n(s)$ como a cardinalidade do conjunto $\{ s_j : 0 \leq j < n \text{ e } s_j = 1 \}$. Com isso, podemos definir uma ordem em $\Sigma$.
 
-\textit{$\blacktriangleright$ Aqui tem alguma questão questão que eu ainda não sei se está certo. O Devaney define a ordem no que ele chama de \textit{conjunto dos itinerários}. Não sei se esse conjunto é o de todas as sequências que eu defini como $\Sigma$ ou é o conjunto das sequências admissíveis que ele defini na continuação do capítulo. A princípio, não faz diferença. Porém, na demonstração do último teorema dessa parte, tive um problema que não consegui solucionar. $\blacktriangleleft$}
-
 \begin{definition}
 Sejam $s = (s_0\, s_1\, s_2\, \dots)$ e $t = (t_0\, t_1\, t_2\, \dots)$ elementos de $\Sigma$. Suponha que $s$ e $t$ possuem discrepância $n$. Dizemos que $s \prec t$ se alguma das seguintes condições é válida:
 \begin{enumerate}
@@ -79,7 +77,6 @@ Seja $x \in [0, 1]$ tal que $s_i = t_i$ para todo $0 \leq i \leq n$, onde $S(x) 
 Sendo cada $V_i$ é aberto em $[0, 1]$, a continuidade de $f^i$ implica que $(f^i)^{-1}(V_i)$ é aberto em $[0, 1]$. Definindo $V = \cap_{i=0}^n (f^i)^{-1}(V_i)$, temos que $V$ é um aberto em $[0, 1]$ que contém $x$ e se $y \in V$, então $s_i = t_i$ para todo $0 \leq i \leq n$, onde $S(y) = (t_0\, t_1\, t_2\, \dots)$.  
 \end{proof}
 
-\textit{$\blacktriangleright$ O comentário antes do lema e o próprio lema em si não estão no Devaney. Fiz o comentário por questão de clareza e o lema está citado como uma observação no último teorema e não está demostrado. Só comentando, pois pode ter algo bem errado. $\blacktriangleleft$}
 
 Seja $x \in I$ tal que $S(x) = (s_0\, s_1\, s_2\, \dots)$. Se $\sigma$ é a função shift em $\Sigma$, então $S(f^k(x)) = (s_k\, s_{k+1}\, s_{k+2}\, \dots) = \sigma^k(S(x))$ para todo $k \geq 0$.
 
@@ -102,17 +99,13 @@ Se $t = (0\, 0\, 0\, \dots)$ ou $t = (1\, 0\, 0\, \dots)$, então $t$ é admiss�
 $$L = \{ x \in [0, 1] : S(x) \prec t \} \text{\, e \,} R = \{ x \in [0, 1] : S(x) \succ t \}.$$
 Vamos mostrar que $L$ é aberto em $[0, 1]$. Uma prova análoga pode ser feita para mostrar que $R$ é aberto em $[0, 1]$.
 
-Seja $z \in L$ e denote $S(z) = s = (s_0 \, s_1 \, s_2 \, \dots)$. Como $s \prec t$, temos que $s \neq t$ e, portanto, $s$ e $t$ possuem discrepância $n$ para algum $n \geq 0$. \textbf{Se $t_n = C$, então $\sigma^{n+1}(t) = K(f)$, contrariando a hipótese sobre $t$.} Portanto, temos que $t_n = 0$ ou $t_n = 1$. Vamos supor que $t_n = 1$. Uma prova análoga segue quando $t_n = 0$. Como $s_n \neq t_n$, temos que $s_n = 0$ ou $s_n = C$. 
-
-\textit{$\blacktriangleright$ A frase em negrito, que está também no Devaney, é a dúvida sobre o que eu comentei antes sobre o conjunto em que está definida a ordem. A princípio, se $t$ é qualquer sequência em $\Sigma$, não me parece verdade a afirmação pois $t$ não necessariamente precisa seguir um itinerário após $t_n$. Mas se a ordem está definida somente no conjunto das sequências que são itinerários, as sequências admissíveis, então implicitamente o enunciado está dizendo que $\sigma^n(t)$ é uma sequência admissível para todo $n \geq 1$ e, desse modo, a afirmação está correta. Talvez não tenha nenhum sentido tudo isso, mas ainda tenho a dúvida. $\blacktriangleleft$}
+Seja $z \in L$ e denote $S(z) = s = (s_0 \, s_1 \, s_2 \, \dots)$. Como $s \prec t$, temos que $s \neq t$ e, portanto, $s$ e $t$ possuem discrepância $n$ para algum $n \geq 0$. Se $t_n = C$, então $\sigma^{n+1}(t) = K(f)$, contrariando a hipótese sobre $t$. Portanto, temos que $t_n = 0$ ou $t_n = 1$. Vamos supor que $t_n = 1$. Uma prova análoga segue quando $t_n = 0$. Como $s_n \neq t_n$, temos que $s_n = 0$ ou $s_n = C$. 
 
 Se $s_n = 0$, então $s_i \neq C$ para todo $0 \leq i \leq n$ e, pelo Lema anterior, existe uma vizinhança aberta de $z$ em $L$. Se $s_n = C$, então $K(f) = (s_{n+1}\, s_{n+2}\, s_{n+3}\, \dots)$. Observe que existe $\alpha > 0$ tal que $s_{n+\alpha} \neq t_{n+\alpha}$ pois, caso contrário, $\sigma^{n+1}(t) = (t_{n+1}\, t_{n+2}\, t_{n+3}\, \dots) = (s_{n+1}\, s_{n+2}\, s_{n+3}\, \dots) = K(f)$. Além disso, $s_{n+i} \neq C$ para todo $i > 0$ pois $c$ não é periódico. Seja $W$ o conjunto de todos os pontos $x \in [0, 1]$ cujo itinerário é da forma
 $$S(x) = (s_0\, \dots\, s_{n-1}\, *\, s_{n+1}\, \dots\, s_{n+\alpha}\, \dots),$$
 onde $*$ é $0$, $C$ ou $1$. Vamos mostrar que $W$ é uma vizinhança aberta de $z$ em $L$.
 
 Obviamente, $z \in W$. Além disso, tomando $V_i$ como na demostração do Lema anterior para todo $0 \leq i \leq n+\alpha$, $i \neq n$, e $V_n = [0, 1]$, concluímos de modo análogo que $W$ é aberto em $[0, 1]$. Resta mostrar que $W \subset L$. Se $x \in W$ e o elemento $*$ de $S(x)$ é $0$ ou $C$, então $S(x)$ e $t$ possuem discrepância $n$ e, nesse caso, $S(x) \prec t$ pois $s \prec t$ e o elemento $*$ de $S(x)$ é menor que $t_n = 1$. Se $x \in W$ e o elemento $*$ de $S(x)$ é $1$, então $S(x)$ e $t$ possuem discrepância $n+\alpha$.
-
-\textit{$\blacktriangleright$ E nessa última frase mais uma dificuldade. Não sei mostrar que $S(x) \prec t$ quando $*$ é $1$.  $\blacktriangleleft$}
 
 Assim, $L$ e $R$ são abertos em $[0, 1]$. Lembrando que $t \neq (0\, 0\, 0\, \dots)$ e $t \neq (1\, 0\, 0\, \dots)$, temos também que $L$ e $R$ não são vazios. Por fim, observando que $[0, 1]$ conexo e utilizando as definições de $L$ e $R$, concluímos que existe um fechado não vazio em $[0, 1]$ cujos elementos possuem itinerário exatamente igual à $t$ e, desse modo, $t$ é admissível por $f$.
 \end{proof}
