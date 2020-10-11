@@ -1,0 +1,77 @@
+\section{Função Logística IV: Conjugação Topológica}
+
+%Nesse seção estudaremos a dinâmica de $F$ quando $\mu = 4$. Para esse estudo, definiremos o que significa duas funções serem topologicamente conjugadas e, a partir daí, mostraremos que é $F$ é caótica com base em outra função cuja dinâmica é mais fácil de ser entendida.
+
+\begin{definition}
+Sejam $f: A \to A$, $g: B \to B$ e $\tau: A \to B$ funções. Dizemos que \textit{$f$ e $g$ são topologicamente conjugadas por $\tau$}, se $\tau$ é um homeomorfismo tal que $\tau \circ f = g \circ \tau$.
+\end{definition}
+
+%Do ponto de vista da dinâmica, duas funções conjugadas são idênticas. A Proposição abaixo torna precisa essa afirmação.
+
+\begin{proposition}
+\label{proposicao conjugacaotopologica 1}
+Sejam $f: A \to A$, $g: B \to B$ e $\tau: A \to B$ funções. Se $f$ e $g$ são topologicamente conjugadas por $\tau$, então
+\begin{enumerate}
+\item $g$ e $f$ são topologicamente conjugadas por $\tau^{-1}$.
+\item $\tau \circ f^n = g^n \circ \tau$ para todo $n \geq 1$.
+\item $p$ é ponto periódico de $f$ se e somente se $\tau(p)$ é ponto periódico de $g$. Além disso, os períodos principais de $p$ e $\tau(p)$ são iguais.
+\item $W^s(\tau(p)) = \tau(W^s(p))$, se $p$ é um ponto periódico de $f$.
+\item o conjunto de pontos periódicos de $f$ é denso se e somente se o conjunto de pontos periódicos de $g$ é denso.
+\item $f$ é topologicamente transitiva se e somente se $g$ é topologicamente transitiva.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\begin{enumerate}
+\item Como $\tau$ é um homeomorfismo, a função inversa $\tau^{-1}$ existe e também é um homeomorfismo. Além disso, $\tau \circ f = g \circ \tau$ implica que $f \circ \tau^{-1} = \tau^{-1} \circ g$. Portanto, $\tau^{-1}$ é conjugação topológica de $g$ e $f$.
+\item Por definição, a afirmação é verdadeira quando $n = 1$. Suponha que $\tau \circ f^{n-1} = g^{n-1} \circ \tau$. Desse modo, $\tau \circ f^n = \tau \circ f^{n-1} \circ f = g^{n-1} \circ \tau \circ f = g^{n-1} \circ g \circ  \tau = g^n \circ \tau$. Portanto, a afirmação é verdadeira para todo $n \geq 1$.
+\item Suponha que $p$ é um ponto periódico de $f$ com período principal $n$. Desse modo, $g^n(\tau(p)) = \tau(f^n(p)) = \tau(p)$. Se $k = 1, \dots, n-1$, então $g^k(\tau(p)) = \tau(f^k(p)) \neq \tau(p)$, pois $f^k(p) \neq p$ e $\tau$ é injetora. Portanto, $\tau(p)$ é um ponto periódico de $g$ com período principal $n$. A outra implicação é demonstrada de maneira análoga.
+\item Suponha que $p$ é um ponto periódico com período $n$. Se $x \in W^s(\tau(p))$, então $\lim_{k \to \infty} g^{kn}(x) = \tau(p)$. Como $\tau^{-1}$ é contínua, temos $\lim_{k \to \infty} f^{kn}(\tau^{-1}(x)) = \lim_{k \to \infty} $ $ \tau^{-1}(g^{kn}(x))= p$. Então,  $x \in \tau(W^s(p))$ pois $\tau^{-1}(x) \in W^s(p)$.
+
+Por outro lado, se $\tau(x) \in \tau(W^s(p))$, então $\lim_{k \to \infty} f^{kn}(x) = p$. Como $\tau$ é contínua, temos $\lim_{k \to \infty} g^{kn}(\tau(x)) = \lim_{k \to \infty} \tau(f^{kn}(x)) = \tau(p)$ e, portanto, $\tau(x) \in W^s(\tau(p))$.
+\item Se o conjunto $Per(f)$ dos pontos periódicos de $f$ é denso em $A$, então $\tau(Per(f))$ é denso em $B$ pois $\tau$ é um homeomorfismo. Como $\tau(Per(f)) = Per(g)$, temos que $Per(g)$ é denso em $B$. A outra implicação é demonstrada de maneira análoga.
+\item Inicialmente, sendo $\tau$ é contínua, dado $\varepsilon > 0$ existe $\delta > 0$ de modo que, se $z \in A$, $|x - z| < \delta$ e $|y - f^n(z)| < \delta$, então $|\tau(x) - \tau(z)| < \varepsilon$ e $|\tau(y) - \tau(f^n(z))|$, onde $n \geq 1$ é fixado.
+
+Se $x', y' \in B$, existem $x, y \in A$ tais que $\tau(x) = x'$ e $\tau(y) =  y'$. Como $f$ é topologicamente transitiva, existe $z \in A$ tal que $|x - z| < \delta$ e $|y - f^n(z)| < \delta$ para algum $n \geq 1$. Portanto, $|\tau(x) - \tau(z)| < \varepsilon$ e $|\tau(y) - \tau(f^n(z))| < \varepsilon$. Se $\tau(z) = z'$, então $|x' - z'| < \varepsilon$ e $|y' - g^n(z')| < \varepsilon$ e, portanto, $g$ é topologicamente transitiva. A outra implicação é demonstrada de maneira análoga.
+\end{enumerate}
+\end{proof}
+
+%Com a Proposição acima, temos agora condições de entender a dinâmica de $F$ quando $\mu = 4$.
+
+\begin{lemma}
+\label{lema conjugacaotopologica 1}
+A função $T: [0,1] \to [0,1]$, dada por
+\[
+T(x) = 
+  \begin{cases}
+      2x, & x \in \left[0, \frac{1}{2}\right] \\
+      2 - 2x, & x \in \left[\frac{1}{2}, 1\right] 
+  \end{cases}
+\]
+é caótica.
+\end{lemma}
+
+\begin{proof}
+Inicialmente, provaremos por indução que $T^n: \left[\frac{k}{2^n}, \frac{k+1}{2^n}\right] \to [0,1]$ é uma função linear bijetora para todo $0 \leq k  < 2^n$. Pela definição de $T$, a afirmação é verdadeira quando $n = 1$. Suponha que $T^{n-1}: \left[\frac{k}{2^{n-1}}, \frac{k+1}{2^{n-1}}\right] \to [0,1]$ é uma função linear bijetora para todo $0 \leq k < 2^{n-1}$. Fixado $k$, podemos supor que $T^{n-1}\left(\frac{k}{2^{n-1}}\right) = 0$ e $T^{n-1}\left(\frac{k+1}{2^{n-1}}\right) = 1$. O caso em que $T^{n-1}\left(\frac{k}{2^{n-1}}\right) = 1$ e $T^{n-1}\left(\frac{k+1}{2^{n-1}}\right) = 0$ é tratado de maneira análoga. Temos que $T^{n-1}(\overline{x}) = \frac{1}{2}$, onde $\overline{x} = \frac{2k+1}{2^n}$ é o ponto médio do intervalo $\left[\frac{k}{2^{n-1}}, \frac{k+1}{2^{n-1}}\right]$. Portanto, $T^n(\overline{x}) = T(T^{n-1}(\overline{x})) = T\left(\frac{1}{2}\right) = 1$, $T^n\left(\frac{k}{2^{n-1}}\right) = T(0) = 0$ e $T^n\left(\frac{k+1}{2^{n-1}}\right) = T(1) = 0$. Desse modo, $T^n: \left[\frac{k}{2^{n-1}}, \overline{x}\right] \to [0,1]$ e $T^n: \left[\overline{x}, \frac{k+1}{2^{n-1}}\right] \to [0,1]$ são funções lineares(pois são composições de funções lineares) e bijetoras para todo $0 \leq k < 2^{n-1}$. Observando que $\left[\frac{k}{2^{n-1}}, \overline{x}\right] =  \left[\frac{2k}{2^n}, \frac{2k+1}{2^n}\right]$ e $\left[\overline{x}, \frac{k+1}{2^{n-1}}\right] =  \left[\frac{2k+1}{2^n}, \frac{2k+2}{2^n}\right]$, concluímos que  que $T^n: \left[\frac{k}{2^n}, \frac{k+1}{2^n}\right] \to [0,1]$ é uma função linear bijetora para todo $0 \leq k  < 2^n$ e, portanto, a afirmação está provada.
+
+Para provar que $T$ é caótica, seja $\varepsilon > 0$. Pelo afirmação do parágrafo anterior, existem $n \geq 1$ e $I = \left[\frac{k}{2^n}, \frac{k+1}{2^n}\right]$  tais que $\frac{1}{2^n} < \varepsilon$, $x \in I$ e $T^n: I \to [0,1]$ é bijetora.
+
+Seja $x \in [0,1]$. Como $T(I) \supset I$, a Proposição \ref{proposicao diferenciabilidade 1} afirma que existe $p \in I$ tal que $T^n(p) = p$. Observando que $|x-p| \leq \frac{1}{2^n} < \varepsilon$, concluímos que o conjunto de pontos periódicos de $T$ é denso em $[0,1]$.
+
+Sejam $x, y \in [0,1]$. Como $T^n: I \to [0,1]$ é sobrejetora, existe $z \in I$ tal que $T^n(z) = y$. Observando que $|z - x| \leq \frac{1}{2^n} < \varepsilon$ e $|T^n(z) - y| = 0 < \varepsilon$, concluímos que $T$ é topologicamente transitiva.
+
+Seja $x \in [0,1]$.  Como $T^n: I \to [0,1]$ é sobrejetora, existem $a, b \in I$ tais que $T^n(a) = 0$ e $T^n(b) = 1$. Se $T^n(x) \in [0, \frac{1}{2}]$, então $|T^n(x) - T^(b)| = |T^n(x) - 1| \geq \frac{1}{2}$ e se $T^n(x) \in [\frac{1}{2}, 1]$, então $|T^n(x) - T^n(a)| = |T^n(x)| \geq \frac{1}{2}$. Observando que $|x - a| \leq \frac{1}{2^n} < \varepsilon$ e $|x - b| \leq \frac{1}{2^n} < \varepsilon$, concluímos que $T$ depende sensivelmente das condições iniciais.
+\end{proof}
+
+\begin{theorem}
+Se $\mu = 4$, então $F$ é caótica.
+\end{theorem}
+
+\begin{proof}
+Seja $\tau(x) = \sen^2\left(\frac{\pi x}{2}\right)$ definida no intervalo $ [0,1]$. $\tau$ é homeomorfismo pois $\tau'$ existe em $[0,1]$ e $\tau' > 0$ em $(0,1)$.
+
+Se $x \in \left[0, \frac{1}{2}\right]$, então $$\tau \circ T(x) = \tau(2x) = \sen^2(\pi x)$$
+e se $x \in \left[\frac{1}{2}, 1\right]$, então $$\tau \circ T(x) = \tau(2 - 2x) = \sen^2(\pi- \pi x) = (\sen(\pi)\cos(\pi x) - \sen(\pi x)\cos(\pi))^2 = \sen^2(\pi x)$$
+Por outro lado, $$F \circ \tau(x) = 4\sen^2\left(\frac{\pi x}{2}\right)(1 - \sen^2\left(\frac{\pi x}{2}\right)) = 4\sen^2\left(\frac{\pi x}{2}\right)\cos^2\left(\frac{\pi x}{2}\right) = \sen^2(\pi x)$$
+Desse modo, $\tau \circ T = F \circ \tau$. Portanto, de acordo com o Teorema \ref{teorema caos 1}, a Proposição \ref{proposicao conjugacaotopologica 1} e o Lema \ref{lema conjugacaotopologica 1}, $F$ é caótica.
+\end{proof}

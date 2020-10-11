@@ -1,0 +1,75 @@
+\section{Princípio da Contração}
+
+\begin{definition}
+\label{definition1}
+Seja $f: [0,1] \to [0,1]$ uma função contínua. Dizemos que um intervalo $J \subset [0,1]$ é \textit{errante} se
+\begin{enumerate}
+\item $J$ não está contido na base de atração de um ponto periódico atrator.
+\item $f^n(J) \cap f^m(J) = \emptyset$ para todo $n > m \geq 0$.
+\end{enumerate}
+
+
+\begin{lemma}(Princípio da Contração)
+Seja $J$ um intervalo tal que
+$$\inf_{n \geq 0} |f^n(J)| = 0.$$
+Então $J$ é um intervalo errante ou está contido na base de atração de um ponto periódico atrator.
+\end{lemma}
+
+\begin{proof}
+Seja $$X = \bigcup_{n = 0}^\infty f^n(J).$$
+
+Primeiramente, suponha que $f^n(U) \cap U = \emptyset$ para todo $n \geq 1$ e para todo conexo $U$ em $X$. Sendo $f$ contínua, $f^m(J)$ é conexo em $X$ para todo $m \geq 0$ e, portanto, $f^k(f^m(J)) \cap f^m(J) = \emptyset$ para todo $k \geq 1$. Desse modo, $f^n(J) \cap f^m(J) = \emptyset$ para todo $n > m \geq 0$. Assim, pela Definição \ref{definition1}, $J$ é um intervalo errante ou está contido em na base de atração de um ponto periódico atrator.
+
+Por outro lado, suponha que exista um conexo $U$ em $X$ e $n \geq 0$ tal que $f^n(U) \cap U \neq \emptyset$. Assim, $f^n(U) \subset U$ e a função $f^n: U \to U$ possui um ponto fixo $p$. \textit{$\bullet \bullet$ pra mim não é claro que essa suposição implica que $f^n(U) \subset U$ $\bullet \bullet$}
+Se $p$ está no interior de $U$, então alguma iterada de $J$ contém $p$ em seu fecho e, portanto, $\inf_{n \geq 0} |f^n(J)| = 0$ implica que a órbita de $p$ atrai $J$. Se $p$ não está no interior de $U$, então $f^n$ é estritamente monótona e todos os pontos em $U$ são atraídos para $p$ por $f^n$. Novamente, alguma iterada de $J$ contém $p$ e, portanto, $\inf_{n \geq 0} |f^n(J)| = 0$ implica que a órbita de $p$ atrai $J$.
+\end{proof}
+Na sequência, dados um intervalo $J$ e $\delta > 0$, definiremos o intervalo $J_\delta$ como
+$$J_\delta = (\inf J - \delta |J| , \textrm{ } \sup J + \delta |J|).$$
+\begin{lemma}
+Seja $f: [0,1] \to [0,1]$ contínua e suponha que $x \mapsto \log |Df(x)|$ é Lipschitz com contante $K$. Então existe $\delta > 0$ com a seguinte propriedade. Se $J$ e $T$ são intervalos em $[0,1]$ tais que $J, \dots, f^{n-1}(J)$ são dois a dois disjuntos para algum $n \geq 1$ e $J \subset T \subset J_\delta$, então
+$$\frac{|Df^k(x)|}{|Df^k(y)|} \leq \exp(2K) \textrm{ para todo } x, y \in T$$
+e
+$$|f^k(T)| \leq 2 |f^k(J)|$$
+para todo $k = 0, \dots, n$.
+\end{lemma}
+
+\begin{proof}
+Seja $\delta < \frac{1}{2} \exp(-2K)$. Por definição,
+$$\Bigl|\log |Df(x)| - \log |Df(y)|\Bigr| \leq K|x-y| \leq K \leq 2K \textrm{ para todo } x, y \in T.$$
+Suponha que
+$$\Bigl|\log |Df^i(x)| - \log |Df^i(y)|\Bigr| \leq 2K \textrm{ para todo } x, y \in T$$
+para todo $1 \leq i < k \leq n$.
+
+Pelo Teorema do Valor Médio,
+$$|f^i(T)| = |f^i(J)| + |f^i(T-J)| = |f^i(J)| + |Df^i(z)||T-J|$$
+para algum $z \in T - J$. Utilizando a definição de $\delta$, temos que
+$$|f^i(T)| \leq |f^i(J)| + \exp(2K)  \frac{|f^i(J)|}{|J|} |T-J| \leq |f^i(J)| (1 + 2 \delta \exp(2K)) \leq 2|f^i(J)|.$$
+
+\textit{$\bullet \bullet$ aqui não entendi porque $|Df^i(z)| \leq \exp(2K)  \frac{|f^i(J)|}{|J|}$ $\bullet \bullet$}
+
+Além disso, sendo $J, \dots, f^{n-1}(J)$ dois a dois disjuntos, temos que
+$$\sum_{i=0}^{k-1}|f^i(T)| \leq \sum_{i=0}^{k-1} 2 |f^i(J)| \leq 2$$
+e, portanto, utilizando a Regra da Cadeia e a definição de $K$, concluímos que
+\begin{align*}
+\Bigl| \log |Df^k(x)| - \log |Df^k(y)| \Bigr| & = \Bigl| \log \prod_{i=0}^{k-1} |Df(f^i(x))| - \log \prod_{i=0}^{k-1} |Df(f^i(y))| \Bigr| \\
+& \leq \sum_{i=0}^{k-1} \Bigr| \log |Df(f^i(x))| - \log |Df(f^i(y))| \Bigr|\\
+& \leq \sum_{i=0}^{k-1} | f^i(T) |K \leq 2K
+\end{align*}
+para todo $x, y \in T$.
+\end{proof} 
+
+Suponha que $J \subset [0,1]$ é um intervalo errante. Então, a sequência $(f^n(J))_{n \geq 0}$ é formada por intervalos dois a dois disjuntos em $[0,1]$ e, portanto,
+$$\sum_{n=0}^\infty |f^n(J)| \leq 1.$$
+Sendo a série convergente, concluímos que $|f^n(J)| \to 0$ quando $n \to \infty$.
+
+\begin{corollary}
+Seja $f: [0,1] \to [0,1]$ contínua e suponha que $x \mapsto \log |Df(x)|$ é Lipschitz. Então $f$ não possui intervalos errantes.
+\end{corollary}
+
+\begin{proof}
+Suponha que $f$ possua intervalos errantes e seja $J$ um intervalo errante maximal, ou seja, não existem intervalos errantes contidos estritamente em $J$. Sendo todas as iteradas de $J$ disjuntas, pelo Lema anterior temos que
+$$|f^k(J_\delta)| \leq 2|f^k(J)|$$
+para todo $k \geq 0$. Em particular, $J_\delta$ não está contido na base de atração de um ponto periódico atrator e $|f^k(J_\delta)| \to 0$ quando $n \to \infty$. Desse modo, $J_\delta$ é um intervalo errante que contém estritamente $J$. Sendo $J$ um intervalo errante maximal, obtemos uma contradição.
+\end{proof}
+
+\end{definition}

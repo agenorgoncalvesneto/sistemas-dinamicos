@@ -1,0 +1,130 @@
+\section{Teoria Kneading}
+
+\begin{definition}
+Seja $f: [0, 1] \to [0, 1]$ uma função de classe $\CC^1([0, 1])$. $f$ é unimodal se as seguintes condições são válidas:
+\begin{enumerate}
+\item[i.] $f(0) = f(1) = 0$.
+\item[ii.] $f$ possui um único ponto crítico em $(0, 1)$.
+\end{enumerate}
+\end{definition}
+
+No restante dessa seção, fixaremos uma função $f$ unimodal cujo único ponto crítico em $(0, 1)$ será denotado por $c$. Além disso, fixaremos um símbolo $C$ de modo que o conjunto $\{0, C, 1\}$ seja ordenado pelas relações $0 < C$, $C < 1$ e $0 < 1$.
+
+
+\begin{definition}
+Seja $x \in [0, 1]$. O itinerário de $x$ por $f$ é a sequência infinita $S(x) = (s_0 \, s_1 \, s_2 \, \dots)$, onde
+
+\[ s_i = 
+\begin{cases} 
+  0 & \text{ se } f^i(x) < c \\
+  C & \text{ se } f^i(x) = c \\
+  1 & \text{ se } f^i(x) > c. \\
+\end{cases}
+\]
+\end{definition}
+
+\begin{definition}
+A sequência kneading de $f$ é a sequência $K(f) = S(f(c))$, ou seja, é o itinerário de $f(c)$.
+\end{definition}
+
+Seja $$\Sigma = \{ (s_0\, s_1\, s_2\, \dots) : s_n \in \{0, C, 1\} \text{ para todo } n \geq 0\}.$$ Se $s = (s_0\, s_1\, s_2\, \dots)$ e $t = (t_0\, t_1\, t_2\, \dots)$ são elementos de $\Sigma$, dizemos que $s$ e $t$ possuem discrepância $n$ quando $s_i = t_i$ para todo $0 \leq i < n$ e $s_n \neq t_n$. Além disso, definimos $\tau_n(s)$ como a cardinalidade do conjunto $\{ s_j : 0 \leq j < n \text{ e } s_j = 1 \}$. Com isso, podemos definir uma ordem em $\Sigma$.
+
+\textit{$\blacktriangleright$ Aqui tem alguma questão questão que eu ainda não sei se está certo. O Devaney define a ordem no que ele chama de \textit{conjunto dos itinerários}. Não sei se esse conjunto é o de todas as sequências que eu defini como $\Sigma$ ou é o conjunto das sequências admissíveis que ele defini na continuação do capítulo. A princípio, não faz diferença. Porém, na demonstração do último teorema dessa parte, tive um problema que não consegui solucionar. $\blacktriangleleft$}
+
+\begin{definition}
+Sejam $s = (s_0\, s_1\, s_2\, \dots)$ e $t = (t_0\, t_1\, t_2\, \dots)$ elementos de $\Sigma$. Suponha que $s$ e $t$ possuem discrepância $n$. Dizemos que $s \prec t$ se alguma das seguintes condições é válida:
+\begin{enumerate}
+\item[i.] $\tau_{n-1}(s)$ é par e $s_n < t_n$.
+\item[ii.] $\tau_{n-1}(s)$ é ímpar e $s_n > t_n$.
+\end{enumerate}
+\end{definition}
+
+O seguinte teorema nos mostra as semelhanças da ordem $\prec$ em $\Sigma$ com a ordem usual na reta real.
+
+\begin{theorem}
+\label{teo1}
+Sejam $x, y \in [0, 1]$.
+\begin{enumerate}
+\item Se $S(x) \prec S(y)$, então $x < y$.
+\item Se $x < y$, então $S(x) \preceq S(y)$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+O primeiro item será provado por indução em $n$, onde $S(x)$ e $S(y)$ são possuem discrepância $n$ e, por contrapositiva, o segundo item segue imediatamente do primeiro.
+
+Sejam $S(x) = (s_0\, s_1\, s_2\, \dots)$ e $S(y) = (t_0\, t_1\, t_2\, \dots)$ tais que $S(x) \prec S(y)$. Se $S(x)$ e $S(y)$ possuem discrepância $0$, então $s_0 < t_0$ e, portanto, $x < y$. Suponha que essa propriedade é válida quando as sequências possuem discrepância $n-1$.
+
+Se $S(x)$ e $S(y)$ possuem discrepância $n \geq 1$, então $s_0 = t_0$ e as sequências 
+$$S(f(x)) = (s_1\, s_2\, s_3\, \dots) \textrm{\, e \,} S(f(y)) = (t_1\, t_2\, t_3\, \dots)$$
+possuem discrepância $n-1$. Se $s_0 = 0$, então $S(f(x)) \prec S(f(y))$ pois a quantidade de elementos iguais à $1$ antes da discrepância permanece inalterada e, portanto, $f(x) < f(y)$ por hipótese de indução. Como $f(x), f(y) \in [0, c)$ e $f$ é estritamente crescente em $[0, c)$, concluímos que $x < y$. Se $s_0 = 1$, então $S(f(y)) \prec S(f(x))$ pois a quantidade de elementos iguais à $1$ antes da discrepância é diminuída em uma unidade e, portanto, $f(y) < f(x)$ por hipótese de indução. Como $f(x), f(y) \in (c, 1]$ e $f$ é estritamente decrescente em $(c, 1]$, concluímos que $x < y$. Por fim, se $s_0 = C$, então $x = y = c$ e contraria a hipótese de que os itinerários de $x$ e $y$ são diferentes.
+\end{proof}
+
+Utilizaremos, nos resultados a seguir, o conceito de abertos em $[0, 1]$. Encarando $[0, 1]$ como um subespaço topológico de $\RR$, os conjuntos da forma $A \cap [0, 1]$ são abertos em $[0, 1]$ quando $A$ é aberto em $\RR$. Desse modo, $[0, c)$ e $(c, 1]$ são abertos em $[0, 1]$, por exemplo.
+
+\begin{lemma}
+Seja $s = (s_0\, s_1\, s_2\, \dots)$ um elemento de $\Sigma$. Suponha que $s_i \neq C$ para todo $0 \leq i \leq n$. Então, o conjunto
+$$\{ x \in [0, 1] : s_i = t_i \textrm{ para todo } 0 \leq i \leq n, \text{ onde } S(x) = (t_0\, t_1\, t_2\, \dots) \}$$
+é aberto em $[0, 1]$.
+\end{lemma}
+
+\begin{proof}
+Seja $x \in [0, 1]$ tal que $s_i = t_i$ para todo $0 \leq i \leq n$, onde $S(x) = (t_0\, t_1\, t_2\, \dots)$. Assim, $f^i(x) \neq c$ para todo $0 \leq i \leq n$ e, portanto, podemos definir
+\[ V_i = 
+\begin{cases} 
+  [0, c) & \textrm{ se } f^i(x) < c \\
+  (c, 1] & \textrm{ se } f^i(x) > c. \\
+\end{cases}
+\]
+Sendo cada $V_i$ é aberto em $[0, 1]$, a continuidade de $f^i$ implica que $(f^i)^{-1}(V_i)$ é aberto em $[0, 1]$. Definindo $V = \cap_{i=0}^n (f^i)^{-1}(V_i)$, temos que $V$ é um aberto em $[0, 1]$ que contém $x$ e se $y \in V$, então $s_i = t_i$ para todo $0 \leq i \leq n$, onde $S(y) = (t_0\, t_1\, t_2\, \dots)$.  
+\end{proof}
+
+\textit{$\blacktriangleright$ O comentário antes do lema e o próprio lema em si não estão no Devaney. Fiz o comentário por questão de clareza e o lema está citado como uma observação no último teorema e não está demostrado. Só comentando, pois pode ter algo bem errado. $\blacktriangleleft$}
+
+Seja $x \in I$ tal que $S(x) = (s_0\, s_1\, s_2\, \dots)$. Se $\sigma$ é a função shift em $\Sigma$, então $S(f^k(x)) = (s_k\, s_{k+1}\, s_{k+2}\, \dots) = \sigma^k(S(x))$ para todo $k \geq 0$.
+
+Para prosseguir os estudos, é interessante restringir a atenção aos elementos de $\Sigma$ que são itinerários de algum $x \in [0, 1]$. Desse modo, definimos
+$$\Sigma_f = \{ s \in \Sigma : S(x) = s \text{ para algum } x \in [0, 1] \}$$
+e dizemos que os elementos de $\Sigma_f$ são admissíveis por $f$.
+
+Suponha que $s = (s_0\, s_1\, s_2\, \dots)$ é admissível por $f$ e seja $x \in [0, 1]$ tal que $S(x) = s$. Sendo $f$ estritamente crescente em $[0, c)$ e estritamente decrescente em $(c, 1]$, temos que $c$ é ponto de máximo global de $f$ em $[0, 1]$ e, desse modo, $f^n(x) \leq f(c)$ para todo $n \geq 1$. Pelo Teorema \ref{teo1}, temos que $S(f^n(x)) \preceq S(f(c))$ e, portanto, $\sigma^n(s) \preceq K(f)$, para todo $n \geq 1$. Desse modo, temos uma condição necessária para que uma sequência seja admissível por $f$. O exemplo a seguir nos mostra que essa condição não é suficiente.
+
+\begin{example}
+Seja $F_4(x) = 4x(1-x)$ definida em $[0, 1]$. Inicialmente, note que $F_4\left(\frac{1}{2}\right) = 1$ e $F_4(1) = 0$, ou seja, $K(f) = (1\, 0\, 0\, \dots)$. Além disso, a única pré-imagem de $1$ por $f$ é $c$ e, portanto, $(C\, 1\, 0\, 0\, \dots)$ é a única sequência admissível por $f$ que é pré-imagem de $(1\, 0\, 0\, \dots)$ por $\sigma$. Desse modo, uma sequência da forma $t = (0\, \dots\, 0\, 1\, 0\, 0\, \dots)$, que possui somente zeros nas primeiras $n$ posições, $n > 0$, não é admissível por $f$. Por outro lado, $\sigma^i(t) \prec K(f)$ para todo $i \geq 0$, $i \neq n$, e $\sigma^n(t) = K(f)$. 
+\end{example}
+
+\begin{theorem}
+Suponha que $c$ não é periódico. Se $t$ é um elemento de $\Sigma$ tal que $\sigma^n(t) \prec K(f)$ para todo $n \geq 1$, então $t$ é admissível por $f$.
+\end{theorem}
+
+\begin{proof}
+Se $t = (0\, 0\, 0\, \dots)$ ou $t = (1\, 0\, 0\, \dots)$, então $t$ é admissível por $f$, pois nesse caso $S(0) = t$ ou $S(1) = t$. Para mostrar os outros casos, denote $t = (t_0\, t_1\, t_2\, \dots)$ e considere os conjuntos 
+$$L = \{ x \in [0, 1] : S(x) \prec t \} \text{\, e \,} R = \{ x \in [0, 1] : S(x) \succ t \}.$$
+Vamos mostrar que $L$ é aberto em $[0, 1]$. Uma prova análoga pode ser feita para mostrar que $R$ é aberto em $[0, 1]$.
+
+Seja $z \in L$ e denote $S(z) = s = (s_0 \, s_1 \, s_2 \, \dots)$. Como $s \prec t$, temos que $s \neq t$ e, portanto, $s$ e $t$ possuem discrepância $n$ para algum $n \geq 0$. \textbf{Se $t_n = C$, então $\sigma^{n+1}(t) = K(f)$, contrariando a hipótese sobre $t$.} Portanto, temos que $t_n = 0$ ou $t_n = 1$. Vamos supor que $t_n = 1$. Uma prova análoga segue quando $t_n = 0$. Como $s_n \neq t_n$, temos que $s_n = 0$ ou $s_n = C$. 
+
+\textit{$\blacktriangleright$ A frase em negrito, que está também no Devaney, é a dúvida sobre o que eu comentei antes sobre o conjunto em que está definida a ordem. A princípio, se $t$ é qualquer sequência em $\Sigma$, não me parece verdade a afirmação pois $t$ não necessariamente precisa seguir um itinerário após $t_n$. Mas se a ordem está definida somente no conjunto das sequências que são itinerários, as sequências admissíveis, então implicitamente o enunciado está dizendo que $\sigma^n(t)$ é uma sequência admissível para todo $n \geq 1$ e, desse modo, a afirmação está correta. Talvez não tenha nenhum sentido tudo isso, mas ainda tenho a dúvida. $\blacktriangleleft$}
+
+Se $s_n = 0$, então $s_i \neq C$ para todo $0 \leq i \leq n$ e, pelo Lema anterior, existe uma vizinhança aberta de $z$ em $L$. Se $s_n = C$, então $K(f) = (s_{n+1}\, s_{n+2}\, s_{n+3}\, \dots)$. Observe que existe $\alpha > 0$ tal que $s_{n+\alpha} \neq t_{n+\alpha}$ pois, caso contrário, $\sigma^{n+1}(t) = (t_{n+1}\, t_{n+2}\, t_{n+3}\, \dots) = (s_{n+1}\, s_{n+2}\, s_{n+3}\, \dots) = K(f)$. Além disso, $s_{n+i} \neq C$ para todo $i > 0$ pois $c$ não é periódico. Seja $W$ o conjunto de todos os pontos $x \in [0, 1]$ cujo itinerário é da forma
+$$S(x) = (s_0\, \dots\, s_{n-1}\, *\, s_{n+1}\, \dots\, s_{n+\alpha}\, \dots),$$
+onde $*$ é $0$, $C$ ou $1$. Vamos mostrar que $W$ é uma vizinhança aberta de $z$ em $L$.
+
+Obviamente, $z \in W$. Além disso, tomando $V_i$ como na demostração do Lema anterior para todo $0 \leq i \leq n+\alpha$, $i \neq n$, e $V_n = [0, 1]$, concluímos de modo análogo que $W$ é aberto em $[0, 1]$. Resta mostrar que $W \subset L$. Se $x \in W$ e o elemento $*$ de $S(x)$ é $0$ ou $C$, então $S(x)$ e $t$ possuem discrepância $n$ e, nesse caso, $S(x) \prec t$ pois $s \prec t$ e o elemento $*$ de $S(x)$ é menor que $t_n = 1$. Se $x \in W$ e o elemento $*$ de $S(x)$ é $1$, então $S(x)$ e $t$ possuem discrepância $n+\alpha$.
+
+\textit{$\blacktriangleright$ E nessa última frase mais uma dificuldade. Não sei mostrar que $S(x) \prec t$ quando $*$ é $1$.  $\blacktriangleleft$}
+
+Assim, $L$ e $R$ são abertos em $[0, 1]$. Lembrando que $t \neq (0\, 0\, 0\, \dots)$ e $t \neq (1\, 0\, 0\, \dots)$, temos também que $L$ e $R$ não são vazios. Por fim, observando que $[0, 1]$ conexo e utilizando as definições de $L$ e $R$, concluímos que existe um fechado não vazio em $[0, 1]$ cujos elementos possuem itinerário exatamente igual à $t$ e, desse modo, $t$ é admissível por $f$.
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+

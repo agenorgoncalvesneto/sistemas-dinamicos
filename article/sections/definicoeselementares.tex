@@ -1,0 +1,30 @@
+\section{Conceitos Iniciais}
+
+%Ao longo do texto, $f$ representará uma função $f: I \to J$, onde $I$ e $J$ são subconjuntos de $\RR$. Além disso, a função $f^n$ representará a n-ésima iterada de $f$ e $f^{(n)}$ representará n-ésima derivada de $f$. Começamos nosso estudo definindo o que são pontos periódicos e pontos eventualmente periódicos. Esses pontos desempenham um papel central no estudos de Sistemas Dinâmicos.
+ 
+\begin{definition}
+Sejam $f: X \to X$ uma função, $p \in X$ e $n \geq 1$.  Dizemos que $p$ é um \textit{ponto periódico com período $n$}, se $f^n(p) = p$. Se $f^k(p) \neq p$ para todo $1 \leq k < n$, então $n$ é chamado de \textit{período principal}. Em particular, se $n=1$, dizemos que $p$ é um \textit{ponto fixo}.%Denotamos o conjunto de todos os pontos periódicos de $f$ por $Per(f)$ e denotamos o conjunto de todos os pontos periódicos de $f$ com período $n$ por $Per_n(f)$. 
+\end{definition}
+
+\begin{definition}
+Sejam $f: X \to X$ uma função, $p \in X$ e $n \geq 1$. Dizemos que $p$ é um \textit{ponto eventualmente periódico com período $n$}, se existe $m > 1$ tal que $f^k(p) = f^{k+n}(p)$ para todo $k \geq m$. Em particular, se $n = 1$, dizemos que p é um \textit{ponto eventualmente fixo}.
+\end{definition}
+
+\begin{definition}
+Sejam $f:X \to X$ uma função e $x \in X$. O conjunto $$O(x) = \lbrace x, f(x), f^2(x), \dots \rbrace$$ é a \textit{órbita de $x$}.
+\end{definition}
+
+\begin{definition}
+Sejam $f: X \to X$ uma função, $p$ um ponto periódico período $n$ e $x \in X$. Dizemos que \textit{$x$ tende assintoticamente para $p$} se $\lim_{k \to \infty} f^{kn}(x) = p$. O conjunto dos pontos que tendem assintoticamente para $p$, denotado por $W^s(p)$, é chamado chamado de \textit{conjunto estável de $p$}. Dizemos que \textit{$x$ tende assintoticamente para infinito} se $\lim_{k \to \infty} |f^{k}(x)| = \infty$. O conjunto dos pontos que tendem assintoticamente para infinito, denotado por $W^s(\infty)$, é chamado de \textit{conjunto estável do infinito}.
+\end{definition}
+
+%A Proposição abaixo nos mostra que os conjuntos estáveis de dois pontos periódicos distintos possuem intersecção vazia
+\begin{proposition}
+Sejam $f: X \to X$ uma função e $p_1$, $p_2$ pontos periódicos distintos. Então $W^s(p_1) \cap W^s(p_2) = \emptyset$.
+\end{proposition}
+
+\begin{proof}
+Sejam $n_1$, $n_2$ os períodos de $p_1$, $p_2$, respectivamente. Suponha que exista $x \in W^s(p_1) \cap W^s(p_2)$. Sabemos que $|f^{kn_1}(x) - p_1| \to 0$ e $|f^{kn_2}(x) - p_2| \to 0$, quando $k \to \infty$. Desse modo, dado $\varepsilon > 0$ existe $N \geq 1$ tal que $|f^{kn_1}(x) - p_1| < \frac{\varepsilon}{2}$ e $|f^{kn_2}(x) - p_2| < \frac{\epsilon}{2}$ para todo $k > N$. Portanto, $|p_1 - p_2| = |p_1 - f^{kn_1n_2}(x) + f^{kn_1n_2}(x) - p_2| \leq |f^{kn_2n_1}(x) - p_1| + |f^{kn_1n_2}(x) - p_2| < \varepsilon$. Temos então que $p = q$, pois $\varepsilon$ é arbitrário. Absurdo.
+\end{proof}
+
+%O objetivo do estudo de Sistemas Dinâmicos é entender a natureza das órbitas, identificando pontos periódicos, eventualmente periódicos, que tendem assintoticamente, etc.
