@@ -1,12 +1,12 @@
 \subsection{Dinâmica Simbólica}
 
 \begin{definition}
-$\Sigma_2 = \{s = (s_0s_1s_2\dots) : s_k = 0 \textrm{ ou } s_k = 1 \textrm{ para todo } k\geq 0\}$ é o \textit{espaço das sequências de $0$ e $1$}.
+$\Sigma_2 = \{(s_0\, s_1\, s_2\, \dots) : s_j \in \{ 0, 1 \}\text{ para todo } j \geq 0\}$ é o espaço das sequências de $0$ e $1$.
 \end{definition}
 
 \begin{proposition}
 A função $d: \Sigma_2 \times \Sigma_2 \to \RR$, dada por
-$$d(s, t) = \sum_{k=0}^{\infty} \frac{|s_k - t_k|}{2^k}$$
+$$d(s, t) = \sum_{j=0}^{\infty} \frac{|s_j - t_j|}{2^j},$$
 é uma distância em $\Sigma_2$.
 \end{proposition}
 
@@ -23,9 +23,12 @@ Além disso, é fácil verificar que as propriedades de uma distância são vál
 para todo $r, s, t \in \Sigma_2$. Portando, $d$ é uma distância e a afirmação está provada.
 \end{proof}
 
-\begin{proposition}
-\label{proposicao dinamicasimbolica 1}
-Sejam $s = (s_0s_1s_2\dots) , t = (t_0t_1t_2\dots) \in \Sigma_2$. Se $s_k = t_ k$ para todo $0 \leq k \leq n$, então $d(s, t) \leq \frac{1}{2^n}$. Por outro lado, se $d(s, t) < \frac{1}{2^n}$, então $s_k = t_k$ para todo $0 \leq k \leq n$.
+\begin{proposition} \label{proposicao dinamicasimbolica 1}
+Sejam $s = (s_0\, s_1\, s_2\, \dots)$ e $t = (t_0\, t_1\, t_2\, \dots)$ elementos de $\Sigma_2$.
+\begin{enumerate}
+\item Se $s_j = t_j$ para todo $0 \leq j \leq n$, então $d(s, t) \leq \frac{1}{2^n}$.
+\item Se $d(s, t) < \frac{1}{2^n}$, então $s_j = t_j$ para todo $0 \leq j \leq n$.
+\end{enumerate}
 \end{proposition}
 
 \begin{proof}
@@ -34,7 +37,7 @@ Por outro lado, se $s_i \neq t_i$ para algum $0 \leq i \leq n$, então $$d(s, t)
 \end{proof}
 
 \begin{definition}
-A função $\sigma: \Sigma_2 \to \Sigma_2$, dada por $\sigma(s_0s_1s_2\dots) = (s_1s_2s_3\dots)$, é chamada de \textit{função shift}.
+A função $\sigma: \Sigma_2 \to \Sigma_2$, dada por $\sigma(s_0\, s_1\, s_2\, \dots) = (s_1\, s_2\, s_3\, \dots)$, é chamada de \textit{função shift}.
 \end{definition}
 
 \begin{proposition}
@@ -42,23 +45,20 @@ $\sigma$ é contínua.
 \end{proposition}
 
 \begin{proof}
-Sejam $s = (s_0s_1s_2\dots) \in \Sigma_2$, $\varepsilon > 0$ e $n \geq 1$ tal que $\frac{1}{2^n} < \varepsilon$. Se $t = (t_0t_1t_2\dots) \in \Sigma_ 2$ e $d(s, t) < \frac{1}{2^{n+1}}$, então $s_k = t_k$ para todo $0 \leq k \leq n+1$, de acordo com a Proposição  \ref{proposicao dinamicasimbolica 1}. Como $\sigma(s) = (s_1s_2s_3\dots)$ e $\sigma(t) = (t_1t_2t_3\dots)$, temos que as primeiras $n+1$ entradas de $\sigma(s)$ e $\sigma(t)$ são iguais. Novamente, utilizando a Proposição \ref{proposicao dinamicasimbolica 1}, temos que $d(\sigma(s), \sigma(t)) \leq \frac{1}{2^n} < \varepsilon$. Como $s$ é um ponto arbitrário em $\Sigma_2$, concluímos que $\sigma$ é contínua.
+Sejam $s = (s_0\, s_1\, s_2\, \dots) \in \Sigma_2$, $\varepsilon > 0$ e $n \geq 1$ tal que $\frac{1}{2^n} < \varepsilon$. Se $t = (t_0\, t_1\, t_2\, \dots) \in \Sigma_ 2$ e $d(s, t) < \frac{1}{2^{n+1}}$, então $s_k = t_k$ para todo $0 \leq k \leq n+1$, de acordo com a Proposição  \ref{proposicao dinamicasimbolica 1}. Como $\sigma(s) = (s_1s_2s_3\dots)$ e $\sigma(t) = (t_1t_2t_3\dots)$, temos que as primeiras $n+1$ entradas de $\sigma(s)$ e $\sigma(t)$ são iguais. Novamente, utilizando a Proposição \ref{proposicao dinamicasimbolica 1}, temos que $d(\sigma(s), \sigma(t)) \leq \frac{1}{2^n} < \varepsilon$. Como $s$ é um ponto arbitrário em $\Sigma_2$, concluímos que $\sigma$ é contínua.
 \end{proof}
 
 \begin{proposition}
-Se $\sigma$ é a função shift, então
 \begin{enumerate}
-\item existem $2^n$ pontos periódicos com período $n$.
+\item existem $2^n$ pontos periódicos de período $n$.
 \item existe um ponto cuja órbita é densa.
 \item o conjunto dos pontos periódicos é denso.
-\item o conjunto dos pontos não periódicos que são eventualmente periódicos é denso.
-\item o conjunto dos pontos que não são periódicos e nem eventualmente periódicos é denso.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
 \begin{enumerate}
-\item Se $s = (s_0s_1s_2\dots)$ é um ponto periódico com período $n$, então
+\item Se $s = (s_0\, s_1\, s_2\, \dots)$ é um ponto periódico com período $n$, então
 $$\sigma^k(\sigma^n(s)) = (s_{n+k}s_{n+k+1}s_{n+k+2}\dots) = (s_ks_{k+1}s_{k+2}\dots) = \sigma^k(s)$$
 para todo $k \geq 0$. Desse modo, $s$ é formado pela repetição das entradas $s_0 s_1 \dots s_{n-1}$. Pelo Princípio Fundamental da Contagem, existem $2^n$ sequências distintas para  $s_0 s_1 \dots s_{n-1}$ e, portanto, a afirmação está provada.
 

@@ -1,37 +1,27 @@
 \section{Conceitos Iniciais}
 
 \begin{definition}
-Seja $f: D \to D$. Dizemos que $p \in D$ é um ponto periódico de período $n \geq 1$ se $f^n(p) = p$. Se $f^j(p) \neq p$ para todo $1 \leq j < n$, dizemos que $n$ é o período principal de $p$.
-
-%Em particular, se $n=1$, dizemos que $p$ é um \textit{ponto fixo}.
-%Denotamos o conjunto de todos os pontos periódicos de $f$ por $Per(f)$ e denotamos o conjunto de todos os pontos periódicos de $f$ com período $n$ por $Per_n(f)$. 
+Sejam $f: X \to X$ uma função e $p \in X$. Se $f^n(p) = p$ para algum $n \geq 1$, dizemos que $p$ é um ponto periódico de período $n$.
 \end{definition}
 
 \begin{definition}
-Seja $f:D \to D$. A órbita de $x \in D$ é o conjunto $O(x) = \{ x, f(x), f^2(x), \dots \}.$
+Sejam $f: X \to X$ uma função e $x \in X$. Dizemos que $\oo(x) = \{ x, f(x), f^2(x), \dots \}$ é a órbita de $x$.
 \end{definition}
 
 \begin{definition}
-Sejam $f: X \to X$ uma função, $p$ um ponto periódico período $n$ e $x \in X$. Dizemos que \textit{$x$ tende assintoticamente para $p$} se $\lim_{k \to \infty} f^{kn}(x) = p$. O conjunto dos pontos que tendem assintoticamente para $p$, denotado por $W^s(p)$, é chamado chamado de \textit{conjunto estável de $p$}. Dizemos que \textit{$x$ tende assintoticamente para infinito} se $\lim_{k \to \infty} |f^{k}(x)| = \infty$. O conjunto dos pontos que tendem assintoticamente para infinito, denotado por $W^s(\infty)$, é chamado de \textit{conjunto estável do infinito}.
+Sejam $f: X \to X$ uma função e $p$ um ponto periódico de período $n$. Dizemos que $\bb (p) = \{ x \in  X: \lim_{j \to \infty} f^{jn}(x) = p \}$ é a bacia de atração de $p$ e que $\bb (\infty) = \{ x \in  X: \lim_{j \to \infty} |f^j(x)| = \infty \}$ é a bacia de atração de $\infty$.
 \end{definition}
 
-%A Proposição abaixo nos mostra que os conjuntos estáveis de dois pontos periódicos distintos possuem intersecção vazia
 \begin{proposition}
-Sejam $f: X \to X$ uma função e $p_1$, $p_2$ pontos periódicos distintos. Então $W^s(p_1) \cap W^s(p_2) = \emptyset$.
+Seja $f: X \to X$ uma função. Se $p$ e $q$ são pontos periódicos distintos, então $\bb(p) \cap \bb(q) = \emptyset$.
 \end{proposition}
 
 \begin{proof}
 Sejam $n_1$, $n_2$ os períodos de $p_1$, $p_2$, respectivamente. Suponha que exista $x \in W^s(p_1) \cap W^s(p_2)$. Sabemos que $|f^{kn_1}(x) - p_1| \to 0$ e $|f^{kn_2}(x) - p_2| \to 0$, quando $k \to \infty$. Desse modo, dado $\varepsilon > 0$ existe $N \geq 1$ tal que $|f^{kn_1}(x) - p_1| < \frac{\varepsilon}{2}$ e $|f^{kn_2}(x) - p_2| < \frac{\epsilon}{2}$ para todo $k > N$. Portanto, $|p_1 - p_2| = |p_1 - f^{kn_1n_2}(x) + f^{kn_1n_2}(x) - p_2| \leq |f^{kn_2n_1}(x) - p_1| + |f^{kn_1n_2}(x) - p_2| < \varepsilon$. Temos então que $p = q$, pois $\varepsilon$ é arbitrário. Absurdo.
 \end{proof}
 
-%O objetivo do estudo de Sistemas Dinâmicos é entender a natureza das órbitas, identificando pontos periódicos, eventualmente periódicos, que tendem assintoticamente, etc.
-
-
-%Nessa seção, estudaremos as implicações da diferenciabilidade na dinâmica de uma função real. Caso não seja dito o contrário, $I$ representará um intervalo fechado de $\RR$.  
-
-\begin{proposition}
-\label{proposicao diferenciabilidade 1}
-Seja $f: I \to \RR$ uma função contínua. Se $f(I) \subset I$ ou $f(I) \supset I$, então $f$ possui ponto fixo.
+\begin{proposition} \label{prop 1-1}
+Seja $f: [a, b] \to \RR$ uma função contínua. Se $f([a, b]) \subset [a, b]$ ou $f([a, b]) \supset [a, b]$, então $f$ possui ponto fixo.
 \end{proposition}
 
 \begin{proof}
@@ -41,25 +31,25 @@ Suponha que $f(I) \supset I$. Por definição, existem $c, d \in I$ tais que $f(
 \end{proof}
 
 \begin{theorem}
-Seja $f:I \to I$ uma função diferenciável. Se $|f'(x)|<1$ para todo $x \in I$, então $f$ admite um único ponto fixo e $|f(x) - f(y)| < |x - y|$ para todo $x, y \in I$ distintos.
+Seja $f:[a, b] \to [a, b]$ uma função derivável. Se $|Df(x)| < 1$ para todo $x \in [a, b]$, então $f$ admite um único ponto fixo. Além disso, $|f(x) - f(y)| < |x - y|$ para todo $x, y \in [a, b]$ distintos.
 \end{theorem}
 
 \begin{proof}
 Sejam $x, y \in I$, $x < y$. Pelo Teorema do Valor Médio, existe $c \in [x, y]$ tal que $f(x) - f(y) = f'(c)(x - y)$. Portanto, $|f(x) - f(y)| = |f'(c)||x - y| < |x - y|$.
 
-Pela Proposição \ref{proposicao diferenciabilidade 1}, $f$ admite um ponto fixo $p$. Suponha que exista um ponto fixo $q$ diferente de $p$. Então, pela primeira parte da demonstração, $|p - q| = |f(p) - f(q)| < |p - q|$. Absurdo.
+Pela Proposição \ref{prop 1-1}, $f$ admite um ponto fixo $p$. Suponha que exista um ponto fixo $q$ diferente de $p$. Então, pela primeira parte da demonstração, $|p - q| = |f(p) - f(q)| < |p - q|$. Absurdo.
 \end{proof}
 
-%Introduziremos agora a noção de ponto hiperbólico para uma função diferenciável e logo após provaremos um resultado que ajuda a compreender a dinâmica da função em uma vizinhança desses pontos.
-
 \begin{definition}
-Sejam $f: I \to I$ uma função diferenciável e $p$ um ponto periódico com período principal $n$. Dizemos que $p$ é um \textit{ponto hiperbólico} se $|(f^n)'(p)| \neq 1$. Se $|(f^n)'(p)| > 1$, dizemos que $p$ é um \textit{ponto atrator} e se $|(f^n)'(p)| < 1$, dizemos que $p$ é um \textit{ponto  repulsor}. Dizemos que $p$ é um \textit{ponto não hiperbólico} se $|(f^n)'(p)| = 1$.
+Sejam $f: [a, b] \to [a, b]$ uma função derivável e $p$ um ponto periódico de período principal $n$. Dizemos que $p$ é um ponto hiperbólico se $|Df^n(p)| \neq 1$. Dizemos que $p$ é um ponto atrator se $|Df^n(p)| < 1$ e que é um ponto repulsor se $|Df^n(p)| > 1$.
 \end{definition}
 
-%O Teorema abaixo ajuda a compreender o porquê dos nomes \textit{atrator} e \textit{repulsor} para um ponto hiperbólico.
-
 \begin{theorem}
-Sejam $f: I \to I$ uma função $C^1$ e $p$ um ponto periódico com período principal $n$. Se $p$ é um ponto hiperbólico atrator, existe uma vizinhança de $p$ contida em $W^s(p)$. Se $p$ é um ponto hiperbólico repulsor, existe uma vizinhança $U$ de $p$ tal que, se $x \in U$ e $x \neq p$, $f^{kn}(x) \notin U$ para algum $k \geq 1$. 
+Sejam $f: [a, b] \to [a, b]$ uma função de classe $\cc^1$ e $p$ um ponto periódico de período principal $n$.
+\begin{enumerate}
+\item Se $p$ é um ponto atrator, então existe uma vizinhança de $p$ contida em $\bb(p)$.
+\item Se $p$ é um ponto repulsor, então existe uma vizinhança $V$ de $p$ tal que, se $x \in V$ e $x \neq p$, então  $f^{jn}(x) \notin V$ para algum $j \geq 1$. 
+\end{enumerate}
 \end{theorem}
 
 \begin{proof}
@@ -67,5 +57,3 @@ Suponha que $p$ é um ponto hiperbólico atrator. Como $f'$ é contínua, existe
 
 Suponha que $p$ é ponto hiperbólico repulsor. De maneira análoga, existe $\varepsilon > 0$ tal que $|(f^n)'(x)| \geq \lambda > 1$ para todo $x \in (p- \varepsilon, p + \varepsilon)$. Fixado $x \in (p - \varepsilon, p + \varepsilon)$, $x \neq p$, suponha que $f^{kn}(x) \in (p - \varepsilon, p + \varepsilon)$ para todo $k \geq 1$. Pelo Teorema do Valor Médio, $|f^{kn}(x) - p| \geq \lambda^k|x - p|$ para todo $k \geq 1$. Absurdo, pois $\lambda^k|x - p| \to \infty$ quando $k \to \infty$.
 \end{proof}
-
-A segunda parte do teorema afirma que existe uma vizinhança de $p$ tal que todo ponto diferente de $p$ nessa vizinhança é movida para fora dela após um número de iterações da $f$. Observe o ponto pode voltar para vizinhança após mais um número finito de iterações da $f$, pois sabermos que o valor absoluto da derivada é maior que 1 apenas nessa vizinhança.

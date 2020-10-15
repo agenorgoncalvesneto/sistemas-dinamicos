@@ -11,7 +11,7 @@
 \usepackage{enumitem}
 
 \usepackage{amsfonts}
-\usepackage{amsmath}
+\usepackage{amsmath}[sumlimits, intlimits]
 \usepackage{amssymb}
 \usepackage{amsthm}
 
@@ -26,9 +26,13 @@
 \newtheorem{proposition}[definition]{Proposição}
 \newtheorem{theorem}[definition]{Teorema}
 
-\renewcommand\qedsymbol{$\blacksquare$}
 
-%%shortcuts
+\newcommand{\bb}{\mathcal{B}}
+\newcommand{\cc}{\mathcal{C}}
+\newcommand{\oo}{\mathcal{O}}
+\newcommand{\schwarz}{\mathcal{S}}
+
+%%old shortcuts
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
@@ -42,7 +46,7 @@
 
 \title{Uma Introdução aos Sistemas Dinâmicos Discretos}
 \author{Agenor Gonçalves Neto}
-\date{}
+\date{São Paulo, 2020}
 
 \begin{document}
 

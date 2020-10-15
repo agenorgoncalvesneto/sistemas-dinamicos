@@ -1,23 +1,23 @@
 \subsection{Conjugação Topológica}
 
-%Nesse seção estudaremos a dinâmica de $F$ quando $\mu = 4$. Para esse estudo, definiremos o que significa duas funções serem topologicamente conjugadas e, a partir daí, mostraremos que é $F$ é caótica com base em outra função cuja dinâmica é mais fácil de ser entendida.
-
 \begin{definition}
-Sejam $f: A \to A$, $g: B \to B$ e $\tau: A \to B$ funções. Dizemos que \textit{$f$ e $g$ são topologicamente conjugadas por $\tau$}, se $\tau$ é um homeomorfismo tal que $\tau \circ f = g \circ \tau$.
+Sejam $f: X \to X$, $g: Y \to Y$ e $\tau: X \to Y$ funções. Dizemos que $f$ e $g$ são conjugadas topologicamente por $\tau$ se $\tau$ se as seguintes condições são válidas:
+\begin{enumerate}[label = \roman*.]
+\item $\tau$ é um homeomorfismo.
+\item $\tau \circ f = g \circ \tau$.
+\end{enumerate}
 \end{definition}
-
-%Do ponto de vista da dinâmica, duas funções conjugadas são idênticas. A Proposição abaixo torna precisa essa afirmação.
 
 \begin{proposition}
 \label{proposicao conjugacaotopologica 1}
-Sejam $f: A \to A$, $g: B \to B$ e $\tau: A \to B$ funções. Se $f$ e $g$ são topologicamente conjugadas por $\tau$, então
+Sejam $f: X \to X$, $g: Y \to Y$ e $\tau: X \to Y$ funções. Se $f$ e $g$ são conjugadas topologicamente por $\tau$, então
 \begin{enumerate}
-\item $g$ e $f$ são topologicamente conjugadas por $\tau^{-1}$.
-\item $\tau \circ f^n = g^n \circ \tau$ para todo $n \geq 1$.
-\item $p$ é ponto periódico de $f$ se e somente se $\tau(p)$ é ponto periódico de $g$. Além disso, os períodos principais de $p$ e $\tau(p)$ são iguais.
-\item $W^s(\tau(p)) = \tau(W^s(p))$, se $p$ é um ponto periódico de $f$.
-\item o conjunto de pontos periódicos de $f$ é denso se e somente se o conjunto de pontos periódicos de $g$ é denso.
-\item $f$ é topologicamente transitiva se e somente se $g$ é topologicamente transitiva.
+\item $g$ e $f$ são conjugadas topologicamente por $\tau^{-1}$.
+\item $\tau \circ f^j = g^j \circ \tau$ para todo $j \geq 1$.
+\item $p$ é ponto periódico de $f$ se e somente se $\tau(p)$ é ponto periódico de $g$.
+\item $\bb(\tau(p)) = \tau(\bb(p))$, onde $p$ é um ponto periódico de $f$.
+\item o conjunto de pontos periódicos de $f$ é denso em $X$ se e somente se o conjunto de pontos periódicos de $g$ é denso em $Y$.
+\item $f$ é transitiva topologicamente se e somente se $g$ é transitiva topologicamente.
 \end{enumerate}
 \end{proposition}
 
@@ -32,7 +32,7 @@ Por outro lado, se $\tau(x) \in \tau(W^s(p))$, então $\lim_{k \to \infty} f^{kn
 \item Se o conjunto $Per(f)$ dos pontos periódicos de $f$ é denso em $A$, então $\tau(Per(f))$ é denso em $B$ pois $\tau$ é um homeomorfismo. Como $\tau(Per(f)) = Per(g)$, temos que $Per(g)$ é denso em $B$. A outra implicação é demonstrada de maneira análoga.
 \item Inicialmente, sendo $\tau$ é contínua, dado $\varepsilon > 0$ existe $\delta > 0$ de modo que, se $z \in A$, $|x - z| < \delta$ e $|y - f^n(z)| < \delta$, então $|\tau(x) - \tau(z)| < \varepsilon$ e $|\tau(y) - \tau(f^n(z))|$, onde $n \geq 1$ é fixado.
 
-Se $x', y' \in B$, existem $x, y \in A$ tais que $\tau(x) = x'$ e $\tau(y) =  y'$. Como $f$ é topologicamente transitiva, existe $z \in A$ tal que $|x - z| < \delta$ e $|y - f^n(z)| < \delta$ para algum $n \geq 1$. Portanto, $|\tau(x) - \tau(z)| < \varepsilon$ e $|\tau(y) - \tau(f^n(z))| < \varepsilon$. Se $\tau(z) = z'$, então $|x' - z'| < \varepsilon$ e $|y' - g^n(z')| < \varepsilon$ e, portanto, $g$ é topologicamente transitiva. A outra implicação é demonstrada de maneira análoga.
+Se $x', y' \in B$, existem $x, y \in A$ tais que $\tau(x) = x'$ e $\tau(y) =  y'$. Como $f$ é transitiva topologicamente, existe $z \in A$ tal que $|x - z| < \delta$ e $|y - f^n(z)| < \delta$ para algum $n \geq 1$. Portanto, $|\tau(x) - \tau(z)| < \varepsilon$ e $|\tau(y) - \tau(f^n(z))| < \varepsilon$. Se $\tau(z) = z'$, então $|x' - z'| < \varepsilon$ e $|y' - g^n(z')| < \varepsilon$ e, portanto, $g$ é transitiva topologicamente. A outra implicação é demonstrada de maneira análoga.
 \end{enumerate}
 \end{proof}
 
@@ -41,12 +41,11 @@ Se $x', y' \in B$, existem $x, y \in A$ tais que $\tau(x) = x'$ e $\tau(y) =  y'
 \begin{lemma}
 \label{lema conjugacaotopologica 1}
 A função $T: [0,1] \to [0,1]$, dada por
-\[
-T(x) = 
+\[ T(x) =
   \begin{cases}
-      2x, & x \in \left[0, \frac{1}{2}\right] \\
-      2 - 2x, & x \in \left[\frac{1}{2}, 1\right] 
-  \end{cases}
+    2x & x \in \left[ 0, \frac{1}{2} \right] \\
+    2 - 2x & x \in \left[ \frac{1}{2}, 1 \right] 
+  \end{cases},
 \]
 é caótica.
 \end{lemma}
@@ -58,7 +57,7 @@ Para provar que $T$ é caótica, seja $\varepsilon > 0$. Pelo afirmação do par
 
 Seja $x \in [0,1]$. Como $T(I) \supset I$, a Proposição \ref{proposicao diferenciabilidade 1} afirma que existe $p \in I$ tal que $T^n(p) = p$. Observando que $|x-p| \leq \frac{1}{2^n} < \varepsilon$, concluímos que o conjunto de pontos periódicos de $T$ é denso em $[0,1]$.
 
-Sejam $x, y \in [0,1]$. Como $T^n: I \to [0,1]$ é sobrejetora, existe $z \in I$ tal que $T^n(z) = y$. Observando que $|z - x| \leq \frac{1}{2^n} < \varepsilon$ e $|T^n(z) - y| = 0 < \varepsilon$, concluímos que $T$ é topologicamente transitiva.
+Sejam $x, y \in [0,1]$. Como $T^n: I \to [0,1]$ é sobrejetora, existe $z \in I$ tal que $T^n(z) = y$. Observando que $|z - x| \leq \frac{1}{2^n} < \varepsilon$ e $|T^n(z) - y| = 0 < \varepsilon$, concluímos que $T$ é transitiva topologicamente.
 
 Seja $x \in [0,1]$.  Como $T^n: I \to [0,1]$ é sobrejetora, existem $a, b \in I$ tais que $T^n(a) = 0$ e $T^n(b) = 1$. Se $T^n(x) \in [0, \frac{1}{2}]$, então $|T^n(x) - T^(b)| = |T^n(x) - 1| \geq \frac{1}{2}$ e se $T^n(x) \in [\frac{1}{2}, 1]$, então $|T^n(x) - T^n(a)| = |T^n(x)| \geq \frac{1}{2}$. Observando que $|x - a| \leq \frac{1}{2^n} < \varepsilon$ e $|x - b| \leq \frac{1}{2^n} < \varepsilon$, concluímos que $T$ depende sensivelmente das condições iniciais.
 \end{proof}

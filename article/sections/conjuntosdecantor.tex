@@ -1,21 +1,15 @@
-
 \subsection{Conjuntos de Cantor}
 
-%Analisaremos nessa seção a dinâmica de $F$ quando $\mu > 4$. Para entendê-la, estudaremos o que são conjuntos de Cantor.
+Se $\mu > 4$, então $F\left(\frac{1}{2}\right) = \frac{\mu}{4} > 1$, ou seja, existem pontos em $[0, 1]$ que não permanecem em $[0, 1]$ após uma iteração de $F$. Em vista da Proposição \ref{prop 2-1}, tais pontos pertencem ao conjunto $\bb(\infty)$. De modo mais geral, se um ponto de $[0, 1]$ não permanece em $[0, 1]$ após um número finito de iterações, então ele pertence ao conjunto $\bb(\infty)$. 
 
-Se $\mu > 4$, então $F\left(\frac{1}{2}\right)$ = $\frac{\mu}{4} > 1$, ou seja, existem pontos em $[0, 1]$ que não permanecem em $[0, 1]$ após uma iteração de $F$. Em vista da Proposição \ref{proposicao estudoinicial 1}, a dinâmica de $F$ em tais pontos é determinada, pois pertencem ao conjunto $W^s(\infty)$. De modo mais geral, se um ponto de $[0, 1]$ não permanece em $[0, 1]$ após um número finito de iterações, então ele pertence ao conjunto $W^s(\infty)$. 
+Desse modo, considere o conjunto $\Lambda_n = \{x \in [0, 1] : F^n(x) \in [0, 1]\}$ formado pelos pontos que permanecem em $[0, 1]$ após $n$ iterações de $F$ e considere o conjunto $\Lambda = \cap_{n=0}^{\infty} \Lambda_n = \{x \in [0, 1] : F^n(x) \in [0, 1] \textrm{ para todo } n \geq 1\}$, que é formado pelos pontos de $[0, 1]$ que sempre permanecem em $[0, 1]$ por iterações de $F$. Observe que $\Lambda_n \supset \Lambda_{n+1}$, para todo $n \geq 1$, pois se $F^{n+1}(x) = F(F^n(x)) \in [0,1]$, então $F^n(x) \in [0,1]$.
 
-Desse modo, considere o conjunto $\Lambda_n = \{x \in [0, 1] : F^n(x) \in [0, 1]\}$, que é formado pelos pontos que permanecem em $[0, 1]$ após $n$ iterações de $F$, e considere o conjunto $\Lambda = \cap_{n=0}^{\infty} \Lambda_n = \{x \in [0, 1] : F^n(x) \in [0, 1] \textrm{ para todo } n \geq 1\}$, que é formado pelos pontos de $[0, 1]$ que sempre permanecem em $[0, 1]$ por iterações de $F$. Observe que $\Lambda_n \supset \Lambda_{n+1}$, para todo $n \geq 1$, pois se $F^{n+1}(x) = F(F^n(x)) \in [0,1]$, então $F^n(x) \in [0,1]$.
-
-%Nos resta, portanto, estudar a dinâmica de $F$ restrita ao conjunto $\Lambda$. A Proposição a seguir nos ajuda a começar compreender a natureza de $\Lambda$.
-
-\begin{proposition}
-\label{proposicao conjuntosdecantor 1}
+\begin{proposition} \label{proposicao conjuntosdecantor 1}
 Se $\mu > 4$, então
 \begin{enumerate}
 \item $\Lambda_1 = [0, x_1] \cup [x_2, 1]$, onde $x_1 = \frac{1}{2} - \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$ e $x_2 = \frac{1}{2} + \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$.
 \item $\Lambda_n$ é a união de $2^n$ intervalos fechados disjuntos.
-\item $F^n: I \to [0, 1]$ é bijetora, onde $I$ é qualquer um dos $2^n$ intervalos fechados disjuntos que formam $\Lambda_n$.
+\item $F^n: [a, b] \to [0, 1]$ é bijetora, onde $[a, b]$ é um dos intervalos que formam $\Lambda_n$.
 \end{enumerate}
 \end{proposition}
 
@@ -39,26 +33,21 @@ As condições acima garantem que os intervalos $[a, \overline{x_1}]$, $[\overli
 Portanto, a partir de cada intervalo fechado de $\Lambda_{k-1}$, construímos dois novos intervalos fechados disjuntos tais que $F^k$ restrita em cada um desses intervalos é um bijeção com $[0, 1]$ e, dessa maneira, esses intervalos estão contidos em $\Lambda_k$. Desse modo, se $\Lambda_{k-1}$ é formado por $2^{k-1}$ intervalos fechados disjuntos, então $\Lambda_k$ é formado por $2 \times 2^{k-1} = 2^k$ intervalos fechados disjuntos. Assim, o resultado está provado.
 \end{proof}
 
-%Vamos agora definir o que é um conjunto de Cantor para prosseguir entendendo a natureza de $\Lambda$.
-
-\begin{definition}[Conjunto de Cantor]
-Um conjunto $\Gamma \subset \RR$ não vazio é um \textit{conjunto de Cantor} se
-\begin{enumerate}
-\item $\Gamma$ é fechado e limitado,
-\item $\Gamma$ não possui intervalos e
+\begin{definition}
+Seja $\Gamma \subset \RR$ um conjunto não vazio. Dizemos que $\Gamma$ é um conjunto de Cantor se as seguintes condições são válidas:
+\begin{enumerate}[label=\roman*.]
+\item $\Gamma$ é compacto.
+\item $\Gamma$ não possui intervalos.
 \item Todo ponto de $\Gamma$ é um ponto de acumulação de $\Gamma$.
 \end{enumerate}
 \end{definition}
 
-%No restante dessa seção, restringiremos nossa atenção para o caso $\mu > 2 + \sqrt{5}$, para facilitar as demonstrações.
-
-\begin{lemma}
-\label{lema conjuntosdecantor 1}
+\begin{lemma} \label{lema conjuntosdecantor 1}
 Se $\mu > 2 + \sqrt{5}$, então
 \begin{enumerate}
-\item  existe $\lambda > 1$ tal que $|F'(x)| > \lambda$ para todo $x \in \Lambda_1$.
-\item o tamanho de cada intervalo fechado em $\Lambda_n$ é menor que $\frac{1}{\lambda^n}$.
-\item dados $x \in \Lambda$ e $\varepsilon > 0$, existe um intervalo fechado $I \subset \Lambda_n$, para algum $n \geq 1$,  que contém $x$ e cujo tamanho é menor que $\varepsilon$ tal que $F^n: I \to [0,1]$ é bijetora.
+\item  existe $\lambda > 1$ tal que $|\partial F(x)| > \lambda$ para todo $x \in \Lambda_1$.
+\item $b - a < \frac{1}{\lambda^n}$, onde $[a, b]$ é um dos intervalos que formam $\Lambda_n$.
+\item dados $x \in \Lambda$ e $\varepsilon > 0$, existe um intervalo $[a, b] \subset \Lambda_n$ para algum $n \geq 1$ tal que $x \in [a, b]$, $b - a < \varepsilon$ e $F^n: [a, b] \to [0,1]$ é bijetora.
 \end{enumerate}
 \end{lemma}
 
@@ -74,8 +63,7 @@ Pelo Teorema do Valor Médio, existe $c \in [a, b]$ tal que $$|F^n(b) - F^n(a)| 
 \end{enumerate}
 \end{proof} 
 
-\begin{theorem}
-\label{teorema conjuntosdecantor 1}
+\begin{theorem} \label{teorema conjuntosdecantor 1}
 Se $\mu > 2 + \sqrt{5}$, então $\Lambda$ é um conjunto de Cantor.
 \end{theorem}
 
@@ -86,5 +74,3 @@ Agora, suponha que $\Lambda$ contém algum intervalo. Então, existem $x, y \in 
 
 Por fim, observe que, se $x$ é um ponto extremo de algum intervalo de $\Lambda_n$, então $x \in \Lambda$ pois $F^{n+1}(x) = 0$. Sejam $x \in \Lambda$, $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{\lambda^k} < \varepsilon$. Em particular, $x \in \Lambda_k$ e, portanto, $x$ é elemento de algum intervalo cujo tamanho é menor que $\varepsilon$, de acordo com o Lema \ref{lema conjuntosdecantor 1}. Portanto, existe $y \in \Lambda$ ponto extremo do intervalo que contém $x$ tal que $|x - y| < \varepsilon$. Como $\varepsilon$ é arbitrário, concluímos que $x$ é um ponto de acumulação de $\Lambda$.
 \end{proof}
-
-O Teorema \ref{teorema conjuntosdecantor 1} é válido para $4 < \mu \leq 2 + \sqrt{5}$, porém a demonstração é mais difícil.

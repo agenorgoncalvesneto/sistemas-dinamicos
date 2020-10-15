@@ -1,15 +1,11 @@
 \section{Função Logística}
 
-%Nosso objetivo será estudar, durante essa seção e as próximas, a dinâmica da família das funções logísticas, que são as funções $F_{\mu}: \RR \to \RR$ dadas por $F_{\mu}(x) = \mu x(1-x)$, onde $\mu > 0$. Quando não houver ambiguidade, escreveremos $F$ ao invés de $F_\mu$. Nessa seção estudaremos a dinâmica de $F$ quando $1 < \mu < 3$.
-
-Durante essa seção e as próximas, estudaremos a dinâmica da função logística, que é dada por $F(x) = \mu x(1-x)$ para $\mu > 0$.
-
 \begin{proposition}
 Se $\mu > 1$, então
 \begin{enumerate}
-\item $F (1) = F(0) = 0$ e $F(\frac{1}{\mu}) = F(p_\mu) = p_\mu$, onde $p_\mu = \frac{\mu - 1}{\mu}$.
+\item $F(1) = F(0) = 0$.
+\item $F \left( \frac{1}{\mu} \right) = F(p_\mu) = p_\mu$, onde $p_\mu = \frac{\mu-1}{\mu}$.
 \item $0 < p_\mu < 1$.
-\item o vértice da parábola de $F$ é o ponto $(\frac{1}{2}, \frac{\mu}{4})$.
 \end{enumerate}
 \end{proposition}
 
@@ -17,30 +13,25 @@ Se $\mu > 1$, então
 Aplicação direta das definições.
 \end{proof}
 
-\begin{proposition}
-\label{proposicao estudoinicial 1}
-Se $\mu > 1$, então $(-\infty, 0) \cup (1, \infty) \subset W^s(\infty)$.
+\begin{proposition} \label{prop 2-1}
+Se $\mu > 1$, então $(-\infty, 0) \cup (1, \infty) \subset \bb(\infty)$.
 \end{proposition}
 
 \begin{proof}
 Se $x < 0$, a sequência  $(x, F(x), F^2(x), \dots)$ é estritamente decrescente pois  $F(x) < x$. Se $(F^n(x))_n \to x_0$ quando $n \to \infty$, a continuidade de $F$ implica que $(F^{n+1}(x))_n \to F (x_0) < x_0$. Absurdo. Portanto, $(F^n(x))_n \to -\infty$ quando $n \to \infty$. Como $F(x) < 0$ para todo $x > 1$, concluímos que $(-\infty, 0) \cup (1, \infty) \subset W^s(\infty)$.
 \end{proof}
 
-%Pelo Proposição anterior, conhecemos a dinâmica da $F$, quando $\mu > 1$, nos pontos menores que zero e maiores que um. Portanto, nos resta estudar a dinâmica de $F$ restrita ao intervalo $[0, 1]$.
-
 \begin{proposition}
 Se $1 < \mu < 3$, então
 \begin{enumerate}
 \item $0$ é um ponto repulsor e $p_\mu$ é um ponto atrator.
-\item $\limit_{n \to \infty} F^n(x) = p_\mu$ para todo $x \in (0, 1)$.
+\item $(0, 1) \subset \bb(p_\mu)$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
 A primeira parte é verdadeira pois $|F'(0)| = \mu > 1$ e $|F'(p_\mu)| = |2 - \mu| < 1$, quando $1 < \mu < 3$.
-
-Falta provar o item 2.
-%Para mostrar a segunda parte, dividiremos em casos. Suponha inicialmente que $1 < \mu < 2$. Como $F_\mu(x) \leq \frac{\mu}{4} < 1/2$ para todo $x \in (0, 1)$, basta analisar o limite quando $x \in (0, \frac{1}{2})$. Se $x \in (0, \frac{1}{2})$ então, analisando a função $F_\mu(x) - x$, temos que $|F_\mu(x) - p_\mu| < |x - p_\mu|$ e, pelo continuidade de $F_\mu$, $\lim_n F^n_\mu(x) = p_\mu$.
 \end{proof}
 
-Desse modo, conhecemos completamente a dinâmica de $F$ quando $1 < \mu < 3$: $$W^s(0) = \{0, 1\}\textrm{, } W^s(p_\mu) = (0, 1)\textrm{ e }W^s(\infty) = (-\infty, 0) \cup (1, \infty).$$
+Desse modo, conhecemos completamente a dinâmica de $F$ quando $1 < \mu < 3$:
+$$\bb(0) = \{0, 1\}\textrm{, } \bb(p_\mu) = (0, 1)\textrm{ e }\bb(\infty) = (-\infty, 0) \cup (1, \infty).$$

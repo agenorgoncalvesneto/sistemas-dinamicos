@@ -1,7 +1,5 @@
 \subsection{Caos}
 
-%Nessa seção estudaremos o conceito de caos. Seguindo a sequência da seção anterior, estudaremos o caso em que $\mu > 2 + \sqrt{5}$. Inicialmente, provaremos que o conjunto de pontos periódicos de $F$ é denso em $\Lambda$.
-
 \begin{proposition}
 \label{proposicao caos 1}
 Se $\mu > 2 + \sqrt{5}$, então o conjunto de pontos periódicos de $F: \Lambda \to \Lambda$ é denso em $\Lambda$.
@@ -11,25 +9,21 @@ Se $\mu > 2 + \sqrt{5}$, então o conjunto de pontos periódicos de $F: \Lambda 
 Sejam $x \in \Lambda$, $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{\lambda^k} < \varepsilon$. De acordo com o Lema \ref{lema conjuntosdecantor 1}, o intervalo fechado $I \subset \Lambda_k$ que contém $x$ possui tamanho menor que $\varepsilon$. Pela Proposição \ref{proposicao conjuntosdecantor 1}, $F^k: I \to [0, 1]$ é bijetora. Como $F^k(I) \supset I$, a Proposição \ref{proposicao diferenciabilidade 1} afirma que existe $y \in I$ tal que $F^k(y) = y$. Observando que $y \in \Lambda$ e $|x - y| < \varepsilon$, o resultado está provado.
 \end{proof}
 
-%No restante da seção, definiremos o que é uma função topologicamente transitiva, o que é uma função que depende sensivelmente das condições iniciais e, por fim, o que é uma função caótica. Vamos também mostrar $F$ possui cada uma dessas propriedades quando $\mu > 2 + \sqrt{5}$.
-
 \begin{definition}
-Seja $f: D \to D$ uma função. Dizemos que $f$ é \textit{topologicamente transitiva} se dados $x, y \in D$ e $\varepsilon > 0$,  existem $z \in D$ e $k \geq 1$ tais que $|z - x| < \varepsilon$ e $|f^k(z) - y| < \varepsilon$.
+Seja $f: X \to X$ uma função. Dizemos que $f$ é transitiva topologicamente se dados $x, y \in X$ e $\varepsilon > 0$,  existem $z \in X$ e $j \geq 1$ tais que $|z - x| < \varepsilon$ e $|f^j(z) - y| < \varepsilon$.
 \end{definition} 
-
-%Intuitivamente, $f$ é uma função topologicamente transitiva se para todo par de conjuntos abertos existe um ponto de um dos conjuntos que é levado para o outro conjunto após um número finito de iterações da $f$.
 
 \begin{proposition}
 \label{proposicao caos 2}
-Se $\mu > 2 + \sqrt{5}$, então $F: \Lambda \to \Lambda$ é topologicamente transitiva.
+Se $\mu > 2 + \sqrt{5}$, então $F: \Lambda \to \Lambda$ é transitiva topologicamente.
 \end{proposition}
 
 \begin{proof}
-Sejam $x, y \in \Lambda$ e $\varepsilon > 0$. Existe $k \geq 1$ tal que $\frac{1}{\lambda^k} < \varepsilon$. De acordo com o Lema \ref{lema conjuntosdecantor 1}, o tamanho de cada intervalo fechado em $\Lambda_k$ é menor que $\frac{1}{\lambda^k}$ e, portanto, menor que $\varepsilon$. Como $x \in \Lambda_ k$, existe um intervalo $[a, b] \subset \Lambda_ k$ que contém $x$. Pela Proposição \ref{proposicao conjuntosdecantor 1}, $F^k: [a, b] \to [0, 1]$ é bijetora e, pelo Teorema do Valor Intermediário, existe $z \in [a, b]$ tal que $F^k(z) = y$. Observando que $z \in \Lambda$, concluímos que $F$ é topologicamente transitiva.
+Sejam $x, y \in \Lambda$ e $\varepsilon > 0$. Existe $k \geq 1$ tal que $\frac{1}{\lambda^k} < \varepsilon$. De acordo com o Lema \ref{lema conjuntosdecantor 1}, o tamanho de cada intervalo fechado em $\Lambda_k$ é menor que $\frac{1}{\lambda^k}$ e, portanto, menor que $\varepsilon$. Como $x \in \Lambda_ k$, existe um intervalo $[a, b] \subset \Lambda_ k$ que contém $x$. Pela Proposição \ref{proposicao conjuntosdecantor 1}, $F^k: [a, b] \to [0, 1]$ é bijetora e, pelo Teorema do Valor Intermediário, existe $z \in [a, b]$ tal que $F^k(z) = y$. Observando que $z \in \Lambda$, concluímos que $F$ é transitiva topologicamente.
 \end{proof}
 
 \begin{definition}
-Seja $f: D \to D$ uma função. Dizemos que \textit{$f$ depende sensivelmente das condições iniciais} se para algum $\delta > 0$, dados $x \in D$ e $\varepsilon > 0$, existem $y \in D$ e $k \geq 1$ tais que $|x - y| < \varepsilon$ e $|f^k(x) - f^k(y)| > \delta$.
+Seja $f: X \to X$ uma função. Dizemos que $f$ depende sensivelmente das condições iniciais se existe $\delta > 0$ com a seguinte propriedade: dados $x \in X$ e $\varepsilon > 0$, existem $y \in X$ e $j \geq 1$ tais que $|x - y| < \varepsilon$ e $|f^j(x) - f^j(y)| > \delta$.
 \end{definition}
 
 \begin{proposition}
@@ -42,30 +36,18 @@ Sejam $x \in \Lambda$, $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{\lambda^
 \end{proof}
 
 \begin{definition}
-Seja $f: D \to D$ uma função. Dizemos que \textit{$f$ é caótica} se
-\begin{enumerate}
-\item O conjunto de pontos periódicos de $f$ é denso em $D$.
-\item $f$ é topologicamente transitiva.
+Seja $f: X \to X$ uma função. Dizemos que $f$ é caótica se as seguintes condições são válidas:
+\begin{enumerate}[label=\roman*.]
+\item O conjunto de pontos periódicos de $f$ é denso em $X$.
+\item $f$ é transitiva topologicamente.
 \item $f$ depende sensivelmente das condições iniciais.
 \end{enumerate}
 \end{definition}
 
-\begin{theorem}
-\label{teorema caos 1}
+\begin{theorem} \label{teorema caos 1}
 Se $\mu > 2 + \sqrt{5}$, então $F: \Lambda \to \Lambda$ é caótica.
 \end{theorem}
 
-\begin{proof}
-O resultado segue das Proposições \ref{proposicao caos 1}, \ref{proposicao caos 2} e \ref{proposicao caos 3}.
-\end{proof}
-
-O Teorema \ref{teorema caos 1} é válido para $4 < \mu \leq 2 + \sqrt{5}$, porém a demonstração é mais difícil.
-
-\begin{theorem}
-\label{teorema caos 2}
-Se $D$ é um subconjunto infinito de $\RR$ e $f: D \to D$ é uma função topologicamente transitiva cujo conjunto de pontos periódicos é denso, então $f$ é caótica.
+\begin{theorem} \label{teorema caos 2}
+Seja $X \subset \RR$ um conjunto infinito e $f: X \to X$ é uma função. Se o conjunto de pontos periódicos de $f$ é denso em $X$ e $f$ é transitiva topologicamente, então $f$ é caótica.
 \end{theorem}
-
-\begin{proof}
-Por demonstrar.
-\end{proof}
