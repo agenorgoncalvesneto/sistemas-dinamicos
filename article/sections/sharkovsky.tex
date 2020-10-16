@@ -53,14 +53,16 @@ Sejam $p$ um ponto periódico de período principal $3$ e $p_1 < p_2 < p_3$ os p
 Desse modo, o resultado está provado.
 \end{proof}
 
-\begin{definition}
-O Ordenação de Sharkovsky é definida por
-$$3 \triangleright 5 \triangleright 7 \triangleright \cdots
-\triangleright 2 \cdot 3 \triangleright 2 \cdot 5 \triangleright 2 \cdot 7 \triangleright \cdots
-\triangleright 2^2 \cdot 3 \triangleright 2^2 \cdot 5 \triangleright 2^2 \cdot 7 \triangleright \cdots
-\triangleright 2^n \cdot 3 \triangleright 2^n \cdot 5 \triangleright 2^n \cdot 7 \triangleright \cdots
-\triangleright 2^2 \triangleright 2 \triangleright 1$$
-ou seja, é formada inicialmente pelos ímpares maiores que 1 em ordem crescente; depois pelos ímpares maiores que 1, multiplicados por 2, em ordem crescente; depois pelos ímpares maiores que 1, multiplicados por $2^2$, em ordem crescente; e assim sucessivamente. Por fim, a ordem é formada por todas as potências de 2 em ordem decrescente.
+\begin{definition}[Ordenação de Sharkovsky]
+$$3 \,\triangleright\, 5 
+\,\triangleright\, \cdots \,\triangleright\,
+2 \cdot 3 \,\triangleright\, 2 \cdot 5 
+\,\triangleright\, \cdots \,\triangleright\,
+2^2 \cdot 3 \,\triangleright\, 2^2 \cdot 5
+\,\triangleright\, \cdots \,\triangleright\,
+2^k \cdot 3 \,\triangleright\, 2^k \cdot 5
+\,\triangleright\, \cdots \,\triangleright\,
+2^2 \,\triangleright\, 2 \,\triangleright\, 1.$$
 \end{definition}
 
 \begin{theorem}[Sharkovsky]
@@ -68,7 +70,7 @@ Se $f$ admite ponto de período principal $n$, então $f$ admite ponto de perío
 \end{theorem}
 
 \begin{theorem}
-Para todo $n \geq 1$ existe uma função $f$ que admite ponto periódico de período principal $n$ e que não admite ponto de período principal $m$ se $m \triangleright n$.
+Para todo $n \geq 1$ existe uma função $f$ que admite ponto periódico de período principal $n$ e que não admite ponto de período principal $m$ se $m \,\triangleright\, n$.
 \end{theorem}
 
 \begin{proof}
@@ -97,12 +99,12 @@ Pela definição de $h(k)$, $T_1$ possui uma órbita $\mathcal{O} \subset [0, h(
 
 Para demonstrar a segunda parte, basta observar que $h(k)$ é o valor máximo de $T_{h(k)}$ e, desse modo, toda órbita de $T_{h(k)}$ está contida em $[0, h(k)]$. Em particular, se a órbita não contém $h(k)$, então ela está contida em $[0, h(k))$.
 
-\item $k \triangleright l$ se o somente se $h(k) > h(l)$.
+\item $k \,\triangleright\, l$ se o somente se $h(k) > h(l)$.
 
-Suponha que $k \triangleright l$. Por (d), $T_{h(k)}$ possui uma órbita de tamanho $k$. De acordo com o Teorema de Sharkovsky e com (d), $T_{h(k)}$ admite uma órbita de tamanho $l$ contida em $[0, h(k))$. Desse modo,  $h(k) > h(l)$ por (c).
+Suponha que $k \,\triangleright\, l$. Por (d), $T_{h(k)}$ possui uma órbita de tamanho $k$. De acordo com o Teorema de Sharkovsky e com (d), $T_{h(k)}$ admite uma órbita de tamanho $l$ contida em $[0, h(k))$. Desse modo,  $h(k) > h(l)$ por (c).
 
-Por outro lado, suponha que $h(k) > h(l)$. Caso $l \triangleright k$, a demonstração no parágrafo anterior implicaria que $h(k) < h(l)$, contrariando a hipótese. Desse modo, $k \triangleright l$.
+Por outro lado, suponha que $h(k) > h(l)$. Caso $l \,\triangleright\, k$, a demonstração no parágrafo anterior implicaria que $h(k) < h(l)$, contrariando a hipótese. Desse modo, $k \,\triangleright\, l$.
 \end{enumerate}
 
-Assim, para cada $n \geq 1$, $T_{h(n)}$ possui órbita de tamanho $n$. Além disso, se $m \triangleright n$ então $h(m) > h(n)$ por (e) e, portanto, $T_{h(n)}$ não possui órbita de tamanho $m$ por (c).
+Assim, para cada $n \geq 1$, $T_{h(n)}$ possui órbita de tamanho $n$. Além disso, se $m \,\triangleright\, n$ então $h(m) > h(n)$ por (e) e, portanto, $T_{h(n)}$ não possui órbita de tamanho $m$ por (c).
 \end{proof}

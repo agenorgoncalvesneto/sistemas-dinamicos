@@ -1,56 +1,44 @@
 \section{Derivada de Schwarz}
 
 \begin{definition}
-Seja $f: \RR \to \RR$ uma função de classe $\CC^\infty$.  A derivada de Schwarz de $f$ é a função $\mathcal{S} f$ definida por
-$$\mathcal{S} f(x) = \frac{\partial^3 f(x)}{\partial f(x)} - \frac{3}{2} \left( \frac{\partial^2 f(x)}{\partial f(x)} \right)^2$$
-para todo $x$ tal que $\partial f(x) \neq 0$.
+Seja $f: \RR \to \RR$ uma função de classe $\CC^3$. A função $\mathcal{S}f$ dada por
+$$\mathcal{S}f(x) = \frac{\partial^3 f(x)}{\partial f(x)} - \frac{3}{2} \left( \frac{\partial^2 f(x)}{\partial f(x)} \right)^2$$
+para todo $x$ tal que $\partial f(x) \neq 0$ é a derivada de Schwarz de $f$.
 \end{definition}
 
 \begin{lemma}
-Se $\mathcal{S} f < 0$, então $\mathcal{S} f^j < 0$ para todo $j \geq 1$.
+Se $\mathcal{S}f < 0$, então $\mathcal{S}f^k < 0$ para todo $k \geq 1$.
 \end{lemma}
 
 \begin{proof}
-Se $\mathcal{S} f < 0$ e $\mathcal{S} g < 0$, vamos provar que $\mathcal{S} (f \circ g) < 0$. Pela Regra da Cadeia,
-\begin{align*}
-(f \circ g)'(x) & = f'(g(x))g'(x) \\
-(f \circ g)''(x) & = f''(g(x))(g'(x))^2 + f'(g(x))g''(x) \\
-(f \circ g)'''(x) & = f'''(g(x))(g'(x))^3 + 3f''(g(x))g''(x)g'(x) + f'(g(x))g'''(x)
-\end{align*}
-Desse modo,
-\begin{align*}
-\mathcal{S} (f \circ g)(x) & = \frac{(f \circ g)'''(x)}{(f \circ g)'(x)} - \frac{3}{2} \left( \frac{(f \circ g)''(x)}{(f \circ g)'(x)} \right)^2 \\
-& = \frac{f'''(g(x))(g'(x))^2}{f'(g(x))} + 3\frac{f''(g(x))g''(x)}{f'(g(x))} + \frac{g'''(x)}{g'(x)} - \frac{3}{2}\left( \frac{f''(g(x))g'(x)}{f'(g(x))} + \frac{g''(x)}{g'(x)} \right)^2 \\
-& = \mathcal{S} f(g(x)) (g'(x))^2 + \mathcal{S} g(x) < 0
-\end{align*}
-para todo $x$ tal que $(f \circ g)'(x) \neq 0$. Por indução, $S_{f^n} < 0$ para todo $n \geq 1$.
+Pela Regra da Cadeia, podemos concluir que $\mathcal{S}f^2(x) < 0$ para todo $x$ tal que $\partial f^2(x) \neq 0$. Por indução, $\mathcal{S}f^k < 0$ para todo $k \geq 1$.
 \end{proof}
 
 \begin{lemma}
 \label{lemma1}
-Se $\mathcal{S} f < 0$ e $x_0$ é ponto de mínimo local de $f'$, então $f'(x_0) \leq 0$.
+Se $\mathcal{S}f < 0$ e $x_0$ é um ponto de mínimo local de $\partial f$, então $\partial f(x_0) \leq 0$.
 \end{lemma}
 
 \begin{proof}
-Se $f'(x_0) \neq 0$, então $\mathcal{S} f(x_0) = \frac{f'''(x_0)}{f'(x_0)} - \frac{3}{2} \frac{f''(x_0)}{f'(x_0)} < 0$. Sendo $x_0$ ponto de mínimo local de $f'$, temos que $f''(x_0) = 0$ e $f'''(x_0) \geq 0$. Portanto,  $f'(x_0) < 0$. 
+Se $\partial f(x_0) \neq 0$, então $\mathcal{S}f(x_0) = \frac{\partial^3 f(x_0)}{\partial f(x_0)} - \frac{3}{2} \frac{\partial^2 f(x_0)}{\partial f(x_0)} < 0$. Sendo $x_0$ ponto de mínimo local de $\partial f$, temos que $\partial^2 f(x_0) = 0$ e $\partial^3 f(x_0) \geq 0$. Portanto,  $\partial f(x_0) < 0$. 
 \end{proof}
 
 \begin{lemma}
 \label{lemma2}
-Se $\mathcal{S} f < 0$ e $a<b<c$ são pontos fixos de $f$, com $f'(b) \leq 1$, então $f$ possui ponto crítico em $(a, c)$.
+Se $\mathcal{S}f < 0$ e $a<b<c$ são pontos fixos de $f$, com $\partial f(b) \leq 1$, então $f$ possui ponto crítico em $(a, c)$.
 \end{lemma}
 
 \begin{proof}
-Pelo Teorema do Valor Médio, existem $r \in (a,b)$ e $s \in (b,c)$  tais que $f'(r) = f'(s) = 1$. Sendo $f'$ contínua, $f'$ restrita ao intervalo $[r,s]$ possui mínimo global. Como $b \in (r,s)$ e $f'(b) \leq 1$, temos que $f'$ possui mínimo local em $(r,s)$. Utilizando Lema anterior e o Teorema do Valor Intermediário, a demonstração está concluída.
+Pelo Teorema do Valor Médio, existem $r \in (a,b)$ e $s \in (b,c)$  tais que $\partial f(r) = \partial f(s) = 1$. Sendo $\partial f$ contínua, $\partial f$ restrita ao intervalo $[r,s]$ possui mínimo global. Como $b \in (r,s)$ e $\partial f(b) \leq 1$, temos que $\partial f$ possui mínimo local em $(r,s)$. Utilizando Lema anterior e o Teorema do Valor Intermediário, a demonstração está concluída.
 \end{proof}
 
 \begin{lemma}
 \label{lemma3}
-Se $\mathcal{S} f < 0$ e $a<b<c<d$ são pontos fixos de $f$, então $f$ possui ponto crítico em $(a,d)$.
+Se $\mathcal{S}f < 0$ e $a<b<c<d$ são pontos fixos de $f$, então $f$ possui ponto crítico em $(a,d)$.
 \end{lemma}
 
 \begin{proof}
-Se $f'(b) \leq 1$ ou $f'(c) \leq 1$, o resultado é verdadeiro pelo Lema anterior. Se $f'(b) > 1$ e $f'(c) > 1$, existem $r, t \in (b,c)$ tais que $r<t$, $f(r) > r$ e $f(t) < t$. Pelo Teorema do Valor Médio, existe $s \in (r,t)$ tal que $f'(s) < 1$. Portanto, $f'$ possui mínimo local em $(b,c)$. Utilizando Lema \ref{lemma1} e o Teorema do Valor Intermediário, a demonstração está concluída.
+Se $\partial f(b) \leq 1$ ou $\partial f(c) \leq 1$, o resultado é verdadeiro pelo Lema anterior. Se $\partial f(b) > 1$ e $\partial f(c) > 1$, existem $r, t \in (b,c)$ tais que $r<t$, $f(r) > r$ e $f(t) < t$. Pelo Teorema do Valor Médio, existe $s \in (r,t)$ tal que $\partial f(s) < 1$. Portanto, $\partial f$ possui mínimo local em $(b,c)$. Utilizando Lema \ref{lemma1} e o Teorema do Valor Intermediário, a demonstração está concluída.
 \end{proof}
 
 \begin{lemma}
@@ -61,13 +49,13 @@ Se $f$ possui finitos pontos críticos, então $f^n$ possui finitos pontos crít
 
 Pelo Teorema do Valor Médio, $f$ possui ponto crítico entre dois elementos de $f^{-1}(c)$. Como $f$ possui finitos pontos críticos, $f^{-1}(c)$ é finito. Além disso, se $f^{-k}(c)$ é finito, então $f^{-(k+1)}(c) = \{ x \in \RR : f(f^k(x)) = c \}$ é finito pois $f^{-1}(c)$ é finito e, por hipótese de indução, $f^{-k}(c_ i)$ é finito para cada $c_i \in f^{-1}(c)$. Portanto, $f^{-n}(c)$ é finito para todo $n \geq 1$.
 
-Temos que $(f^n)'(x) = \prod_{k=0}^{n-1} f'(f^k(x)) = 0$ se e somente se $f^k(x)$ é ponto crítico de $f$ para algum $k = 1, \dots, n-1$. Assim, o conjunto de pontos críticos de $f^n$ é finito pois é dado pela união dos conjuntos $\cup_{k=0}^{n-1} f^{-k}(c_i)$, onde $c_i$ é ponto crítico de $f$.
+Temos que $(f^n)'(x) = \prod_{k=0}^{n-1} \partial f(f^k(x)) = 0$ se e somente se $f^k(x)$ é ponto crítico de $f$ para algum $k = 1, \dots, n-1$. Assim, o conjunto de pontos críticos de $f^n$ é finito pois é dado pela união dos conjuntos $\cup_{k=0}^{n-1} f^{-k}(c_i)$, onde $c_i$ é ponto crítico de $f$.
 \end{proof}
 
-Observe que o Lema anterior, ao contrário dos outros, não exige que $\mathcal{S} f < 0$.
+Observe que o Lema anterior, ao contrário dos outros, não exige que $\mathcal{S}f < 0$.
 %
 %\begin{lemma}
-%Se $\mathcal{S} f < 0$ e $f$ possui finitos pontos críticos, então $f^n$ possui finitos pontos fixos para todo $n \geq 1$.
+%Se $\mathcal{S}f < 0$ e $f$ possui finitos pontos críticos, então $f^n$ possui finitos pontos fixos para todo $n \geq 1$.
 %\end{lemma}
 %\begin{proof}
 %Se $f^n$ possui infinitos pontos fixos para algum $n > 1$, então $f^n$ possui infinitos pontos críticos de acordo com o Lema \ref{lemma3}. Essa implicação contradiz o Lema anterior.
@@ -89,7 +77,7 @@ Observe que o Lema anterior, ao contrário dos outros, não exige que $\mathcal{
 %\end{proof}
 
 \begin{theorem}[Singer]
-Se $\mathcal{S} f < 0$ e $f$ possui $n$ pontos críticos, então $f$ possui no máximo $n+2$ órbitas periódicas não repulsoras.
+Se $\mathcal{S}f < 0$ e $f$ possui $n$ pontos críticos, então $f$ possui no máximo $n+2$ órbitas periódicas não repulsoras.
 \end{theorem}
 
 \begin{proof}
@@ -103,7 +91,7 @@ Observe que, se $x \in K$, existe $n \geq 1$ tal que $g^n(x) \in V$. Desse modo,
 
 Seja $a$ um ponto extremo de $K$ e suponha que $g(a) \in K$. Desse modo, existe uma vizinhança $V$ de $g(a)$ contida em $K$. Sendo $g$ contínua, $g^{-1}(V)$ é uma vizinhança de $a$ contida $B(p)$, o que contraria o fato de $K$ ser a componente conexa de $B(p)$ que contém $p$. Como $g(K) \subset K$ e $g$ é contínua, concluímos que $g$ preserva os pontos extremos de $K$.
 
-Desse modo, escrevendo $K = (a, b)$, ocorre um dos três casos abaixo. Vamos mostrar que em cada caso, $g$ possui ponto crítico em $K$. Observe que $\mathcal{S} g < 0$.
+Desse modo, escrevendo $K = (a, b)$, ocorre um dos três casos abaixo. Vamos mostrar que em cada caso, $g$ possui ponto crítico em $K$. Observe que $\mathcal{S}g < 0$.
 
 \begin{enumerate}
 

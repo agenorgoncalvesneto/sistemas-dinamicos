@@ -67,10 +67,5 @@ Se $\mu = 4$, então $F$ é caótica.
 \end{theorem}
 
 \begin{proof}
-Seja $\tau(x) = \sen^2\left(\frac{\pi x}{2}\right)$ definida no intervalo $ [0,1]$. $\tau$ é homeomorfismo pois $\tau'$ existe em $[0,1]$ e $\tau' > 0$ em $(0,1)$.
-
-Se $x \in \left[0, \frac{1}{2}\right]$, então $$\tau \circ T(x) = \tau(2x) = \sen^2(\pi x)$$
-e se $x \in \left[\frac{1}{2}, 1\right]$, então $$\tau \circ T(x) = \tau(2 - 2x) = \sen^2(\pi- \pi x) = (\sen(\pi)\cos(\pi x) - \sen(\pi x)\cos(\pi))^2 = \sen^2(\pi x)$$
-Por outro lado, $$F \circ \tau(x) = 4\sen^2\left(\frac{\pi x}{2}\right)(1 - \sen^2\left(\frac{\pi x}{2}\right)) = 4\sen^2\left(\frac{\pi x}{2}\right)\cos^2\left(\frac{\pi x}{2}\right) = \sen^2(\pi x)$$
-Desse modo, $\tau \circ T = F \circ \tau$. Portanto, de acordo com o Teorema \ref{teorema caos 1}, a Proposição \ref{proposicao conjugacaotopologica 1} e o Lema \ref{lema conjugacaotopologica 1}, $F$ é caótica.
+Basta observar que $F \circ \tau = \tau \circ T$, onde $\tau: [0, 1] \to [0, 1]$ é o homeomorfismo dado por $\tau(x) = \sen^2\left(\frac{\pi x}{2}\right)$.
 \end{proof}
