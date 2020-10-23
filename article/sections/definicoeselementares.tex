@@ -1,25 +1,21 @@
 \section{Conceitos Iniciais}
 
-\begin{definition}
-Sejam $f: X \to X$ uma função e $p \in X$. Se $f^n(p) = p$ para algum $n \geq 1$, dizemos que $p$ é um ponto periódico de período $n$.
-\end{definition}
+Seja $f: X \to X$ uma função, onde $X$ é um espaço métrico.
+Dado $x \in X$ e denotando por $f^n$ a $n$-ésima composição de $f$ com ela mesma, queremos estudar as propriedades da sequência $(x, \, f(x), \, f^2(x), \, \dots)$.
 
 \begin{definition}
-Sejam $f: X \to X$ uma função e $x \in X$. Dizemos que $\oo(x) = \{ x, f(x), f^2(x), \dots \}$ é a órbita de $x$.
+\begin{enumerate}[label = \alph*.]
+\item[]
+
+\item Se $x \in X$, então $\orbit(x) = \{ x, \, f(x), \, f^2(x), \, \dots \}$ é a órbita de $x$.
+
+\item Se $p \in X$ e $f^n(p) = p$ para algum $n > 0$, então $p$ é um ponto periódico de período $n$. Em particular, se $n = 1$, então $p$ é um ponto fixo. Denotaremos por $\per(f)$ o conjunto de todos os pontos periódicos.
+
+\item Se $p$ é um ponto periódico de período $n$ e $f^k(p) \neq p$ para todo $0 < k < n$, então $n$ é o período principal de $p$. Denotaremos por $\per_n(f)$ o conjunto de todos os pontos periódicos de período principal $n$.
+
+\item Se $p$ um ponto periódico de período $n$, então $\basin(p) = \{ x \in  X: \lim_{k \to \infty} f^{kn}(x) = p \}$ é a bacia de atração de $p$. Além disso, $\basin(\infty) = \{ x \in  X: \lim_{k \to \infty} |f^k(x)| = \infty \}$ é a bacia de atração do $\infty$.
+\end{enumerate}
 \end{definition}
-
-\begin{definition}
-Sejam $f: X \to X$ uma função e $p$ um ponto periódico de período $n$. Dizemos que $\bb (p) = \{ x \in  X: \lim_{k \to \infty} f^{kn}(x) = p \}$ é a bacia de atração de $p$ e que $\bb (\infty) = \{ x \in  X: \lim_{k \to \infty} |f^k(x)| = \infty \}$ é a bacia de atração de $\infty$.
-\end{definition}
-
-\begin{proposition}
-Seja $f: X \to X$ uma função. Se $p$ e $q$ são pontos periódicos distintos, então $\bb(p) \cap \bb(q) = \emptyset$.
-\end{proposition}
-
-\begin{proof}
-Sejam $m$ e $n$ os períodos de $p$ e $q$, respectivamente. Se existe $x \in \bb(p) \cap \bb(q)$, então
-$$p = \lim_{k \to \infty} f^{(kn)m}(x) = \lim_{k \to \infty} f^{(km)n}(x) = q.$$
-\end{proof}
 
 \begin{proposition} \label{prop 1-1}
 Seja $f: [a, b] \to \RR$ uma função contínua. Se $f([a, b]) \subset [a, b]$ ou $f([a, b]) \supset [a, b]$, então $f$ possui ponto fixo.
@@ -32,20 +28,26 @@ Suponha que $f([a, b]) \supset [a, b]$ e sejam $c, d \in [a, b]$ tais que $f(c) 
 \end{proof}
 
 \begin{definition}
-Sejam $f: [a, b] \to [a, b]$ uma função derivável e $p$ um ponto periódico de período principal $n$. Dizemos que $p$ é um ponto hiperbólico se $|\partial f^n(p)| \neq 1$. Dizemos que $p$ é um ponto atrator se $|\partial f^n(p)| < 1$ e que $p$ é um ponto repulsor se $|\partial f^n(p)| > 1$.
+Sejam $f: [a, b] \to [a, b]$ uma função de classe $\class^1$ e $p \in \per_n(f)$.
+\begin{enumerate}[label = \alph*.]
+\item Se $|\partial f^n(p)| \neq 1$, então $p$ é um ponto hiperbólico.
+\item Se $|\partial f^n(p)| < 1$, então $p$ é um ponto atrator.
+\item Se $|\partial f^n(p)| > 1$, então $p$ é um ponto repulsor.
+\end{enumerate}
 \end{definition}
 
 \begin{theorem}
-Sejam $f: [a, b] \to [a, b]$ uma função de classe $\cc^1$ e $p$ um ponto periódico de período principal $n$.
+Sejam $f: [a, b] \to [a, b]$ uma função de classe $\class^1$ e $p \in \per_n(f)$.
 \begin{enumerate}
 \item Se $p$ é um ponto atrator, então existe uma vizinhança de $p$ contida em $\bb(p)$.
-\item Se $p$ é um ponto repulsor, então existe uma vizinhança de $p$ com a seguinte propriedade: se $x$ pertence à essa vizinhança e $x \neq p$, então  $f^{kn}(x) \notin V$ para algum $k \geq 1$. 
+\item Se $p$ é um ponto repulsor, então existe uma vizinhança $V$ de $p$ com a seguinte propriedade: se $x \in V$ e $x \neq p$, então  $f^{kn}(x) \notin V$ para algum $k \geq 1$. 
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
 \begin{enumerate}
-\item Sendo $\partial f$ é contínua, existe $\varepsilon > 0$ tal que $|\partial f^n(x)| \leq \lambda < 1$ para todo $x \in (p - \varepsilon,\, p + \varepsilon)$. Pelo TVM, se $x \in (p - \varepsilon,\, p + \varepsilon)$, então $|f^n(x) - p| \leq \lambda|x - p|$. Por indução, $|f^{kn}(x) - p| \leq \lambda^k|x - p|$ para todo $k \geq 1$. Desse modo, $\lim_{k \to \infty} f^{kn}(x) = p$.
+\item[]
+\item Sendo $\partial f$ contínua, existe $\varepsilon > 0$ tal que $|\partial f^n(x)| \leq \lambda < 1$ para todo $x \in (p - \varepsilon,\, p + \varepsilon)$. Pelo TVM, se $x \in (p - \varepsilon,\, p + \varepsilon)$, então $|f^n(x) - p| \leq \lambda|x - p|$. Por indução, $|f^{kn}(x) - p| \leq \lambda^k|x - p|$ para todo $k \geq 1$. Desse modo, $\lim_{k \to \infty} f^{kn}(x) = p$.
 \item Demonstração análoga.
 \end{enumerate}
 \end{proof}

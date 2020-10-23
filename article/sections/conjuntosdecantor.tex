@@ -1,6 +1,6 @@
 \subsection{Conjuntos de Cantor}
 
-Se $\mu > 4$, então $F\left(\frac{1}{2}\right) = \frac{\mu}{4} > 1$, ou seja, existem pontos em $[0, 1]$ que não permanecem em $[0, 1]$ após uma iteração de $F$. Em vista da Proposição \ref{prop 2-1}, tais pontos pertencem ao conjunto $\bb(\infty)$. De modo mais geral, se um ponto de $[0, 1]$ não permanece em $[0, 1]$ após um número finito de iterações, então ele pertence ao conjunto $\bb(\infty)$. 
+Se $\mu > 4$, então $F(\frac{1}{2}) = \frac{\mu}{4} > 1$, ou seja, existem pontos em $[0, 1]$ que não permanecem em $[0, 1]$ após uma iteração de $F$. Em vista da Proposição \ref{prop 2-1}, tais pontos pertencem ao conjunto $\bb(\infty)$. De modo mais geral, se um ponto de $[0, 1]$ não permanece em $[0, 1]$ após um número finito de iterações, então ele pertence ao conjunto $\bb(\infty)$. 
 
 Desse modo, considere o conjunto $\Lambda_n = \{x \in [0, 1] : F^n(x) \in [0, 1]\}$ formado pelos pontos que permanecem em $[0, 1]$ após $n$ iterações de $F$ e considere o conjunto $\Lambda = \cap_{n=0}^{\infty} \Lambda_n = \{x \in [0, 1] : F^n(x) \in [0, 1] \textrm{ para todo } n \geq 1\}$, que é formado pelos pontos de $[0, 1]$ que sempre permanecem em $[0, 1]$ por iterações de $F$. Observe que $\Lambda_n \supset \Lambda_{n+1}$, para todo $n \geq 1$, pois se $F^{n+1}(x) = F(F^n(x)) \in [0,1]$, então $F^n(x) \in [0,1]$.
 
@@ -8,12 +8,15 @@ Desse modo, considere o conjunto $\Lambda_n = \{x \in [0, 1] : F^n(x) \in [0, 1]
 Se $\mu > 4$, então
 \begin{enumerate}
 \item $\Lambda_1 = [0, x_1] \cup [x_2, 1]$, onde $x_1 = \frac{1}{2} - \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$ e $x_2 = \frac{1}{2} + \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$.
-\item $\Lambda_n$ é a união de $2^n$ intervalos fechados disjuntos.
-\item $F^n: [a, b] \to [0, 1]$ é bijetora, onde $[a, b]$ é um dos intervalos que formam $\Lambda_n$.
+\item $\Lambda_n$ é a união de $2^n$ intervalos fechados disjuntos e $F^n: [a, b] \to [0, 1]$ é bijetora, onde $[a, b]$ é um desses intervalos.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
+\begin{enumerate}
+\item[]
+\item Basta resolver a equação de segundo grau $\mu x(1-x) = 1$.
+\end{enumerate}
 Analisando $F'$ observamos que $F$ é estritamente crescente no intervalo $\left[0, \frac{1}{2}\right]$ e estritamente decrescente no intervalo $\left[\frac{1}{2}, 1\right]$. Como $F(0) = F(1) = 0$ e $F\left(\frac{1}{2}\right) > 1$, o Teorema do Valor Intermediário garante que existem $x_1 \in \left(0, \frac{1}{2}\right)$ e $x_2 \in \left(\frac{1}{2}, 1\right)$ tais que $F(x_1) = F(x_2) = 1$. Os valores de $x_1$ e $x_2$ são encontrados resolvendo a equação de segundo grau $\mu x(1-x) = 1$. Logo, $F([0, x_1]) = F([x_2, 1]) = [0, 1]$ e $F(x) > 1$ para todo $x \in (x_1, x_2)$. Portanto, $\Lambda_1 = [0, x_1] \cup [x_2, 1]$ e o item 1 está demonstrado.
 
 A demonstração dos itens $2$ e $3$ será feita por indução. De acordo com a primeira parte, $\Lambda_1$ é a união de $2^1 = 2$ intervalos fechados disjuntos e $F$ restrita é cada um desses intervalos é uma bijeção com o intervalo $[0,1]$.

@@ -1,35 +1,28 @@
 \section{Função Logística}
 
+\subsection{Estudo Inicial}
 \begin{proposition}
 Se $\mu > 1$, então
 \begin{enumerate}
 \item $F(1) = F(0) = 0$.
-\item $F \left( \frac{1}{\mu} \right) = F(p_\mu) = p_\mu$, onde $p_\mu = \frac{\mu-1}{\mu}$.
+\item $F(\frac{1}{\mu}) = F(p_\mu) = p_\mu$, onde $p_\mu = \frac{\mu-1}{\mu}$.
 \item $0 < p_\mu < 1$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proposition} \label{prop 2-1}
-Se $\mu > 1$, então $(-\infty, 0) \cup (1, \infty) \subset \bb(\infty)$.
+Se $\mu > 1$, então $(-\infty, 0) \cup (1, \infty) \subset \basin(\infty)$.
 \end{proposition}
 
 \begin{proof}
 Inicialmente, se $x \in (1, \infty)$, então $F(x) \in (-\infty, 0)$. Por fim, observamos que a sequência  $(x,\, F(x),\, F^2(x),\, \dots)$ é estritamente decrescente e ilimitada quando $x \in (-\infty, 0)$.
+\newline
 \end{proof}
 
 \begin{proposition}
 Se $1 < \mu < 3$, então
 \begin{enumerate}
 \item $0$ é um ponto repulsor e $p_\mu$ é um ponto atrator.
-\item $(0, 1) \subset \bb(p_\mu)$.
+\item $(0, 1) \subset \basin(p_\mu)$.
 \end{enumerate}
 \end{proposition}
-
-\begin{proof}
-\begin{enumerate}
-\item $|\partial F(0)| = \mu > 1$ e $|\partial F(p_\mu)| = |2 - \mu| < 1$.
-\item Exercício.
-\end{enumerate}
-\end{proof}
-
-Desse modo, a dinâmica de $F$ quando $1 < \mu < 3$ é dada por $\bb(0) = \{0, 1\}$, $\bb(p_\mu) = (0, 1)$ e $\bb(\infty) = (-\infty, 0) \cup (1, \infty)$.
