@@ -1,56 +1,71 @@
 \section{Teorema de Sharkovsky}
 
-\begin{definition}
-Se $I_0, I_1, \dots, I_{n-1}$ são intervalos fechados, $n > 1$,
-\begin{enumerate}
-\item dizemos que \textit{$I_0$ cobre $I_1$}, e denotamos por $I_0 \longrightarrow I_1$, se $f(I_0) \supset I_1$.
-
-\item dizemos  que \textit{$I_0, I_1, \dots, I_{n-1}$ é um caminho entre $I_0$ e $I_{n-1}$}, e denotamos por $I_0 \longrightarrow I_1 \longrightarrow \cdots \longrightarrow I_{n-1}$, se $f(I_i) \supset I_{i+1}$, $i = 0, \dots, n-2$.
-
-\item dizemos  que \textit{$I_0, I_1, \dots, I_{n-1}$ é um ciclo entre $I_0$ e $I_{n-1}$}, e denotamos por $I_0 \longrightarrow I_1 \longrightarrow \cdots \longrightarrow I_{n-1} \longrightarrow I_0$, se $f(I_i) \supset I_{i+1}$, $i = 0, \dots, n-2$, e $f(I_{n-1}) \supset I_0$.
-
-\end{enumerate}
-\end{definition}
+Ao longo dessa seção, consideraremos $f: \RR \to \RR$ uma função contínua.
+Além disso, escreveremos $J_0 \longrightarrow J_1 \longrightarrow \cdots \longrightarrow J_n$ quando $J_0, \, J_1, \, \dots, \, J_n$ são intervalos fechados e $f(J_k) \supset J_{k+1}$ para todo $0 \leq k < n$.
 
 \begin{lemma}
-Se $I_0 \longrightarrow I_1$, então $f(I'_0) = I_1$ para algum intervalo fechado $I'_0 \subset I_1$.
+Se $J_0 \longrightarrow J_1$, então existe um intervalo fechado $J_0' \subset J_0$ tal que $f(J_0') = J_1$.
 \end{lemma}
-\begin{proof}
-Se $I_0 = [a, b]$ e $I_1 = [c, d]$, pelo Teorema do Valor Intermediário, existem $p, q \in I_0$ tais que $f(p) = c$ e $f(q) = d$. Suponha que $p \leq q$ e defina $I_0' = [a', b']$, onde
-$$b' = \textrm{inf}\{x \in [p, q] : f(x) = d\} \textrm{ e } a' = \textrm{sup}\{x \in [p, b'] : f(x) = c\}$$
 
-Sendo $f$ contínua temos que $f(a') = c$ e $f(b') = d$ e, desse modo, $f(I_0') \supset I_1$. Se $f(x) < c$ para algum $x \in I_0'$, existe $y \in [x, b']$ tal que $f(y) = c$, o que é um absurdo pois nesse caso $y > a'$. Absurdo análogo ocorre se $f(x) > d$ para algum $x \in I_0'$. Portanto, $f(I_0') = I_1$.
+\begin{proof}
+Sejam $p, \, q \in [a, b]$ tais que $f(p) = c$ e $f(q) = d$, onde $J_0 = [a, b]$ e $J_1 = [c, d]$.
+Se $p \leq q$, definimos $b' = \inf \{ x \in [p, q] : f(x) = d \}$ e $a' = \sup \{ x \in [p, b'] : f(x) = c \}$ e, pela continuidade de $f$, podemos concluir que $f(J_0') = J_1$, onde $J_0' = [a', b']$.
+Se $q \leq p$, a demonstração é análoga.
 \end{proof}
 
 \begin{lemma}
-Se $J_0 \longrightarrow J_1 \longrightarrow \cdots \longrightarrow J_{n-1} \longrightarrow J_0$, então existe $p \in J_0$ tal que $f^k(p) \in J_k$, para todo $k = 1, \dots, n-1$, e $f^n(p) = p$.
+Se $J_0 \longrightarrow J_1 \longrightarrow \cdots \longrightarrow J_{n-1} \longrightarrow J_0$, então existe $p \in J_0$ tal que as seguintes condições são válidas:
+\begin{enumerate}
+\item $f^k(p) \in J_k$ para todo $1 \leq k < n$.
+\item $f^n(p) = p$.
+\end{enumerate}
 \end{lemma}
 
 \begin{proof}
-De acordo com as hipóteses e com a Proposição anterior, temos as seguintes implicações:
-\begin{align*}
-J_0 \longrightarrow J_1 & \Rightarrow \textrm{ existe } J_0' \subset J_0 \textrm{ tal que } f(J_0') = J_1 \\
-J_1 \longrightarrow J_2 & \Rightarrow \textrm{ existe } J_1' \subset J_0' \textrm{ tal que } f^2(J_1') = J_2 \\
-\vdots \\
-J_{n-2} \longrightarrow J_{n-1} & \Rightarrow \textrm{ existe } J_{n-2}' \subset J_{n-3}' \textrm{ tal que } f^{n-1}(J_{n-2}') = J_{n-1} \\
-J_{n-1} \longrightarrow J_0 & \Rightarrow \textrm{ existe } J_{n-1}' \subset J_{n-2}' \textrm{ tal que } f^n(J_{n-1}') = J_0 
-\end{align*}
+Pelo Lema anterior, podemos construir uma sequência de intervalos fechados $J_0', \, J_1', \, \dots, \, J_{n-1}'$ com as seguintes propriedades:
+\begin{enumerate}[label=\alph*.]
+\item $J_0 \supset J_0' \supset J_1' \supset \cdots \supset J_{n-1}'$.
+\item $f^k(J_{k-1}') = J_k$ para todo $1 \leq k < n$.
+\item $f^n(J_{n-1}') = J_0$.
+\end{enumerate}
 
-Construímos então uma sequência de $n$ intervalos fechados $J_0 \supset J_0' \supset J_1' \supset \cdots \supset J_{n-1}'$ tal que $f^k(J_{k-1}') = J_k$, para todo $k = 1, \dots, n-1$, e $f^n(J_{n-1}') = J_0$. Como $J_0 \supset J_{n-1}'$, existe $p \in J_{n-1}'$ tal que $f^n(p) = p$. Em particular, $p \in J_0$ e $f^k(p) \in J_k$, para todo $k = 1, \dots, n-1$. 
+Desse modo, existe $p \in J_{n-1}'$ tal que $f^n(p) = p$.
+Em particular, $p \in J_0$ e $f^k(p) \in J_k$ para todo $1 \leq k < n$.
 \end{proof}
 
 \begin{theorem}
-Se $f$ admite ponto periódico de período principal $3$, então $f$ admite ponto periódico de período principal $n$, para todo $n \geq 1$.
+Se $\per_3(f) \neq \emptyset$, então $\per_k(f) \neq \emptyset$ para todo $k \geq 1$.
 \end{theorem}
 
 \begin{proof}
-Sejam $p$ um ponto periódico de período principal $3$ e $p_1 < p_2 < p_3$ os pontos da órbita de $p$ e suponha que $f(p_1) = p_2$ e $f(p_2) = p _3$. O outro caso possível, em que $f(p_1) = p_3$ e $f(p_3) = p_2$, é demonstrado de maneira análoga. Definindo $I_1 = [p_1, p_2]$ e $I_2 = [p_2, p_3]$, temos que $I_1 \longrightarrow I_2$, $I_2 \longrightarrow I_1$ e $I_2 \longrightarrow I_2$.
-\begin{enumerate}[label=(\alph*)]
-\item $n = 1$: Como $I_2 \longrightarrow I_2$, existe $p \in I_2$ tal que $f(p) = p$.
-\item $n = 2$: Como $I_1 \longrightarrow I_2 \longrightarrow I_1$, existe $p \in I_1$ tal que $f(p) \in I_2$ e $f^2(p) = p$. Se $f(p) = p$, então $p \in I_1 \cap I_2 = \{p_2\}$, o que é um absurdo pois $p_2$ possui período principal 3. Desse modo, o período principal de $p$ é $2$.
-\item $n > 3$: Se $I_2 \longrightarrow \cdots \longrightarrow I_2 \longrightarrow I_1 \longrightarrow I_2$ é um ciclo de tamanho $n$, existe $p \in I_2$ tal que $f^k(p) \in I_2$, para todo $k = 1, \dots, n-2$, $f^{n-1}(p) \in I_1$ e $f^n(p) = p$. Se $f^{n-1}(p) = p$, então $p \in I_1 \cap I_2 = \{p_2\}$, o que é um absurdo pois implica que $f(p) = p_3 \in I_1$. Se $f^k(p) = p$ para algum $k = 1, \dots, n-2$ implica que $f^k(p) \in I_2$, para todo $k \geq 1$. Em particular, $f^{n-1}(p) \in I_1 \cap I_2 = \{p_2\}$ e, portanto, $p = f^n(p) = p_3$, o que é um absurdo pois implica que $f(p) = p_1 \in I_2$. 
+Sejam $p_1 < p_2 < p_3$ os pontos da órbita de um elemento de $\per_3(f)$ e suponha que $f(p_1) = p_2$ e $f(p_2) = p_3$.
+Se $f(p_1) = p_3$ e $f(p_3) = p_2$, a demonstração é análoga.
+Definindo $J_0 = [p_1, p_2]$ e $J_1 = [p_2, p_3]$, temos que $J_0 \longrightarrow J_1$, $J_1 \longrightarrow J_0$ e $J_1 \longrightarrow J_1$. Com isso, podemos demonstrar as seguintes afirmações:
+
+\begin{enumerate}[label=\alph*.]
+\item $\per_1(f) \neq \emptyset$.
+
+De fato, $J_1 \longrightarrow J_1$ implica que existe $p \in J_1$ tal que $f(p) = p$.
+
+\item $\per_2(f) \neq \emptyset$.
+
+De fato, $J_0 \longrightarrow J_1 \longrightarrow J_0$ implica que existe $p \in J_0$ tal que $f(p) \in J_1$ e $f^2(p) = p$. Se $f(p) = p$, então $p \in J_0 \cap J_1$, o que é um absurdo, pois $J_0 \cap J_1 = \{ p_2 \}$ e $p_2 \in \per_3(f)$.
+
+\item $\per_n(f) \neq \emptyset$, $n \geq 4$.
+
+Se $J_1 \longrightarrow \cdots \longrightarrow J_1 \longrightarrow J_0 \longrightarrow J_1$ é um ciclo de tamanho $n$, existe $p \in J_1$ tal que $f^k(p) \in J_1$, para todo $k = 1, \dots, n-2$, $f^{n-1}(p) \in J_0$ e $f^n(p) = p$. Se $f^{n-1}(p) = p$, então $p \in J_0 \cap J_1 = \{p_2\}$, o que é um absurdo pois implica que $f(p) = p_3 \in J_0$. Se $f^k(p) = p$ para algum $k = 1, \dots, n-2$ implica que $f^k(p) \in J_1$, para todo $k \geq 1$. Em particular, $f^{n-1}(p) \in J_0 \cap J_1 = \{p_2\}$ e, portanto, $p = f^n(p) = p_3$, o que é um absurdo pois implica que $f(p) = p_1 \in J_1$. 
 \end{enumerate}
-Desse modo, o resultado está provado.
+
+
+
+
+
+
+\begin{enumerate}[label=\alph*.]
+\item $n = 1$: Como $J_1 \longrightarrow J_1$, existe $p \in J_1$ tal que $f(p) = p$.
+\item $n = 2$: Como $J_0 \longrightarrow J_1 \longrightarrow J_0$, existe $p \in J_0$ tal que $f(p) \in J_1$ e $f^2(p) = p$. Se $f(p) = p$, então $p \in J_0 \cap J_1 = \{p_2\}$, o que é um absurdo pois $p_2$ possui período principal 3. Desse modo, o período principal de $p$ é $2$.
+\item $n > 3$: Se $J_1 \longrightarrow \cdots \longrightarrow J_1 \longrightarrow J_0 \longrightarrow J_1$ é um ciclo de tamanho $n$, existe $p \in J_1$ tal que $f^k(p) \in J_1$, para todo $k = 1, \dots, n-2$, $f^{n-1}(p) \in J_0$ e $f^n(p) = p$. Se $f^{n-1}(p) = p$, então $p \in J_0 \cap J_1 = \{p_2\}$, o que é um absurdo pois implica que $f(p) = p_3 \in J_0$. Se $f^k(p) = p$ para algum $k = 1, \dots, n-2$ implica que $f^k(p) \in J_1$, para todo $k \geq 1$. Em particular, $f^{n-1}(p) \in J_0 \cap J_1 = \{p_2\}$ e, portanto, $p = f^n(p) = p_3$, o que é um absurdo pois implica que $f(p) = p_1 \in J_1$. 
+\end{enumerate}
 \end{proof}
 
 \begin{definition}[Ordenação de Sharkovsky]
