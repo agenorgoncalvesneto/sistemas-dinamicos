@@ -34,7 +34,7 @@ Em particular, $p \in J_0$ e $f^k(p) \in J_k$ para todo $1 \leq k < n$.
 \end{proof}
 
 \begin{theorem}
-Se $\per_3(f) \neq \emptyset$, então $\per_k(f) \neq \emptyset$ para todo $k \geq 1$.
+Se $\per_3(f) \neq \emptyset$ e $n \geq 1$, então $\per_n(f) \neq \emptyset$.
 \end{theorem}
 
 \begin{proof}
@@ -42,84 +42,99 @@ Sejam $p_1 < p_2 < p_3$ os pontos da órbita de um elemento de $\per_3(f)$ e sup
 Se $f(p_1) = p_3$ e $f(p_3) = p_2$, a demonstração é análoga.
 Definindo $J_0 = [p_1, p_2]$ e $J_1 = [p_2, p_3]$, temos que $J_0 \longrightarrow J_1$, $J_1 \longrightarrow J_0$ e $J_1 \longrightarrow J_1$. Com isso, podemos demonstrar as seguintes afirmações:
 
-\begin{enumerate}[label=\alph*.]
+\begin{enumerate}[label=\alph*)]
 \item $\per_1(f) \neq \emptyset$.
 
 De fato, $J_1 \longrightarrow J_1$ implica que existe $p \in J_1$ tal que $f(p) = p$.
 
 \item $\per_2(f) \neq \emptyset$.
 
-De fato, $J_0 \longrightarrow J_1 \longrightarrow J_0$ implica que existe $p \in J_0$ tal que $f(p) \in J_1$ e $f^2(p) = p$. Se $f(p) = p$, então $p \in J_0 \cap J_1$, o que é um absurdo, pois $J_0 \cap J_1 = \{ p_2 \}$ e $p_2 \in \per_3(f)$.
+De fato, $J_0 \longrightarrow J_1 \longrightarrow J_0$ implica que existe $p \in J_0$ tal que $f(p) \in J_1$ e $f^2(p) = p$.
+Se $f(p) = p$, então $p \in J_0 \cap J_1$, o que é um absurdo pois $J_0 \cap J_1 = \{ p_2 \}$ e $p_2 \in \per_3(f)$.
 
-\item $\per_n(f) \neq \emptyset$, $n \geq 4$.
+\item $\per_4(f) \neq \emptyset$.
 
-Se $J_1 \longrightarrow \cdots \longrightarrow J_1 \longrightarrow J_0 \longrightarrow J_1$ é um ciclo de tamanho $n$, existe $p \in J_1$ tal que $f^k(p) \in J_1$, para todo $k = 1, \dots, n-2$, $f^{n-1}(p) \in J_0$ e $f^n(p) = p$. Se $f^{n-1}(p) = p$, então $p \in J_0 \cap J_1 = \{p_2\}$, o que é um absurdo pois implica que $f(p) = p_3 \in J_0$. Se $f^k(p) = p$ para algum $k = 1, \dots, n-2$ implica que $f^k(p) \in J_1$, para todo $k \geq 1$. Em particular, $f^{n-1}(p) \in J_0 \cap J_1 = \{p_2\}$ e, portanto, $p = f^n(p) = p_3$, o que é um absurdo pois implica que $f(p) = p_1 \in J_1$. 
+De fato, $J_1 \longrightarrow J_1 \longrightarrow J_1 \longrightarrow J_0 \longrightarrow J_1$ implica que existe $p \in J_1$ tal que $f^k(p) \in J_1$ para todo $1 \leq k < 3$, $f^3(p) \in J_0$ e $f^4(p) = p$.
+Se $f^3(p) = p$, então $p \in J_0 \cap J_1$, o que é um absurdo pois $J_0 \cap J_1 = \{ p_2 \}$ e $f^2(p_2) = p_1 \notin J_1$.
+Se $f^k(p) = p$ para algum $1 \leq k < 3$, então $f^k(p) \in J_1$ para todo $k \geq 1$.
+Em particular, $f^3(p) \in J_0 \cap J_1 = \{ p_2 \}$ e, portanto, $f^4(p) = p = p_3$, o que é um absurdo pois $f(p_3) = p_1 \notin J_1$.
 \end{enumerate}
 
-
-
-
-
-
-\begin{enumerate}[label=\alph*.]
-\item $n = 1$: Como $J_1 \longrightarrow J_1$, existe $p \in J_1$ tal que $f(p) = p$.
-\item $n = 2$: Como $J_0 \longrightarrow J_1 \longrightarrow J_0$, existe $p \in J_0$ tal que $f(p) \in J_1$ e $f^2(p) = p$. Se $f(p) = p$, então $p \in J_0 \cap J_1 = \{p_2\}$, o que é um absurdo pois $p_2$ possui período principal 3. Desse modo, o período principal de $p$ é $2$.
-\item $n > 3$: Se $J_1 \longrightarrow \cdots \longrightarrow J_1 \longrightarrow J_0 \longrightarrow J_1$ é um ciclo de tamanho $n$, existe $p \in J_1$ tal que $f^k(p) \in J_1$, para todo $k = 1, \dots, n-2$, $f^{n-1}(p) \in J_0$ e $f^n(p) = p$. Se $f^{n-1}(p) = p$, então $p \in J_0 \cap J_1 = \{p_2\}$, o que é um absurdo pois implica que $f(p) = p_3 \in J_0$. Se $f^k(p) = p$ para algum $k = 1, \dots, n-2$ implica que $f^k(p) \in J_1$, para todo $k \geq 1$. Em particular, $f^{n-1}(p) \in J_0 \cap J_1 = \{p_2\}$ e, portanto, $p = f^n(p) = p_3$, o que é um absurdo pois implica que $f(p) = p_1 \in J_1$. 
-\end{enumerate}
+Por fim, podemos demonstrar de maneira análoga à última afirmação que $\per_n(f) \neq \emptyset$ para todo $n \geq 4$.
 \end{proof}
 
 \begin{definition}[Ordenação de Sharkovsky]
-$$3 \,\triangleright\, 5 
-\,\triangleright\, \cdots \,\triangleright\,
-2 \cdot 3 \,\triangleright\, 2 \cdot 5 
-\,\triangleright\, \cdots \,\triangleright\,
-2^2 \cdot 3 \,\triangleright\, 2^2 \cdot 5
-\,\triangleright\, \cdots \,\triangleright\,
-2^k \cdot 3 \,\triangleright\, 2^k \cdot 5
-\,\triangleright\, \cdots \,\triangleright\,
-2^2 \,\triangleright\, 2 \,\triangleright\, 1.$$
+$$3 \, \triangleright \, 5 
+\, \triangleright \, \cdots \, \triangleright \,
+2 \cdot 3 \, \triangleright \, 2 \cdot 5 
+\, \triangleright \, \cdots \, \triangleright \,
+2^2 \cdot 3 \, \triangleright \, 2^2 \cdot 5
+\, \triangleright \, \cdots \, \triangleright \,
+2^k \cdot 3 \, \triangleright \, 2^k \cdot 5
+\, \triangleright \, \cdots \, \triangleright \,
+2^2 \, \triangleright \, 2 \, \triangleright \, 1.$$
 \end{definition}
 
 \begin{theorem}[Sharkovsky]
-Se $f$ admite ponto de período principal $n$, então $f$ admite ponto de período principal $m$, para todo $m \triangleleft n$.
+Se $\per_n(f) \neq \emptyset$ e $n \triangleright m$, então $\per_m(f) \neq \emptyset$.
 \end{theorem}
 
 \begin{theorem}
-Para todo $n \geq 1$ existe uma função $f$ que admite ponto periódico de período principal $n$ e que não admite ponto de período principal $m$ se $m \,\triangleright\, n$.
+Se $n \geq 1$, então existe uma função $f$ com as seguintes propriedades:
+\begin{enumerate}
+\item $\per_n{f} \neq \emptyset$.
+\item $\per_m{f} =  \emptyset$ para todo $m \triangleright n$.
+\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-Seja $T: [0,1] \to [0,1]$ a função dada por $T(x) = 1 - |2x - 1|$ e considere a família de funções $T_h(x) = \textrm{min}\{h, T(x)\}$ definidas em $[0,1]$, com o parâmetro $h$ variando em $[0,1]$. Observe que $T_1 = T$, pois $T(x) \leq 1$ para todo $x \in [0,1]$. Além disso, observando o gráfico de $T_1$ concluímos que a função possui $2^k$ pontos periódicos de período $k$ e assim podemos definir, para cada $k \geq 1$, $$h(k) = \textrm{min} \{ \textrm{max} \{ \mathcal{O} : \mathcal{O} \textrm{ é uma órbita de tamanho } n \textrm{ de } T_1\} \}$$
+Seja $T: [0,1] \to [0,1]$ a função dada por 
+\[ T(x) =
+  \begin{cases}
+    2x & \text{ se } 0 \leq x \leq \frac{1}{2} \\
+    2 - 2x & \text{ se } \frac{1}{2} < x \leq 1 \\
+  \end{cases}
+\]
+e considere a família de funções $T_h(x) = \min \lbrace h, T(x) \rbrace$ definidas em $[0,1]$, onde o parâmetro $h$ varia em $[0,1]$.
 
-A ideia principal da prova consiste no fato de que $h(k)$ desempenha os papéis de parâmetro, máximo e ponto de uma órbita de $T_{h(k)}$. As seguintes afirmações tornarão preciso esse fato.
+Inicialmente, observe que $T(x) \leq 1$ para todo $x \in [0,1]$ implica que que $T_1 = T$.
+Além disso, é possível provar por indução que $T_1$ possui $2^k$ pontos periódicos de período $k$ para todo $k \geq 1$.
+Desse modo, podemos definir
+$$h(k) = \min \lbrace \max \lbrace \orbit : \orbit \text{ é uma órbita de tamanho } k \text{ de } T_1 \rbrace \rbrace$$
+para todo $k \geq 1$.
+A ideia principal da prova consiste no fato de que $h(k)$ desempenha os papéis de parâmetro, máximo e ponto de uma órbita de $T_{h(k)}$. As seguintes afirmações tornarão preciso esse fato:
 
-\begin{enumerate}[label = (\alph*)]
-\item Se $\mathcal{O} \subset [0, h)$ é uma órbita de $T_h$, então $\mathcal{O}$ é uma órbita de $T_1$.
+\begin{enumerate}[label=\alph*)]
+\item Se $\orbit \subset [0, h)$ é uma órbita de $T_h$, então $\orbit$ é uma órbita de $T_1$.
 
-Se $p \in \mathcal{O}$ então $T_h(p) \in [0, h)$. Desse modo, $T_h(p) = \textrm{min}\{h, T(p)\} = T(p) = T_1(p)$, ou seja, $T_h$ e $T_1$ coincidem em $\mathcal{O}$ e, portanto, $\mathcal{O}$ é uma órbita de $T_1$.
+Se $p \in \orbit$, então $T_h(p) \in [0, h)$.
+Desse modo, $T_h(p) = \min \{h, T(p)\} = T(p) = T_1(p)$.
+Assim, $T_h$ e $T_1$ coincidem em $\orbit$ e, portanto, $\orbit$ é uma órbita de $T_1$.
 
-\item Se $\mathcal{O} \subset [0, h]$ é uma órbita de $T_1$, então $\mathcal{O}$ é uma órbita de $T_h$.
+\item Se $\orbit \subset [0, h]$ é uma órbita de $T_1$, então $\orbit$ é uma órbita de $T_h$.
 
-Se $p \in \mathcal{O}$ então $T_1(p) \in [0, h]$. Desse modo, $T_h(p) = \textrm{min}\{h, T(p)\} = \textrm{min}\{h, T_1(p)\} = T_1(p)$, ou seja, $T_h$ e $T_1$ coincidem em $\mathcal{O}$ e, portanto, $\mathcal{O}$ é uma órbita de $T_h$.
+Se $p \in \orbit$, então $T_1(p) \in [0, h]$. Desse modo, $T_h(p) = \min \{h, T_1(p)\} = T_1(p)$.
+Assim, $T_h$ e $T_1$ coincidem em $\orbit$ e, portanto, $\orbit$ é uma órbita de $T_h$.
 
-\item $T_{h(k)}$ possui uma órbita $\mathcal{O} \in [0, h(k))$ de tamanho $l$ se e somente se $h(k) > h(l)$.
+\item $T_{h(k)}$ possui uma órbita $\orbit \subset [0, h(k))$ de tamanho $j$ se, e somente, se $h(k) > h(j)$.
 
-Se $T_{h(k)}$ possui uma órbita $\mathcal{O} \in [0, h(k))$ de tamanho $l$, então $\mathcal{O}$ é uma órbita de $T_1$ por (a) e, pela definição de $h(l)$, concluímos que $h(l) < h(k)$.
+Se $T_{h(k)}$ possui uma órbita $\orbit \subset [0, h(k))$ de tamanho $j$, então $\orbit$ é uma órbita de $T_1$ e, pela definição de $h(j)$, concluímos que $h(k) > h(j)$.
+Por outro lado, se $h(k) > h(j)$, então $T_1$ possui uma órbita $\orbit \subset [0, h(j)] \subset [0, h(k)]$ de tamanho $j$ e, desse modo, $\orbit$ é uma órbita de $T_{h(k)}$.
 
-Por outro lado, se $h(l) < h(k)$, então $T_1$ possui uma órbita $\mathcal{O} \subset [0, h(l)] \subset [0, h(k)]$ de tamanho $l$ e, desse modo, $\mathcal{O}$ é uma órbita de $T_{h(k)}$ por (b).
+\item A órbita de $T_1$ que contém $h(k)$ é uma órbita de tamanho $k$ de $T_{h(k)}$.
+Além disso, todas as outras órbitas de $T_{h(k)}$ estão em $[0, h(k))$. 
 
-\item A órbita de $T_1$ que contém $h(k)$ é uma órbita de tamanho $k$ de $T_{h(k)}$. Além disso, todas as outras órbitas de $T_{h(k)}$ estão em $[0, h(k))$. 
+Pela definição de $h(k)$, $T_1$ possui uma órbita $\orbit \subset [0, h(k)]$ de tamanho $k$ e, portanto, $\orbit$ é uma órbita de $T_{h(k)}$.
 
-Pela definição de $h(k)$, $T_1$ possui uma órbita $\mathcal{O} \subset [0, h(k)]$ de tamanho $k$ e, portanto, $\mathcal{O}$ é uma órbita de $T_{h(k)}$ por (b).
+Na segunda parte, basta observar que $h(k)$ é o valor máximo de $T_{h(k)}$ e, desse modo, toda órbita de $T_{h(k)}$ está contida em $[0, h(k)]$.
+Em particular, se a órbita não contém $h(k)$, então ela está contida em $[0, h(k))$.
 
-Para demonstrar a segunda parte, basta observar que $h(k)$ é o valor máximo de $T_{h(k)}$ e, desse modo, toda órbita de $T_{h(k)}$ está contida em $[0, h(k)]$. Em particular, se a órbita não contém $h(k)$, então ela está contida em $[0, h(k))$.
+\item $k \, \triangleright \, j$ se, e somente se, $h(k) > h(j)$.
 
-\item $k \,\triangleright\, l$ se o somente se $h(k) > h(l)$.
+Suponha que $k \, \triangleright \, j$. Sabemos que $T_{h(k)}$ possui uma órbita de tamanho $k$ e, pelo Teorema de Sharkovsky, $T_{h(k)}$ admite uma órbita de tamanho $j$. Em particular, essa órbita está contida em $[0, h(k))$ e, portanto, $h(k) > h(j)$.
 
-Suponha que $k \,\triangleright\, l$. Por (d), $T_{h(k)}$ possui uma órbita de tamanho $k$. De acordo com o Teorema de Sharkovsky e com (d), $T_{h(k)}$ admite uma órbita de tamanho $l$ contida em $[0, h(k))$. Desse modo,  $h(k) > h(l)$ por (c).
-
-Por outro lado, suponha que $h(k) > h(l)$. Caso $l \,\triangleright\, k$, a demonstração no parágrafo anterior implicaria que $h(k) < h(l)$, contrariando a hipótese. Desse modo, $k \,\triangleright\, l$.
+Suponha que $h(k) > h(j)$. Se $j \, \triangleright \, k$, então $h(k) < h(j)$ pela demonstração no parágrafo anterior e, portanto, $k \, \triangleright \, j$.
 \end{enumerate}
 
-Assim, para cada $n \geq 1$, $T_{h(n)}$ possui órbita de tamanho $n$. Além disso, se $m \,\triangleright\, n$ então $h(m) > h(n)$ por (e) e, portanto, $T_{h(n)}$ não possui órbita de tamanho $m$ por (c).
+Desse modo, $T_{h(n)}$ possui órbita de tamanho $n$ para cada $n \geq 1$. Além disso, se $m \, \triangleright \, n$ então $h(m) > h(n)$ e, portanto, $T_{h(n)}$ não possui órbita de tamanho $m$.
 \end{proof}
