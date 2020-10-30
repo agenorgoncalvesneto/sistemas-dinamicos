@@ -35,7 +35,10 @@ Se $\schwarz f < 0$ e $a<b<c$ são pontos fixos de $f$ com $\partial f(b) \leq 1
 \end{lemma}
 
 \begin{proof}
-Pelo TVM, existem $r \in (a,b)$ e $s \in (b,c)$  tais que $\partial f(r) = \partial f(s) = 1$. Sendo $\partial f$ contínua, $\partial f$ restrita ao intervalo $[r,s]$ possui mínimo global. Como $b \in (r,s)$ e $\partial f(b) \leq 1$, temos que $\partial f$ possui mínimo local em $(r,s)$. Utilizando Lema anterior e o TVI, a demonstração está concluída.
+Pelo TVM, existem $r \in (a,b)$ e $s \in (b,c)$  tais que $\partial f(r) = \partial f(s) = 1$.
+Sendo $\partial f$ contínua, $\partial f$ restrita ao intervalo $[r,s]$ possui mínimo global.
+Como $b \in (r,s)$ e $\partial f(b) \leq 1$, temos que $\partial f$ possui mínimo local em $(r,s)$.
+Utilizando Lema anterior e o TVI, a demonstração está concluída.
 \end{proof}
 
 \begin{lemma}
@@ -44,7 +47,11 @@ Se $\schwarz f < 0$ e $a<b<c<d$ são pontos fixos de $f$, então $f$ possui pont
 \end{lemma}
 
 \begin{proof}
-Se $\partial f(b) \leq 1$ ou $\partial f(c) \leq 1$, o resultado é verdadeiro pelo Lema anterior. Se $\partial f(b) > 1$ e $\partial f(c) > 1$, existem $r, t \in (b,c)$ tais que $r<t$, $f(r) > r$ e $f(t) < t$. Pelo TVM, existe $s \in (r,t)$ tal que $\partial f(s) < 1$. Portanto, $\partial f$ possui mínimo local em $(b,c)$. Utilizando Lema \ref{lemma1} e o TVI, a demonstração está concluída.
+Se $\partial f(b) \leq 1$ ou $\partial f(c) \leq 1$, o resultado é verdadeiro pelo Lema anterior.
+Se $\partial f(b) > 1$ e $\partial f(c) > 1$, existem $r, t \in (b,c)$ tais que $r<t$, $f(r) > r$ e $f(t) < t$.
+Pelo TVM, existe $s \in (r,t)$ tal que $\partial f(s) < 1$.
+Portanto, $\partial f$ possui mínimo local em $(b,c)$.
+Utilizando Lema \ref{lemma1} e o TVI, a demonstração está concluída.
 \end{proof}
 
 \begin{lemma}
@@ -54,7 +61,7 @@ Se $f$ possui finitos pontos críticos, então $f^n$ possui finitos pontos crít
 Pelo TVM, se $c \in \RR$, então $f$ possui ponto crítico entre dois elementos de $f^{-1}(c)$ e, portanto, $f^{-1}(c)$ é finito.
 De modo mais geral, é possível provar por indução que $f^{-n}(c)$ é finito para todo $n \geq 1$.
 
-Se $n \geq 1$, então $(f^n)'(x) = \prod_{k=0}^{n-1} \partial f(f^k(x)) = 0$ se, e somente se, $f^k(x)$ é ponto crítico de $f$ para algum $1 \leq k < n$.
+Se $n \geq 1$, então $\partial f^n(x) = \prod_{k=0}^{n-1} \partial f(f^k(x)) = 0$ se, e somente se, $f^k(x)$ é ponto crítico de $f$ para algum $1 \leq k < n$.
 Portanto, o conjunto de pontos críticos de $f^n$ é finito.
 \end{proof}
 
@@ -72,21 +79,25 @@ Se $\schwarz f < 0$ e $f$ possui $n$ pontos críticos, então $f$ possui no máx
 
 \begin{proof}
 Seja $p$ um ponto periódico não repulsor de $f$ de período $m$.
-Se $g = f^m$, então $g(p) = p$ e $|g'(p)| \leq 1$. Seja $K$ a componente conexa de $\basin(p) = \lbrace x : \lim_{k \to \infty} g^k(x) = p \rbrace$ que contém $p$.
+Se $g = f^m$, então $g(p) = p$ e $|\partial g(p)| \leq 1$.
+Seja $K$ a componente conexa de $\basin(p) = \lbrace x : \lim_{k \to \infty} g^k(x) = p \rbrace$ que contém $p$.
+Inicialmente, suponha que $K$ é limitado.
 
-Suponha que $K$ é limitado e $|g'(p)| < 1$.
-Desse modo, é possível mostrar que $K$ é aberto, $g(K) \subset K$ e $g$ preserva os pontos extremos de $K$.
+Se $|\partial g(p)| < 1$, então é possível mostrar que $K$ é aberto, $g(K) \subset K$ e $g$ preserva os pontos extremos de $K$.
 
-Seja $K = (a, b)$.
-Se $g(a) = a$ e $g(b) = b$, então $g$ possui ponto crítico em $K$ pelo Lema \ref{lemma2}.
-Se $g(a) = b$ e $g(b) = a$, então $g^2$ possui ponto crítico em $K$ novamente pelo Lema \ref{lemma2} e, portanto, $g$ possui ponto crítico em $K$.
-Se $g(a) = g(b)$, então $g$ possui ponto crítico em $K$ pelo TVM.
+Escrevendo $K = (a, b)$, se $g(a) = a$ e $g(b) = b$, então $g$ possui ponto crítico em $K$ pelo Lema \ref{lemma2}; se $g(a) = b$ e $g(b) = a$, então $g^2$ possui ponto crítico em $K$ pelo Lema \ref{lemma2}; se $g(a) = g(b)$, então $g$ possui ponto crítico em $K$ pelo TVM.
 
-Suponha que $K$ é limitado e $|g'(p)| = 1$. Desse modo, os pontos fixos de $g$ são isolados pelo Lema anterior e, portanto, existe uma vizinhança de $p$ que não contém outros pontos fixos de $g$.
+Se $|\partial g(p)| = 1$, então os pontos fixos de $g$ são isolados pelo Lema anterior e, portanto, existe uma vizinhança de $p$ que não contém outros pontos fixos de $g$.
 
-Suponha que $g'(p) = 1$. Se $g'(p) = -1$, a demonstração é análoga considerando $g^2$. Se, para $x$ numa vizinhança de $p$, $g(x) > x$ quando $x > p$ e $g(x) < x$ quando $x < p$, então $g'(x^*) > 0$, para $x^*$ próximo de $p$, é um mínimo local de $g'$ maior que zero, o que contradiz o Lema \ref{lemma1}. Se $g'(p)=-1$, basta considerar $h=g^2$ e obter o mesmo resultado. Portanto, $p$ é atrator em pelo menos um dos lados. Desse modo, $K$ é um intervalo não trivial, $g(K) \subset K$ e $g$ preserva os pontos extremos de $K$. Assim, é possível concluir de maneira análoga que $g$ possui ponto crítico em $K$.
+Suponha que $\partial g(p) = 1$.
+Se $\partial g(p) = -1$, a demonstração é análoga considerando $g^2$.
+Se $p$ possui o comportamento de um ponto repulsor, então, para $x$ numa vizinhança de $p$, $g(x) > x$ quando $x > p$ e $g(x) < x$ quando $x < p$.
+Desse modo, $1$ é um mínimo local de $\partial g$, o que é um absurdo pelo Lema \ref{lemma1} e, portanto, $p$ é atrator em pelo menos um dos lados.
+Desse modo, $K$ é um intervalo não trivial, $g(K) \subset K$ e $g$ preserva os pontos extremos de $K$.
+Assim, é possível concluir de maneira análoga que $g$ possui ponto crítico em $K$.
 
-Pela Regra da Cadeia, se $g$ possui ponto crítico $x_0 \in K$, então $f^i(x_0)$ é ponto crítico de $f$ para algum $i = 0, \dots, m-1$. Desse modo, se $p$ é um ponto periódico não repulsor de $f$ cujo intervalo associado $K$ é limitado, então $K$ possui pelo menos um ponto crítico e, como existem $n$ pontos críticos, existem no máximo $n$ intervalos $K$ limitados. Não é possível obter a mesma conclusão se $K$ não é limitado, mas observando que existem no máximo dois intervalos desse tipo, a demonstração está concluída.
+Assim, cada intervalo $K$ limitado está associado à algum ponto crítico de $f$ e, portanto, existem no máximo $n$ desses intervalos.
+Não é possível obter a mesma conclusão se $K$ não é limitado, mas observando que existem no máximo dois intervalos desse tipo, a demonstração está concluída.
 \end{proof}
 
 \begin{corollary}
