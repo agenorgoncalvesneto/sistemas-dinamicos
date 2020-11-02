@@ -113,14 +113,11 @@ $$A =
 Seja $S: \Lambda \to \Sigma_A$ a função dada por $S(x) = (x_0 \, x_1 \, x_2 \, \dots)$, onde $x_k = 1$ se $F^k(x) \in I_1$ e $x_k = 2$ se $F^k(x) \in I_2$ para todo $k \geq 0$. Observe que está $S$ bem definida, pois $F(I_1) = I_2$ e $F(I_2) \subset I_1 \cup I_2$ e, portanto, $a_{x_k x_{k+1}} = 1$ para todo $k \geq 0$. 
 
 \begin{proposition}
-$S$ é um homeomorfismo.
+$F|_\Lambda$ e $\sigma_A$ são topologicamente conjugadas por $S$.
 \end{proposition}
 
-
 \begin{proof}
-
-\begin{enumerate}[label=\alph*)]
-\item[]
+\begin{enumerate}[label=\alph*)]\item[]
 \item $S$ é injetora.
 
 Sejam $x, y \in \Lambda$, $x < y$, e suponha que $S(x) = S(y)$. Desse modo, $F^n(x)$ e $F^n(y)$ está no mesmo lado em relação ao ponto crítico para todo $n \geq 0$ e, portanto, $F$ é monótona em cada intervalo $J_n$ cujos extremos são $F^n(x)$ e $F^n(y)$. Desse modo, se $z \in [x, y]$, então $F^n(z) \in J_n \subset I_1 \cup I_2$ para todo $n \geq 0$ e, portanto, $z \in \Lambda$, o que é um absurdo pois $\Lambda$ não contém intervalos.
@@ -136,30 +133,11 @@ Desse modo, $(I_{x_0 \, \dots \, x_n})_{n=0}^\infty$ é uma sequência de interv
 
 \item $S$ é contínua.
 
-Sejam $x \in \Lambda$ e $\varepsilon > 0$.
+Sejam $x \in \Lambda$, $\varepsilon > 0$ e $k \geq 0$ tal que $\frac{1}{N^k} < \varepsilon$. Se $S(x) = (x_0 \, x_1 \, x_2 \, \dots)$, então $x \in I_{x_0 \, \dots \, x_k}$. Sendo $I_{x_0 \, \dots \, x_k}$ um intervalo fechado, existe $\delta > 0$ tal que se $y \in \Lambda$ e $|x-y| < \delta$, então $y \in I_{x_0 \, \dots \, x_k}$. Desse modo, $S(x)$ e $S(y)$ são iguais nas primeiras $k+1$ entradas e, portanto, $d_N(S(x), S(y)) \leq \frac{1}{N^k} < \varepsilon$.
 
-Seja $x \in \Lambda$, com $S(x) = (x_n)_{n=0}^\infty$. Sejam também $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{N^k} < \varepsilon$.
+\item $S \circ F|_\Lambda = \sigma_A \circ S$.
 
-Como $I_{x_0 \, \dots \, x_k}$ um intervalo fechado e $x \in I_{x_0 \, \dots \, x_k}$, tome $\delta > 0$ tal que $y \in \Lambda$ e $|x-y| < \delta$ implica que $y \in I_{x_0 \, \dots \, x_k}$. Desse modo, $S(x)$ e $S(y)$ são iguais nas primeiras $k+1$ entradas e, portanto, $d_N(S(x), S(y)) \leq \frac{1}{N^k} < \varepsilon$.
-
+Se $x \in \Lambda$ e $S(x) = (x_0 \, x_1 \, x_2 \, \dots)$, então $\cap_{n=0}^\infty I_{x_0 \, \dots \, x_n} = \lbrace x \rbrace$. Desse modo, é imediato que
+$$ S \circ F|_{\Lambda}(x) = S(F(\cap_{n=0}^\infty I_{x_0 \, \dots \, x_n})) = S(\cap_{n=1}^\infty I_{x_1 \, \dots \, x_n}) = (x_1 \, x_2 \, x_3 \, \dots)  = \sigma_A \circ S(x).$$
 \end{enumerate}
-\end{proof}
-
-
-\begin{theorem}
-$S \circ F|_\Lambda = \sigma_A \circ S$.
-\end{theorem}
-
-
-\begin{proof}
-Seja $x \in \Lambda$. Utilizando a notação da Proposição anterior, se $S(x) = (x_n)_{n=0}^\infty$, então $x$ é o único elemento de $\cap_{n=0}^\infty I_{x_0 \, \dots \, x_n}$.
-
-Podemos escrever $I_{x_0 \, \dots \, x_n} = I_{x_0} \cap F^{-1}(I_{x_1}) \cap \cdots \cap F^{-n}(I_{x_n})$. Se $x_0 = 1$, então $x_1 = 2$ e, portanto, $F(I_{x_0}) = I_{x_1}$. Se $x_0 = 2$, então $F(I_{x_0}) = I_1 \cup A_2 \cup I_2$. Em ambos os casos, $F(I_{x_0}) \supset I_{x_1}$ e, desse modo,
-$$F(I_{x_0 \, \dots \, x_n}) = I_{x_1} \cap \cdots \cap F^{-n+1}(I_{x_n}).$$
-Portanto,
-\begin{align*}
-S \circ F|_{\Lambda}(x) & = S(F(\cap_{n=0}^\infty I_{x_0 \, \dots \, x_n})) \\
-& = S(\cap_{n=1}^\infty I_{x_1 \, \dots \, x_n}) \\
-& = (x_n)_{n=1}^\infty  = \sigma \circ S(x)
-\end{align*}
 \end{proof}
