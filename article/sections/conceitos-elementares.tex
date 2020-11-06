@@ -4,20 +4,15 @@ Seja $f: X \to X$ uma função, onde $X$ é um espaço métrico.
 Dado $x \in X$ e denotando por $f^n$ a $n$-ésima composição de $f$ com ela mesma, queremos estudar as propriedades da sequência $(x, \, f(x), \, f^2(x), \, \dots)$.
 
 \begin{definition}
-\begin{enumerate}[label = \alph*.]
-\item[]
-
-\item Se $x \in X$, então $\orbit(x) = \{ x, \, f(x), \, f^2(x), \, \dots \}$ é a órbita de $x$.
-
+\begin{enumerate}[label=\alph*.]\item[]
+\item Se $x \in X$, então $\orbit(x) = \lbrace x, \, f(x), \, f^2(x), \, \dots \rbrace$ é a órbita de $x$.
 \item Se $p \in X$ e $f^n(p) = p$ para algum $n > 0$, então $p$ é um ponto periódico de período $n$. Em particular, se $n = 1$, então $p$ é um ponto fixo. Denotaremos por $\per(f)$ o conjunto de todos os pontos periódicos.
-
 \item Se $p$ é um ponto periódico de período $n$ e $f^k(p) \neq p$ para todo $0 < k < n$, então $n$ é o período principal de $p$. Denotaremos por $\per_n(f)$ o conjunto de todos os pontos periódicos de período principal $n$.
-
-\item Se $p$ um ponto periódico de período $n$, então $\basin(p) = \{ x \in  X: \lim_{k \to \infty} f^{kn}(x) = p \}$ é a bacia de atração de $p$. Além disso, $\basin(\infty) = \{ x \in  X: \lim_{k \to \infty} |f^k(x)| = \infty \}$ é a bacia de atração do $\infty$.
+\item Se $p$ um ponto periódico de período $n$, então $\basin(p) = \lbrace x \in  X: \lim_{k \to \infty} f^{kn}(x) = p \rbrace$ é a bacia de atração de $p$. Além disso, $\basin(\infty) = \lbrace x \in  X: \lim_{k \to \infty} |f^k(x)| = \infty \rbrace$ é a bacia de atração do $\infty$.
 \end{enumerate}
 \end{definition}
 
-\begin{proposition} \label{prop 1-1}
+\begin{proposition}
 Seja $f: [a, b] \to \RR$ uma função contínua. Se $f([a, b]) \subset [a, b]$ ou $f([a, b]) \supset [a, b]$, então $f$ possui ponto fixo.
 \end{proposition}
 
@@ -29,25 +24,24 @@ Suponha que $f([a, b]) \supset [a, b]$ e sejam $c, d \in [a, b]$ tais que $f(c) 
 
 \begin{definition}
 Sejam $f: [a, b] \to [a, b]$ uma função de classe $\class^1$ e $p \in \per_n(f)$.
-\begin{enumerate}[label = \alph*.]
-\item Se $|\partial f^n(p)| \neq 1$, então $p$ é um ponto hiperbólico.
-\item Se $|\partial f^n(p)| < 1$, então $p$ é um ponto atrator.
-\item Se $|\partial f^n(p)| > 1$, então $p$ é um ponto repulsor.
+\begin{enumerate}[label=\alph*.]
+\item Se $|D f^n(p)| \neq 1$, então $p$ é um ponto hiperbólico.
+\item Se $|D f^n(p)| < 1$, então $p$ é um ponto atrator.
+\item Se $|D f^n(p)| > 1$, então $p$ é um ponto repulsor.
 \end{enumerate}
 \end{definition}
 
 \begin{theorem}
 Sejam $f: [a, b] \to [a, b]$ uma função de classe $\class^1$ e $p \in \per_n(f)$.
 \begin{enumerate}
-\item Se $p$ é um ponto atrator, então existe uma vizinhança de $p$ contida em $\bb(p)$.
+\item Se $p$ é um ponto atrator, então existe uma vizinhança de $p$ contida em $\basin(p)$.
 \item Se $p$ é um ponto repulsor, então existe uma vizinhança $V$ de $p$ com a seguinte propriedade: se $x \in V$ e $x \neq p$, então  $f^{kn}(x) \notin V$ para algum $k \geq 1$. 
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-\begin{enumerate}
-\item[]
-\item Sendo $\partial f$ contínua, existe $\varepsilon > 0$ tal que $|\partial f^n(x)| \leq \lambda < 1$ para todo $x \in (p - \varepsilon,\, p + \varepsilon)$. Pelo TVM, se $x \in (p - \varepsilon,\, p + \varepsilon)$, então $|f^n(x) - p| \leq \lambda|x - p|$. Por indução, $|f^{kn}(x) - p| \leq \lambda^k|x - p|$ para todo $k \geq 1$. Desse modo, $\lim_{k \to \infty} f^{kn}(x) = p$.
+\begin{enumerate}\item[]
+\item Sendo $D f^n$ contínua, existe $\varepsilon > 0$ tal que $|D f^n(x)| \leq \lambda < 1$ para todo $x \in (p - \varepsilon,\, p + \varepsilon)$. Pelo TVM, se $x \in (p - \varepsilon,\, p + \varepsilon)$, então $|f^n(x) - p| \leq \lambda|x - p|$. Por indução, $|f^{kn}(x) - p| \leq \lambda^k|x - p|$ para todo $k \geq 1$. Desse modo, $\lim_{k \to \infty} f^{kn}(x) = p$.
 \item Demonstração análoga.
 \end{enumerate}
 \end{proof}

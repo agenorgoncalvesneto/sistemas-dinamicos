@@ -9,11 +9,9 @@ Sejam $f: X \to X$, $g: Y \to Y$ e $\tau: X \to Y$ funções. Dizemos que $f$ e 
 \end{definition}
 
 \begin{proposition}
-\label{proposicao conjugacaotopologica 1}
 Sejam $f: X \to X$, $g: Y \to Y$ e $\tau: X \to Y$ funções. Se $f$ e $g$ são topologicamente conjugadas por $\tau$, então
 \begin{enumerate}
 \item $\per(f)$ é denso em $X$ se, e somente se, $\per(g)$ é denso em $Y$.
-
 \item $f$ é topologicamente transitiva se, e somente se, $g$ é topologicamente transitiva.
 \end{enumerate}
 \end{proposition}
@@ -21,7 +19,6 @@ Sejam $f: X \to X$, $g: Y \to Y$ e $\tau: X \to Y$ funções. Se $f$ e $g$ são 
 \begin{proof}
 \begin{enumerate}\item[]
 \item Se $\per(f)$ denso em $X$, então $\tau(\per(f))$ é denso em $Y$ pois $\tau$ é contínua. Observando que $\tau(\per(f)) = \per(g)$, concluímos que $\per(g)$ é denso em $Y$. A outra implicação é demonstrada de maneira análoga.
-
 \item Sendo $\tau$ contínua, dados $\varepsilon > 0$ e $k \geq 1$, existe $\delta > 0$ tal que se $z \in X$, $|x - z| < \delta$ e $|y - f^k(z)| < \delta$, então $|\tau(x) - \tau(z)| < \varepsilon$ e $|\tau(y) - \tau(k^n(z))| < \varepsilon$.
 
 Se $x', y' \in Y$, existem $x, y \in X$ tais que $\tau(x) = x'$ e $\tau(y) =  y'$. Sendo $f$ topologicamente transitiva, existem $z \in X$ e $k \geq 1$ tais que $|x - z| < \delta$ e $|y - f^k(z)| < \delta$. Desse modo, $|\tau(x) - \tau(z)| < \varepsilon$ e $|\tau(y) - \tau(f^k(z))| < \varepsilon$. Se $\tau(z) = z'$, então $|x' - z'| < \varepsilon$ e $|y' - g^k(z')| < \varepsilon$. A outra implicação é demonstrada de maneira análoga.
@@ -29,12 +26,11 @@ Se $x', y' \in Y$, existem $x, y \in X$ tais que $\tau(x) = x'$ e $\tau(y) =  y'
 \end{proof}
 
 \begin{lemma}
-\label{lema conjugacaotopologica 1}
 A função $T: [0,1] \to [0,1]$ dada por
 \[ T(x) =
   \begin{cases}
-    2x, & x \in [0, \frac{1}{2}] \\
-    2 - 2x, & x \in [\frac{1}{2}, 1] \\
+    2x, & x \in \left[ 0, \frac{1}{2} \right] \\
+    2 - 2x, & x \in \left[ \frac{1}{2}, 1 \right] \\
   \end{cases}
 \]
 é caótica.
@@ -42,28 +38,28 @@ A função $T: [0,1] \to [0,1]$ dada por
 
 \begin{proof}
 Inicialmente, é possível provar por indução que $T^n: [\frac{k}{2^n}, \frac{k+1}{2^n}] \to [0,1]$ é uma função bijetora afim para todo $0 \leq k  < 2^n$ e para todo $n \geq 1$.
-Desse modo, dados $x \in [0, 1]$ e $\varepsilon > 0$, seja $n \geq 1$ tal que $\frac{1}{2^n} < \varepsilon$, $x \in J$ e $T^n: J \to [0,1]$ é bijetora, onde $J = \left[\frac{k}{2^n}, \frac{k+1}{2^n}\right]$.
+Desse modo, dados $x \in [0, 1]$ e $\varepsilon > 0$, seja $n \geq 1$ tal que $\frac{1}{2^n} < \varepsilon$, $x \in I$ e $T^n: I \to [0,1]$ é bijetora, onde $I = \left[\frac{k}{2^n}, \frac{k+1}{2^n}\right]$.
 
 \begin{enumerate}[label=\alph*)]
 \item $\per(T)$ é denso em $[0, 1]$.
 
-Como $T(J) \supset J$, existe $p \in J$ tal que $T^n(p) = p$. Observando que $|x-p| \leq \frac{1}{2^n} < \varepsilon$, concluímos que $\per(T)$ é denso em $[0, 1]$.
+Como $T(I) \supset I$, existe $p \in I$ tal que $T^n(p) = p$. Observando que $|x-p| \leq \frac{1}{2^n} < \varepsilon$, concluímos que $\per(T)$ é denso em $[0, 1]$.
 
 \item $T$ é topologicamente transitiva.
 
-Sendo $T^n: J \to [0,1]$ bijetora, se $y \in [0, 1]$, então existe $z \in J$ tal que $T^n(z) = y$.
+Sendo $T^n: I \to [0,1]$ bijetora, se $y \in [0, 1]$, então existe $z \in I$ tal que $T^n(z) = y$.
 Observando que $|x - z| \leq \frac{1}{2^n}$ e $|y - T^n(z)| = 0$, concluímos que $T$ é topologicamente transitiva.
 
 \item $T$ depende sensivelmente das condições iniciais.
 
-Sendo $T^n: J \to [0,1]$ bijetora, existem $a, b \in J$ tais que $T^n(a) = 0$ e $T^n(b) = 1$. Se $T^n(x) \in [0, \frac{1}{2}]$, então $|T^n(x) - T^n(b)| = |T^n(x) - 1| \geq \frac{1}{2}$ e se $T^n(x) \in [\frac{1}{2}, 1]$, então $|T^n(x) - T^n(a)| = |T^n(x)| \geq \frac{1}{2}$. Observando que $|x - a| \leq \frac{1}{2^n}$ e $|x - b| \leq \frac{1}{2^n}$, concluímos que $T$ depende sensivelmente das condições iniciais.
+Sendo $T^n: I \to [0,1]$ bijetora, existem $a, b \in I$ tais que $T^n(a) = 0$ e $T^n(b) = 1$. Se $T^n(x) \in [0, \frac{1}{2}]$, então $|T^n(x) - T^n(b)| = |T^n(x) - 1| \geq \frac{1}{2}$ e se $T^n(x) \in [\frac{1}{2}, 1]$, então $|T^n(x) - T^n(a)| = |T^n(x)| \geq \frac{1}{2}$. Observando que $|x - a| \leq \frac{1}{2^n}$ e $|x - b| \leq \frac{1}{2^n}$, concluímos que $T$ depende sensivelmente das condições iniciais.
 \end{enumerate}
 \end{proof}
 
 \begin{theorem}
-Se $\mu = 4$, então $F$ é caótica.
+Se $\mu = 4$, então $h$ é caótica.
 \end{theorem}
 
 \begin{proof}
-Basta observar que $F \circ \tau = \tau \circ T$, onde $\tau: [0, 1] \to [0, 1]$ é o homeomorfismo dado por $\tau(x) = \sen^2\left(\frac{\pi x}{2}\right)$.
+Basta observar que $h \circ \tau = \tau \circ T$, onde $\tau: [0, 1] \to [0, 1]$ é o homeomorfismo dado por $\tau(x) = \sen^2\left(\frac{\pi x}{2}\right)$.
 \end{proof}

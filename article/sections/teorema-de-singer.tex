@@ -1,56 +1,56 @@
 \section{Teorema de Singer}
 
 \begin{definition}
-Seja $f: \RR \to \RR$ uma função de classe $\CC^3$.
+Seja $f: \RR \to \RR$ uma função de classe $\class^3$.
 A derivada de Schwarz de $f$ é função $\schwarz f$ dada por
-$$(\schwarz f)(x) = \frac{D^3 f(x)}{D f(x)} - \frac{3}{2} \left( \frac{D^2 f(x)}{D f(x)} \right)^2$$
-para todo $x$ tal que $\partial f(x) \neq 0$.
+$$\schwarz f(x) = \frac{D^3 f(x)}{D f(x)} - \frac{3}{2} \left( \frac{D^2 f(x)}{D f(x)} \right)^2$$
+para todo $x$ tal que $D f(x) \neq 0$.
 \end{definition}
 
 \begin{proposition}
-Se $\schwarz f < 0$, então $\schwarz f^n < 0$ para todo $n \geq 1$.
+Se $\schwarz f < 0$ e $\schwarz g < 0$, então $\schwarz (f \circ g) < 0$.
 \end{proposition}
 
 \begin{proof}
-Pela Regra da Cadeia, podemos concluir que
-$$(\schwarz f^2)(x) = (\schwarz f)(f(x)) [\partial f(x)]^2 + (\schwarz f)(x) < 0$$
-para todo $x$ tal que $\partial f^2(x) \neq 0$.
-Desse modo, $\schwarz f^n < 0$ para todo $n \geq 1$ por indução.
+Pela Regra da Cadeia, é possível mostrar que
+$$\schwarz (f \circ g)(x) = \schwarz f(g(x))(D g(x))^2 + \schwarz g(x)$$
+e, portanto, o resultado é imediato.
 \end{proof}
 
+\begin{corollary}
+Se $\schwarz f < 0$, então $\schwarz f^n < 0$ para todo $n \geq 1$.
+\end{corollary}
+
 \begin{lemma}
-\label{lemma1}
-Se $\schwarz f < 0$ e $x_0$ é um ponto de mínimo local de $\partial f$, então $\partial f(x_0) \leq 0$.
+Se $\schwarz f < 0$ e $x_0$ é um ponto de mínimo local de $D f$, então $D f(x_0) \leq 0$.
 \end{lemma}
 
 \begin{proof}
-Se $\partial f(x_0) \neq 0$, então
-$$(\schwarz f)(x_0) = \frac{\partial^3 f(x_0)}{\partial f(x_0)} - \frac{3}{2} \left( \frac{\partial^2 f(x_0)}{\partial f(x_0)} \right)^2 < 0.$$
-Sendo $x_0$ ponto de mínimo local de $\partial f$, temos que $\partial^2 f(x_0) = 0$ e $\partial^3 f(x_0) \geq 0$ e, portanto, $\partial f(x_0) < 0$. 
+Se $D f(x_0) \neq 0$, então
+$$\schwarz f(x_0) = \frac{D^3 f(x_0)}{D f(x_0)} - \frac{3}{2} \left( \frac{D^2 f(x_0)}{D f(x_0)} \right)^2 < 0.$$
+Sendo $x_0$ ponto de mínimo local de $D f$, temos que $D^2 f(x_0) = 0$ e $D^3 f(x_0) \geq 0$ e, portanto, $D f(x_0) < 0$. 
 \end{proof}
 
 \begin{lemma}
-\label{lemma2}
-Se $\schwarz f < 0$ e $a<b<c$ são pontos fixos de $f$ com $\partial f(b) \leq 1$, então $f$ possui ponto crítico em $(a, c)$.
+Se $\schwarz f < 0$ e $a<b<c$ são pontos fixos de $f$ com $D f(b) \leq 1$, então $f$ possui ponto crítico em $(a, c)$.
 \end{lemma}
 
 \begin{proof}
-Pelo TVM, existem $r \in (a,b)$ e $s \in (b,c)$  tais que $\partial f(r) = \partial f(s) = 1$.
-Sendo $\partial f$ contínua, $\partial f$ restrita ao intervalo $[r,s]$ possui mínimo global.
-Como $b \in (r,s)$ e $\partial f(b) \leq 1$, temos que $\partial f$ possui mínimo local em $(r,s)$.
+Pelo TVM, existem $r \in (a,b)$ e $s \in (b,c)$  tais que $D f(r) = D f(s) = 1$.
+Sendo $D f$ contínua, $D f$ restrita ao intervalo $[r,s]$ possui mínimo global.
+Como $b \in (r,s)$ e $D f(b) \leq 1$, temos que $D f$ possui mínimo local em $(r,s)$.
 Utilizando Lema anterior e o TVI, a demonstração está concluída.
 \end{proof}
 
 \begin{lemma}
-\label{lemma3}
 Se $\schwarz f < 0$ e $a<b<c<d$ são pontos fixos de $f$, então $f$ possui ponto crítico em $(a,d)$.
 \end{lemma}
 
 \begin{proof}
-Se $\partial f(b) \leq 1$ ou $\partial f(c) \leq 1$, o resultado é verdadeiro pelo Lema anterior.
-Se $\partial f(b) > 1$ e $\partial f(c) > 1$, existem $r, t \in (b,c)$ tais que $r<t$, $f(r) > r$ e $f(t) < t$.
-Pelo TVM, existe $s \in (r,t)$ tal que $\partial f(s) < 1$.
-Portanto, $\partial f$ possui mínimo local em $(b,c)$.
+Se $D f(b) \leq 1$ ou $D f(c) \leq 1$, o resultado é verdadeiro pelo Lema anterior.
+Se $D f(b) > 1$ e $D f(c) > 1$, existem $r, t \in (b,c)$ tais que $r<t$, $f(r) > r$ e $f(t) < t$.
+Pelo TVM, existe $s \in (r,t)$ tal que $D f(s) < 1$.
+Portanto, $D f$ possui mínimo local em $(b,c)$.
 Utilizando Lema \ref{lemma1} e o TVI, a demonstração está concluída.
 \end{proof}
 
@@ -61,7 +61,7 @@ Se $f$ possui finitos pontos críticos, então $f^n$ possui finitos pontos crít
 Pelo TVM, se $c \in \RR$, então $f$ possui ponto crítico entre dois elementos de $f^{-1}(c)$ e, portanto, $f^{-1}(c)$ é finito.
 De modo mais geral, é possível provar por indução que $f^{-n}(c)$ é finito para todo $n \geq 1$.
 
-Se $n \geq 1$, então $\partial f^n(x) = \prod_{k=0}^{n-1} \partial f(f^k(x)) = 0$ se, e somente se, $f^k(x)$ é ponto crítico de $f$ para algum $1 \leq k < n$.
+Se $n \geq 1$, então $D f^n(x) = \prod_{k=0}^{n-1} D f(f^k(x)) = 0$ se, e somente se, $f^k(x)$ é ponto crítico de $f$ para algum $1 \leq k < n$.
 Portanto, o conjunto de pontos críticos de $f^n$ é finito.
 \end{proof}
 
@@ -79,20 +79,20 @@ Se $\schwarz f < 0$ e $f$ possui $n$ pontos críticos, então $f$ possui no máx
 
 \begin{proof}
 Seja $p$ um ponto periódico não repulsor de $f$ de período $m$.
-Se $g = f^m$, então $g(p) = p$ e $|\partial g(p)| \leq 1$.
+Se $g = f^m$, então $g(p) = p$ e $|D g(p)| \leq 1$.
 Seja $K$ a componente conexa de $\basin(p) = \lbrace x : \lim_{k \to \infty} g^k(x) = p \rbrace$ que contém $p$.
 Inicialmente, suponha que $K$ é limitado.
 
-Se $|\partial g(p)| < 1$, então é possível mostrar que $K$ é aberto, $g(K) \subset K$ e $g$ preserva os pontos extremos de $K$.
+Se $|D g(p)| < 1$, então é possível mostrar que $K$ é aberto, $g(K) \subset K$ e $g$ preserva os pontos extremos de $K$.
 
 Escrevendo $K = (a, b)$, se $g(a) = a$ e $g(b) = b$, então $g$ possui ponto crítico em $K$ pelo Lema \ref{lemma2}; se $g(a) = b$ e $g(b) = a$, então $g^2$ possui ponto crítico em $K$ pelo Lema \ref{lemma2}; se $g(a) = g(b)$, então $g$ possui ponto crítico em $K$ pelo TVM.
 
-Se $|\partial g(p)| = 1$, então os pontos fixos de $g$ são isolados pelo Lema anterior e, portanto, existe uma vizinhança de $p$ que não contém outros pontos fixos de $g$.
+Se $|D g(p)| = 1$, então os pontos fixos de $g$ são isolados pelo Lema anterior e, portanto, existe uma vizinhança de $p$ que não contém outros pontos fixos de $g$.
 
-Suponha que $\partial g(p) = 1$.
-Se $\partial g(p) = -1$, a demonstração é análoga considerando $g^2$.
+Suponha que $D g(p) = 1$.
+Se $D g(p) = -1$, a demonstração é análoga considerando $g^2$.
 Se $p$ possui o comportamento de um ponto repulsor, então, para $x$ numa vizinhança de $p$, $g(x) > x$ quando $x > p$ e $g(x) < x$ quando $x < p$.
-Desse modo, $1$ é um mínimo local de $\partial g$, o que é um absurdo pelo Lema \ref{lemma1} e, portanto, $p$ é atrator em pelo menos um dos lados.
+Desse modo, $1$ é um mínimo local de $D g$, o que é um absurdo pelo Lema \ref{lemma1} e, portanto, $p$ é atrator em pelo menos um dos lados.
 Desse modo, $K$ é um intervalo, $g(K) \subset K$ e $g$ preserva os pontos extremos de $K$.
 Assim, é possível concluir de maneira análoga que $g$ possui ponto crítico em $K$.
 
@@ -101,5 +101,5 @@ Não é possível obter a mesma conclusão se $K$ não é limitado, mas observan
 \end{proof}
 
 \begin{corollary}
-Se $\mu > 0$, então $F_\mu(x) = \mu x(1-x)$ possui no máximo $1$ órbita periódica não repulsora.
+Se $\mu > 0$, então $h_\mu(x) = \mu x(1-x)$ possui no máximo $1$ órbita periódica não repulsora.
 \end{corollary}
