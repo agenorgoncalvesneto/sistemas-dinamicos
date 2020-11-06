@@ -2,24 +2,27 @@
 
 \begin{proposition}
 \label{proposicao caos 1}
-Se $\mu > 2 + \sqrt{5}$, então o conjunto de pontos periódicos de $F: \Lambda \to \Lambda$ é denso em $\Lambda$.
+Se $\mu > 2 + \sqrt{5}$, então $\per(F|_\Lambda)$ é denso em $\Lambda$.
 \end{proposition}
 
 \begin{proof}
-Sejam $x \in \Lambda$, $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{\lambda^k} < \varepsilon$. De acordo com o Lema \ref{lema conjuntosdecantor 1}, o intervalo fechado $I \subset \Lambda_k$ que contém $x$ possui tamanho menor que $\varepsilon$. Pela Proposição \ref{proposicao conjuntosdecantor 1}, $F^k: I \to [0, 1]$ é bijetora. Como $F^k(I) \supset I$, a Proposição \ref{proposicao diferenciabilidade 1} afirma que existe $y \in I$ tal que $F^k(y) = y$. Observando que $y \in \Lambda$ e $|x - y| < \varepsilon$, o resultado está provado.
+Sejam $x \in \Lambda$, $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{\lambda^k} < \varepsilon$.
+Temos que $F^k: [a, b] \to [0, 1]$ é bijetora, onde $x \in [a, b]$ e $[a, b]$ é um dos intervalos que formam $\Lambda_k$.
+Como $F^k([a, b]) \supset [a, b]$, existe $y \in [a, b]$ tal que $F^k(y) = y$. Observando que $y \in \Lambda$ e $|x - y| < \varepsilon$, concluímos que $\per(F|_\Lambda)$ é denso em $\Lambda$.
 \end{proof}
 
 \begin{definition}
-Seja $f: X \to X$ uma função. Dizemos que $f$ é transitiva topologicamente se dados $x, y \in X$ e $\varepsilon > 0$,  existem $z \in X$ e $k \geq 1$ tais que $|z - x| < \varepsilon$ e $|f^k(z) - y| < \varepsilon$.
+Seja $f: X \to X$ uma função. Dizemos que $f$ é topologicamente transitiva se dados $x, y \in X$ e $\varepsilon > 0$,  existem $z \in X$ e $k \geq 1$ tais que $|x - z| < \varepsilon$ e $|y - f^k(z)| < \varepsilon$.
 \end{definition} 
 
 \begin{proposition}
 \label{proposicao caos 2}
-Se $\mu > 2 + \sqrt{5}$, então $F: \Lambda \to \Lambda$ é transitiva topologicamente.
+Se $\mu > 2 + \sqrt{5}$, então $F|_\Lambda$ é topologicamente transitiva.
 \end{proposition}
 
 \begin{proof}
-Sejam $x, y \in \Lambda$ e $\varepsilon > 0$. Existe $k \geq 1$ tal que $\frac{1}{\lambda^k} < \varepsilon$. De acordo com o Lema \ref{lema conjuntosdecantor 1}, o tamanho de cada intervalo fechado em $\Lambda_k$ é menor que $\frac{1}{\lambda^k}$ e, portanto, menor que $\varepsilon$. Como $x \in \Lambda_ k$, existe um intervalo $[a, b] \subset \Lambda_ k$ que contém $x$. Pela Proposição \ref{proposicao conjuntosdecantor 1}, $F^k: [a, b] \to [0, 1]$ é bijetora e, pelo Teorema do Valor Intermediário, existe $z \in [a, b]$ tal que $F^k(z) = y$. Observando que $z \in \Lambda$, concluímos que $F$ é transitiva topologicamente.
+Sejam $x, y \in \Lambda$, $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{\lambda^k} < \varepsilon$.
+Temos que $F^k: [a, b] \to [0, 1]$ é bijetora, onde $x \in [a, b]$ e $[a, b]$ é um dos intervalos que formam $\Lambda_k$. Pelo TVI, existe $z \in [a, b]$ tal que $F^k(z) = y$. Observando que $z \in \Lambda$, concluímos que $F|_\Lambda$ é topologicamente transitiva.
 \end{proof}
 
 \begin{definition}
@@ -28,26 +31,29 @@ Seja $f: X \to X$ uma função. Dizemos que $f$ depende sensivelmente das condi�
 
 \begin{proposition}
 \label{proposicao caos 3}
-Se $\mu > 2 + \sqrt{5}$, então $F: \Lambda \to \Lambda$ depende sensivelmente das condições iniciais.
+Se $\mu > 2 + \sqrt{5}$, então $F|_\Lambda$ depende sensivelmente das condições iniciais.
 \end{proposition}
 
 \begin{proof}
-Sejam $x \in \Lambda$, $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{\lambda^k} < \varepsilon$. Como na demonstração da Proposição anterior, seja $I$ o intervalo fechado contido em $\Lambda_k$ que contém $x$ e cujo tamanho é menor que $\varepsilon$. Como $F^k: I \to [0, 1]$ é um bijeção, então $F^k(a) = 0$ e  $F^k(b) = 1$, onde $a$ e $b$ são pontos extremos de $I$. Como $F(\frac{1}{2}) > 1$ e $x \in \Lambda$, segue que $F^{k}(x) \in \left[0, \frac{1}{2}\right) \cup \left(\frac{1}{2}, 1\right]$. Se $F^{k}(x) \in \left[0, \frac{1}{2}\right)$, então $|F^k(x) - F^k(b)| = |F^k(x) - 1| > \frac{1}{2}$ e se $F^{k}(x) \in \left(\frac{1}{2}, 1\right]$, então $|F^k(x) - F^k(a)| = |F^k(x)| > \frac{1}{2}$. Observando que $|x - a| < \varepsilon$ e  $|x - b| < \varepsilon$, temos o resultado para $\delta = \frac{1}{2}$. 
+Sejam $x \in \Lambda$, $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{\lambda^k} < \varepsilon$.
+Temos que $F^k: [a, b] \to [0, 1]$ é bijetora, onde $x \in [a, b]$ e $[a, b]$ é um dos intervalos que formam $\Lambda_k$. Suponha que $F^k(a) = 0$ e $F^k(b) = 1$; se $F^k(a) = 1$ e $F^k(b) = 0$, a demonstração é análoga.
+
+Como $F(\frac{1}{2}) > 1$ e $x \in \Lambda$, temos que $F^{k}(x) \in [0, \frac{1}{2}) \cup (\frac{1}{2}, 1]$. Se $F^{k}(x) \in [0, \frac{1}{2})$, então $|F^k(x) - F^k(b)| = |F^k(x) - 1| > \frac{1}{2}$ e se $F^{k}(x) \in (\frac{1}{2}, 1]$, então $|F^k(x) - F^k(a)| = |F^k(x)| > \frac{1}{2}$. Observando que $|x - a| < \varepsilon$ e  $|x - b| < \varepsilon$, concluímos que $F|_\Lambda$ depende sensivelmente das condições iniciais.
 \end{proof}
 
 \begin{definition}
 Seja $f: X \to X$ uma função. Dizemos que $f$ é caótica se as seguintes condições são válidas:
 \begin{enumerate}[label=\roman*.]
-\item O conjunto de pontos periódicos de $f$ é denso em $X$.
-\item $f$ é transitiva topologicamente.
+\item $\per(f)$ é denso em $X$.
+\item $f$ é topologicamente transitiva.
 \item $f$ depende sensivelmente das condições iniciais.
 \end{enumerate}
 \end{definition}
 
 \begin{theorem} \label{teorema caos 1}
-Se $\mu > 2 + \sqrt{5}$, então $F: \Lambda \to \Lambda$ é caótica.
+Se $\mu > 2 + \sqrt{5}$, então $F|_\Lambda$ é caótica.
 \end{theorem}
 
 \begin{theorem} \label{teorema caos 2}
-Sejam $X \subset \RR$ um conjunto infinito e $f: X \to X$ é uma função. Se o conjunto de pontos periódicos de $f$ é denso em $X$ e $f$ é transitiva topologicamente, então $f$ é caótica.
+Seja $f: X \to X$ é uma função, onde $X \subset \RR$ é um conjunto infinito. Se $\per(f)$ é denso em $X$ e $f$ é topologicamente transitiva, então $f$ é caótica.
 \end{theorem}

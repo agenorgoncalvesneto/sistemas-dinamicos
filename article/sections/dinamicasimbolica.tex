@@ -1,58 +1,61 @@
 \subsection{Dinâmica Simbólica}
 
-\begin{definition}
-$\Sigma_2 = \{(s_0\, s_1\, s_2\, \dots) : s_j \in \{ 0, 1 \}\text{ para todo } j \geq 0\}$ é o espaço das sequências de $0$ e $1$.
-\end{definition}
+Dado $N \geq 2$, seja $\Sigma_N$ o conjunto das sequências de números naturais limitados entre $1$ e $N$, isto é, $\Sigma_N = \lbrace (x_0 \, x_1 \, x_2 \, \dots) : 1 \leq x_n \leq N  \text{ para todo } n \geq 0 \rbrace$.
+Seja também $d_N : \Sigma_N \times \Sigma_N \to \RR$ a função dada por
+$$d_N(x, y) = \sum_{k=0}^\infty \frac{|x_k - y_k|}{N^k},$$
+onde $x = (x_0 \, x_1 \, x_2 \, \dots)$ e $y = (y_0 \, y_1 \, y_2 \, \dots)$.
+Observe que $(\Sigma_N, d_N)$ é um espaço métrico.
+Por fim, seja $\sigma: \Sigma_N \to \Sigma_N$ a função é dada por $\sigma(x_0 \, x_1 \, x_2 \, \dots) = (x_1 \, x_2 \, x_3 \, \dots)$.
 
 \begin{proposition}
-A função $d: \Sigma_2 \times \Sigma_2 \to \RR$, dada por
-$$d(s, t) = \sum_{j=0}^{\infty} \frac{|s_j - t_j|}{2^j},$$
-é uma distância em $\Sigma_2$.
-\end{proposition}
-
-\begin{proposition} \label{proposicao dinamicasimbolica 1}
-Sejam $s = (s_0\, s_1\, s_2\, \dots)$ e $t = (t_0\, t_1\, t_2\, \dots)$ elementos de $\Sigma_2$.
+Sejam $x = (x_0 \, x_1 \, x_2 \, \dots)$ e $y = (y_0 \, y_1 \, y_2 \, \dots)$ elementos de $\Sigma_N$.
 \begin{enumerate}
-\item Se $s_j = t_j$ para todo $0 \leq j \leq n$, então $d(s, t) \leq \frac{1}{2^n}$.
-\item Se $d(s, t) < \frac{1}{2^n}$, então $s_j = t_j$ para todo $0 \leq j \leq n$.
+\item Se $x_k = y_k$ para todo $0 \leq k \leq n$, então $d_N(x, y) \leq \frac{1}{N^n}$.
+\item Se $d_N(x, y) < \frac{1}{N^n}$, então $x_k = y_k$ para todo $0 \leq k \leq n$.
 \end{enumerate}
 \end{proposition}
-
-\begin{proof}
-Suponha que $s_k = t_ k$ para todo $0 \leq k \leq n$. Desse modo, $$d(s, t) = \sum_{k=0}^{\infty} \frac{|s_k - t_k|}{2^k} = \sum_{k=n+1}^{\infty} \frac{|s_k - t_k|}{2^k} \leq \sum_{k=n+1}^{\infty} \frac{1}{2^k} = \frac{1}{2^n}$$
-Por outro lado, se $s_i \neq t_i$ para algum $0 \leq i \leq n$, então $$d(s, t) = \sum_{k=0}^{\infty} \frac{|s_k - t_k|}{2^k} \geq \frac{1}{2^i} \geq \frac{1}{2^n}$$ Portanto, se $s_k = t_k$ para todo $0 \leq k \leq n$, concluímos que $d(s, t) < \frac{1}{2^n}$.
-\end{proof}
-
-\begin{definition}
-A função $\sigma: \Sigma_2 \to \Sigma_2$, dada por $\sigma(s_0\, s_1\, s_2\, \dots) = (s_1\, s_2\, s_3\, \dots)$, é chamada de \textit{função shift}.
-\end{definition}
 
 \begin{proposition}
 $\sigma$ é contínua.
 \end{proposition}
 
 \begin{proof}
-Sejam $s = (s_0\, s_1\, s_2\, \dots) \in \Sigma_2$, $\varepsilon > 0$ e $n \geq 1$ tal que $\frac{1}{2^n} < \varepsilon$. Se $t = (t_0\, t_1\, t_2\, \dots) \in \Sigma_ 2$ e $d(s, t) < \frac{1}{2^{n+1}}$, então $s_k = t_k$ para todo $0 \leq k \leq n+1$, de acordo com a Proposição  \ref{proposicao dinamicasimbolica 1}. Como $\sigma(s) = (s_1s_2s_3\dots)$ e $\sigma(t) = (t_1t_2t_3\dots)$, temos que as primeiras $n+1$ entradas de $\sigma(s)$ e $\sigma(t)$ são iguais. Novamente, utilizando a Proposição \ref{proposicao dinamicasimbolica 1}, temos que $d(\sigma(s), \sigma(t)) \leq \frac{1}{2^n} < \varepsilon$. Como $s$ é um ponto arbitrário em $\Sigma_2$, concluímos que $\sigma$ é contínua.
+Sejam $x = (x_0 \, x_1 \, x_2 \, \dots) \in \Sigma_N$, $\varepsilon > 0$ e $n \geq 1$ tal que $\frac{1}{2^n} < \varepsilon$.
+Se $d(x, y) < \frac{1}{2^{n+1}}$, onde $y = (y_0 \, y_1 \, y_2 \, \dots) \in \Sigma_N$, então $x_k = y_k$ para todo $0 \leq k \leq n+1$.
+Como $\sigma(x) = (x_1 \, x_2 \, x_3  \, \dots)$ e $\sigma(y) = (y_1 \, y_2 \, y_3 \, \dots)$, temos que as primeiras $n+1$ entradas de $\sigma(s)$ e $\sigma(t)$ são iguais. Desse modo,  $d(\sigma(s), \sigma(t)) \leq \frac{1}{2^n} < \varepsilon$ e, portanto, $\sigma$ é contínua.
 \end{proof}
 
+Para a demonstração do próximo resultado, vamos considerar $N = 2$.
+Se $\Lambda_1 = [0, x_1] \cup [x_2, 1]$, sejam $I_1 = [0, x_1]$ e $I_2 = [x_2, 1]$.
+Como $\Lambda \subset I_1 \cup I_2$, podemos definir a função $S: \Lambda \to \Sigma_2$ dada por $S(x) = (x_0 \, x_1 \, x_2 \, \dots)$, onde $x_k = 1$ se $F^k(x) \in I_1$ e $x_k = 2$ se $F^k(x) \in I_2$ para todo $k \geq 0$.
+
 \begin{proposition}
-\begin{enumerate}
-\item existem $2^n$ pontos periódicos de período $n$.
-\item existe um ponto cuja órbita é densa.
-\item o conjunto dos pontos periódicos é denso.
-\end{enumerate}
+Se $\mu > 2 + \sqrt{5}$, então $F|_\Lambda$ e $\sigma$ são topologicamente conjugadas por $S$.
 \end{proposition}
 
 \begin{proof}
-\begin{enumerate}
-\item Se $s = (s_0\, s_1\, s_2\, \dots)$ é um ponto periódico com período $n$, então
-$$\sigma^k(\sigma^n(s)) = (s_{n+k}s_{n+k+1}s_{n+k+2}\dots) = (s_ks_{k+1}s_{k+2}\dots) = \sigma^k(s)$$
-para todo $k \geq 0$. Desse modo, $s$ é formado pela repetição das entradas $s_0 s_1 \dots s_{n-1}$. Pelo Princípio Fundamental da Contagem, existem $2^n$ sequências distintas para  $s_0 s_1 \dots s_{n-1}$ e, portanto, a afirmação está provada.
+\begin{enumerate}[label=\alph*)]\item[]
+\item $S$ é injetora.
 
-\item Considere o ponto $s^* = (0 \, 1 \, 0 0 \, 0 1 \, 1 0 \, 1 1 \, 0 0 0 \, 0 0 1 \dots)$ formado por todos os blocos de tamanho $1$, depois por todos os blocos de tamanho $2$, e assim sucessivamente. 
+Sejam $x, y \in \Lambda$, $x < y$. Se $S(x) = S(y)$, então $F^k(x)$ e $F^k(y)$ está no mesmo lado em relação ao ponto crítico para todo $k \geq 0$ e, portanto, $F$ é monótona em cada intervalo $J_k$ cujos extremos são $F^k(x)$ e $F^k(y)$. Desse modo, se $z \in [x, y]$, então $F^k(z) \in J_k \subset I_1 \cup I_2$ para todo $k \geq 0$ e, portanto, $z \in \Lambda$, o que é um absurdo pois $\Lambda$ não contém intervalos.
 
-Sejam $s \in \Sigma_2$, $\varepsilon > 0$ e $n \geq 1$ tal que $\frac{1}{2^n} < \varepsilon$. É fácil ver que existe $k \geq 0$ de modo que $\sigma^k(s^*)$ e $s$ são iguais nas primeiras $n+1$ entradas. De acordo com a Proposição \ref{proposicao dinamicasimbolica 1}, $d(s, \sigma^k(s^*)) \leq \frac{1}{2^n} < \varepsilon$ e, portanto, a afirmação está provada.
+\item $S$ é sobrejetora.
 
-\item Sejam $s = (s_0 s_1 s_2 \dots) \in \Sigma_2$, $\varepsilon > 0$ e $n \geq 1$ tal que $\frac{1}{2^n} < \varepsilon$. Considere o ponto periódico $t$ com período $n+1$ formado pela repetição da sequência $s_0 s_1 s_2 \dots s_n$. De acordo com a Proposição \ref{proposicao dinamicasimbolica 1}, $d(s, t) \leq \frac{1}{2^n} < \varepsilon$ e, portanto, a afirmação está provada.
+Seja $(x_0 \, x_1 \, x_2 \, \dots) \in \Sigma_A$. Inicialmente, para cada $n \geq 0$, considere
+$$I_{x_0 \, \dots \, x_n} = \lbrace x \in [0,1] : x \in I_{x_0}, \dots, F^n(x) \in I_{x_n} \rbrace.$$
+
+Observe $I_{x_0 \, \dots \, x_n} = I_{x_0} \cap F^{-1}(I_{x_1 \, \dots \, x_n})$ e, portanto, é possível concluir por indução que $I_{x_0 \, \dots \, x_n}$ é um intervalo fechado não vazio. Além disso, $I_{x_0 \, \dots \, x_n} = I_{x_0 \, \dots \, x_{n-1}} \cap F^{-n}(I_{x_n}) \subset I_{x_0 \, \dots \, x_{n-1}}$.
+
+Desse modo, $(I_{x_0 \, \dots \, x_n})_{n=0}^\infty$ é uma sequência de intervalos encaixantes fechados e não vazios e, portanto, existe $x \in \cap_{n=0}^\infty I_{x_0 \, \dots \, x_n}$. Como $F^k(x) \in I_{x_k}$ para todo $k \geq 0$, concluímos que $S(x) = (x_0 \, x_1 \, x_2 \, \dots)$. Observe que $x$ é único, pois $S$ é injetora.
+
+\item $S$ é contínua.
+
+Sejam $x \in \Lambda$, $\varepsilon > 0$ e $k \geq 0$ tal que $\frac{1}{N^k} < \varepsilon$. Se $S(x) = (x_0 \, x_1 \, x_2 \, \dots)$, então $x \in I_{x_0 \, \dots \, x_k}$. Sendo $I_{x_0 \, \dots \, x_k}$ um intervalo fechado, existe $\delta > 0$ tal que se $y \in \Lambda$ e $|x-y| < \delta$, então $y \in I_{x_0 \, \dots \, x_k}$. Desse modo, $S(x)$ e $S(y)$ são iguais nas primeiras $k+1$ entradas e, portanto, $d_N(S(x), S(y)) \leq \frac{1}{N^k} < \varepsilon$.
+
+\item $S \circ F|_\Lambda = \sigma_A \circ S$.
+
+Se $x \in \Lambda$ e $S(x) = (x_0 \, x_1 \, x_2 \, \dots)$, então $\cap_{n=0}^\infty I_{x_0 \, \dots \, x_n} = \lbrace x \rbrace$. Desse modo, é imediato que
+$$ S \circ F|_{\Lambda}(x) = S(F(\cap_{n=0}^\infty I_{x_0 \, \dots \, x_n})) = S(\cap_{n=1}^\infty I_{x_1 \, \dots \, x_n}) = (x_1 \, x_2 \, x_3 \, \dots)  = \sigma_A \circ S(x).$$
 \end{enumerate}
 \end{proof}
+

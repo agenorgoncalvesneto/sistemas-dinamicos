@@ -1,23 +1,4 @@
-\section{Subshift}
-
-Se $N \geq 2$, seja $\Sigma_N$ o conjunto das sequências de números naturais limitados entre $1$ e $N$, isto é, $\Sigma_N = \lbrace (x_0 \, x_1 \, x_2 \, \dots) : 1 \leq x_n \leq N  \text{ para todo } n \geq 0 \rbrace$.
-Seja também $d_N : \Sigma_N \times \Sigma_N \to \RR$ a função dada por
-$$d_N(x, y) = \sum_{k=0}^\infty \frac{|x_k - y_k|}{N^k},$$
-onde $x = (x_0 \, x_1 \, x_2 \, \dots)$ e $y = (y_0 \, y_1 \, y_2 \, \dots)$.
-É imediato verificar que $(\Sigma_N, d_N)$ é um espaço métrico.
-
-\begin{proposition}
-Sejam $x = (x_0 \, x_1 \, x_2 \, \dots)$ e $y = (y_0 \, y_1 \, y_2 \, \dots)$ elementos de $\Sigma_N$.
-\begin{enumerate}
-\item Se $x_k = y_k$ para todo $0 \leq k \leq n$, então $d_N(x, y) \leq \frac{1}{N^n}$.
-\item Se $d_N(x, y) < \frac{1}{N^n}$, então $x_k = y_k$ para todo $0 \leq k \leq n$.
-\end{enumerate}
-\end{proposition}
-
-Seja $\sigma: \Sigma_N \to \Sigma_N$ a função é dada por $\sigma(x_0 \, x_1 \, x_2 \, \dots) = (x_1 \, x_2 \, x_3 \, \dots)$.
-\begin{proposition}
-$\sigma$ é contínua.
-\end{proposition}
+\section{Matriz de Transição}
 
 Dizemos que $A$ é uma matriz de transição, se $A = (a_{ij})_{1 \leq i,j \leq N}$ uma matriz quadrada de ordem $N$ tal que $a_{ij} \in \lbrace 0, 1 \rbrace$ para todo $1 \leq i,j \leq N$.
 Se $A$ é uma matriz de transição, definimos o conjunto $\Sigma_A$ por
@@ -110,7 +91,7 @@ $$A =
 0 & 1 \\
 1 & 1 \\
 \end{pmatrix}.$$
-Seja $S: \Lambda \to \Sigma_A$ a função dada por $S(x) = (x_0 \, x_1 \, x_2 \, \dots)$, onde $x_k = 1$ se $F^k(x) \in I_1$ e $x_k = 2$ se $F^k(x) \in I_2$ para todo $k \geq 0$. Observe que está $S$ bem definida, pois $F(I_1) = I_2$ e $F(I_2) \subset I_1 \cup I_2$ e, portanto, $a_{x_k x_{k+1}} = 1$ para todo $k \geq 0$. 
+Seja $S: \Lambda \to \Sigma_A$ a função dada por $S(x) = (x_0 \, x_1 \, x_2 \, \dots)$, onde $x_k = 1$ se $F^k(x) \in I_1$ e $x_k = 2$ se $F^k(x) \in I_2$ para todo $k \geq 0$. Observe que $S$ está bem definida, pois $F(I_1) = I_2$ e $F(I_2) \subset I_1 \cup I_2$ e, portanto, $a_{x_k x_{k+1}} = 1$ para todo $k \geq 0$. 
 
 \begin{proposition}
 $F|_\Lambda$ e $\sigma_A$ são topologicamente conjugadas por $S$.
