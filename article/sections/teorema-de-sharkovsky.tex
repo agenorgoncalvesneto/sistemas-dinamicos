@@ -95,46 +95,46 @@ Seja $T: [0,1] \to [0,1]$ a função dada por
     2 - 2x, & x \in \left[ \frac{1}{2}, 1 \right] \\
   \end{cases}
 \]
-e considere a família de funções $T_h(x) = \min \lbrace h, T(x) \rbrace$ definidas em $[0,1]$, onde o parâmetro $h$ varia em $[0,1]$.
+e considere a família de funções $T_\lambda(x) = \min \lbrace \lambda, T(x) \rbrace$ definidas em $[0,1]$, onde o parâmetro $\lambda$ varia em $[0,1]$.
 
 Inicialmente, observe que $T(x) \leq 1$ para todo $x \in [0,1]$ implica que que $T_1 = T$.
 Além disso, é possível provar por indução que $T_1$ possui $2^k$ pontos periódicos de período $k$ para todo $k \geq 1$.
 Desse modo, podemos definir
-$$h(k) = \min \lbrace \max \lbrace \orbit : \orbit \text{ é uma órbita de tamanho } k \text{ de } T_1 \rbrace \rbrace$$
+$$\lambda(k) = \min \lbrace \max \lbrace \orbit : \orbit \text{ é uma órbita de tamanho } k \text{ de } T_1 \rbrace \rbrace$$
 para todo $k \geq 1$.
-A ideia principal da prova consiste no fato de que $h(k)$ desempenha os papéis de parâmetro, máximo e ponto de uma órbita de $T_{h(k)}$. As seguintes afirmações tornarão preciso esse fato:
+A ideia principal da prova consiste no fato de que $\lambda(k)$ desempenha os papéis de parâmetro, máximo e ponto de uma órbita de $T_{\lambda(k)}$. As seguintes afirmações tornarão preciso esse fato:
 
 \begin{enumerate}[label=\alph*)]
-\item Se $\orbit \subset [0, h)$ é uma órbita de $T_h$, então $\orbit$ é uma órbita de $T_1$.
+\item Se $\orbit \subset [0, \lambda)$ é uma órbita de $T_\lambda$, então $\orbit$ é uma órbita de $T_1$.
 
-Se $p \in \orbit$, então $T_h(p) \in [0, h)$.
-Desse modo, $T_h(p) = \min \lbrace h, T(p) \rbrace = T(p) = T_1(p)$.
-Assim, $T_h$ e $T_1$ coincidem em $\orbit$ e, portanto, $\orbit$ é uma órbita de $T_1$.
+Se $p \in \orbit$, então $T_\lambda(p) \in [0, \lambda)$.
+Desse modo, $T_\lambda(p) = \min \lbrace \lambda, T(p) \rbrace = T(p) = T_1(p)$.
+Assim, $T_\lambda$ e $T_1$ coincidem em $\orbit$ e, portanto, $\orbit$ é uma órbita de $T_1$.
 
-\item Se $\orbit \subset [0, h]$ é uma órbita de $T_1$, então $\orbit$ é uma órbita de $T_h$.
+\item Se $\orbit \subset [0, \lambda]$ é uma órbita de $T_1$, então $\orbit$ é uma órbita de $T_\lambda$.
 
-Se $p \in \orbit$, então $T_1(p) \in [0, h]$. Desse modo, $T_h(p) = \min \lbrace h, T_1(p) \rbrace = T_1(p)$.
-Assim, $T_h$ e $T_1$ coincidem em $\orbit$ e, portanto, $\orbit$ é uma órbita de $T_h$.
+Se $p \in \orbit$, então $T_1(p) \in [0, \lambda]$. Desse modo, $T_\lambda(p) = \min \lbrace \lambda, T_1(p) \rbrace = T_1(p)$.
+Assim, $T_\lambda$ e $T_1$ coincidem em $\orbit$ e, portanto, $\orbit$ é uma órbita de $T_\lambda$.
 
-\item $T_{h(k)}$ possui uma órbita $\orbit \subset [0, h(k))$ de tamanho $j$ se, e somente, se $h(k) > h(j)$.
+\item $T_{\lambda(k)}$ possui uma órbita $\orbit \subset [0, \lambda(k))$ de tamanho $j$ se, e somente, se $\lambda(k) > \lambda(j)$.
 
-Se $T_{h(k)}$ possui uma órbita $\orbit \subset [0, h(k))$ de tamanho $j$, então $\orbit$ é uma órbita de $T_1$ e, pela definição de $h(j)$, concluímos que $h(k) > h(j)$.
-Por outro lado, se $h(k) > h(j)$, então $T_1$ possui uma órbita $\orbit \subset [0, h(j)] \subset [0, h(k)]$ de tamanho $j$ e, desse modo, $\orbit$ é uma órbita de $T_{h(k)}$.
+Se $T_{\lambda(k)}$ possui uma órbita $\orbit \subset [0, \lambda(k))$ de tamanho $j$, então $\orbit$ é uma órbita de $T_1$ e, pela definição de $\lambda(j)$, concluímos que $\lambda(k) > \lambda(j)$.
+Por outro lado, se $\lambda(k) > \lambda(j)$, então $T_1$ possui uma órbita $\orbit \subset [0, \lambda(j)] \subset [0, \lambda(k)]$ de tamanho $j$ e, desse modo, $\orbit$ é uma órbita de $T_{\lambda(k)}$.
 
-\item A órbita de $T_1$ que contém $h(k)$ é uma órbita de tamanho $k$ de $T_{h(k)}$.
-Além disso, todas as outras órbitas de $T_{h(k)}$ estão em $[0, h(k))$. 
+\item A órbita de $T_1$ que contém $\lambda(k)$ é uma órbita de tamanho $k$ de $T_{\lambda(k)}$.
+Além disso, todas as outras órbitas de $T_{\lambda(k)}$ estão em $[0, \lambda(k))$. 
 
-Pela definição de $h(k)$, $T_1$ possui uma órbita $\orbit \subset [0, h(k)]$ de tamanho $k$ e, portanto, $\orbit$ é uma órbita de $T_{h(k)}$.
+Pela definição de $\lambda(k)$, $T_1$ possui uma órbita $\orbit \subset [0, \lambda(k)]$ de tamanho $k$ e, portanto, $\orbit$ é uma órbita de $T_{\lambda(k)}$.
 
-Na segunda parte, basta observar que $h(k)$ é o valor máximo de $T_{h(k)}$ e, desse modo, toda órbita de $T_{h(k)}$ está contida em $[0, h(k)]$.
-Em particular, se a órbita não contém $h(k)$, então ela está contida em $[0, h(k))$.
+Na segunda parte, basta observar que $\lambda(k)$ é o valor máximo de $T_{\lambda(k)}$ e, desse modo, toda órbita de $T_{\lambda(k)}$ está contida em $[0, \lambda(k)]$.
+Em particular, se a órbita não contém $\lambda(k)$, então ela está contida em $[0, \lambda(k))$.
 
-\item $k \, \triangleright \, j$ se, e somente se, $h(k) > h(j)$.
+\item $k \, \triangleright \, j$ se, e somente se, $\lambda(k) > \lambda(j)$.
 
-Suponha que $k \, \triangleright \, j$. Sabemos que $T_{h(k)}$ possui uma órbita de tamanho $k$ e, pelo Teorema de Sharkovsky, $T_{h(k)}$ admite uma órbita de tamanho $j$. Em particular, essa órbita está contida em $[0, h(k))$ e, portanto, $h(k) > h(j)$.
+Suponha que $k \, \triangleright \, j$. Sabemos que $T_{\lambda(k)}$ possui uma órbita de tamanho $k$ e, pelo Teorema de Sharkovsky, $T_{\lambda(k)}$ admite uma órbita de tamanho $j$. Em particular, essa órbita está contida em $[0, \lambda(k))$ e, portanto, $\lambda(k) > \lambda(j)$.
 
-Suponha que $h(k) > h(j)$. Se $j \, \triangleright \, k$, então $h(k) < h(j)$ pela demonstração no parágrafo anterior e, portanto, $k \, \triangleright \, j$.
+Suponha que $\lambda(k) > \lambda(j)$. Se $j \, \triangleright \, k$, então $\lambda(k) < \lambda(j)$ pela demonstração no parágrafo anterior e, portanto, $k \, \triangleright \, j$.
 \end{enumerate}
 
-Desse modo, $T_{h(n)}$ possui órbita de tamanho $n$ para cada $n \geq 1$. Além disso, se $m \, \triangleright \, n$ então $h(m) > h(n)$ e, portanto, $T_{h(n)}$ não possui órbita de tamanho $m$.
+Desse modo, $T_{\lambda(n)}$ possui órbita de tamanho $n$ para cada $n \geq 1$. Além disso, se $m \, \triangleright \, n$ então $\lambda(m) > \lambda(n)$ e, portanto, $T_{\lambda(n)}$ não possui órbita de tamanho $m$.
 \end{proof}

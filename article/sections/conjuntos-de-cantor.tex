@@ -1,13 +1,17 @@
 \subsection{Conjuntos de Cantor}
 
-Se $\mu > 4$, então $h(\frac{1}{2}) = \frac{\mu}{4} > 1$, ou seja, existem pontos em $[0, 1]$ que não permanecem em $[0, 1]$ após uma iteração de $h$. Em vista da Proposição \ref{prop 2-1}, tais pontos pertencem ao conjunto $\basin(\infty)$. De modo mais geral, se um ponto de $[0, 1]$ não permanece em $[0, 1]$ após um número finito de iterações, então ele pertence ao conjunto $\basin(\infty)$.
+Após estudar a dinâmica $h$ quando $\mu \in (1, 3)$, vamos ver o que acontece quando $\mu > 4$. Inicialmente, observe que  então $h(\frac{1}{2}) = \frac{\mu}{4} > 1$ e, portanto, existem pontos em $[0, 1]$ que não permanecem em $[0, 1]$ após uma iteração de $h$. Pela Proposição \ref{prop 2-1}, tais pontos pertencem à bacia de atração do infinito. De modo mais geral, se um ponto de $[0, 1]$ não permanece em $[0, 1]$ após um número finito de iterações, então ele pertence à bacia de atração do infinito.
 
-Desse modo, considere o conjunto $\Lambda_n = \lbrace x \in [0, 1] : h^n(x) \in [0, 1] \rbrace$ formado pelos pontos que permanecem em $[0, 1]$ após $n$ iterações de $h$ e o conjunto $\Lambda =  \lbrace x \in [0, 1] : h^n(x) \in [0, 1] \text{ para todo } n \geq 1 \rbrace$ formado pelos pontos de $[0, 1]$ que sempre permanecem em $[0, 1]$ por iterações de $h$.
+Considere o conjunto $\Lambda_n = \lbrace x \in [0, 1] : h^n(x) \in [0, 1] \rbrace$ formado pelos pontos que permanecem em $[0, 1]$ após $n$ iterações de $h$ e o conjunto $\Lambda =  \lbrace x \in [0, 1] : h^n(x) \in [0, 1] \text{ para todo } n \geq 1 \rbrace$ formado pelos pontos de $[0, 1]$ que sempre permanecem em $[0, 1]$ por iterações de $h$. Desse modo, vamos restringir o estudo da dinâmica de $h$ ao conjunto $\Lambda$.
 
 Podemos verificar que $\Lambda_1 = [0, x_1] \cup [x_2, 1]$, onde $x_1 = \frac{1}{2} - \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$ e $x_2 = \frac{1}{2} + \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$. De modo mais geral, temos o seguinte resultado:
 
 \begin{proposition}
-Se $\mu > 4$, então $\Lambda_n$ é a união de $2^n$ intervalos fechados disjuntos e $h^n: [a, b] \to [0, 1]$ é bijetora, onde $[a, b]$ é um desses intervalos.
+Se $\mu > 4$, então
+\begin{enumerate}
+\item $\Lambda_n$ é a união de $2^n$ intervalos fechados disjuntos.
+\item $h^n: [a, b] \to [0, 1]$ é bijetora, onde $[a, b]$ é um dos intervalos que formam $\Lambda_n$.
+\end{enumerate}
 \end{proposition}
 
 \begin{proof}
@@ -22,6 +26,10 @@ Pela Regra da Cadeia, temos também que $D h^k([a, x_1']) = D h([0, x_1]) D h^{k
 Portanto, é imediato concluir que $\Lambda_k$ é a união de $2^k$ intervalos fechados disjuntos e que $h^k: [a, b] \to [0, 1]$ é bijetora, onde $[a, b]$ é um desses intervalos.
 \end{proof}
 
+O conjunto $\Lambda$ possui uma estrutura bem definida.
+Provaremos que $\Lambda$ é um Conjunto de Cantor.
+Antes, relembraremos a definição desse conceito.
+
 \begin{definition}
 Seja $\Gamma \subset \RR$ um conjunto não vazio. Dizemos que $\Gamma$ é um conjunto de Cantor se as seguintes condições são válidas:
 \begin{enumerate}[label=\roman*.]
@@ -30,6 +38,8 @@ Seja $\Gamma \subset \RR$ um conjunto não vazio. Dizemos que $\Gamma$ é um con
 \item Todo ponto de $\Gamma$ é um ponto de acumulação de $\Gamma$.
 \end{enumerate}
 \end{definition}
+
+Para facilitar a demonstração de que $\Lambda$ é um Conjunto de Cantor, vamos considerar que $\mu > 2 + \sqrt{5}$, pois nesse caso a derivada de $h$ é maior que $1$ em $\Lambda_1$.
 
 \begin{lemma}
 Se $\mu > 2 + \sqrt{5}$, então
@@ -41,8 +51,7 @@ Se $\mu > 2 + \sqrt{5}$, então
 
 \begin{proof}
 \begin{enumerate}\item[]
-\item Se $\mu > 2 + \sqrt{5}$, então $D h(x_1) = \sqrt{\mu^2 - 4\mu} > 1$ e $D h(x_2) = -\sqrt{\mu^2 - 4\mu} < -1$.
-Desse modo, podemos concluir que existe $\lambda > 1$ tal que $|D h(\Lambda_1)| > \lambda$.
+\item Se $\mu > 2 + \sqrt{5}$, então $D h(x_1) = \sqrt{\mu^2 - 4\mu} > 1$ e $D h(x_2) = -\sqrt{\mu^2 - 4\mu} < -1$ e, portanto, existe $\lambda > 1$ tal que $|D h(\Lambda_1)| > \lambda$.
 \item Se $x \in [a, b]$, então $h^k(x) \in \Lambda_1$ para todo $0 \leq k < n$.
 Desse modo, $D h^n(x) = \prod_{k=0}^{n-1} D h(h^k(x)) > \lambda^n$ e, pelo TVM, existe $c \in (a, b)$ tal que
 $$1 = |h^n(b) - h^n(a)| = |D h^n(c)||b - a| > \lambda^n|b - a|.$$
@@ -51,13 +60,11 @@ $$1 = |h^n(b) - h^n(a)| = |D h^n(c)||b - a| > \lambda^n|b - a|.$$
 
 Sejam $x \in \Lambda$ e $\varepsilon > 0$. Pelo Lema anterior,  existe um intervalo $[a, b] \subset \Lambda_n$ para algum $n \geq 1$ tal que $x \in [a, b]$, $b - a < \varepsilon$ e $h^n: [a, b] \to [0,1]$ é bijetora.
 
-\begin{theorem}
+\begin{theorem}\label{teo 3-1}
 Se $\mu > 2 + \sqrt{5}$, então $\Lambda$ é um conjunto de Cantor.
 \end{theorem}
 
 \begin{proof}
-Obviamente, $\Lambda$ é não vazio e compacto.
-
 Se $\Lambda$ contém algum intervalo, então existem $x < y$ tais que $[x, y] \subset \Lambda$.
 Seja $k$ tal que $\frac{1}{\lambda^k} < |x - y|$.
 Em particular, $[x, y] \subset \Lambda_k$, o que é um absurdo pois os intervalos de $\Lambda_k$ possuem tamanho menor que $\frac{1}{\lambda^k}$.
@@ -66,3 +73,5 @@ Sejam $x \in \Lambda$ e $\varepsilon > 0$.
 Como $\frac{1}{\lambda^k} < \varepsilon$ para algum $k \geq 0$, os intervalos que formam $\Lambda_k$ possuem tamanho menor que $\varepsilon$.
 Se $x \in [a, b]$, onde $[a, b]$ é um desses intervalos, então $a \in \Lambda$ e $|x - a| < \varepsilon$.
 \end{proof}
+
+O Teorema \ref{teo 3-1} é válido quando $\mu > 4$, porém utiliza técnicas que serão vistas apenas no fim do texto.

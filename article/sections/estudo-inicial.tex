@@ -1,5 +1,7 @@
 \subsection{Estudo Inicial}
 
+Iniciamos o estudo da dinâmica de $h$ observando que existem dois pontos fixos em $[0, 1]$ e que cada um desses pontos possui um pré-imagem em $[0, 1]$.
+
 \begin{proposition}
 Se $\mu > 1$, então
 \begin{enumerate}
@@ -9,18 +11,25 @@ Se $\mu > 1$, então
 \end{enumerate}
 \end{proposition}
 
-\begin{proposition}
+A Proposição \ref{prop 2-1} nos restringir o estudo da dinâmica de $h$ ao intervalo $[0, 1]$, pois todos os pontos fora desse intervalo pertencem à bacia de atração do infinito.
+
+\begin{proposition}\label{prop 2-1}
 Se $\mu > 1$, então $(-\infty, 0) \cup (1, \infty) \subset \basin(\infty)$.
 \end{proposition}
 
 \begin{proof}
-Inicialmente, se $x \in (1, \infty)$, então $h(x) \in (-\infty, 0)$. Por fim, observamos que a sequência  $(x,\, h(x),\, h^2(x),\, \dots)$ é estritamente decrescente e ilimitada quando $x \in (-\infty, 0)$.
+Basta observar que a sequência $(x, \, h(x), \, h^2(x), \, \dots)$ é estritamente decrescente e ilimitada quando $x \in (-\infty, 0)$.
 \end{proof}
 
-\begin{proposition}
-Se $1 < \mu < 3$, então
+A Proposição \ref{prop 2-2}, que pode visualizada graficamente, nos mostra que, para valores baixos de $\mu$, a dinâmica de $h$ é simples.
+
+\begin{proposition}\label{prop 2-2}
+Se $\mu \in (1, 3)$, então
 \begin{enumerate}
 \item $0$ é um ponto repulsor e $p_\mu$ é um ponto atrator.
 \item $(0, 1) \subset \basin(p_\mu)$.
 \end{enumerate}
 \end{proposition}
+
+Observe que, se $\mu \in (1, 3)$, então a dinâmica de $h$ está completamente determinada. De fato,
+$$\basin(0) = \lbrace 0, 1 \rbrace, \quad \basin(p_\mu) = (0, 1) \quad \text{e}  \quad \basin(\infty) = (-\infty, 0) \cup (1, \infty).$$

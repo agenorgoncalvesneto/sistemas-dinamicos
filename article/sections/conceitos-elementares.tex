@@ -1,47 +1,51 @@
 \section{Conceitos Elementares}
 
-Seja $f: X \to X$ uma função, onde $X$ é um espaço métrico.
-Dado $x \in X$ e denotando por $f^n$ a $n$-ésima composição de $f$ com ela mesma, queremos estudar as propriedades da sequência $(x, \, f(x), \, f^2(x), \, \dots)$.
+De maneira suficiente para os nossos objetivos, definimos um sistema dinâmico como uma função $f: X \to X$, onde $X$ é um espaço métrico.
+Usualmente, $X$ será um subconjunto de $\RR$ e será considerada a distância usual.
+Dado $x \in X$ e denotando por $f^n$ a composição de $f$ com ela mesma $n-1$ vezes, queremos estudar as propriedades da sequência $x, \, f(x), \, f^2(x), \, \dots$.
+Para esse estudo, iniciamos definindo alguns conceitos importantes que estarão presentes durante todo o texto.
 
-\begin{definition}
-\begin{enumerate}[label=\alph*.]\item[]
-\item Se $x \in X$, então $\orbit(x) = \lbrace x, \, f(x), \, f^2(x), \, \dots \rbrace$ é a órbita de $x$.
-\item Se $p \in X$ e $f^n(p) = p$ para algum $n > 0$, então $p$ é um ponto periódico de período $n$. Em particular, se $n = 1$, então $p$ é um ponto fixo. Denotaremos por $\per(f)$ o conjunto de todos os pontos periódicos.
-\item Se $p$ é um ponto periódico de período $n$ e $f^k(p) \neq p$ para todo $0 < k < n$, então $n$ é o período principal de $p$. Denotaremos por $\per_n(f)$ o conjunto de todos os pontos periódicos de período principal $n$.
-\item Se $p$ um ponto periódico de período $n$, então $\basin(p) = \lbrace x \in  X: \lim_{k \to \infty} f^{kn}(x) = p \rbrace$ é a bacia de atração de $p$. Além disso, $\basin(\infty) = \lbrace x \in  X: \lim_{k \to \infty} |f^k(x)| = \infty \rbrace$ é a bacia de atração do $\infty$.
-\end{enumerate}
-\end{definition}
+Se $p \in X$ e $f(p) = p$, então $p$ é um ponto fixo de $f$.
+Se $f^n(p) = p$ para algum $n \geq 1$, então $p$ é um ponto periódico de $f$ de período $n$.
+Se $f^n(p) = p$ para algum $n \geq 1$ e $f^k(p) \neq p$ para todo $1 \leq k < n$, então $p$ é um ponto periódico $f$ de período principal $n$.
+O conjunto dos pontos periódicos de $f$ será denotado por $\per(f)$ e o conjunto dos pontos periódicos de $f$ de período principal $n$ será denotado por $\per_n(f)$.
 
-\begin{proposition}
+Se $x \in X$, então o conjunto $\lbrace x, \, f(x), \, f^2(x), \, \dots \rbrace$, que será denotado por $\orbit(x)$, é a órbita de $x$.
+Se $p$ um ponto periódico de período $n$, então o conjunto $\lbrace x \in  X: \lim_{k \to \infty} f^{kn}(x) = p \rbrace$, que será denotado por $\basin(p)$, é a bacia de atração de $p$. Por fim, o conjunto $\lbrace x \in  X: \lim_{k \to \infty} |f^k(x)| = \infty \rbrace$, que será denotado por $\basin(\infty)$, é a bacia de atração do infinito.
+
+A Proposição \ref{prop 1-1} nos fornece uma maneira simples para verificar se uma função contínua definida num intervalo de $\RR$ possui ponto fixo.
+
+\begin{proposition}\label{prop 1-1}
 Seja $f: [a, b] \to \RR$ uma função contínua. Se $f([a, b]) \subset [a, b]$ ou $f([a, b]) \supset [a, b]$, então $f$ possui ponto fixo.
 \end{proposition}
 
 \begin{proof}
-Suponha que $f([a, b]) \subset [a, b]$. Considere a função $g(x) = f(x) - x$ definida em $[a, b]$. Observando que $g(a) \geq 0$ e $g(b) \leq 0$ e utilizando o TVI, existe $p \in [a, b]$ tal que $g(p) = 0$.
-
-Suponha que $f([a, b]) \supset [a, b]$ e sejam $c, d \in [a, b]$ tais que $f(c) = a$ e $f(d) = b$. Considere a função $g(x) = f(x) - x$ definida em $[a, b]$. Observando que $g(c) \leq 0$ e $g(d) \geq 0$ e utilizando o TVI, existe $p \in [a, b]$ tal que $g(p) = 0$.
+Considere a função contínua $g: [a, b] \to \RR$ dada por $g(x) = f(x) - x$. Em ambos os casos é possível verificar, pelo Teorema do Valor Intermediário (TVI), que existe $p \in [a, b]$ tal que $g(p) = 0$.
 \end{proof}
 
-\begin{definition}
-Sejam $f: [a, b] \to [a, b]$ uma função de classe $\class^1$ e $p \in \per_n(f)$.
-\begin{enumerate}[label=\alph*.]
-\item Se $|D f^n(p)| \neq 1$, então $p$ é um ponto hiperbólico.
-\item Se $|D f^n(p)| < 1$, então $p$ é um ponto atrator.
-\item Se $|D f^n(p)| > 1$, então $p$ é um ponto repulsor.
-\end{enumerate}
-\end{definition}
+Se $f$ for de classe $\class^1$, então podemos conhecer o comportamento de pontos numa vizinhança de um ponto periódico $p$ cuja derivada $Df^n(p)$ em módulo é diferente de $1$.
 
-\begin{theorem}
-Sejam $f: [a, b] \to [a, b]$ uma função de classe $\class^1$ e $p \in \per_n(f)$.
+\begin{theorem}\label{teo 1-2}
+Sejam $f: \RR \to \RR$ uma função de classe $\class^1$ e $p \in \per_n(f)$.
 \begin{enumerate}
-\item Se $p$ é um ponto atrator, então existe uma vizinhança de $p$ contida em $\basin(p)$.
-\item Se $p$ é um ponto repulsor, então existe uma vizinhança $V$ de $p$ com a seguinte propriedade: se $x \in V$ e $x \neq p$, então  $f^{kn}(x) \notin V$ para algum $k \geq 1$. 
+\item Se $|D f^n(p)| < 1$, então existe uma vizinhança de $p$ contida em $\basin(p)$.
+\item Se $|D f^n(p)| > 1$, então existe uma vizinhança $V$ de $p$ com a seguinte propriedade: se $x \in V$ e $x \neq p$, então  $f^{kn}(x) \notin V$ para algum $k \geq 1$. 
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
 \begin{enumerate}\item[]
 \item Sendo $D f^n$ contínua, existe $\varepsilon > 0$ tal que $|D f^n(x)| \leq \lambda < 1$ para todo $x \in (p - \varepsilon,\, p + \varepsilon)$. Pelo TVM, se $x \in (p - \varepsilon,\, p + \varepsilon)$, então $|f^n(x) - p| \leq \lambda|x - p|$. Por indução, $|f^{kn}(x) - p| \leq \lambda^k|x - p|$ para todo $k \geq 1$. Desse modo, $\lim_{k \to \infty} f^{kn}(x) = p$.
-\item Demonstração análoga.
+\item Exercício.
 \end{enumerate}
 \end{proof}
+
+\begin{definition}\label{def 1-3}
+Sejam $f: \RR \to \RR$ uma função de classe $\class^1$ e $p \in \per_n(f)$.
+\begin{enumerate}[label=\roman*.]
+\item Se $|D f^n(p)| < 1$, então $p$ é um ponto atrator.
+\item Se $|D f^n(p)| > 1$, então $p$ é um ponto repulsor.
+\end{enumerate}
+\end{definition}
+
+A Definição \ref{def 1-3}, que segue naturalmente do Teorema \ref{teo 1-2}, pode ser estendida para órbitas de pontos periódicos. De fato, é imediato verificar pela Regra da Cadeia que são iguais as derivadas de todos os pontos de uma órbita de um ponto periódico. Desse modo, se a órbita de um ponto periódico possui um ponto atrator, então dizemos que ela é uma órbita atratora. Uma definição análoga segue se a órbita possui um ponto repulsor.
