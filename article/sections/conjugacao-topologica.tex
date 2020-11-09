@@ -1,5 +1,7 @@
 \subsection{Conjugação Topológica}
 
+Vamos agora estudar um conceito importantíssimo em sistemas dinâmicos. Através desse conceito, dois sistemas distintos podem ser considerados iguais.
+
 \begin{definition}
 Sejam $f: X \to X$, $g: Y \to Y$ e $\tau: X \to Y$ funções. Dizemos que $f$ e $g$ são topologicamente conjugadas por $\tau$ se as seguintes condições são válidas:
 \begin{enumerate}[label=\roman*.]
@@ -7,6 +9,8 @@ Sejam $f: X \to X$, $g: Y \to Y$ e $\tau: X \to Y$ funções. Dizemos que $f$ e 
 \item $\tau \circ f = g \circ \tau$.
 \end{enumerate}
 \end{definition}
+
+Intuitivamente, o primeiro item afirma que os conjuntos $X$ e $Y$ são iguais e o segundo item afirma que os sistemas dinâmicos são iguais. Por exemplo, é imediato verificar que $p \in \per_n(f)$ se, e somente se, $\tau(p) \in \per_n(g)$. A proposição a seguir corrobora o fato de podemos afirmar que sistemas dinâmicos topologicamente conjugados são iguais.
 
 \begin{proposition}
 Sejam $f: X \to X$, $g: Y \to Y$ e $\tau: X \to Y$ funções. Se $f$ e $g$ são topologicamente conjugadas por $\tau$, então
@@ -24,6 +28,8 @@ Sejam $f: X \to X$, $g: Y \to Y$ e $\tau: X \to Y$ funções. Se $f$ e $g$ são 
 Se $x', y' \in Y$, existem $x, y \in X$ tais que $\tau(x) = x'$ e $\tau(y) =  y'$. Sendo $f$ topologicamente transitiva, existem $z \in X$ e $k \geq 1$ tais que $|x - z| < \delta$ e $|y - f^k(z)| < \delta$. Desse modo, $|\tau(x) - \tau(z)| < \varepsilon$ e $|\tau(y) - \tau(f^k(z))| < \varepsilon$. Se $\tau(z) = z'$, então $|x' - z'| < \varepsilon$ e $|y' - g^k(z')| < \varepsilon$. A outra implicação é demonstrada de maneira análoga.
 \end{enumerate}
 \end{proof}
+
+Vamos agora verificar a importância da conjugação topológica no estudo dos sistemas dinâmicos. Dado um sistema complicado de se estudar, a ideia é encontrar um outro sistema topologicamente conjugado mais fácil de estudar.
 
 \begin{lemma}
 A função $T: [0,1] \to [0,1]$ dada por
@@ -55,6 +61,8 @@ Observando que $|x - z| \leq \frac{1}{2^n}$ e $|y - T^n(z)| = 0$, concluímos qu
 Sendo $T^n: I \to [0,1]$ bijetora, existem $a, b \in I$ tais que $T^n(a) = 0$ e $T^n(b) = 1$. Se $T^n(x) \in [0, \frac{1}{2}]$, então $|T^n(x) - T^n(b)| = |T^n(x) - 1| \geq \frac{1}{2}$ e se $T^n(x) \in [\frac{1}{2}, 1]$, então $|T^n(x) - T^n(a)| = |T^n(x)| \geq \frac{1}{2}$. Observando que $|x - a| \leq \frac{1}{2^n}$ e $|x - b| \leq \frac{1}{2^n}$, concluímos que $T$ depende sensivelmente das condições iniciais.
 \end{enumerate}
 \end{proof}
+
+Desse modo, podemos concluir que $h$ é caótica quando $\mu = 4$.
 
 \begin{theorem}
 Se $\mu = 4$, então $h$ é caótica.

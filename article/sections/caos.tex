@@ -1,14 +1,9 @@
 \subsection{Caos}
 
-\begin{proposition}
-Se $\mu > 2 + \sqrt{5}$, então $\per(h|_\Lambda)$ é denso em $\Lambda$.
-\end{proposition}
+A família quadrática exibe um fenômeno quando $\mu$ é suficientemente grande: o comportamento caótico de suas órbitas.
+Para esse estudo, iniciamos com a seguinte proposição:
 
-\begin{proof}
-Sejam $x \in \Lambda$, $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{\lambda^k} < \varepsilon$.
-Temos que $h^k: [a, b] \to [0, 1]$ é bijetora, onde $x \in [a, b]$ e $[a, b]$ é um dos intervalos que formam $\Lambda_k$.
-Como $h^k([a, b]) \supset [a, b]$, existe $y \in [a, b]$ tal que $h^k(y) = y$. Observando que $y \in \Lambda$ e $|x - y| < \varepsilon$, concluímos que $\per(h|_\Lambda)$ é denso em $\Lambda$.
-\end{proof}
+Um conceito importante que vamos definir é o de transitividade topológica. Intuitivamente, em um sistema topologicamente transitivo, é possível ir uma vizinhança para qualquer outra através de iterações. A definição a seguir torna isso preciso e em seguida mostramos que $h$ possui essa propriedade para $\mu$ suficientemente grande.
 
 \begin{definition}
 Seja $f: X \to X$ uma função. Dizemos que $f$ é topologicamente transitiva se dados $x, y \in X$ e $\varepsilon > 0$,  existem $z \in X$ e $k \geq 1$ tais que $|x - z| < \varepsilon$ e $|y - f^k(z)| < \varepsilon$.
@@ -22,6 +17,8 @@ Se $\mu > 2 + \sqrt{5}$, então $h|_\Lambda$ é topologicamente transitiva.
 Sejam $x, y \in \Lambda$, $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{\lambda^k} < \varepsilon$.
 Temos que $h^k: [a, b] \to [0, 1]$ é bijetora, onde $x \in [a, b]$ e $[a, b]$ é um dos intervalos que formam $\Lambda_k$. Pelo TVI, existe $z \in [a, b]$ tal que $h^k(z) = y$. Observando que $z \in \Lambda$, concluímos que $h|_\Lambda$ é topologicamente transitiva.
 \end{proof}
+
+Outro conceito importante que vamos definir é o de dependência sensível das condições iniciais. Intuitivamente, em um sistema que possui dependência sensível das condições iniciais, existem pontos arbitrariamente próximos à $x$ que eventualmente se distanciam de $x$ em pelo menos $\delta$ através de iterações de $f$. Novamente, a definição a seguir torna isso preciso e em seguida mostramos que $h$ possui essa propriedade para $\mu$ suficientemente grande.
 
 \begin{definition}
 Seja $f: X \to X$ uma função. Dizemos que $f$ depende sensivelmente das condições iniciais se existe $\delta > 0$ com a seguinte propriedade: dados $x \in X$ e $\varepsilon > 0$, existem $y \in X$ e $k \geq 1$ tais que $|x - y| < \varepsilon$ e $|f^k(x) - f^k(y)| > \delta$.
@@ -38,6 +35,8 @@ Temos que $h^k: [a, b] \to [0, 1]$ é bijetora, onde $x \in [a, b]$ e $[a, b]$ �
 Como $h(\frac{1}{2}) > 1$ e $x \in \Lambda$, temos que $h^{k}(x) \in [0, \frac{1}{2}) \cup (\frac{1}{2}, 1]$. Se $h^{k}(x) \in [0, \frac{1}{2})$, então $|h^k(x) - h^k(b)| = |h^k(x) - 1| > \frac{1}{2}$ e se $h^{k}(x) \in (\frac{1}{2}, 1]$, então $|h^k(x) - h^k(a)| = |h^k(x)| > \frac{1}{2}$. Observando que $|x - a| < \varepsilon$ e  $|x - b| < \varepsilon$, concluímos que $h|_\Lambda$ depende sensivelmente das condições iniciais.
 \end{proof}
 
+Segundo a definição de Devaney, um sistema dinâmico é caótico se, além de possuir as duas propriedades definidas anteriormente, possui o conjunto de pontos periódicos denso. 
+
 \begin{definition}
 Seja $f: X \to X$ uma função. Dizemos que $f$ é caótica se as seguintes condições são válidas:
 \begin{enumerate}[label=\roman*.]
@@ -47,10 +46,24 @@ Seja $f: X \to X$ uma função. Dizemos que $f$ é caótica se as seguintes cond
 \end{enumerate}
 \end{definition}
 
+Desse modo, basta mostrar que $\per(h|_\Lambda)$ é denso em $\Lambda$ e concluímos imediatamente que $h|_\Lambda$ é caótica quando $\mu > 2 + \sqrt{5}$.
+
+\begin{proposition}
+Se $\mu > 2 + \sqrt{5}$, então $\per(h|_\Lambda)$ é denso em $\Lambda$.
+\end{proposition}
+
+\begin{proof}
+Sejam $x \in \Lambda$, $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{\lambda^k} < \varepsilon$.
+Temos que $h^k: [a, b] \to [0, 1]$ é bijetora, onde $x \in [a, b]$ e $[a, b]$ é um dos intervalos que formam $\Lambda_k$.
+Como $h^k([a, b]) \supset [a, b]$, existe $y \in [a, b]$ tal que $h^k(y) = y$. Observando que $y \in \Lambda$ e $|x - y| < \varepsilon$, concluímos que $\per(h|_\Lambda)$ é denso em $\Lambda$.
+\end{proof}
+
 \begin{theorem}
 Se $\mu > 2 + \sqrt{5}$, então $h|_\Lambda$ é caótica.
 \end{theorem}
 
+Por fim, apresentamos um teorema que nos permite, sob algumas hipóteses, concluir um sistema dinâmico é caótico se ele é topologicamente transitivo e seu conjunto de pontos periódicos é denso. A demonstração desse teorema pode ser encontrada em [2].
+
 \begin{theorem}
-Seja $f: X \to X$ é uma função, onde $X$ é um conjunto infinito. Se $\per(f)$ é denso em $X$ e $f$ é topologicamente transitiva, então $f$ é caótica.
+Seja $f: X \to X$ é uma função contínua, onde $X$ é um conjunto infinito. Se $\per(f)$ é denso em $X$ e $f$ é topologicamente transitiva, então $f$ é caótica.
 \end{theorem}
