@@ -1,6 +1,6 @@
 \subsection{Conjugação Topológica}
 
-Vamos agora estudar um conceito importantíssimo em sistemas dinâmicos. Através desse conceito, dois sistemas distintos podem ser considerados iguais.
+Vamos estudar um conceito em sistemas dinâmicos que nos permite considerar iguais dois sistemas dinâmicos que inicialmente são distintos.
 
 \begin{definition}
 Sejam $f: X \to X$, $g: Y \to Y$ e $\tau: X \to Y$ funções. Dizemos que $f$ e $g$ são topologicamente conjugadas por $\tau$ se as seguintes condições são válidas:
@@ -10,9 +10,9 @@ Sejam $f: X \to X$, $g: Y \to Y$ e $\tau: X \to Y$ funções. Dizemos que $f$ e 
 \end{enumerate}
 \end{definition}
 
-Intuitivamente, o primeiro item afirma que os conjuntos $X$ e $Y$ são iguais e o segundo item afirma que os sistemas dinâmicos são iguais. Por exemplo, é imediato verificar que $p \in \per_n(f)$ se, e somente se, $\tau(p) \in \per_n(g)$. A proposição a seguir corrobora o fato de podemos afirmar que sistemas dinâmicos topologicamente conjugados são iguais.
+Intuitivamente, o primeiro item afirma que os conjuntos $X$ e $Y$ são iguais e o segundo, que os sistemas dinâmicos $f$ e $g$ são iguais. Por exemplo, é imediato verificar que $p \in \per_n(f)$ se, e somente se, $\tau(p) \in \per_n(g)$. A Proposição \ref{prop 5-1} nos mostra que sistemas dinâmicos topologicamente conjugados compartilham outras propriedades.
 
-\begin{proposition}
+\begin{proposition}\label{prop 5-1}
 Sejam $f: X \to X$, $g: Y \to Y$ e $\tau: X \to Y$ funções. Se $f$ e $g$ são topologicamente conjugadas por $\tau$, então
 \begin{enumerate}
 \item $\per(f)$ é denso em $X$ se, e somente se, $\per(g)$ é denso em $Y$.
@@ -29,7 +29,7 @@ Se $x', y' \in Y$, existem $x, y \in X$ tais que $\tau(x) = x'$ e $\tau(y) =  y'
 \end{enumerate}
 \end{proof}
 
-Vamos agora verificar a importância da conjugação topológica no estudo dos sistemas dinâmicos. Dado um sistema complicado de se estudar, a ideia é encontrar um outro sistema topologicamente conjugado mais fácil de estudar.
+A seguir, temos um exemplo da utilização da conjugação topológica no estudo dos sistemas dinâmicos.
 
 \begin{lemma}
 A função $T: [0,1] \to [0,1]$ dada por
@@ -43,7 +43,7 @@ A função $T: [0,1] \to [0,1]$ dada por
 \end{lemma}
 
 \begin{proof}
-Inicialmente, é possível provar por indução que $T^n: [\frac{k}{2^n}, \frac{k+1}{2^n}] \to [0,1]$ é uma função bijetora afim para todo $0 \leq k  < 2^n$ e para todo $n \geq 1$.
+Inicialmente, é possível provar por indução que $T^n: [\frac{k}{2^n}, \frac{k+1}{2^n}] \to [0,1]$ é uma função bijetora linear para todo $0 \leq k  < 2^n$ e para todo $n \geq 1$.
 Desse modo, dados $x \in [0, 1]$ e $\varepsilon > 0$, seja $n \geq 1$ tal que $\frac{1}{2^n} < \varepsilon$, $x \in I$ e $T^n: I \to [0,1]$ é bijetora, onde $I = \left[\frac{k}{2^n}, \frac{k+1}{2^n}\right]$.
 
 \begin{enumerate}[label=\alph*)]
