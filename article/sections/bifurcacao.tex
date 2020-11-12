@@ -1,31 +1,30 @@
 \subsection{Bifurcação}
 
-A família quadrática exibe outro fenômeno que ocorre em sistemas dinâmicos: a bifurcação. Esse fenômeno ajuda a explicar como a dinâmica de $h$, que é simples para $\mu$ pequeno, se torna caótica para $\mu$ suficientemente grande.
+A família quadrática exibe outro fenômeno que ocorre em sistemas dinâmicos: a bifurcação.
+Através desse fenômeno, vamos explicar gráfica e intuitiva como a dinâmica de $h$, que é simples para $\mu$ pequeno, se torna caótica para $\mu$ suficientemente grande.
 
 Seja $f_\lambda$ uma família parametrizada de funções no parâmetro $\lambda$ de modo que a função
 $$G(x, \lambda) = f_\lambda(x),$$
 definida num aberto de $\RR^2$, seja de classe $\class^\infty$ nas variáveis $x$ e $\lambda$.
-Dizemos que $f_\lambda$ sofre uma bifurcação em $\lambda_0$ se existe $\varepsilon > 0$ com a seguinte propriedade: se $\lambda_1 \in (\lambda_0 - \varepsilon, \lambda_0)$ e $\lambda_2 \in (\lambda_0, \lambda_0 + \varepsilon)$, então a dinâmica de $f_{\lambda_1}$ e $f_{\lambda_2}$ são diferentes, isto é, $f_{\lambda_1}$ e $f_{\lambda_2}$ não são topologicamente conjugadas.
-Por exemplo, ocorre uma bifurcação quando altera a estrutura dos pontos periódicos conforme o parâmetro varia.
+Dizemos que $f_\lambda$ sofre uma bifurcação em $\lambda_0$ se existe $\varepsilon > 0$ com a seguinte propriedade: se $\lambda_1 \in (\lambda_0 - \varepsilon, \lambda_0)$ e $\lambda_2 \in (\lambda_0, \lambda_0 + \varepsilon)$, então $f_{\lambda_1}$ e $f_{\lambda_2}$ não são topologicamente conjugadas.
+Por exemplo, uma bifurcação ocorre quando há alteração na estrutura dos pontos periódicos.
 
 \begin{example}
 \begin{enumerate}[label=\alph*)]\item[]
 \item 
-Seja $E_\lambda$ a família de funções dadas por $E_\lambda(x) = \lambda e^x$, onde $\lambda > 0$. Graficamente, podemos observar que $E_\lambda$ sofre uma bifurcação em $\lambda_0 = \frac{1}{e}$.
+A família $E_\lambda$ de funções dadas por $E_\lambda(x) = e^{x + \lambda}$ sofre uma bifurcação em $\lambda_0 = -1$.
 
-Se $\lambda > \frac{1}{e}$, então $E_\lambda$ não possui pontos fixos; se $\lambda = \frac{1}{e}$, então $E_\lambda$ possui um único ponto fixo em $x = 1$; e se $\lambda < \frac{1}{e}$, então $E_\lambda$ possui dois pontos fixos.
+Conforme o parâmetro cresce, os dois pontos fixos vão se aproximando até se tornarem um único ponto fixo que, após isso, desaparece. Uma bifurcação com essas características é chamada de bifurcação tangente.
 
-\item Seja $h_\mu$ a família quadrática. Graficamente, podemos observar que $h_\mu$ sofre uma bifurcação em $\mu_0 = 3$.
+\item A família quadrática sofre uma bifurcação em $\mu_0 = 3$.
 
-Se $\mu < 3$, então $p_\mu$ é um ponto fixo atrator e se $\mu >3$, então $p_\mu$ é um ponto fixo repulsor. Observando o gráfico de $h^2$ é possível ver que, conforme $\mu$ se torna maior que $3$, nasce uma órbita de $h$ de período $2$. Essa é a chamada bifurcação com duplicação de período.
-
+Conforme o parâmetro cresce, o ponto fixo, que inicialmente é atrator, se torna repulsor e, além disso, nasce uma órbita periódica de período $2$ numa vizinhança do ponto fixo. Uma bifurcação com essas características é chamada de bifurcação com duplicação de período.
 \end{enumerate}
 \end{example}
 
-Observe nos exemplos que $E_{\lambda_0}'(1) = 1$ e $h_{\mu_0}(p_\mu) = -1$, ou seja, as bifurcações ocorreram quando a derivada em módulo no ponto fixo se tornou igual à $1$. O teorema a seguir mostra que isso não é coincidência.
+Observe, nos exemplos, que as bifurcações ocorreram quando a derivada em módulo no ponto fixo se tornou igual à $1$. O teorema a seguir nos mostra que isso não é coincidência.
 
-\begin{theorem}
-\label{theorem1}
+\begin{theorem}\label{theorem1}
 Seja $f_\lambda$ uma família parametrizada de funções.
 Suponha que
 \begin{enumerate}
@@ -44,22 +43,20 @@ Além disso, $f_\lambda$ não possui outros pontos fixos em $J$.
 Basta aplicar o Teorema da Função Implícita para a função $G(x, \lambda) = f_\lambda(x) - x$ no ponto $(x_0, \lambda_0)$.
 \end{proof}
 
-De acordo com o Teorema anterior, se $x_0$ é um ponto fixo hiperbólico de $f_{\lambda_0}$, então $f_\lambda$ possui um único ponto fixo numa vizinhança de $x_0$ para cada $\lambda$ numa vizinhança de $\lambda_0$.
+Vamos estudar com mais detalhes a bifurcação com duplicação de período que ocorre na família quadrática.
+Inicialmente, observe que se $\mu > 2$, então existe $p_\mu' < p_\mu$ tal que $h(p_\mu') = p_\mu$.
+Observe o gráfico de $h^2$, juntamente com um quadrado de vértices $(p_\mu', p_\mu)$, $(p_\mu, p_\mu)$, $(p_\mu, p_\mu')$ e $(p_\mu', p_\mu')$, para alguns valores de $\mu$.
 
-Vamos olhar com mais detalhes a bifurcação com duplicação de período que ocorre na família quadrática.
-Inicialmente, quando $\mu$ se torna maior que $2$, existe $p_\mu'$ menor que $p_\mu$ tal que $h(p_\mu') = p_\mu$. Vamos desenhar o gráfico de $h^2$ juntamente com um quadrado de lados $(p_\mu', p_\mu)$, $(p_\mu, p_\mu)$, $(p_\mu, p_\mu')$ e $(p_\mu', p_\mu')$.
+Restringindo o gráfico de $h^2$ restrito ao quadrado e rotacionando em $2 \pi$, vemos que ele se assemelha ao gráfico da própria $h$ no intervalo $[0, 1]$ para algum valor de $\mu$. Vamos deixar essa ideia mais precisa através do operador de renormalização, que nos permite analisar a segunda iterada de uma função na mesma escala que a original.
 
-Observe que o gráfico de $h^2$ restrito aos quadrados, após uma rotação de $2 \pi$, se assemelha ao gráfico da própria $h$ no intervalo $[0, 1]$. Vamos deixar essa ideia mais precisa através do operador de renormalização.
-
-Seja $L_\mu: [p_\mu', p_\mu] \to [0, 1]$ a função dada por
-$$L_\mu(x) = \frac{1}{p_\mu' - p_\mu} (x - p_\mu).$$
-Observe que $L_\mu(p_\mu) = 0$ e $L_\mu(p_\mu') = 1$. A inversa de $L_\mu$ é a função $L_\mu^{-1}: [0, 1] \to [p_\mu', p_\mu]$ dada por $L_\mu^{-1}(x) = (p_\mu' - p_\mu)x + p_\mu$. Desse modo, definimos a renormalização de $h$ como a função $Rh: [0, 1] \to [0, 1]$ dada por $(Rh)(x) = L_\mu \circ h^2 \circ L_\mu^{-1}(x)$. A renormalização de $h$ possui algumas semelhanças com $h$.
-
-\begin{proposition}
-\begin{enumerate}\item[]
-\item $(Rh)(0) = (Rh)(1) = 0$.
-\item $\frac{1}{2}$ é o único ponto crítico de $Rh$.
-\end{enumerate}
-\end{proposition}
+Se $\mu > 2$, considere a função $L: [p_\mu', p_\mu] \to [0, 1]$ dada por
+$$L(x) = \frac{x - p_\mu}{p_\mu' - p_\mu}.$$
+Observe que $L(p_\mu) = 0$ e $L(p_\mu') = 1$. Desse modo, definimos a renormalização de $h$ como a função $Rh: [0, 1] \to [0, 1]$ dada por $Rh(x) = L \circ h^2 \circ L^{-1}(x)$.
 
 Observe que um ponto fixo de $Rh$ está unicamente relacionado com um ponto periódico de $h$ de período $2$. Além disso, o gráfico de $Rh$ não está contido em $[0, 1]$ para algum $\mu < 4$. Desse modo, podemos fazer uma análise análoga para concluir que $Rh$ passa por uma bifurcação com duplicação de período. 
+
+Portanto, esperamos que $Rh$ sofra uma bifurcação com duplicação de período conforme o parâmetro cresce e, de maneira análoga, fazemos uma renormalização para concluir que $h^2$ sofre uma bifurcação com duplicação de período. Continuando esse processo, temos uma sucessão de bifurcações com duplicação de período na família quadrática.
+
+O computador nos permite observar esse fato experimentalmente. Para isso, vamos computar o digrama de órbita do ponto crítico da família quadrática para $\mu > 2$. Nesse diagrama, veremos o comportamento assintótico de órbita de $\frac{1}{2}$ em função do parâmetro. Como veremos no Teorema de Singer, se $h$ possui uma órbita periódica, então ela atrai o ponto crítico. Escolhemos $2000$ valores de $\mu$ igualmente espaçados em $[2, 4]$ e, para cada valor, calculamos as primeiras $500$ iterações da órbita de $\frac{1}{2}$ e plotamos as últimas $400$.
+
+Na figura, vemos alguns fatos que já estudamos. Para $\mu \in [2, 3]$, as órbitas são atraídas para o ponto fixo $p_\mu$ e, quando $\mu$ passa de $3$, nasce uma órbita periódica de período $2$. 
