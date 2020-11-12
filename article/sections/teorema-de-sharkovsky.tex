@@ -3,9 +3,9 @@
 Ao longo dessa seção, consideraremos $f: \RR \to \RR$ uma função contínua.
 Além disso, escreveremos $I_0 \longrightarrow I_1 \longrightarrow \cdots \longrightarrow I_n$ quando $I_0, \, I_1, \, \dots, \, I_n$ são intervalos fechados e $f(I_k) \supset I_{k+1}$ para todo $0 \leq k < n$.
 
-\begin{lemma}
+\begin{proposition}\label{prop 9-1}
 Se $I_0 \longrightarrow I_1$, então existe um intervalo fechado $I_0' \subset I_0$ tal que $f(I_0') = I_1$.
-\end{lemma}
+\end{proposition}
 
 \begin{proof}
 Sejam $p, \, q \in [a, b]$ tais que $f(p) = c$ e $f(q) = d$, onde $I_0 = [a, b]$ e $I_1 = [c, d]$.
@@ -22,8 +22,8 @@ Se $I_0 \longrightarrow I_1 \longrightarrow \cdots \longrightarrow I_{n-1} \long
 \end{lemma}
 
 \begin{proof}
-Pelo Lema anterior, podemos construir uma sequência de intervalos fechados $I_0', \, I_1', \, \dots, \, I_{n-1}'$ com as seguintes propriedades:
-\begin{enumerate}[label=\alph*.]
+Pelo Proposição \ref{prop 9-1}, podemos construir uma sequência de intervalos fechados $I_0', \, I_1', \, \dots, \, I_{n-1}'$ com as seguintes propriedades:
+\begin{enumerate}[label=\alph*)]
 \item $I_0 \supset I_0' \supset I_1' \supset \cdots \supset I_{n-1}'$.
 \item $f^k(I_{k-1}') = I_k$ para todo $1 \leq k < n$.
 \item $f^n(I_{n-1}') = I_0$.
@@ -33,14 +33,13 @@ Desse modo, existe $p \in I_{n-1}'$ tal que $f^n(p) = p$.
 Em particular, $p \in I_0$ e $f^k(p) \in I_k$ para todo $1 \leq k < n$.
 \end{proof}
 
-\begin{theorem}
-Se $\per_3(f) \neq \emptyset$ e $n \geq 1$, então $\per_n(f) \neq \emptyset$.
+\begin{theorem}\label{teo 9-2}
+Se $\per_3(f) \neq \emptyset$, então $\per_n(f) \neq \emptyset$ para todo $n \geq 1$.
 \end{theorem}
 
 \begin{proof}
-Sejam $p_1 < p_2 < p_3$ os pontos da órbita de um elemento de $\per_3(f)$ e suponha que $f(p_1) = p_2$ e $f(p_2) = p_3$.
-Se $f(p_1) = p_3$ e $f(p_3) = p_2$, a demonstração é análoga.
-Definindo $I_0 = [p_1, p_2]$ e $I_1 = [p_2, p_3]$, temos que $I_0 \longrightarrow I_1$, $I_1 \longrightarrow I_0$ e $I_1 \longrightarrow I_1$. Com isso, podemos demonstrar as seguintes afirmações:
+Sejam $p_1 < p_2 < p_3$ os pontos da órbita de um elemento de $\per_3(f)$. Suponha que $f(p_1) = p_2$ e $f(p_2) = p_3$. Se $f(p_1) = p_3$ e $f(p_3) = p_2$, a demonstração é análoga.
+Definindo $I_0 = [p_1, p_2]$ e $I_1 = [p_2, p_3]$, temos que $I_0 \longrightarrow I_1$, $I_1 \longrightarrow I_0$ e $I_1 \longrightarrow I_1$. Desse modo, podemos demonstrar as seguintes afirmações:
 
 \begin{enumerate}[label=\alph*)]
 \item $\per_1(f) \neq \emptyset$.
@@ -63,6 +62,9 @@ Em particular, $f^3(p) \in I_0 \cap I_1 = \lbrace p_2 \rbrace$ e, portanto, $f^4
 Por fim, podemos demonstrar de maneira análoga à última afirmação que $\per_n(f) \neq \emptyset$ para todo $n \geq 4$.
 \end{proof}
 
+O Teorema \ref{teo 9-2} é um caso especial de um teorema, provado por A. N. Sharkovsky, que vamos enunciar na sequência.
+Inicialmente, considere a seguinte ordenação dos números naturais:
+
 \begin{definition}[Ordenação de Sharkovsky]
 $$3 \, \triangleright \, 5 
 \, \triangleright \, \cdots \, \triangleright \,
@@ -75,15 +77,27 @@ $$3 \, \triangleright \, 5
 2^2 \, \triangleright \, 2 \, \triangleright \, 1.$$
 \end{definition}
 
+A ordenação de Sharkovsky lista todos os ímpares $\geq 3$ em ordem crescente; em seguida, todos os ímpares $\geq 3$ em ordem crescente multiplicados por 2; em seguida, todos os ímpares $\geq 3$ em ordem crescente multiplicados por 4; e assim sucessivamente. Por fim, lista todas as potências de $2$ em ordem decrescente.
+
+Desse modo, enunciamos o Teorema de Sharkovsky cuja demostração, apesar de não usar nenhuma ferramenta além daquelas usadas para demonstrar o Teorema \ref{teo 9-2}, é consideravelmente grande.
+
 \begin{theorem}[Sharkovsky]
-Se $\per_n(f) \neq \emptyset$ e $n \triangleright m$, então $\per_m(f) \neq \emptyset$.
+Se $\per_n(f) \neq \emptyset$, então $\per_m(f) \neq \emptyset$ para todo $n \triangleright m$.
 \end{theorem}
+
+\begin{proof}
+Ver [2].
+\end{proof}
+
+O Teorema de Sharkovsky pode ser usado para provar que órbitas periódicas de certos tamanhos não existem. Por exemplo, observando os gráficos de $h$, $h^2$ e $h^4$ para $\mu = 3.2$ vemos que $\per_4(h) = \emptyset$ e, portanto, $\per_n(h) = \emptyset$ para todo $n \geq 3$.
+
+Por fim, a ordenação de Sharkovsky é a melhor possível. Por exemplo, se $\per_5(f) \neq \emptyset$ implicasse $\per_3(f) \neq \emptyset$, então o número $5$ poderia ser removido na ordenação. O seguinte teorema mostra que isso não é possível.
 
 \begin{theorem}
 Se $n \geq 1$, então existe uma função $f$ com as seguintes propriedades:
 \begin{enumerate}
-\item $\per_n{f} \neq \emptyset$.
-\item $\per_m{f} =  \emptyset$ para todo $m \triangleright n$.
+\item $\per_n(f) \neq \emptyset$.
+\item $\per_m(f) =  \emptyset$ para todo $m \triangleright n$.
 \end{enumerate}
 \end{theorem}
 

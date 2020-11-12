@@ -1,27 +1,30 @@
 \section{Teorema de Singer}
 
-\begin{definition}
-Seja $f: \RR \to \RR$ uma função de classe $\class^3$.
-A derivada de Schwarz de $f$ é função $\schwarz f$ dada por
-$$\schwarz f(x) = \frac{D^3 f(x)}{D f(x)} - \frac{3}{2} \left( \frac{D^2 f(x)}{D f(x)} \right)^2$$
-para todo $x$ tal que $D f(x) \neq 0$.
+Ao longo dessa seção, consideraremos $f: \RR \to \RR$ uma função de classe $\class^3$. Iniciamos com a seguinte definição: 
+
+\begin{definition}[Derivada de Schwarz]
+A derivada de Schwarz de $f$ é a função $\schwarz f: \RR \backslash C_f \to \RR$ dada por
+$$\schwarz f(x) = \frac{D^3 f(x)}{D f(x)} - \frac{3}{2} \left( \frac{D^2 f(x)}{D f(x)} \right)^2,$$
+onde $C_f = \lbrace x \in \RR: Df(x) \neq 0 \rbrace$.
 \end{definition}
+
+Para os nossos objetivos, estudaremos funções que possuem a derivada de Schwarz negativa. Por exemplo, $Sh(x) = \frac{-6}{(1 - 2x)^2} < 0$ para todo $x \neq \frac{1}{2}$. A característica fundamental dessa propriedade é ser preservada em composição de funções.
 
 \begin{proposition}
 Se $\schwarz f < 0$ e $\schwarz g < 0$, então $\schwarz (f \circ g) < 0$.
 \end{proposition}
 
 \begin{proof}
-Pela Regra da Cadeia, é possível mostrar que
-$$\schwarz (f \circ g)(x) = \schwarz f(g(x))(D g(x))^2 + \schwarz g(x)$$
-e, portanto, o resultado é imediato.
+Basta observar que $\schwarz (f \circ g)(x) = \schwarz f(g(x))(D g(x))^2 + \schwarz g(x)$.
 \end{proof}
 
 \begin{corollary}
 Se $\schwarz f < 0$, então $\schwarz f^n < 0$ para todo $n \geq 1$.
 \end{corollary}
 
-\begin{lemma}
+Vamos mostra que se uma função possui derivada de Schwarz negativa e um número finito de pontos críticos, então existe um limite para a quantidade de órbitas periódicas atratoras. Para isso, iniciamos provando uma série de lemas.
+
+\begin{lemma}\label{lem 10-1}
 Se $\schwarz f < 0$ e $x_0$ é um ponto de mínimo local de $D f$, então $D f(x_0) \leq 0$.
 \end{lemma}
 
@@ -31,7 +34,7 @@ $$\schwarz f(x_0) = \frac{D^3 f(x_0)}{D f(x_0)} - \frac{3}{2} \left( \frac{D^2 f
 Sendo $x_0$ ponto de mínimo local de $D f$, temos que $D^2 f(x_0) = 0$ e $D^3 f(x_0) \geq 0$ e, portanto, $D f(x_0) < 0$. 
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lem 10-2}
 Se $\schwarz f < 0$ e $a<b<c$ são pontos fixos de $f$ com $D f(b) \leq 1$, então $f$ possui ponto crítico em $(a, c)$.
 \end{lemma}
 
@@ -42,7 +45,7 @@ Como $b \in (r,s)$ e $D f(b) \leq 1$, temos que $D f$ possui mínimo local em $(
 Utilizando Lema anterior e o TVI, a demonstração está concluída.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lem 10-3}
 Se $\schwarz f < 0$ e $a<b<c<d$ são pontos fixos de $f$, então $f$ possui ponto crítico em $(a,d)$.
 \end{lemma}
 
@@ -51,10 +54,10 @@ Se $D f(b) \leq 1$ ou $D f(c) \leq 1$, o resultado é verdadeiro pelo Lema anter
 Se $D f(b) > 1$ e $D f(c) > 1$, existem $r, t \in (b,c)$ tais que $r<t$, $f(r) > r$ e $f(t) < t$.
 Pelo TVM, existe $s \in (r,t)$ tal que $D f(s) < 1$.
 Portanto, $D f$ possui mínimo local em $(b,c)$.
-Utilizando Lema \ref{lemma1} e o TVI, a demonstração está concluída.
+Utilizando Lema \ref{lem 10-1} e o TVI, a demonstração está concluída.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma}\label{lem 10-4}
 Se $f$ possui finitos pontos críticos, então $f^n$ possui finitos pontos críticos para todo $n \geq 1$.
 \end{lemma}
 \begin{proof}
@@ -70,7 +73,7 @@ Se $\schwarz f < 0$ e $f$ possui finitos pontos críticos, então $f^n$ possui f
 \end{lemma}
 
 \begin{proof}
-Pelo Lema \ref{lemma3}, se $f^n$ possui infinitos pontos fixos para algum $n \geq 1$, então $f^n$ possui infinitos pontos críticos, o que é um absurdo pelo Lema anterior.
+Pelo Lema \ref{lem 10-3}, se $f^n$ possui infinitos pontos fixos para algum $n \geq 1$, então $f^n$ possui infinitos pontos críticos, o que é um absurdo pelo Lema \ref{lem 10-4}.
 \end{proof}
 
 \begin{theorem}[Singer]
@@ -85,14 +88,14 @@ Inicialmente, suponha que $K$ é limitado.
 
 Se $|D g(p)| < 1$, então é possível mostrar que $K$ é aberto, $g(K) \subset K$ e $g$ preserva os pontos extremos de $K$.
 
-Escrevendo $K = (a, b)$, se $g(a) = a$ e $g(b) = b$, então $g$ possui ponto crítico em $K$ pelo Lema \ref{lemma2}; se $g(a) = b$ e $g(b) = a$, então $g^2$ possui ponto crítico em $K$ pelo Lema \ref{lemma2}; se $g(a) = g(b)$, então $g$ possui ponto crítico em $K$ pelo TVM.
+Escrevendo $K = (a, b)$, se $g(a) = a$ e $g(b) = b$, então $g$ possui ponto crítico em $K$ pelo Lema \ref{lem 10-2}; se $g(a) = b$ e $g(b) = a$, então $g^2$ possui ponto crítico em $K$ pelo Lema \ref{lem 10-2}; se $g(a) = g(b)$, então $g$ possui ponto crítico em $K$ pelo TVM.
 
 Se $|D g(p)| = 1$, então os pontos fixos de $g$ são isolados pelo Lema anterior e, portanto, existe uma vizinhança de $p$ que não contém outros pontos fixos de $g$.
 
 Suponha que $D g(p) = 1$.
 Se $D g(p) = -1$, a demonstração é análoga considerando $g^2$.
 Se $p$ possui o comportamento de um ponto repulsor, então, para $x$ numa vizinhança de $p$, $g(x) > x$ quando $x > p$ e $g(x) < x$ quando $x < p$.
-Desse modo, $1$ é um mínimo local de $D g$, o que é um absurdo pelo Lema \ref{lemma1} e, portanto, $p$ é atrator em pelo menos um dos lados.
+Desse modo, $1$ é um mínimo local de $D g$, o que é um absurdo pelo Lema \ref{lem 10-1} e, portanto, $p$ é atrator em pelo menos um dos lados.
 Desse modo, $K$ é um intervalo, $g(K) \subset K$ e $g$ preserva os pontos extremos de $K$.
 Assim, é possível concluir de maneira análoga que $g$ possui ponto crítico em $K$.
 
@@ -100,6 +103,8 @@ Assim, cada intervalo $K$ limitado está associado à algum ponto crítico de $f
 Não é possível obter a mesma conclusão se $K$ não é limitado, mas observando que existem no máximo dois intervalos desse tipo, a demonstração está concluída.
 \end{proof}
 
+Por fim, temos o Teorema de Singer aplicado à família quadrática.
+
 \begin{corollary}
-Se $\mu > 0$, então $h_\mu(x) = \mu x(1-x)$ possui no máximo $1$ órbita periódica não repulsora.
+Se $\mu > 1$, então $h$ possui no máximo $1$ órbita periódica não repulsora.
 \end{corollary}

@@ -1,6 +1,6 @@
 \subsection{Matriz de Transição}
 
-Dizemos que $A$ é uma matriz de transição, se $A = (a_{ij})_{1 \leq i,j \leq N}$ uma matriz quadrada de ordem $N$ tal que $a_{ij} \in \lbrace 0, 1 \rbrace$ para todo $1 \leq i,j \leq N$.
+Dado $N \geq 2$, dizemos que $A$ é uma matriz de transição se $A = (a_{ij})_{1 \leq i,j \leq N}$ é uma matriz quadrada de ordem $N$ tal que $a_{ij} \in \lbrace 0, 1 \rbrace$ para todo $1 \leq i,j \leq N$.
 Se $A$ é uma matriz de transição, definimos o conjunto $\Sigma_A$ por
 $$\Sigma_A = \lbrace (x_0 \, x_1 \, x_2 \, \dots) \in \Sigma_N : a_{x_k x_{k+1}} = 1 \text{ para todo } k \geq 0 \rbrace.$$
 Observe que se $x \in \Sigma_A$, então $\sigma(x) \in \Sigma_A$.
@@ -17,19 +17,19 @@ Vamos mostrar que $x \in \Sigma_A$.
 Se $x = (\xi_0 \, \xi_1 \, \xi_2 \, \dots)$ e $x \notin \Sigma_A$, então existe $k \geq 0$ tal que $a_{\xi_k \xi_{k+1}} = 0$. Por outro lado, pela definição de convergência, existe $n_0 \geq 0$ tal que $d(x_{n_0}, x) < \frac{1}{N^{k+1}}$ e, portanto, as $k+2$ primeiras entradas de $x$ e $x_{n_0}$ são iguais. Escrevendo $x_{n_0} = (\eta_0 \, \eta_1 \, \eta_2 \, \dots)$, concluímos que $a_{\eta_k \eta_{k+1}} = a_{\xi_k \xi_{k+1}} = 0$, o que é um absurdo pois $x_{n_0} \in \Sigma_A$.
 \end{proof}
 
-No restante dessa seção vamos estudar a dinâmica da função quadrática $h_\mu(x) = \mu x(1-x)$, onde o parâmetro $\mu = 3.839$ está fixado. Será omitido $\mu$ na notação da função e escreveremos apenas $h$.
-
+Vamos estudar a dinâmica da família quadrática para $\mu = 3.839$.
 Se $a = 0.149888$, $\varepsilon = 10^{-3}$ e $I = (a - \varepsilon, a + \varepsilon)$, então é possível mostrar que $h^3(I) \subset I$ e $|D h^3(I)| < 1$ e, portanto, o intervalo $I$ possui um ponto periódico atrator de $h$ de período principal $3$. Se $a_1$, $a_2$ e $a_3$ são os elementos dessa órbita em ordem crescente, então
-$$a_1 \simeq 0.149888 \text{, } \, a_2 \simeq 0.489149 \, \text{ e } \, a_3 \simeq 0.959299.$$
-Pelo Teorema de Sharkovsky, $h$ possui infinitos pontos periódicos. Além disso, pelo Teorema de Singer, essa é a única órbita atratora de $h$.
+$$a_1 \simeq 0.149888 \text{, } \quad a_2 \simeq 0.489149 \quad \text{ e } \quad a_3 \simeq 0.959299.$$
+Com auxílio do Teorema de Sharkovsky e do Teorema de Singer, que estudaremos na sequência, podemos concluir que $h$ possui infinitos pontos periódicos e essa é a única órbita atratora de $h$.
 
 De modo análogo, concluímos que $h$ possui outra órbita de tamanho $3$. Se $b_1$, $b_2$ e $b_3$ são os elementos dessa órbita em ordem crescente, então
 $$b_1 \simeq 0.169040 \text{, } \, b_2 \simeq 0.539247 \,  \text{ e } \, b_3 \simeq 0.953837.$$
 
-Observando o gráfico de $h^3$, concluímos que para cada $b_i$, existe $b'_i$ no lado oposto de $b_i$ em relação ao ponto $a_i$ tal que $h^3(b'_i) = b_i$. Defina $A_1 = (b'_1, b_1)$, $A_2 = (b'_2, b_2)$ e $A_3 = (b_3, b'_3)$. Cada $A_i$ é exatamente o intervalo maximal contendo $a_i$ utilizado na demonstração do Teorema de Singer.
+Observando o gráfico de $h^3$, concluímos que para cada $b_i$, existe $b'_i$ no lado oposto de $b_i$ em relação ao ponto $a_i$ tal que $h^3(b'_i) = b_i$. Defina $A_1 = (b'_1, b_1)$, $A_2 = (b'_2, b_2)$ e $A_3 = (b_3, b'_3)$.
 
 \begin{center}
-%\includegraphics[scale=0.25]{images/f.png}
+\includegraphics[scale=0.15]{images/matriz-de-transicao-1.png}
+
 {\small \textbf{Figura:} Gráfico de $h^3$ com os pontos $a_1$, $a_2$ e $a_3$ assinalados.}
 \end{center}
 
@@ -45,11 +45,11 @@ Se $x \notin \lbrace 0, a_1, a_2, a_3 \rbrace$ é um ponto periódico de $h$, en
 \end{proposition}
 
 \begin{proof}
-Observando que $h$ é monótona em cada $J_k$, temos que $h(J_0) = J_0 \cup A_1 \cup J_1$, $h(J_1) = J_2$, $h(J_2) = J_1 \cup A_2 \cup J_2$ e $h(J_3) = J_0$. Desse modo, se $x \in I_1 \cup J_2$ é periódico, então órbita de $x$ permanece em $J_1 \cup J_2$.
+Observando que $h$ é monótona em cada $J_k$, temos que $h(J_0) = J_0 \cup A_1 \cup J_1$, $h(J_1) = J_2$, $h(J_2) = J_1 \cup A_2 \cup J_2$ e $h(J_3) = J_0$. Desse modo, se $x \in J_1 \cup J_2$ é periódico, então órbita de $x$ está contida em $J_1 \cup J_2$.
 
-Por outro lado, se $x \in J_0 - \lbrace 0 \rbrace$, existe um menor $n \geq 1$ tal que $h^n(x) \notin J_0$. Se $h^n(x) \in A_1$, então $x$ não pode ser periódico, pois o único ponto periódico de $A_1$ é $a_1$.
+Por outro lado, se $x \in J_0 \backslash \lbrace 0 \rbrace$, existe um menor $n \geq 1$ tal que $h^n(x) \notin J_0$. Se $h^n(x) \in A_1$, então $x$ não pode ser periódico, pois o único ponto periódico de $A_1$ é $a_1$.
 Se $h^n(x) \in J_1$, então $x$ não pode ser periódico, pois caso contrário a órbita de $x$ estaria contida em $J_1 \cup J_2$ e nunca retornaria para $J_0$.
-Finalmente, se $x \in J_3$, então $h(x) \in J_0$ e a análise segue de maneira análoga.
+Finalmente, se $x \in J_3$, então $h(x) \in J_0$ e a análise é análoga.
 \end{proof}
 
 Seja $\Lambda$ o conjunto dado por
