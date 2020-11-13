@@ -7,9 +7,10 @@
 \usepackage[onehalfspacing]{setspace}
 \usepackage{indentfirst}
 
-\usepackage{subfiles}
-\usepackage{enumitem}
+\usepackage{cite}
 \usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{subfiles}
 
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -35,6 +36,7 @@
 
 \DeclareMathOperator{\per}{Per}
 \DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\tr}{Tr}
 
 \title{Uma Introdução aos Sistemas Dinâmicos Caóticos}
 \author{Agenor Gonçalves Neto}
@@ -56,5 +58,9 @@
 \subfile{sections/bifurcacao}
 \subfile{sections/teorema-de-sharkovsky}
 \subfile{sections/teorema-de-singer}
+
+\nocite{devaney}
+\bibliographystyle{acm}
+\bibliography{bibfile}
 
 \end{document}

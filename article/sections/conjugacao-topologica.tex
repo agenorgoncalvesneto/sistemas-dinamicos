@@ -29,7 +29,9 @@ Se $x', y' \in Y$, existem $x, y \in X$ tais que $\tau(x) = x'$ e $\tau(y) =  y'
 \end{enumerate}
 \end{proof}
 
-A seguir, temos um exemplo da utilização da conjugação topológica no estudo dos sistemas dinâmicos.
+Em geral, a dependência sensível de condições inicias não é preservada por conjugação topológica. De fato, considere as funções $f: (0, 1) \to (0, 1)$ e $g: (1, \infty) \to (1, \infty)$ dadas por $f(x) = g(x) = x^2$. É possível mostrar que $f$ e $g$ são topologicamente conjugadas pelo homeomorfismo $\tau: (0, 1) \to (1, \infty)$ dado por $\tau(x) = \frac{1}{x}$ e que apenas $g$ possui dependência sensível das condições iniciais. 
+
+Na sequência, utilizaremos a conjugação topológica para demostrar que $h$ é caótica para $\mu = 4$.
 
 \begin{lemma}
 A função $T: [0,1] \to [0,1]$ dada por
@@ -61,8 +63,6 @@ Observando que $|x - z| \leq \frac{1}{2^n}$ e $|y - T^n(z)| = 0$, concluímos qu
 Sendo $T^n: I \to [0,1]$ bijetora, existem $a, b \in I$ tais que $T^n(a) = 0$ e $T^n(b) = 1$. Se $T^n(x) \in [0, \frac{1}{2}]$, então $|T^n(x) - T^n(b)| = |T^n(x) - 1| \geq \frac{1}{2}$ e se $T^n(x) \in [\frac{1}{2}, 1]$, então $|T^n(x) - T^n(a)| = |T^n(x)| \geq \frac{1}{2}$. Observando que $|x - a| \leq \frac{1}{2^n}$ e $|x - b| \leq \frac{1}{2^n}$, concluímos que $T$ depende sensivelmente das condições iniciais.
 \end{enumerate}
 \end{proof}
-
-Desse modo, podemos concluir que $h$ é caótica quando $\mu = 4$.
 
 \begin{theorem}
 Se $\mu = 4$, então $h$ é caótica.

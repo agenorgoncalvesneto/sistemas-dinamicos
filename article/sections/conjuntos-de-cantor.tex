@@ -1,11 +1,11 @@
 \subsection{Conjuntos de Cantor}
 
-Vamos estudar a dinâmica de $h$ quando $\mu > 4$.
+Vamos estudar a dinâmica de $h$ para $\mu > 4$.
 Inicialmente, observe que $h(\frac{1}{2}) > 1$ e, portanto, existem pontos em $[0, 1]$ que não permanecem em $[0, 1]$ após uma iteração de $h$.
 Pela Proposição \ref{prop 2-1}, tais pontos pertencem ao conjunto estável do infinito.
 De modo mais geral, se um ponto de $[0, 1]$ não permanece em $[0, 1]$ após um número finito de iterações, então ele pertence ao conjunto estável do infinito.
 
-Desse modo, considere o conjunto $\Lambda_n = \lbrace x \in [0, 1] : h^n(x) \in [0, 1] \rbrace$ formado pelos pontos que permanecem em $[0, 1]$ após $n$ iterações de $h$ e o conjunto $\Lambda =  \cap_{n = 1}^\infty \Lambda_n$ formado pelos pontos de $[0, 1]$ que sempre permanecem em $[0, 1]$ por iterações de $h$. Assim, podemos estudar a dinâmica de $h_\Lambda$.
+Desse modo, considere o conjunto $\Lambda_n = \lbrace x \in [0, 1] : h^n(x) \in [0, 1] \rbrace$ formado pelos pontos que permanecem em $[0, 1]$ após $n$ iterações de $h$ e o conjunto $\Lambda =  \cap_{n = 1}^\infty \Lambda_n$ formado pelos pontos de $[0, 1]$ que sempre permanecem em $[0, 1]$ por iterações de $h$. Assim, podemos estudar a dinâmica de $h|_\Lambda$.
 
 Observe que $\Lambda_1 = [0, x_1] \cup [x_2, 1]$, onde $x_1 = \frac{1}{2} - \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$ e $x_2 = \frac{1}{2} + \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$. De modo mais geral, temos o seguinte resultado:
 
@@ -21,13 +21,13 @@ Se $\mu > 4$, então
 Se $k \geq 1$, suponha que $\Lambda_{k-1}$ é a união de $2^{k-1}$ intervalos fechados disjuntos e que $h^{k-1}: [a, b] \to [0, 1]$ é bijetora, onde $[a, b]$ é um dos intervalos que formam $\Lambda_{k-1}$.
 Suponha que $h^{k-1}$ é estritamente crescente; se $h^{k-1}$ é estritamente decrescente, a demonstração é análoga.
 
-Inicialmente, observe que existem $x_1' < x_2'$ tais que $h^{k-1}([a, x_1']) = [0, x_1]$, $h^{k-1}((x_1', x_2')) = (x_1, x_2)$ e $h^{k-1}([x_2', 1]) = [x_2, 1]$ e, portanto, $h^k([a, x_1']) = [0, 1]$, $h^k((x_1', x_2')) > 1$  e $h^k([x_2', 1]) = [0, 1]$.
-Além disso, pela Regra da Cadeia, temos também que $D h^k([a, x_1']) > 0$ e $D h^k([x_2', 1]) < 0$.
+Inicialmente, observe que existem $x_1' < x_2'$ tais que $h^{k-1}([a, x_1']) = [0, x_1]$, $h^{k-1}((x_1', x_2')) = (x_1, x_2)$ e $h^{k-1}([x_2', b]) = [x_2, 1]$ e, portanto, $h^k([a, x_1']) = [0, 1]$, $h^k((x_1', x_2')) > 1$  e $h^k([x_2', b]) = [0, 1]$.
+Além disso, pela Regra da Cadeia, temos também que $D h^k([a, x_1']) > 0$ e $D h^k([x_2', b]) < 0$.
 
 Desse modo, é imediato concluir que $\Lambda_k$ é a união de $2^k$ intervalos fechados disjuntos e que $h^k: [a, b] \to [0, 1]$ é bijetora, onde $[a, b]$ é um dos intervalos formam $\Lambda_k$.
 \end{proof}
 
-Desse modo, podemos mostrar que $\Lambda$ é um conjunto de Cantor.
+Com isso, podemos mostrar que $\Lambda$ é um conjunto de Cantor.
 
 \begin{definition}
 Seja $\Gamma \subset \RR$ um conjunto não vazio. Dizemos que $\Gamma$ é um conjunto de Cantor se as seguintes condições são válidas:
@@ -38,25 +38,25 @@ Seja $\Gamma \subset \RR$ um conjunto não vazio. Dizemos que $\Gamma$ é um con
 \end{enumerate}
 \end{definition}
 
-$\Gamma$ é totalmente desconexo se não contém intervalos. $\Gamma$ é perfeito se é fechado e todos os seus pontos são pontos de acumulação $\Gamma$. Para facilitar as próximas demonstrações, vamos considerar $\mu$ suficientemente grande tal que a derivada em módulo de $h$ em $\Lambda_1$ seja maior que $1$.
+$\Gamma$ é totalmente desconexo se não contém intervalos. $\Gamma$ é perfeito se é fechado e todos os seus pontos são pontos de acumulação dele próprio. Para facilitar as próximas demonstrações, vamos considerar $\mu$ suficientemente grande tal que a derivada em módulo de $h$ em $\Lambda_1$ seja maior que $1$.
 
 \begin{lemma}\label{lem 3}
 Se $\mu > 2 + \sqrt{5}$, então
 \begin{enumerate}
-\item  $|D h(\Lambda_1)| \geq \lambda > 1$.
-\item $b - a \leq \frac{1}{\lambda^n}$, onde $[a, b]$ é um dos intervalos que formam $\Lambda_n$.
+\item  $|D h(\Lambda_1)| > \lambda > 1$.
+\item $b - a < \frac{1}{\lambda^n}$, onde $[a, b]$ é um dos intervalos que formam $\Lambda_n$.
 \end{enumerate}
 \end{lemma}
 
 \begin{proof}
 \begin{enumerate}\item[]
 \item Basta observar que $D h(x_1) = \sqrt{\mu^2 - 4\mu} > 1$ e $D h(x_2) = -\sqrt{\mu^2 - 4\mu} < -1$.
-\item Se $x \in [a, b]$, então $D h^n(x) = \prod_{k=0}^{n-1} D h(h^k(x)) \geq \lambda^n$. Pelo TVM, existe $c \in (a, b)$ tal que
-$$1 = |h^n(b) - h^n(a)| \geq \lambda^n|b - a|.$$
+\item Se $x \in [a, b]$, então $D h^n(x) = \prod_{k=0}^{n-1} D h(h^k(x)) > \lambda^n$. Pelo TVM, existe $c \in (a, b)$ tal que
+$$1 = |h^n(b) - h^n(a)| > \lambda^n|b - a|.$$
 \end{enumerate}
 \end{proof} 
 
-Pelo Lema \ref{lem 3}, dado $\varepsilon > 0$, existe $k(\varepsilon) \geq 1$ tal que $b - a < \varepsilon$, onde $[a, b]$ é um dos intervalos que formam $\Lambda_{k(\varepsilon)}$.
+Pelo Lema \ref{lem 3}, dado $\varepsilon > 0$, existe $k \geq 1$ tal que os intervalos que formam $\Lambda_k$ possuem tamanho menor que $\varepsilon$. 
 
 \begin{theorem}\label{teo 3-1}
 Se $\mu > 2 + \sqrt{5}$, então $\Lambda$ é um conjunto de Cantor.
@@ -64,14 +64,16 @@ Se $\mu > 2 + \sqrt{5}$, então $\Lambda$ é um conjunto de Cantor.
 
 \begin{proof}
 \begin{enumerate}[label=\alph*)]\item[]
-\item $\Lambda$ é totalmente desconexo.
+\item \textit{$\Lambda$ é totalmente desconexo.}
 
-Se existe $[x, y] \subset \Lambda$, seja $k$ tal que $\frac{1}{\lambda^k} < |x - y|$.
-Em particular, $[x, y] \subset \Lambda_k$, o que é um absurdo pois os intervalos que formam $\Lambda_k$ possuem tamanho $\leq \frac{1}{\lambda^k}$.
+Se existe $[a, b] \subset \Lambda$, seja $k$ tal que $\frac{1}{\lambda^k} < |a - b|$.
+Em particular, $[a, b] \subset \Lambda_k$, o que é um absurdo pois os intervalos que formam $\Lambda_k$ possuem tamanho $\leq \frac{1}{\lambda^k}$.
 
-\item $\Lambda$ é perfeito.
+\item \textit{$\Lambda$ é perfeito.}
 
-Sejam $x \in \Lambda$ e $\varepsilon > 0$.
-Se $x \in [a, b]$, onde $[a, b]$ é um dos intervalos que formam $\Lambda_{k(\varepsilon)}$, então $a \in \Lambda$ e $|x - a| < \varepsilon$ e, portanto, $x$ é ponto de acumulação de $\Lambda$.
+Sejam $x \in \Lambda$, $\varepsilon > 0$ e $k \geq 1$ tal que $\frac{1}{\lambda^k} < \varepsilon$.
+Se $x \in [a, b]$, onde $[a, b]$ é um dos intervalos que formam $\Lambda_k$, então $a \in \Lambda$ e $|x - a| < \varepsilon$ e, portanto, $x$ é ponto de acumulação de $\Lambda$.
 \end{enumerate}
 \end{proof}
+
+O Teorema \ref{teo 3-1} é válido para $4 < \mu \leq 2 + \sqrt{5}$, porém a demonstração é consideravelmente mais difícil.
