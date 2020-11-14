@@ -26,7 +26,7 @@ $\sigma$ é contínua.
 \begin{proof}
 Sejam $x = (x_0 \, x_1 \, x_2 \, \dots) \in \Sigma_N$, $\varepsilon > 0$ e $n \geq 1$ tal que $\frac{1}{2^n} < \varepsilon$.
 Se $d_N(x, y) < \frac{1}{2^{n+1}}$, onde $y = (y_0 \, y_1 \, y_2 \, \dots) \in \Sigma_N$, então $x_k = y_k$ para todo $0 \leq k \leq n+1$.
-Como $\sigma(x) = (x_1 \, x_2 \, x_3  \, \dots)$ e $\sigma(y) = (y_1 \, y_2 \, y_3 \, \dots)$, temos que as primeiras $n+1$ entradas de $\sigma(s)$ e $\sigma(t)$ são iguais. Desse modo,  $d_N(\sigma(s), \sigma(t)) \leq \frac{1}{2^n} < \varepsilon$ e, portanto, $\sigma$ é contínua.
+Como $\sigma(x) = (x_1 \, x_2 \, x_3  \, \dots)$ e $\sigma(y) = (y_1 \, y_2 \, y_3 \, \dots)$, temos que as primeiras $n+1$ entradas de $\sigma(x)$ e $\sigma(y)$ são iguais. Desse modo,  $d_N(\sigma(x), \sigma(y)) \leq \frac{1}{2^n} < \varepsilon$ e, portanto, $\sigma$ é contínua.
 \end{proof}
 
 Para a demonstração do próximo resultado, vamos considerar $N = 2$.
@@ -50,7 +50,7 @@ $$I_{x_0 \, \dots \, x_n} = \lbrace x \in [0,1] : x \in I_{x_0}, \dots, h^n(x) \
 
 Escrevendo $I_{x_0 \, \dots \, x_n} = I_{x_0} \cap h^{-1}(I_{x_1 \, \dots \, x_n})$, é possível concluir por indução que $I_{x_0 \, \dots \, x_n}$ é um intervalo fechado não vazio.
 Além disso, $I_{x_0 \, \dots \, x_n} = I_{x_0 \, \dots \, x_{n-1}} \cap h^{-n}(I_{x_n}) \subset I_{x_0 \, \dots \, x_{n-1}}$.
-Desse modo, $I_{x_0}, \, I_{x_0 x_1}, \, I_{x_0 x_1 x_2}, \, \dots$ é uma sequência de intervalos encaixantes fechados e, portanto, existe $x \in \cap_{n=0}^\infty I_{x_0 \, \dots \, x_n}$. Como $h^k(x) \in I_{x_k}$ para todo $k \geq 0$, concluímos que $S(x) = (x_0 \, x_1 \, x_2 \, \dots)$. Observe que $x$ é único, pois $S$ é injetora.
+Desse modo, $I_{x_0}, \, I_{x_0 x_1}, \, I_{x_0 x_1 x_2}, \, \dots$ é uma sequência de intervalos encaixantes fechados não vazios e, portanto, existe $x \in \cap_{n=0}^\infty I_{x_0 \, \dots \, x_n}$. Como $h^k(x) \in I_{x_k}$ para todo $k \geq 0$, concluímos que $S(x) = (x_0 \, x_1 \, x_2 \, \dots)$. Observe que $x$ é único, pois $S$ é injetora.
 
 \item \textit{$S$ é contínua.}
 

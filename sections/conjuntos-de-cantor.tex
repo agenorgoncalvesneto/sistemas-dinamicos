@@ -5,7 +5,7 @@ Inicialmente, observe que $h(\frac{1}{2}) > 1$ e, portanto, existem pontos em $[
 Pela Proposição \ref{prop 2-1}, tais pontos pertencem ao conjunto estável do infinito.
 De modo mais geral, se um ponto de $[0, 1]$ não permanece em $[0, 1]$ após um número finito de iterações, então ele pertence ao conjunto estável do infinito.
 
-Desse modo, considere o conjunto $\Lambda_n = \lbrace x \in [0, 1] : h^n(x) \in [0, 1] \rbrace$ formado pelos pontos que permanecem em $[0, 1]$ após $n$ iterações de $h$ e o conjunto $\Lambda =  \cap_{n = 1}^\infty \Lambda_n$ formado pelos pontos de $[0, 1]$ que sempre permanecem em $[0, 1]$ por iterações de $h$. Assim, podemos estudar a dinâmica de $h|_\Lambda$.
+Desse modo, considere o conjunto $\Lambda_n = \lbrace x \in [0, 1] : h^n(x) \in [0, 1] \rbrace$ formado pelos pontos que permanecem em $[0, 1]$ após $n$ iterações de $h$ e o conjunto $\Lambda =  \cap_{n = 1}^\infty \Lambda_n$ formado pelos pontos de $[0, 1]$ cuja órbita está contida em $[0, 1]$. Assim, vamos estudar a dinâmica de $h$ restrita ao conjunto $\Lambda$.
 
 Observe que $\Lambda_1 = [0, x_1] \cup [x_2, 1]$, onde $x_1 = \frac{1}{2} - \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$ e $x_2 = \frac{1}{2} + \frac{\sqrt{\mu^2 - 4\mu}}{2\mu}$. De modo mais geral, temos o seguinte resultado:
 
@@ -22,12 +22,12 @@ Se $k \geq 1$, suponha que $\Lambda_{k-1}$ é a união de $2^{k-1}$ intervalos f
 Suponha que $h^{k-1}$ é estritamente crescente; se $h^{k-1}$ é estritamente decrescente, a demonstração é análoga.
 
 Inicialmente, observe que existem $x_1' < x_2'$ tais que $h^{k-1}([a, x_1']) = [0, x_1]$, $h^{k-1}((x_1', x_2')) = (x_1, x_2)$ e $h^{k-1}([x_2', b]) = [x_2, 1]$ e, portanto, $h^k([a, x_1']) = [0, 1]$, $h^k((x_1', x_2')) > 1$  e $h^k([x_2', b]) = [0, 1]$.
-Além disso, pela Regra da Cadeia, temos também que $D h^k([a, x_1']) > 0$ e $D h^k([x_2', b]) < 0$.
+Além disso, pela Regra da Cadeia, temos que $D h^k([a, x_1']) > 0$ e $D h^k([x_2', b]) < 0$.
 
 Desse modo, é imediato concluir que $\Lambda_k$ é a união de $2^k$ intervalos fechados disjuntos e que $h^k: [a, b] \to [0, 1]$ é bijetora, onde $[a, b]$ é um dos intervalos formam $\Lambda_k$.
 \end{proof}
 
-Com isso, podemos mostrar que $\Lambda$ é um conjunto de Cantor.
+Com isso, vamos mostrar que $\Lambda$ é um conjunto de Cantor.
 
 \begin{definition}
 Seja $\Gamma \subset \RR$ um conjunto não vazio. Dizemos que $\Gamma$ é um conjunto de Cantor se as seguintes condições são válidas:
@@ -51,7 +51,7 @@ Se $\mu > 2 + \sqrt{5}$, então
 \begin{proof}
 \begin{enumerate}\item[]
 \item Basta observar que $D h(x_1) = \sqrt{\mu^2 - 4\mu} > 1$ e $D h(x_2) = -\sqrt{\mu^2 - 4\mu} < -1$.
-\item Se $x \in [a, b]$, então $D h^n(x) = \prod_{k=0}^{n-1} D h(h^k(x)) > \lambda^n$. Pelo TVM, existe $c \in (a, b)$ tal que
+\item Se $x \in [a, b]$, então $|D h^n(x)| = \prod_{k=0}^{n-1} D h(h^k(x)) > \lambda^n$. Pelo TVM, existe $c \in (a, b)$ tal que
 $$1 = |h^n(b) - h^n(a)| > \lambda^n|b - a|.$$
 \end{enumerate}
 \end{proof} 
@@ -67,7 +67,7 @@ Se $\mu > 2 + \sqrt{5}$, então $\Lambda$ é um conjunto de Cantor.
 \item \textit{$\Lambda$ é totalmente desconexo.}
 
 Se existe $[a, b] \subset \Lambda$, seja $k$ tal que $\frac{1}{\lambda^k} < |a - b|$.
-Em particular, $[a, b] \subset \Lambda_k$, o que é um absurdo pois os intervalos que formam $\Lambda_k$ possuem tamanho $\leq \frac{1}{\lambda^k}$.
+Em particular, $[a, b] \subset \Lambda_k$, o que é um absurdo pois os intervalos que formam $\Lambda_k$ possuem tamanho menor que $\frac{1}{\lambda^k}$.
 
 \item \textit{$\Lambda$ é perfeito.}
 
@@ -76,4 +76,4 @@ Se $x \in [a, b]$, onde $[a, b]$ é um dos intervalos que formam $\Lambda_k$, en
 \end{enumerate}
 \end{proof}
 
-O Teorema \ref{teo 3-1} é válido para $4 < \mu \leq 2 + \sqrt{5}$, porém a demonstração é consideravelmente mais difícil.
+O Teorema \ref{teo 3-1} é válido para $4 < \mu \leq 2 + \sqrt{5}$, porém a demonstração é complicada.
