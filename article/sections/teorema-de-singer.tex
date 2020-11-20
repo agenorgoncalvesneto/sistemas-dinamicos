@@ -8,7 +8,7 @@ $$\schwarz f(x) = \frac{D^3 f(x)}{D f(x)} - \frac{3}{2} \left( \frac{D^2 f(x)}{D
 onde $C_f = \lbrace x \in \RR: Df(x) = 0 \rbrace$.
 \end{definition}
 
-Para os nossos objetivos, estudaremos funções que possuem a derivada de Schwarz negativa. Por exemplo, $Sh(x) = \frac{-6}{(1 - 2x)^2} < 0$ para todo $x \neq \frac{1}{2}$. A característica fundamental dessa propriedade é ser preservada em composição de funções.
+Vamos estudar funções que possuem a derivada de Schwarz negativa. Por exemplo, $Sh(x) = -6(1 - 2x)^{-2} < 0$ para todo $x \neq \frac{1}{2}$. A característica fundamental dessa propriedade é ser preservada em composição de funções.
 
 \begin{proposition}
 Se $\schwarz f < 0$ e $\schwarz g < 0$, então $\schwarz (f \circ g) < 0$.
@@ -22,7 +22,7 @@ Basta observar que $\schwarz (f \circ g)(x) = \schwarz f(g(x))(D g(x))^2 + \schw
 Se $\schwarz f < 0$, então $\schwarz f^n < 0$ para todo $n \geq 1$.
 \end{corollary}
 
-Vamos mostra que se uma função possui derivada de Schwarz negativa e um número finito de pontos críticos, então existe um limite para a quantidade de órbitas periódicas atratoras. Para isso, provaremos uma série de lemas.
+Vamos mostrar que se uma função possui derivada de Schwarz negativa e um número finito de pontos críticos, então existe um limite para a quantidade de órbitas periódicas atratoras. Para isso, provaremos uma série de lemas.
 
 \begin{lemma}\label{lem 10-1}
 Se $\schwarz f < 0$ e $x_0$ é um ponto de mínimo local de $D f$, então $D f(x_0) \leq 0$.
@@ -94,8 +94,7 @@ Escrevendo $K = (a, b)$, se $g(a) = a$ e $g(b) = b$, então $g$ possui ponto cr�
 
 Se $|D g(p)| = 1$, então os pontos fixos de $g$ são isolados pelo Lema anterior e, portanto, existe uma vizinhança de $p$ que não contém outros pontos fixos de $g$.
 
-Suponha que $D g(p) = 1$.
-Se $D g(p) = -1$, a demonstração é análoga considerando $g^2$.
+Suponha que $D g(p) = 1$; se $D g(p) = -1$, a demonstração é análoga considerando $g^2$.
 Se $p$ possui o comportamento de um ponto repulsor, então, para $x$ numa vizinhança de $p$, $g(x) > x$ quando $x > p$ e $g(x) < x$ quando $x < p$.
 Desse modo, $1$ é um mínimo local de $D g$, o que é um absurdo pelo Lema \ref{lem 10-1} e, portanto, $p$ é atrator em pelo menos um dos lados.
 Desse modo, $K$ é um intervalo, $g(K) \subset K$ e $g$ preserva os pontos extremos de $K$.

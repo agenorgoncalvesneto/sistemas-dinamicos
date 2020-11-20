@@ -8,14 +8,14 @@ para todo $k \geq 1$. Para isso, vamos iniciar com algumas definições que esta
 
 Se $p \in X$ e $f(p) = p$, então $p$ é um ponto fixo de $f$.
 Se $f^n(p) = p$ para algum $n \geq 1$, então $p$ é um ponto periódico de $f$ de período $n$.
-Se $f^n(p) = p$ para algum $n \geq 1$ e $f^k(p) \neq p$ para todo $1 \leq k < n$, então $p$ é um ponto periódico $f$ de período principal $n$.
-O conjunto dos pontos periódicos de $f$ será denotado por $\per(f)$ e o conjunto dos pontos periódicos de $f$ de período principal $n$ será denotado por $\per_n(f)$.
+Se $f^n(p) = p$ para algum $n \geq 1$ e $f^k(p) \neq p$ para todo $1 \leq k < n$, então $p$ é um ponto periódico $f$ de período primo $n$.
+O conjunto dos pontos periódicos de $f$ será denotado por $\per(f)$ e o conjunto dos pontos periódicos de $f$ de período primo $n$ será denotado por $\per_n(f)$.
 
 Se $x \in X$, então $\orbit(x) = \lbrace f^k(x) : k \geq 0 \rbrace$ é a órbita de $x$.
 Se $p \in \per_n(f)$, então $\basin(p) = \lbrace x \in  X: \lim_{k \to \infty} f^{kn}(x) = p \rbrace$ é o conjunto estável de $p$.
 Por fim, o conjunto $\basin(\infty) = \lbrace x \in  X: \lim_{k \to \infty} |f^k(x)| = \infty \rbrace$ é o conjunto estável do infinito.
 
-A Proposição \ref{prop 1-1} nos fornece uma maneira útil para verificar se uma função contínua definida num intervalo possui ponto fixo.
+A Proposição \ref{prop 1-1} nos fornece uma maneira útil para verificar se uma função contínua definida num intervalo compacto possui ponto fixo.
 
 \begin{proposition}\label{prop 1-1}
 Seja $f: [a, b] \to \RR$ uma função contínua. Se $f([a, b]) \subset [a, b]$ ou $f([a, b]) \supset [a, b]$, então $f$ possui ponto fixo.

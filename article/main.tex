@@ -2,12 +2,13 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
+\usepackage{babelbib}
 
 \usepackage[left=3cm, top=3cm, right=2cm, bottom=2cm]{geometry}
 \usepackage[onehalfspacing]{setspace}
 \usepackage{indentfirst}
 
-\usepackage{cite}
+\usepackage{float}
 \usepackage{graphicx}
 \usepackage{enumitem}
 \usepackage{subfiles}
@@ -38,8 +39,8 @@
 \DeclareMathOperator{\sen}{sen}
 \DeclareMathOperator{\tr}{Tr}
 
-\title{Uma Introdução aos Sistemas Dinâmicos Caóticos}
-\author{Agenor Gonçalves Neto}
+\title{Uma Introdução aos Sistemas Dinâmicos Discretos}
+\author{Agenor Gonçalves Neto \footnote{Graduando em Bacharelado em Matemática (IME-USP) orientado pelo Prof. Salvador Addas Zanata (IME-USP).}}
 \date{São Paulo, 2020}
 
 \begin{document}
@@ -47,21 +48,21 @@
 \maketitle
 \tableofcontents
 
-\subfile{sections/conceitos-elementares}
-\subfile{sections/familia-quadratica}
-\subfile{sections/estudo-inicial}
-\subfile{sections/conjuntos-de-cantor}
-\subfile{sections/caos}
-\subfile{sections/conjugacao-topologica}
-\subfile{sections/dinamica-simbolica}
-\subfile{sections/matriz-de-transicao}
-\subfile{sections/bifurcacao}
-\subfile{sections/teorema-de-sharkovsky}
-\subfile{sections/teorema-de-singer}
+\subfile{sections/conceitos-elementares.tex}
+\subfile{sections/familia-quadratica.tex}
+\subfile{sections/estudo-inicial.tex}
+\subfile{sections/conjuntos-de-cantor.tex}
+\subfile{sections/caos.tex}
+\subfile{sections/conjugacao-topologica.tex}
+\subfile{sections/dinamica-simbolica.tex}
+\subfile{sections/matriz-de-transicao.tex}
+\subfile{sections/bifurcacao.tex}
+\subfile{sections/teorema-de-sharkovsky.tex}
+\subfile{sections/teorema-de-singer.tex}
 
 \nocite{devaney}
-\bibliographystyle{ieeetr}
-\bibliography{bibfile}
+\bibliographystyle{babplain-lf}
+\bibliography{bibliography.bib}
 \addcontentsline{toc}{section}{Referências}
 
 \end{document}

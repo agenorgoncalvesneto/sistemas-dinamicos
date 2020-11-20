@@ -27,7 +27,7 @@ Além disso, pela Regra da Cadeia, temos que $D h^k([a, x_1']) > 0$ e $D h^k([x_
 Desse modo, é imediato concluir que $\Lambda_k$ é a união de $2^k$ intervalos fechados disjuntos e que $h^k: [a, b] \to [0, 1]$ é bijetora, onde $[a, b]$ é um dos intervalos formam $\Lambda_k$.
 \end{proof}
 
-Com isso, vamos mostrar que $\Lambda$ é um conjunto de Cantor.
+Com isso, podemos mostrar que $\Lambda$ é um conjunto de Cantor para $\mu$ suficientemente grande.
 
 \begin{definition}
 Seja $\Gamma \subset \RR$ um conjunto não vazio. Dizemos que $\Gamma$ é um conjunto de Cantor se as seguintes condições são válidas:
@@ -51,7 +51,7 @@ Se $\mu > 2 + \sqrt{5}$, então
 \begin{proof}
 \begin{enumerate}\item[]
 \item Basta observar que $D h(x_1) = \sqrt{\mu^2 - 4\mu} > 1$ e $D h(x_2) = -\sqrt{\mu^2 - 4\mu} < -1$.
-\item Se $x \in [a, b]$, então $|D h^n(x)| = \prod_{k=0}^{n-1} D h(h^k(x)) > \lambda^n$. Pelo TVM, existe $c \in (a, b)$ tal que
+\item Se $x \in [a, b]$, então $|D h^n(x)| = \prod_{k=0}^{n-1} D h(h^k(x)) > \lambda^n$ e, pelo TVM,
 $$1 = |h^n(b) - h^n(a)| > \lambda^n|b - a|.$$
 \end{enumerate}
 \end{proof} 
@@ -76,4 +76,4 @@ Se $x \in [a, b]$, onde $[a, b]$ é um dos intervalos que formam $\Lambda_k$, en
 \end{enumerate}
 \end{proof}
 
-O Teorema \ref{teo 3-1} é válido para $4 < \mu \leq 2 + \sqrt{5}$, porém a demonstração é complicada.
+O Teorema \ref{teo 3-1} é válido para $\mu \in (4, 2 + \sqrt{5})$, porém a demonstração é mais complicada.

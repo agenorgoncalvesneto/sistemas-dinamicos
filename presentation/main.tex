@@ -1,0 +1,148 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{babelbib}
+
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{subfiles}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\DeclareMathOperator{\per}{Per}
+\DeclareMathOperator{\sen}{sen}
+\DeclareMathOperator{\tr}{Tr}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\useoutertheme{metropolis}
+\useinnertheme{metropolis}
+\usefonttheme{metropolis}
+\usecolortheme{spruce}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercovered{transparent}
+\setbeamertemplate{footline}{}
+%\setbeamersize{text margin left=0cm,text margin right=0cm} 
+
+\AtBeginSection[]
+{
+  \begin{frame}[t]
+  \vspace{5pt}
+  \frametitle{Sumário}
+  \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}[t]
+  \vspace{5pt}
+  \frametitle{Sumário}
+  \tableofcontents[currentsection, currentsubsection]
+  \end{frame}
+}
+
+
+\title{Uma Introdução aos Sistemas Dinâmicos Discretos}\author{Agenor Gonçalves Neto \footnote{Orientado pelo Prof. Salvador Addas Zanata (IME-USP).\\}}
+\date{São Paulo, 2020}
+
+\uselanguage{brazilian}
+\languagepath{brazilian}
+\deftranslation[to=brazilian]{Theorem}{Teorema}
+\deftranslation[to=brazilian]{Definition}{Definição}
+
+\begin{document}
+\metroset{block=fill}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}[t]
+\vspace{5pt}
+\frametitle{Sumário}
+\tableofcontents%[pausesections, pausesubsections]
+\end{frame}
+
+\section{Conceitos Elementares}
+\begin{frame}[t]
+\frametitle{Conceitos Elementares}
+\end{frame}
+
+\section{Família Quadrática}
+\begin{frame}[t]
+\frametitle{Família Quadrática}
+\end{frame}
+
+\subsection{Estudo Inicial}
+\begin{frame}[t]
+\frametitle{Estudo Inicial}
+\end{frame}
+
+\subsection{Conjuntos de Cantor}
+\begin{frame}[t]
+\frametitle{Conjuntos de Cantor}    
+\end{frame}   
+
+\subsection{Caos}
+\begin{frame}[t]
+\frametitle{Caos}
+\end{frame}
+
+\subsection{Conjugação Topológica}
+\begin{frame}[t]
+\frametitle{Conjugação Topológica}
+\end{frame}
+
+\subsection{Dinâmica Simbólica}
+\begin{frame}[t]
+\frametitle{Dinâmica Simbólica}
+\end{frame}
+
+\subsection{Matriz de Transição}
+\begin{frame}[t]
+\frametitle{Matriz de Transição}
+\end{frame}
+
+\subsection{Bifurcação}
+\begin{frame}[t]
+\frametitle{Bifurcação}
+
+\begin{columns}
+  \column{\dimexpr\paperwidth-5pt}
+  \begin{block}{Teorema de Sharkovsky}
+Se $\per_n(f) \neq \emptyset$, então $\per_m(f) \neq \emptyset$ para todo $n \, \triangleright \, m$.
+  
+  \end{block}
+  
+  \begin{enumerate}
+  \item 5
+  \item 6asdf
+  \end{enumerate}
+\end{columns}
+
+\end{frame}
+
+\subfile{sections/sharkovsky}
+
+\section{Teorema de Singer}
+\begin{frame}[t]
+\frametitle{Teorema de Singer}
+\cite{burns}
+\cite{devaney}
+\cite{holmgren}
+\end{frame}
+
+\section*{Referências}
+\begin{frame}[t]
+\frametitle{Referências}
+\nocite{burns, devaney, holmgren}
+\bibliographystyle{apalike-pt}
+\bibliography{bibliography.bib}
+\end{frame}
+
+\end{document}

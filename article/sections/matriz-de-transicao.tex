@@ -7,21 +7,29 @@ Observe que se $x \in \Sigma_A$, então $\sigma(x) \in \Sigma_A$.
 Desse modo, podemos definir a função $\sigma_A: \Sigma_A \to \Sigma_A$ como sendo a restrição de $\sigma$ em $\Sigma_A$.
 
 Vamos estudar a dinâmica da família quadrática para $\mu = 3.839$.
-Se $a = 0.149888$, $\varepsilon = 10^{-3}$ e $I = (a - \varepsilon, a + \varepsilon)$, então é possível mostrar que $h^3(I) \subset I$ e $|D h^3(I)| < 1$ e, portanto, o intervalo $I$ possui um ponto periódico atrator de $h$ de período principal $3$. Se $a_1$, $a_2$ e $a_3$ são os elementos dessa órbita em ordem crescente, então
+Se $a = 0.149888$, $\varepsilon = 10^{-3}$ e $I = (a - \varepsilon, a + \varepsilon)$, então é possível mostrar que $h^3(I) \subset I$ e $|D h^3(I)| < 1$ e, portanto, o intervalo $I$ possui um ponto periódico atrator de $h$ de período primo $3$. Se $a_1$, $a_2$ e $a_3$ são os elementos dessa órbita em ordem crescente, então
 $$a_1 \simeq 0.149888, \quad a_2 \simeq 0.489149 \quad \text{ e } \quad a_3 \simeq 0.959299.$$
+
+Com auxílio do Teorema de Sharkovsky e do Teorema de Singer, que estudaremos na sequência, podemos concluir que $h$ possui infinitos pontos periódicos e essa é a única órbita atratora de $h$.
 
 \begin{figure}[!htb]
 \centering
-\includegraphics[scale=0.3]{images/h_3,839.png}
-\caption{O gráfico de $h^3$.}
+\includegraphics[scale=0.6]{images/h_3,839.png}
+\caption{Gráfico de $h^3$ para $\mu = 3.839$.}
+\label{h_3,839}
 \end{figure}
-
-Com auxílio do Teorema de Sharkovsky e do Teorema de Singer, que estudaremos na sequência, podemos concluir que $h$ possui infinitos pontos periódicos e essa é a única órbita atratora de $h$.
 
 De modo análogo, concluímos que $h$ possui outra órbita de tamanho $3$. Se $b_1$, $b_2$ e $b_3$ são os elementos dessa órbita em ordem crescente, então
 $$b_1 \simeq 0.169040, \quad b_2 \simeq 0.539247 \quad  \text{ e } \quad b_3 \simeq 0.953837.$$
 
 Observando o gráfico de $h^3$, vemos que para cada $b_i$, existe $b'_i$ no lado oposto de $b_i$ em relação ao ponto $a_i$ tal que $h^3(b'_i) = b_i$. Defina $A_1 = (b'_1, b_1)$, $A_2 = (b'_2, b_2)$ e $A_3 = (b_3, b'_3)$.
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.6]{images/h_3,839(a_3).png}
+\caption{Gráfico de $h^3$ numa vizinhança de $a_3$ para $\mu = 3.839$.}
+\label{h_3,839(a_3)}
+\end{figure}
 
 Sendo $h^3$ simétrica em relação ao ponto $\frac{1}{2}$, temos que $h(b'_2) = h(b_2) = b_3$.
 Além disso, podemos observar que $h(b'_1) = b'_2$ e $h(b'_3) = b'_1$ e, portanto, $h$ mapeia de forma monótona $A_1$ em $A_2$ e $A_3$ em $A_1$. Observando que o máximo de $h$ em $A_2$ é $h( \frac{1}{2}) = 0.95975 < b'_3$, concluímos que $h(A_2) \subset A_3$.
