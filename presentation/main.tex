@@ -1,8 +1,7 @@
-\documentclass{beamer}
+\documentclass[11pt, portuguese]{beamer}
 
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
-\usepackage{babelbib}
 
 \usepackage{float}
 \usepackage{graphicx}
@@ -14,6 +13,12 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\basin}{\mathcal{B}}
+\newcommand{\class}{\mathcal{C}}
+\newcommand{\orbit}{\mathcal{O}}
+\newcommand{\schwarz}{\mathcal{S}}
+
 \DeclareMathOperator{\per}{Per}
 \DeclareMathOperator{\sen}{sen}
 \DeclareMathOperator{\tr}{Tr}
@@ -22,7 +27,7 @@
 \useoutertheme{metropolis}
 \useinnertheme{metropolis}
 \usefonttheme{metropolis}
-\usecolortheme{spruce}
+\usecolortheme{seagull}
 \setbeamercolor{background canvas}{bg=white}
 \setbeamercovered{transparent}
 \setbeamertemplate{footline}{}
@@ -30,7 +35,7 @@
 
 \AtBeginSection[]
 {
-  \begin{frame}[t]
+  \begin{frame}
   \vspace{5pt}
   \frametitle{Sumário}
   \tableofcontents[currentsection]
@@ -39,7 +44,7 @@
 
 \AtBeginSubsection[]
 {
-  \begin{frame}[t]
+  \begin{frame}
   \vspace{5pt}
   \frametitle{Sumário}
   \tableofcontents[currentsection, currentsubsection]
@@ -47,13 +52,16 @@
 }
 
 
-\title{Uma Introdução aos Sistemas Dinâmicos Discretos}\author{Agenor Gonçalves Neto \footnote{Orientado pelo Prof. Salvador Addas Zanata (IME-USP).\\}}
+\title{Uma Introdução aos Sistemas Dinâmicos\\Discretos}\author{Agenor Gonçalves Neto \footnote{Graduando em Bacharelado em Matemática (IME-USP), orientado pelo Prof. Salvador Addas Zanata (IME-USP).\\}}
 \date{São Paulo, 2020}
 
-\uselanguage{brazilian}
-\languagepath{brazilian}
-\deftranslation[to=brazilian]{Theorem}{Teorema}
-\deftranslation[to=brazilian]{Definition}{Definição}
+\uselanguage{portuguese}
+\languagepath{portuguese}
+\newtheorem{proposition}[theorem]{Proposição}
+\deftranslation[to=portuguese]{Theorem}{Teorema}
+\deftranslation[to=portuguese]{Definition}{Definição}
+
+\renewcommand{\raggedright}{\leftskip=5pt \rightskip=5pt plus 0cm}
 
 \begin{document}
 \metroset{block=fill}
@@ -62,87 +70,34 @@
 \titlepage
 \end{frame}
 
-\begin{frame}[t]
+\begin{frame}
 \vspace{5pt}
 \frametitle{Sumário}
-\tableofcontents%[pausesections, pausesubsections]
+\tableofcontents
 \end{frame}
 
-\section{Conceitos Elementares}
-\begin{frame}[t]
-\frametitle{Conceitos Elementares}
-\end{frame}
+\subfile{sections/conceitos-elementares.tex}
+\subfile{sections/familia-quadratica.tex}
+\subfile{sections/estudo-inicial.tex}
+\subfile{sections/conjuntos-de-cantor.tex}
+\subfile{sections/caos.tex}
+\subfile{sections/conjugacao-topologica.tex}
+\subfile{sections/dinamica-simbolica.tex}
+\subfile{sections/matriz-de-transicao.tex}
+\subfile{sections/bifurcacao.tex}
+\subfile{sections/teorema-de-sharkovsky}
+\subfile{sections/teorema-de-singer.tex}
 
-\section{Família Quadrática}
-\begin{frame}[t]
-\frametitle{Família Quadrática}
-\end{frame}
-
-\subsection{Estudo Inicial}
-\begin{frame}[t]
-\frametitle{Estudo Inicial}
-\end{frame}
-
-\subsection{Conjuntos de Cantor}
-\begin{frame}[t]
-\frametitle{Conjuntos de Cantor}    
-\end{frame}   
-
-\subsection{Caos}
-\begin{frame}[t]
-\frametitle{Caos}
-\end{frame}
-
-\subsection{Conjugação Topológica}
-\begin{frame}[t]
-\frametitle{Conjugação Topológica}
-\end{frame}
-
-\subsection{Dinâmica Simbólica}
-\begin{frame}[t]
-\frametitle{Dinâmica Simbólica}
-\end{frame}
-
-\subsection{Matriz de Transição}
-\begin{frame}[t]
-\frametitle{Matriz de Transição}
-\end{frame}
-
-\subsection{Bifurcação}
-\begin{frame}[t]
-\frametitle{Bifurcação}
-
-\begin{columns}
-  \column{\dimexpr\paperwidth-5pt}
-  \begin{block}{Teorema de Sharkovsky}
-Se $\per_n(f) \neq \emptyset$, então $\per_m(f) \neq \emptyset$ para todo $n \, \triangleright \, m$.
-  
-  \end{block}
-  
-  \begin{enumerate}
-  \item 5
-  \item 6asdf
-  \end{enumerate}
-\end{columns}
-
-\end{frame}
-
-\subfile{sections/sharkovsky}
-
-\section{Teorema de Singer}
-\begin{frame}[t]
-\frametitle{Teorema de Singer}
-\cite{burns}
-\cite{devaney}
-\cite{holmgren}
-\end{frame}
-
-\section*{Referências}
-\begin{frame}[t]
+\begin{frame}
+\vspace{5pt}
 \frametitle{Referências}
+\begin{columns}
+\column{\dimexpr\paperwidth-15pt}
+
 \nocite{burns, devaney, holmgren}
 \bibliographystyle{apalike-pt}
 \bibliography{bibliography.bib}
-\end{frame}
 
+\end{columns}
+\end{frame}
 \end{document}
