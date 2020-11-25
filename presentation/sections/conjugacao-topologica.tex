@@ -1,5 +1,6 @@
 \subsection{Conjugação Topológica}
 
+%--------------------
 
 \begin{frame}
 \vspace{5pt}
@@ -7,7 +8,73 @@
 \begin{columns}
 \column{\dimexpr\paperwidth-15pt}
 
-•
+\begin{definition}
+Sejam $f: X \to X$, $g: Y \to Y$ e $\tau: X \to Y$ funções. Dizemos que $f$ e $g$ são topologicamente conjugadas por $\tau$ se as seguintes condições são válidas:
+\begin{enumerate}[i.]
+\item $\tau$ é um homeomorfismo.
+\item $\tau \circ f = g \circ \tau$.
+\end{enumerate}
+\end{definition}
+
+\end{columns}
+\end{frame}
+
+%--------------------
+
+\begin{frame}
+\vspace{5pt}
+\frametitle{Família Quadrática: \subsecname}
+\begin{columns}
+\column{\dimexpr\paperwidth-15pt}
+
+\begin{proposition}
+Sejam $f: X \to X$, $g: Y \to Y$ e $\tau: X \to Y$ funções. Se $f$ e $g$ são topologicamente conjugadas por $\tau$, então
+\begin{enumerate}
+\item $\per(f)$ é denso em $X$ se, e somente se, $\per(g)$ é denso em $Y$.
+\item $f$ é topologicamente transitiva se, e somente se, $g$ é topologicamente transitiva.
+\end{enumerate}
+\end{proposition}
+
+\end{columns}
+\end{frame}
+
+%--------------------
+
+\begin{frame}
+\vspace{5pt}
+\frametitle{Família Quadrática: \subsecname}
+\begin{columns}
+\column{\dimexpr\paperwidth-15pt}
+
+\begin{lemma}
+A função $T: [0,1] \to [0,1]$ dada por
+\[ T(x) =
+  \begin{cases}
+    2x, & x \in \left[ 0, \frac{1}{2} \right] \\
+    2 - 2x, & x \in \left[ \frac{1}{2}, 1 \right] \\
+  \end{cases}
+\]
+é caótica.
+\end{lemma}
+
+\end{columns}
+\end{frame}
+
+%--------------------
+
+\begin{frame}
+\vspace{5pt}
+\frametitle{Família Quadrática: \subsecname}
+\begin{columns}
+\column{\dimexpr\paperwidth-15pt}
+
+\begin{theorem}
+Se $\mu = 4$, então $h$ é caótica.
+\end{theorem}
+
+\begin{proof}
+Basta observar que $\tau \circ T = h \circ \tau$, onde $\tau: [0, 1] \to [0, 1]$ é o homeomorfismo dado por $\tau(x) = \sen^2(\frac{\pi x}{2})$.
+\end{proof}
 
 \end{columns}
 \end{frame}

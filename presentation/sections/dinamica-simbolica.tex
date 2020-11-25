@@ -4,11 +4,55 @@
 
 \begin{frame}
 \vspace{5pt}
-\frametitle{Família Quadrática: Dinâmica Simbólica}
+\frametitle{Família Quadrática: \subsecname}
 \begin{columns}
 \column{\dimexpr\paperwidth-15pt}
 
-•
+Seja
+$$\Sigma = \lbrace (x_0 \, x_1 \, x_2 \, \dots) : x_n = 1 \text{ ou } x_n = 2 \text{ para todo } n \geq 0 \rbrace.$$
+
+Seja $d : \Sigma \times \Sigma \to \RR$ a função dada por
+$$d(x, y) = \sum_{k=0}^\infty \frac{|x_k - y_k|}{2^k},$$
+onde $x = (x_0 \, x_1 \, x_2 \, \dots)$ e $y = (y_0 \, y_1 \, y_2 \, \dots)$.
+
+\end{columns}
+\end{frame}
+
+%--------------------
+
+\begin{frame}
+\vspace{5pt}
+\frametitle{Família Quadrática: \subsecname}
+\begin{columns}
+\column{\dimexpr\paperwidth-15pt}
+
+Seja $\sigma: \Sigma \to \Sigma$ a função dada por $\sigma(x_0 \, x_1 \, x_2 \, \dots) = (x_1 \, x_2 \, x_3 \, \dots)$.
+
+Se $\Lambda_1 = I_1 \cup I_2$, podemos definir a função $S: \Lambda \to \Sigma$ dada por
+$$S(x) = (x_0 \, x_1 \, x_2 \, \dots),$$ onde $x_k = 1$ se $h^k(x) \in I_1$ e $x_k = 2$ se $h^k(x) \in I_2$ para todo $k \geq 0$.
+
+\begin{theorem}
+Se $\mu > 2 + \sqrt{5}$, então $h|_\Lambda$ e $\sigma$ são topologicamente conjugadas por $S$.
+\end{theorem}
+
+\end{columns}
+\end{frame}
+
+%--------------------
+
+\begin{frame}
+\vspace{5pt}
+\frametitle{Família Quadrática: \subsecname}
+\begin{columns}
+\column{\dimexpr\paperwidth-15pt}
+
+\begin{corollary}
+Se $\mu > 2 + \sqrt{5}$, então $h|_\Lambda$ possui $2^n$ pontos periódicos de período $n$ para todo $n \geq 1$.
+\end{corollary}
+
+\begin{proof}
+Basta observar que os pontos periódicos de $\sigma$ de período $n$ são determinados pelas primeiras $n$ entradas e, portanto, $\sigma$ possui $2^n$ pontos periódicos de período $n$ para todo $n \geq 1$.
+\end{proof}
 
 \end{columns}
 \end{frame}

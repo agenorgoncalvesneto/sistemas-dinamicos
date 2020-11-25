@@ -10,7 +10,7 @@
 \begin{definition}
 Um sistema dinâmico é função $f: X \to X$, onde $X$ é um espaço métrico.
 \end{definition}
-\pause
+
 Dado $x \in X$, nosso objetivo é estudar as propriedades da sequência definida recursivamente por
 $$f^0(x) = x \quad \text{ e } \quad f^k(x) = f(f^{k-1}(x))$$
 para todo $k \geq 1$.
@@ -26,19 +26,22 @@ para todo $k \geq 1$.
 \begin{columns}
 \column{\dimexpr\paperwidth-15pt}
 
+%--------------------
+
 \begin{definition}
+Seja $p \in X$.
 \begin{enumerate}
-\item Se $p \in X$ e $f(p) = p$, então $p$ é um ponto fixo de $f$.
+\item Se $f(p) = p$, então $p$ é um ponto fixo de $f$.
 
-\item Se $p \in X$ e $f^n(p) = p$ para algum $n \geq 1$, então $p$ é um ponto periódico de $f$ de período $n$.
+\item Se $f^n(p) = p$ para algum $n \geq 1$, então $p$ é um ponto periódico de $f$ de período $n$.
 
-\item Se $p \in X$, $f^n(p) = p$ para algum $n \geq 1$ e $f^k(p) \neq p$ para todo $1 \leq k < n$, então $p$ é um ponto periódico $f$ de período primo $n$.
-\end{enumerate}
-\end{definition}
-\pause
 O conjunto dos pontos periódicos de $f$ será denotado por $\per(f)$.
 
+\item Se $f^n(p) = p$ para algum $n \geq 1$ e $f^k(p) \neq p$ para todo $1 \leq k < n$, então $p$ é um ponto periódico $f$ de período primo $n$.
+
 O conjunto dos pontos periódicos de $f$ de período primo $n$ será denotado por $\per_n(f)$.
+\end{enumerate}
+\end{definition}
 
 \end{columns}
 \end{frame}
@@ -52,16 +55,16 @@ O conjunto dos pontos periódicos de $f$ de período primo $n$ será denotado po
 \column{\dimexpr\paperwidth-15pt}
 
 \begin{definition}
-\begin{enumerate}
-\item Se $x \in X$, então $\orbit(x) = \lbrace f^k(x) : k \geq 0 \rbrace$ é a órbita de $x$.
-
-\item Se $p \in \per_n(f)$, então $$\basin(p) = \lbrace x \in  X: \lim_{k \to \infty} f^{kn}(x) = p \rbrace$$ é o conjunto estável de $p$.
-\end{enumerate}
+Se $x \in X$, então $\orbit(x) = \lbrace f^k(x) : k \geq 0 \rbrace$ é a órbita de $x$.
 \end{definition}
 
-\pause
-
-Além disso, dizemos que $$\basin(\infty) = \lbrace x \in  X: \lim_{k \to \infty} |f^k(x)| = \infty \rbrace$$ é o conjunto estável do infinito.
+\begin{definition} 
+Se $p \in \per_n(f)$, então
+$$\basin(p) = \lbrace x \in  X: \lim_{k \to \infty} f^{kn}(x) = p \rbrace$$
+é o conjunto estável de $p$. Além disso, dizemos que
+$$\basin(\infty) = \lbrace x \in  X: \lim_{k \to \infty} |f^k(x)| = \infty \rbrace$$
+é o conjunto estável do infinito.
+\end{definition}
 
 \end{columns}
 \end{frame}
@@ -78,13 +81,9 @@ Além disso, dizemos que $$\basin(\infty) = \lbrace x \in  X: \lim_{k \to \infty
 Seja $f: [a, b] \to \RR$ uma função contínua. Se $f([a, b]) \subset [a, b]$ ou $f([a, b]) \supset [a, b]$, então $f$ possui ponto fixo.
 \end{proposition}
 
-\begin{theorem}
-Sejam $f: \RR \to \RR$ uma função de classe $\class^1$ e $p \in \per_n(f)$.
-\begin{enumerate}
-\item Se $|D f^n(p)| < 1$, então existe uma vizinhança de $p$ contida em $\basin(p)$.
-\item Se $|D f^n(p)| > 1$, então existe uma vizinhança $V$ de $p$ com a seguinte propriedade: se $x \in V \backslash \lbrace p \rbrace$, então  $f^{kn}(x) \notin V$ para algum $k \geq 1$. 
-\end{enumerate}
-\end{theorem}
+\begin{proof}
+Basta considerar a função contínua $g: [a, b] \to \RR$ dada por $g(x) = f(x) - x$ e observar, pelo TVI, que em ambos os casos existe $p \in [a, b]$ tal que $g(p) = 0$.
+\end{proof}
 
 \end{columns}
 \end{frame}
@@ -99,15 +98,34 @@ Sejam $f: \RR \to \RR$ uma função de classe $\class^1$ e $p \in \per_n(f)$.
 
 \begin{definition}
 Sejam $f: \RR \to \RR$ uma função de classe $\class^1$ e $p \in \per_n(f)$.
-\begin{enumerate}
+\begin{enumerate}[i.]
 \item Se $|D f^n(p)| < 1$, então $p$ é um ponto atrator.
 \item Se $|D f^n(p)| > 1$, então $p$ é um ponto repulsor.
 \end{enumerate}
 \end{definition}
-\pause
-A definição anterior pode ser estendida para órbitas de pontos periódicos. De fato, se um ponto é atrator, então todos os pontos de sua órbita também são atratores e, nesse caso, dizemos que a órbita é atratora.
+
+Essa definição pode ser estendida para órbitas de pontos periódicos. De fato, se um ponto é atrator, então todos os pontos de sua órbita também são atratores e, nesse caso, dizemos que a órbita é atratora.
 
 \end{columns}
 \end{frame}
 
 %--------------------
+
+%--------------------
+
+\begin{frame}
+\vspace{5pt}
+\frametitle{Conceitos Elementares}
+\begin{columns}
+\column{\dimexpr\paperwidth-15pt}
+
+\begin{theorem}
+Sejam $f: \RR \to \RR$ uma função de classe $\class^1$ e $p \in \per_n(f)$.
+\begin{enumerate}
+\item Se $|D f^n(p)| < 1$, então existe uma vizinhança de $p$ contida no conjunto estável de $p$.
+\item Se $|D f^n(p)| > 1$, então existe uma vizinhança $V$ de $p$ com a seguinte propriedade:\\se $x \in V \backslash \lbrace p \rbrace$, então a órbita de $x$ não está contida em $V$. 
+\end{enumerate}
+\end{theorem}
+
+\end{columns}
+\end{frame}

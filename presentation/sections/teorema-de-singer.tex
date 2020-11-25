@@ -8,7 +8,43 @@
 \begin{columns}
 \column{\dimexpr\paperwidth-15pt}
 
-•
+Ao longo dessa seção, consideraremos $f: \RR \to \RR$ uma função de classe $\class^3$. Iniciamos com a seguinte definição: 
+
+\begin{definition}[Derivada de Schwarz]
+A derivada de Schwarz de $f$ é a função $\schwarz f: \RR \backslash C_f \to \RR$ dada por
+$$\schwarz f(x) = \frac{D^3 f(x)}{D f(x)} - \frac{3}{2} \left( \frac{D^2 f(x)}{D f(x)} \right)^2,$$
+onde $C_f = \lbrace x \in \RR: Df(x) = 0 \rbrace$.
+\end{definition}
+
+\end{columns}
+\end{frame}
+
+%--------------------
+
+\begin{frame}
+\vspace{5pt}
+\frametitle{Teorema de Singer}
+\begin{columns}
+\column{\dimexpr\paperwidth-15pt}
+
+Vamos estudar funções que possuem a derivada de Schwarz negativa. Por exemplo,
+$$Sh(x) = -6(1 - 2x)^{-2} < 0$$
+para todo $x \neq \frac{1}{2}$.
+
+\end{columns}
+\end{frame}
+
+%--------------------
+
+\begin{frame}
+\vspace{5pt}
+\frametitle{Teorema de Singer}
+\begin{columns}
+\column{\dimexpr\paperwidth-15pt}
+
+\begin{theorem}[Singer]
+Se $\schwarz f < 0$ e $f$ possui $n$ pontos críticos, então $f$ possui no máximo $n+2$ órbitas periódicas não repulsoras.
+\end{theorem}
 
 \end{columns}
 \end{frame}

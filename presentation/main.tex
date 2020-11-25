@@ -1,4 +1,4 @@
-\documentclass[11pt, portuguese]{beamer}
+\documentclass[11pt, portuguese, aspectratio=1610]{beamer}
 
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
@@ -27,7 +27,7 @@
 \useoutertheme{metropolis}
 \useinnertheme{metropolis}
 \usefonttheme{metropolis}
-\usecolortheme{seagull}
+\usecolortheme{spruce}
 \setbeamercolor{background canvas}{bg=white}
 \setbeamercovered{transparent}
 \setbeamertemplate{footline}{}
@@ -51,8 +51,7 @@
   \end{frame}
 }
 
-
-\title{Uma Introdução aos Sistemas Dinâmicos\\Discretos}\author{Agenor Gonçalves Neto \footnote{Graduando em Bacharelado em Matemática (IME-USP), orientado pelo Prof. Salvador Addas Zanata (IME-USP).\\}}
+\title{Uma Introdução aos Sistemas Dinâmicos Discretos}\author{Agenor Gonçalves Neto \footnote{Orientado pelo Prof. Salvador Addas Zanata (IME-USP).\\}}
 \date{São Paulo, 2020}
 
 \uselanguage{portuguese}
@@ -61,7 +60,11 @@
 \deftranslation[to=portuguese]{Theorem}{Teorema}
 \deftranslation[to=portuguese]{Definition}{Definição}
 
+\usepackage{ragged2e}\justifying
 \renewcommand{\raggedright}{\leftskip=5pt \rightskip=5pt plus 0cm}
+
+%\addtobeamertemplate{block begin}{}{\justifying} 
+
 
 \begin{document}
 \metroset{block=fill}
@@ -83,10 +86,10 @@
 \subfile{sections/caos.tex}
 \subfile{sections/conjugacao-topologica.tex}
 \subfile{sections/dinamica-simbolica.tex}
-\subfile{sections/matriz-de-transicao.tex}
+%\subfile{sections/matriz-de-transicao.tex}
 \subfile{sections/bifurcacao.tex}
 \subfile{sections/teorema-de-sharkovsky}
-\subfile{sections/teorema-de-singer.tex}
+%\subfile{sections/teorema-de-singer.tex}
 
 \begin{frame}
 \vspace{5pt}
