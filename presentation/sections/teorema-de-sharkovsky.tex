@@ -78,7 +78,7 @@ Basta observar que podemos construir uma sequência de intervalos fechados $I_0'
 Se $\per_3(f) \neq \emptyset$, então $\per_n(f) \neq \emptyset$ para todo $n \geq 1$.
 \end{theorem}
 
-\begin{proof}
+\begin{block}{Demonstração.}
 Sejam $p_1 < p_2 < p_3$ os pontos da órbita de um elemento de $\per_3(f)$. Suponha que $f(p_1) = p_2$ e $f(p_2) = p_3$; se $f(p_1) = p_3$ e $f(p_3) = p_2$, a demonstração é análoga.
 Definindo $I_0 = [p_1, p_2]$ e $I_1 = [p_2, p_3]$, temos que $I_0 \longrightarrow I_1$, $I_1 \longrightarrow I_0$ e $I_1 \longrightarrow I_1$. Desse modo, podemos demonstrar as seguintes afirmações:
 
@@ -91,15 +91,33 @@ De fato, $I_1 \longrightarrow I_1$ implica que existe $p \in I_1$ tal que $f(p) 
 
 De fato, $I_0 \longrightarrow I_1 \longrightarrow I_0$ implica que existe $p \in I_0$ tal que $f(p) \in I_1$ e $f^2(p) = p$.
 Se $f(p) = p$, então $p \in I_0 \cap I_1$, o que é um absurdo pois $I_0 \cap I_1 = \lbrace p_2 \rbrace$ e $p_2 \in \per_3(f)$.
+\end{enumerate}
+\end{block}
 
-\item \textit{$\per_4(f) \neq \emptyset$.}
+\end{columns}
+\end{frame}
+
+%--------------------
+
+\begin{frame}
+\vspace{5pt}
+\frametitle{Teorema de Sharkovsky}
+\begin{columns}
+\column{\dimexpr\paperwidth-15pt}
+
+\begin{block}{Demonstração (continuação).}
+\begin{enumerate}
+\item[c)] \textit{$\per_4(f) \neq \emptyset$.}
 
 De fato, $I_1 \longrightarrow I_1 \longrightarrow I_1 \longrightarrow I_0 \longrightarrow I_1$ implica que existe $p \in I_1$ tal que $f^k(p) \in I_1$ para todo $1 \leq k < 3$, $f^3(p) \in I_0$ e $f^4(p) = p$.
+
 Se $f^3(p) = p$, então $p \in I_0 \cap I_1$, o que é um absurdo pois $I_0 \cap I_1 = \lbrace p_2 \rbrace$ e $f^2(p_2) = p_1 \notin I_1$.
 Se $f^k(p) = p$ para algum $1 \leq k < 3$, então $f^k(p) \in I_1$ para todo $k \geq 1$.
 Em particular, $f^3(p) \in I_0 \cap I_1 = \lbrace p_2 \rbrace$ e, portanto, $f^4(p) = p = p_3$, o que é um absurdo pois $f(p_3) = p_1 \notin I_1$.
 \end{enumerate}
-\end{proof}
+De maneira análoga, podemos mostrar que $\per_n(f) \neq \emptyset$ para todo $n \geq 5$.
+\qed
+\end{block}
 
 \end{columns}
 \end{frame}
@@ -145,6 +163,13 @@ Ver \cite{burns}.
 
 O Teorema de Sharkovsky pode ser usado para provar que órbitas periódicas de certos tamanhos não existem. Por exemplo, observando os gráficos de $h$, $h^2$ e $h^4$ para $\mu = 3.2$ vemos que $\per_4(h) = \emptyset$ e, portanto, $\per_n(h) = \emptyset$ para todo $n \geq 3$.
 
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.4]{images/h_3,2.png}
+\caption{Gráficos de $h$, $h^2$ e $h^4$ para $\mu = 3.2$.}
+\label{h_3,2}
+\end{figure}
+
 \end{columns}
 \end{frame}
 
@@ -156,6 +181,8 @@ O Teorema de Sharkovsky pode ser usado para provar que órbitas periódicas de c
 \begin{columns}
 \column{\dimexpr\paperwidth-15pt}
 
+A ordenação de Sharkovsky é a melhor possível. Por exemplo, se $\per_5(f) \neq \emptyset$ implica que $\per_3(f) \neq \emptyset$, então os números $3$ e $5$ podem trocar de lugar nessa ordenação. O seguinte teorema mostra que isso não é possível.
+
 \begin{theorem}
 Se $n \geq 1$, então existe uma função $f$ com as seguintes propriedades:
 \begin{enumerate}
@@ -163,10 +190,6 @@ Se $n \geq 1$, então existe uma função $f$ com as seguintes propriedades:
 \item $\per_m(f) =  \emptyset$ para todo $m \, \triangleright \, n$.
 \end{enumerate}
 \end{theorem}
-
-\begin{proof}
-Ver \cite{burns}.
-\end{proof}
 
 \end{columns}
 \end{frame}

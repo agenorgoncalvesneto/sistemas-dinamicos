@@ -2,7 +2,7 @@
 
 %--------------------
 
-\begin{frame}
+\begin{frame}[fragile]
 \vspace{5pt}
 \frametitle{Família Quadrática: Conjugação Topológica}
 \begin{columns}
@@ -15,6 +15,28 @@ Sejam $f: X \to X$, $g: Y \to Y$ e $\tau: X \to Y$ funções. Dizemos que $f$ e 
 \item $\tau \circ f = g \circ \tau$.
 \end{enumerate}
 \end{definition}
+
+\vspace{10pt}
+
+\begin{adjustbox}{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=3em]
+    { x \in X  & f(x) \in X \\
+      \tau(x) \in Y & g(\tau(x)) = \tau(f(x)) \in Y \\ };
+      
+  { [start chain]
+    \chainin (m-1-1);
+    { [start branch=A] \chainin (m-2-1)
+        [join={node[right,labeled] {\tau}}];}
+        
+    \chainin (m-1-2) [join={node[above,labeled] {f}}];
+    { [start branch=B] \chainin (m-2-2)
+        [join={node[right,labeled] {\tau}}];} }
+    
+  { [start chain] \chainin (m-2-1);
+    \chainin (m-2-2) [join={node[above,labeled] {g}}]; }
+\end{tikzpicture}
+\end{adjustbox}
 
 \end{columns}
 \end{frame}

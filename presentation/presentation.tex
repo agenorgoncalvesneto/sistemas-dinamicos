@@ -1,8 +1,22 @@
 \documentclass[11pt, portuguese, aspectratio=1610]{beamer}
 
+%---- diagramas
+\usepackage{tikz}
+\usetikzlibrary{arrows,chains,matrix,positioning,scopes}
+\makeatletter
+\tikzset{join/.code=\tikzset{after node path={\ifx\tikzchainprevious\pgfutil@empty\else(\tikzchainprevious)
+edge[every join]#1(\tikzchaincurrent)\fi}}}
+\makeatother
+\tikzset{>=stealth',every on chain/.append style={join},
+         every join/.style={->}}
+\tikzstyle{labeled}=[execute at begin node=$\scriptstyle,
+   execute at end node=$]
+%----
+
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
 
+\usepackage{adjustbox}
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{multicol}
@@ -86,10 +100,12 @@
 \subfile{sections/caos.tex}
 \subfile{sections/conjugacao-topologica.tex}
 \subfile{sections/dinamica-simbolica.tex}
-%\subfile{sections/matriz-de-transicao.tex}
 \subfile{sections/bifurcacao.tex}
-\subfile{sections/teorema-de-sharkovsky}
-%\subfile{sections/teorema-de-singer.tex}
+\subfile{sections/teorema-de-sharkovsky.tex}
+
+\section*{Referências}
+
+%--------------------
 
 \begin{frame}
 \vspace{5pt}
@@ -100,7 +116,9 @@
 \nocite{burns, devaney, holmgren}
 \bibliographystyle{apalike-pt}
 \bibliography{bibliography.bib}
+%\addcontentsline{toc}{section}{Referências}
 
 \end{columns}
 \end{frame}
+
 \end{document}

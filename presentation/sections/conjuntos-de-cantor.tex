@@ -6,10 +6,12 @@
 \begin{columns}
 \column{\dimexpr\paperwidth-15pt}
 
-Suponha $\mu > 4$. Considere o conjunto
-$$\Lambda_n = \lbrace x \in [0, 1] : h^n(x) \in [0, 1] \rbrace$$ formado pelos pontos de $[0, 1]$ que permanecem em $[0, 1]$ após $n$ iterações de $h$ e o conjunto
-$$\Lambda =  \bigcap_{n = 1}^\infty \Lambda_n$$
-formado pelos pontos de $[0, 1]$ cuja órbita está contida em $[0, 1]$. Desse modo, podemos restringir o estudo da dinâmica de $h$ em $\Lambda$.
+Suponha $\mu > 4$. Observe que existem pontos em $[0, 1]$ que não permanecem em $[0, 1]$ após uma iteração de $h$ e, portanto, eles pertencem ao conjunto estável do infinito.
+
+Desse modo, considerando os conjuntos
+$$\Lambda_n = \lbrace x \in [0, 1] : h^n(x) \in [0, 1] \rbrace$$ e
+$$\Lambda =  \bigcap_{n = 1}^\infty \Lambda_n,$$
+podemos estudar a dinâmica de $h: \Lambda \to \Lambda$.
 
 \end{columns}
 \end{frame}
@@ -17,7 +19,6 @@ formado pelos pontos de $[0, 1]$ cuja órbita está contida em $[0, 1]$. Desse m
 %--------------------
 
 \begin{frame}
-\vspace{5pt}
 \frametitle{Família Quadrática: Conjuntos de Cantor}
 \begin{columns}
 \column{\dimexpr\paperwidth-15pt}
@@ -29,6 +30,13 @@ Se $\mu > 4$, então
 \item $h^n: [a, b] \to [0, 1]$ é bijetora, onde $[a, b]$ é um dos intervalos que formam $\Lambda_n$.
 \end{enumerate}
 \end{proposition}
+
+\begin{figure}[!htb]
+\centering
+\includegraphics[scale=0.4]{images/h_4,1.png}
+\caption{Gráficos de $h$, $h^2$ e $h^3$ para $\mu = 4.1$.}
+\label{h_3,839}
+\end{figure}
 
 \end{columns}
 \end{frame}
@@ -61,7 +69,7 @@ Se $\mu > 2 + \sqrt{5}$, então
 \column{\dimexpr\paperwidth-15pt}
 
 \begin{theorem}
-Se $\mu > 2 + \sqrt{5}$, então $\Lambda$ é um conjunto de Cantor \footnote{Um subconjunto de $\RR$ não vazio, limitado, totalmente desconexo e perfeito.\\}.
+Se $\mu > 2 + \sqrt{5}$, então $\Lambda$ é um conjunto de Cantor \footnote{$\Lambda$ é não vazio, limitado, totalmente desconexo e perfeito.\\}.
 \end{theorem}
 
 \begin{proof}
