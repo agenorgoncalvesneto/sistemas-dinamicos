@@ -16,6 +16,16 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 \usepackage[utf8]{inputenc}
 \usepackage[brazil]{babel}
 
+\uselanguage{portuguese}
+\languagepath{portuguese}
+\newtheorem{proposition}[theorem]{Proposição}
+\deftranslation[to=portuguese]{Theorem}{Teorema}
+\deftranslation[to=portuguese]{Definition}{Definição}
+
+\usepackage{ragged2e}\justifying
+\renewcommand{\raggedright}{\leftskip=5pt \rightskip=5pt plus 0cm}
+%\addtobeamertemplate{block begin}{}{\justifying} 
+
 \usepackage{adjustbox}
 \usepackage{float}
 \usepackage{graphicx}
@@ -30,8 +40,7 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\basin}{\mathcal{B}}
 \newcommand{\class}{\mathcal{C}}
-\newcommand{\orbit}{\mathcal{O}}
-\newcommand{\schwarz}{\mathcal{S}}
+%\newcommand{\orbit}{\mathcal{O}}
 
 \DeclareMathOperator{\per}{Per}
 \DeclareMathOperator{\sen}{sen}
@@ -68,29 +77,11 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 \title{Uma Introdução aos Sistemas Dinâmicos Discretos}\author{Agenor Gonçalves Neto \footnote{Orientado pelo Prof. Salvador Addas Zanata (IME-USP).\\}}
 \date{São Paulo, 2020}
 
-\uselanguage{portuguese}
-\languagepath{portuguese}
-\newtheorem{proposition}[theorem]{Proposição}
-\deftranslation[to=portuguese]{Theorem}{Teorema}
-\deftranslation[to=portuguese]{Definition}{Definição}
-
-\usepackage{ragged2e}\justifying
-\renewcommand{\raggedright}{\leftskip=5pt \rightskip=5pt plus 0cm}
-
-%\addtobeamertemplate{block begin}{}{\justifying} 
-
-
 \begin{document}
 \metroset{block=fill}
 
 \begin{frame}
 \titlepage
-\end{frame}
-
-\begin{frame}
-\vspace{5pt}
-\frametitle{Sumário}
-\tableofcontents
 \end{frame}
 
 \subfile{sections/conceitos-elementares.tex}
@@ -99,25 +90,20 @@ edge[every join]#1(\tikzchaincurrent)\fi}}}
 \subfile{sections/conjuntos-de-cantor.tex}
 \subfile{sections/caos.tex}
 \subfile{sections/conjugacao-topologica.tex}
-\subfile{sections/dinamica-simbolica.tex}
+%\subfile{sections/dinamica-simbolica.tex}
 \subfile{sections/bifurcacao.tex}
 \subfile{sections/teorema-de-sharkovsky.tex}
 
 \section*{Referências}
-
-%--------------------
-
 \begin{frame}
 \vspace{5pt}
 \frametitle{Referências}
 \begin{columns}
 \column{\dimexpr\paperwidth-15pt}
-
 \nocite{burns, devaney, holmgren}
 \bibliographystyle{apalike-pt}
 \bibliography{bibliography.bib}
 %\addcontentsline{toc}{section}{Referências}
-
 \end{columns}
 \end{frame}
 

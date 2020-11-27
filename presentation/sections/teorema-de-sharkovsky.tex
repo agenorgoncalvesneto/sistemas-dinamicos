@@ -9,7 +9,9 @@
 \column{\dimexpr\paperwidth-15pt}
 
 Nessa seção, vamos considerar $f: \RR \to \RR$ uma função contínua.
-Além disso, escreveremos $I_0 \longrightarrow I_1 \longrightarrow \cdots \longrightarrow I_n$ quando $I_0, \, I_1, \, \dots, \, I_n$ são intervalos compactos e $f(I_k) \supset I_{k+1}$ para todo $0 \leq k < n$.
+Além disso, escreveremos
+$$I_0 \longrightarrow I_1 \longrightarrow \cdots \longrightarrow I_n$$
+se os intervalos $I_0, \, I_1, \, \dots, \, I_n$ forem compactos e $f(I_k) \supset I_{k+1}$ para todo $0 \leq k < n$.
 
 \end{columns}
 \end{frame}
@@ -27,10 +29,11 @@ Se $I_0 \longrightarrow I_1$, então existe um intervalo fechado $I_0' \subset I
 \end{proposition}
 
 \begin{proof}
-Se $I_0 = [a, b]$ e $I_1 = [c, d]$, sejam $p, \, q \in [a, b]$ tais que $f(p) = c$ e $f(q) = d$.
-Suponha que $p \leq q$; se $q \leq p$, a demostração é análoga.
+Se $I_0 = [a, b]$ e $I_1 = [c, d]$, sejam $p \leq q \in [a, b]$ tais que $f(p) = c$ e $f(q) = d$.
 
-Definindo $b' = \inf \lbrace x \in [p, q] : f(x) = d \rbrace$ e $a' = \sup \lbrace x \in [p, b'] : f(x) = c \rbrace$ e observando que $f$ é contínua, podemos concluir que $f(I_0') = I_1$, onde $I_0' = [a', b']$.
+Definindo
+$$b' = \inf \lbrace x \in [p, q] : f(x) = d \rbrace \quad \text{ e } \quad a' = \sup \lbrace x \in [p, b'] : f(x) = c \rbrace,$$
+podemos concluir que $f(I_0') = I_1$, onde $I_0' = [a', b']$.
 \end{proof}
 
 \end{columns}
@@ -79,7 +82,7 @@ Se $\per_3(f) \neq \emptyset$, então $\per_n(f) \neq \emptyset$ para todo $n \g
 \end{theorem}
 
 \begin{block}{Demonstração.}
-Sejam $p_1 < p_2 < p_3$ os pontos da órbita de um elemento de $\per_3(f)$. Suponha que $f(p_1) = p_2$ e $f(p_2) = p_3$; se $f(p_1) = p_3$ e $f(p_3) = p_2$, a demonstração é análoga.
+Sejam $p_1 < p_2 < p_3$ os pontos da órbita de um elemento de $\per_3(f)$. Suponha que $f(p_1) = p_2$ e $f(p_2) = p_3$.
 Definindo $I_0 = [p_1, p_2]$ e $I_1 = [p_2, p_3]$, temos que $I_0 \longrightarrow I_1$, $I_1 \longrightarrow I_0$ e $I_1 \longrightarrow I_1$. Desse modo, podemos demonstrar as seguintes afirmações:
 
 \begin{enumerate}[a)]
@@ -130,6 +133,8 @@ De maneira análoga, podemos mostrar que $\per_n(f) \neq \emptyset$ para todo $n
 \begin{columns}
 \column{\dimexpr\paperwidth-15pt}
 
+Considere a seguinte ordenação dos números naturais:
+
 \begin{definition}[Ordenação de Sharkovsky]
 $3 \, \triangleright \, 5 
 \, \triangleright \, \cdots \, \triangleright \,
@@ -141,7 +146,9 @@ $3 \, \triangleright \, 5
 \, \triangleright \, \cdots \, \triangleright \,
 2^2 \, \triangleright \, 2 \, \triangleright \, 1$
 \end{definition}
-\vspace{15pt}
+
+\vspace{10pt}
+
 \begin{theorem}[Sharkovsky]
 Se $\per_n(f) \neq \emptyset$, então $\per_m(f) \neq \emptyset$ para todo $n \, \triangleright \, m$.
 \end{theorem}
@@ -161,14 +168,17 @@ Ver \cite{burns}.
 \begin{columns}
 \column{\dimexpr\paperwidth-15pt}
 
-O Teorema de Sharkovsky pode ser usado para provar que órbitas periódicas de certos tamanhos não existem. Por exemplo, observando os gráficos de $h$, $h^2$ e $h^4$ para $\mu = 3.2$ vemos que $\per_4(h) = \emptyset$ e, portanto, $\per_n(h) = \emptyset$ para todo $n \geq 3$.
+\begin{block}{Exemplo}
+Observando os gráficos de $h$, $h^2$ e $h^4$ para $\mu = 3.2$, concluímos que $\per_4(h) = \emptyset$ e, portanto, $\per_n(h) = \emptyset$ para todo $n \geq 3$.
+
+\vspace{5pt}
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.4]{images/h_3,2.png}
 \caption{Gráficos de $h$, $h^2$ e $h^4$ para $\mu = 3.2$.}
-\label{h_3,2}
 \end{figure}
+\end{block}
 
 \end{columns}
 \end{frame}
@@ -181,7 +191,7 @@ O Teorema de Sharkovsky pode ser usado para provar que órbitas periódicas de c
 \begin{columns}
 \column{\dimexpr\paperwidth-15pt}
 
-A ordenação de Sharkovsky é a melhor possível. Por exemplo, se $\per_5(f) \neq \emptyset$ implica que $\per_3(f) \neq \emptyset$, então os números $3$ e $5$ podem trocar de lugar nessa ordenação. O seguinte teorema mostra que isso não é possível.
+Se, por exemplo, $\per_5(f) \neq \emptyset$ implica que $\per_3(f) \neq \emptyset$, então os números $3$ e $5$ podem ser trocados de lugar na ordenação de Sharkovsky. O seguinte teorema mostra que isso não é possível.
 
 \begin{theorem}
 Se $n \geq 1$, então existe uma função $f$ com as seguintes propriedades:

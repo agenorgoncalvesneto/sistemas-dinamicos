@@ -21,18 +21,18 @@ for k in range(3):
     x = np.linspace(start=0, stop=1, num=10000)
     y = h(x, mu=4.1, n=k+1)
     
-    axes[k].plot(x, x, color='black', linewidth=0.5)
+    #axes[k].plot(x, x, color='black', linewidth=0.5)
     
-    x[y < -0.15] = np.nan
-    x[y > 1.1] = np.nan
-    y[y < -0.15] = np.nan
-    y[y > 1.1] = np.nan
+    x[y < -0.11] = np.nan
+    x[y > 1.15] = np.nan
+    y[y < -0.11] = np.nan
+    y[y > 1.15] = np.nan
     axes[k].plot(x, y, color='black')
     
     draw_square(axes[k])
     x[y < 0] = np.nan
     x[y > 1] = np.nan
-    axes[k].plot(x, np.zeros(shape=x.shape), color='red', linewidth=1.5)
+    axes[k].plot(x, np.zeros(shape=x.shape), color='red', linewidth=1)
     
 
 

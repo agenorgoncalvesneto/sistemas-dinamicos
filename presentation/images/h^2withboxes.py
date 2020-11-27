@@ -14,10 +14,10 @@ def draw_box(mu, axes):
     x = np.linspace(start=p_mu_line, stop=p_mu, num=10000)
     const_p_mu = np.zeros(10000) + p_mu
     const_p_mu_line = np.zeros(10000) + p_mu_line
-    axes.plot(x, const_p_mu, color='black', linewidth=0.5)
-    axes.plot(x, const_p_mu_line, color='black', linewidth=0.5)
-    axes.plot(const_p_mu, x, color='black', linewidth=0.5)
-    axes.plot(const_p_mu_line, x, color='black', linewidth=0.5)
+    axes.plot(x, const_p_mu, color='red', linewidth=0.5)
+    axes.plot(x, const_p_mu_line, color='red', linewidth=0.5)
+    axes.plot(const_p_mu, x, color='red', linewidth=0.5)
+    axes.plot(const_p_mu_line, x, color='red', linewidth=0.5)
 
 
 figure, axes = plt.subplots(nrows=1, ncols=5, figsize=(20,4), sharey=True)
