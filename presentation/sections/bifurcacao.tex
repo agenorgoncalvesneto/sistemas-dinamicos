@@ -71,10 +71,9 @@ Uma bifurcação com essas características é chamada de bifurcação com dupli
 \begin{columns}
 \column{\dimexpr\paperwidth-15pt}
 
-Vamos estudar com mais detalhes a bifurcação com duplicação de período que ocorre na família quadrática.
+A dinâmica de $h$ é simples para $1 < \mu < 3$ e caótica para $\mu \geq 4$. O que acontece com a dinâmica quando $3 < \mu < 4$? Vamos responder essa pergunta de maneira intuitiva.
 
-Se $\mu > 2$, então existe $p_\mu' < p_\mu$ tal que $h(p_\mu') = p_\mu$.
-Na figura abaixo temos, para alguns valores de $\mu$, gráficos de $h^2$ juntamente com quadrados limitados por $p_\mu'$ e $p_\mu$.
+Temos, na figura abaixo, os gráficos de $h^2$ para alguns valores de $\mu$.
 
 \begin{figure}[!htb]
 \centering
@@ -94,46 +93,12 @@ Na figura abaixo temos, para alguns valores de $\mu$, gráficos de $h^2$ juntame
 \begin{columns}
 \column{\dimexpr\paperwidth-15pt}
 
-Se $L: [p_\mu', p_\mu] \to [0, 1]$ é a função linear tal que $L(p_\mu') = 1$ e $L(p_\mu) = 0$, então definimos a renormalização de $h$ como a função $Rh: [0, 1] \to [0, 1]$ dada por
-$$Rh(x) = L \circ h^2 \circ L^{-1}(x).$$
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[scale=0.4]{images/renormalization.png}
-\caption{Gráfico de $Rh$ para $\mu = 3.75$.}
-\label{renormalization}
-\end{figure}
-
-\end{columns}
-\end{frame}
-
-%--------------------
-
-\begin{frame}
-\vspace{5pt}
-\frametitle{Família Quadrática: \subsecname}
-\begin{columns}
-\column{\dimexpr\paperwidth-15pt}
-
-Observando a semelhança de $Rh$ com $h$, esperamos que $Rh$ sofra uma bifurcação com duplicação de período conforme o parâmetro cresce e, desse modo, podemos fazer repetir a análise feita anteriormente. Continuando esse processo, criamos uma sucessão de bifurcações com duplicação de período na família quadrática.
-
-\end{columns}
-\end{frame}
-
-%--------------------
-
-\begin{frame}
-\vspace{5pt}
-\frametitle{Família Quadrática: \subsecname}
-\begin{columns}
-\column{\dimexpr\paperwidth-15pt}
-
-Com auxílio de um computador, podemos observar as bifurcações com duplicação de período que ocorrem na família quadrática.
+Observando o gráfico de $h^2$ restrito ao quadrado, esperamos que ela sofra uma bifurcação com duplicação de período conforme o parâmetro cresce. Repetindo esse processo, vemos uma sucessão de bifurcações com duplicação de período na família quadrática. Com auxílio de um computador, podemos verificar esse fato.
 
 \begin{figure}[!htb]
 \centering
 \includegraphics[scale=0.4]{images/period-doubling-and-zoom1.png}
-\caption{Diagrama de órbita de $h$ para $2 \leq \mu \leq 4$.}
+\caption{Diagrama de órbita de $h$ para $2 < \mu < 4$.}
 \end{figure}
 
 \end{columns}
