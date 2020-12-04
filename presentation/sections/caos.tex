@@ -10,6 +10,8 @@
 Seja $f: X \to X$ uma função. Dizemos que $f$ é topologicamente transitiva se dados $x, y \in X$ e $\varepsilon > 0$,  existem $z \in X$ e $k \geq 0$ tais que $|x - z| < \varepsilon$ e $|y - f^k(z)| < \varepsilon$.
 \end{definition} 
 
+\vspace{10pt}
+
 \begin{proposition}
 Se $\mu > 2 + \sqrt{5}$, então $h|_\Lambda$ é topologicamente transitiva.
 \end{proposition}
@@ -28,6 +30,8 @@ Se $\mu > 2 + \sqrt{5}$, então $h|_\Lambda$ é topologicamente transitiva.
 \begin{definition}
 Seja $f: X \to X$ uma função. Dizemos que $f$ depende sensivelmente das condições iniciais se existe $\delta > 0$ com a seguinte propriedade: dados $x \in X$ e $\varepsilon > 0$, existem $y \in X$ e $k \geq 0$ tais que $|x - y| < \varepsilon$ e $|f^k(x) - f^k(y)| > \delta$.
 \end{definition}
+
+\vspace{10pt}
 
 \begin{proposition}
 Se $\mu > 2 + \sqrt{5}$, então $h|_\Lambda$ depende sensivelmente das condições iniciais.
@@ -53,6 +57,12 @@ Seja $f: X \to X$ uma função. Dizemos que $f$ é caótica se as seguintes cond
 \end{enumerate}
 \end{definition}
 
+\vspace{10pt}
+
+\begin{theorem}
+Seja $f: X \to X$ é uma função contínua, onde $X$ é um conjunto infinito. Se $\per(f)$ é denso em $X$ e $f$ é topologicamente transitiva, então $f$ é caótica.
+\end{theorem}
+
 \end{columns}
 \end{frame}
 
@@ -69,27 +79,8 @@ Se $\mu > 2 + \sqrt{5}$, então $h|_\Lambda$ é caótica.
 \end{theorem}
 
 \begin{block}{Observação}
-Esse teorema é válido para $4 < \mu < 2 + \sqrt{5}$, porém a demonstração é mais complicada.
+Esse teorema é válido para $4 < \mu \leq 2 + \sqrt{5}$, porém a demonstração é mais complicada.
 \end{block}
-
-\end{columns}
-\end{frame}
-
-%--------------------
-
-\begin{frame}
-\vspace{5pt}
-\frametitle{Família Quadrática: \subsecname}
-\begin{columns}
-\column{\dimexpr\paperwidth-15pt}
-
-\begin{theorem}
-Seja $f: X \to X$ é uma função contínua, onde $X$ é um conjunto infinito. Se $\per(f)$ é denso em $X$ e $f$ é topologicamente transitiva, então $f$ é caótica.
-\end{theorem}
-
-\begin{proof}
-Ver \cite{holmgren}.
-\end{proof}
 
 \end{columns}
 \end{frame}

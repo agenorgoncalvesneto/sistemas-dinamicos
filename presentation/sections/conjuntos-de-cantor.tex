@@ -6,11 +6,11 @@
 \begin{columns}
 \column{\dimexpr\paperwidth-15pt}
 
-Se $\mu > 4$, então existem pontos em $[0, 1]$ que não permanecem em $[0, 1]$ após um número finito de iterações de $h$. Desse modo, para cada $n \geq 1$, seja
-$$\Lambda_n = \lbrace x \in [0, 1] : h^n(x) \in [0, 1] \rbrace.$$ 
-Definindo
+Se $\mu > 4$, então existem pontos em $[0, 1]$ cujas órbitas não estão contidas em $[0, 1]$. Portanto, seja
+$$\Lambda_n = \lbrace x \in [0, 1] : h^n(x) \in [0, 1] \rbrace$$ 
+para cada $n \geq 1$. Definindo
 $$\Lambda =  \bigcap_{n = 1}^\infty \Lambda_n,$$
-vamos estudar a dinâmica $h|_\Lambda$.
+podemos restringir o estudo da dinâmica de $h$ em $\Lambda$.
 
 \end{columns}
 \end{frame}
@@ -58,12 +58,14 @@ Se $\mu > 2 + \sqrt{5}$, então existe $\nu > 1$ tal que
 \end{enumerate}
 \end{lemma}
 
+\vspace{10pt}
+
 \begin{theorem}
-Se $\mu > 2 + \sqrt{5}$, então $\Lambda$ é um conjunto de Cantor \footnote{$\Lambda$ é não vazio, limitado, totalmente desconexo e perfeito.\\}.
+Se $\mu > 2 + \sqrt{5}$, então $\Lambda$ é um conjunto de Cantor.
 \end{theorem}
 
 \begin{block}{Observação}
-Esse teorema é válido para $4 < \mu < 2 + \sqrt{5}$, porém a demonstração é mais complicada.
+Esse teorema é válido para $4 < \mu \leq 2 + \sqrt{5}$, porém a demonstração é mais complicada.
 \end{block}
 
 \end{columns}
