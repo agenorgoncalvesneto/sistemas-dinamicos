@@ -10,11 +10,11 @@ def h(x, mu, n=1):
 
 def draw_square(axes, xmin, xmax, ymin, ymax):    
     x = np.linspace(start=xmin, stop=xmax, num=10000)
-    axes.plot(x, np.zeros(10000)+ymin, color='black', linewidth=1)
-    axes.plot(x, np.zeros(10000)+ymax, color='black', linewidth=1)
+    axes.plot(x, np.zeros(10000)+ymin, color='red', linewidth=1)
+    axes.plot(x, np.zeros(10000)+ymax, color='red', linewidth=1)
     y = np.linspace(start=ymin, stop=ymax, num=10000)
-    axes.plot(np.zeros(10000)+xmin, y, color='black', linewidth=1)
-    axes.plot(np.zeros(10000)+xmax, y, color='black', linewidth=1)
+    axes.plot(np.zeros(10000)+xmin, y, color='red', linewidth=1)
+    axes.plot(np.zeros(10000)+xmax, y, color='red', linewidth=1)
 
 
 figure1, axes1 = plt.subplots(figsize=(12,4))
@@ -36,6 +36,5 @@ for k in range(100, 300):
     y21 = h(1/2, mu21, n=k)
     axes2[1].scatter(mu21[y21<0.185], y21[y21<0.185], s=0.01, color='black', marker='.')
     
-figure1.savefig(fname='period-doubling-and-zoom1.png', bbox_inches='tight')
-figure2.savefig(fname='period-doubling-and-zoom2.png', bbox_inches='tight')
-##plt.show()
+figure1.savefig(fname='period-doubling-and-zoom-1.png', bbox_inches='tight')
+figure2.savefig(fname='period-doubling-and-zoom-2.png', bbox_inches='tight')
